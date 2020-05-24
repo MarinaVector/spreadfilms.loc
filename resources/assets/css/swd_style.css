@@ -1,8 +1,17 @@
+html,
+body {
+    height: 100%;
+    margin: 0
+}
+
 .page-login, .page-register {
     font-family: 'Montserrat',sans-serif;
     background: url(/public/img/auth/bg-auth.jpg) no-repeat;
     background-size: cover;
     overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 .box-login{
