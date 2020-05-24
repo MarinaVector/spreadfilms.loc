@@ -9,3 +9,5 @@
         @yield('content')
     </div>
 @endsection
+
+@yield('scripts')

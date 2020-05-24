@@ -51,7 +51,7 @@
           </div>
 
           <div class="form-group">
-            <div class="g-recaptcha text-center" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+            <div class="g-recaptcha text-center" data-sitekey="{{ env('RECAPTCHAV2_SITEKEY') }}"></div>
           </div>
 
           <div class="form-group">
@@ -62,11 +62,10 @@
       </div>
     </div>
   </div>
-
 @endsection
 
-@section('footer')
+@section('scripts')
 
-  <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
 @endsection

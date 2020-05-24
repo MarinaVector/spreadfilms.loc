@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\ValidRecaptcha;
 
 class StoreUserRequest extends FormRequest
 {
@@ -28,7 +29,7 @@ class StoreUserRequest extends FormRequest
             'email'                => 'required|email|max:255|unique:users',
             'password'             => ['required', 'confirmed', 'min:6'],
             'privacy_policy'       => 'accepted',
-            //'g-recaptcha-response' => new ValidRecaptcha
+            'g-recaptcha-response' => new ValidRecaptcha
         ];
     }
 }
