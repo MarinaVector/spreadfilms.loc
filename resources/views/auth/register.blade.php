@@ -3,12 +3,11 @@
 @section('title', 'Register')
 
 @section('content')
-
-    <example-component></example-component>
-
   <div class="row">
     <div class="col-xs-10 col-md-8 col-lg-6 col-xl-4 offset-sm-1 mt-5">
-      <div class="box-login">
+        @include('layouts.notifications')
+        <div class="box-login">
+
         <h2 class="text-center mb-3"><strong>SFM</strong>Registration</h2>
         <p>Hello, nice that you want to register in our database. Please enter your name and email address here so that we can create your account. You will then receive a confirmation email.</p>
         <hr>

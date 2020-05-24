@@ -1,5 +1,5 @@
 @if (\Session::has('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success alerts_block">
         <ul>
             <li>{!! \Session::get('success') !!}</li>
         </ul>
@@ -9,17 +9,19 @@
 @if(\Session::has('errors'))
     <div class="alert alert-danger">
         <ul>
-            <li>
-                @if(is_array($errors))
-                    @foreach ($errors as $error)
+            @if(is_array($errors))
+                @foreach ($errors as $error)
+                    <li>
                         <div>{{ $error }}</div>
-                    @endforeach
-                @else
-                    @foreach ($errors->all() as $error)
+                    </li>
+                @endforeach
+            @else
+                @foreach ($errors->all() as $error)
+                    <li>
                         <div>{{ $error }}</div>
-                    @endforeach
-                @endif
-            </li>
+                    </li>
+                @endforeach
+            @endif
         </ul>
     </div>
 @endif
