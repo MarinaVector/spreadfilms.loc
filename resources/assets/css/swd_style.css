@@ -1,0 +1,26 @@
+.page-login, .page-register {
+    font-family: 'Montserrat',sans-serif;
+    background: url(/public/img/auth/bg-auth.jpg) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.box-login{
+    background: rgba(255,255,255,0.9);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 30px 45px 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 10;
+}
