@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.auth')
 
 @section('title', 'Login')
 
@@ -14,25 +14,25 @@
 				    {!! csrf_field() !!}
 
 				    <div class="form-group">
-				    	<label for="email" class="font-weight-bold">{{ _i('E-Mail') }}</label>
+				    	<label for="email" class="font-weight-bold">E-Mail</label>
 				      <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control">
 				    </div>
 
 				    <div class="form-group">
-				    	<label for="password" class="font-weight-bold">{{ _i('Passwort') }}</label> <small class="float-right"><a href="/password/reset" tabindex="-1" title="{{ _i('Passwort vergessen') }}" class="forgot-password-link">{{ _i('Passwort vergessen?') }}</a></small>
+				    	<label for="password" class="font-weight-bold">Password</label> <small class="float-right"><a href="/password/reset" tabindex="-1" title="Forgot Password" class="forgot-password-link">Forgot Password</a></small>
 				      <input type="password" name="password" id="password" class="form-control">
 				    </div>
 
 				    <div class="form-group form-row">
 				    	<div class="col">
-				        <button type="submit" class="btn btn-primary btn-block">{{ _i('Login') }}</button>
+				        <button type="submit" class="btn btn-primary btn-block">Login</button>
 				    	</div>
 				    	<div class="col stay-logged-in">
 				    		<div class="pretty p-default p-curve">
-									{!! Form::checkbox('remember', false) !!}
-							    <div class="state">
-							      <label>{{ _i('Angemeldet bleiben') }}</label>
-							    </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="keep_signed" name="keep_signed">
+                                    <label class="custom-control-label" for="keep_signed">Keep me signed in.</label>
+                                </div>
 							  </div>
 				    	</div>
 				    </div>
@@ -40,11 +40,11 @@
 				<div class="login-arrow"><i class="fal fa-angle-down"></i></div>
 			</div>
 			<div class="box-register text-center">
-				<h2>{{ _i('Registrierung') }}</h2>
-				<p>{{ _i('Noch nicht registriert?') }}</p>
-				<p><a href="/register" class="btn btn-primary btn-full">{!! _i('Kostenlosen Zugang erhalten') !!}</a></p>
+				<h2>Registration</h2>
+				<p>Not registered yet?</p>
+				<p><a href="/register" class="btn btn-primary btn-full">Get free access</a></p>
 				<hr>
-				<p>{!! _i('Bei uns ist alles neu! Falls deine Anmeldung aus einer früheren Version nicht funktioniert kannst du mit der <strong><a href="/password/reset" tabindex="-1" title="Passwort vergessen">"Passwort vergessen"</a></strong> Funktion dein Passwort zurücksetzen.') !!}</p>
+				<p>Everything is new with us! If your registration from a previous version does not work, you can use the <strong><a href="/password/reset" tabindex="-1" title="Forgot Password">"Forgot Password"</a></strong> Function reset your password.')</p>
 			</div>
 
 		</div>

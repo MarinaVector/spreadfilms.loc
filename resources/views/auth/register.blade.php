@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', 'Register')
+
 @section('content')
 
   <div class="row">
@@ -39,7 +41,10 @@
 
           <div class="form-group">
             <div class="pretty p-default p-curve">
-              checkbox must be here
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="privacy_policy" name="privacy_policy">
+                    <label class="custom-control-label" for="privacy_policy">I agree with the Privacy Policy.</label>
+                </div>
             </div>
           </div>
 
