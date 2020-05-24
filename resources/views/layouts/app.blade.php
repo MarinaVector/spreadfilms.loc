@@ -21,6 +21,10 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 </head>
 <body>
+
+
+
     @yield('body')
+
 </body>
 </html>

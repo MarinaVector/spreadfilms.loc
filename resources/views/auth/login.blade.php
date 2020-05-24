@@ -2,7 +2,6 @@
 
 @section('title', 'Login')
 
-@section('content')
 
 	<div class="row">
 		<div class="col-xs-10 col-md-8 col-lg-6 col-xl-4 offset-sm-1 mt-5">
