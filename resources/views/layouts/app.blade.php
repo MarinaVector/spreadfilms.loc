@@ -20,6 +20,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
+
+
     @yield('body')
+
 </body>
 </html>
