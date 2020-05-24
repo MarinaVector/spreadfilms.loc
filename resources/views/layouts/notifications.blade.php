@@ -10,9 +10,15 @@
     <div class="alert alert-danger">
         <ul>
             <li>
-                @foreach ($errors->all() as $error)
-                    <div>{{ $error }}</div>
-                @endforeach
+                @if(is_array($errors))
+                    @foreach ($errors as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                @else
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                @endif
             </li>
         </ul>
     </div>

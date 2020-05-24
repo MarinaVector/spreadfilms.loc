@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class VerificationController extends Controller
 {
@@ -39,7 +40,7 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
@@ -67,6 +68,11 @@ class VerificationController extends Controller
      */
     public function verify(Request $request)
     {
+        if (!Auth::user()){
+            return redirect('/login')->with('errors', [__('messages.Must_be_signed_to_verify_email')]);
+        }
+
+
         if (! hash_equals((string) $request->route('id'), (string) $request->user()->getKey())) {
             throw new AuthorizationException;
         }
