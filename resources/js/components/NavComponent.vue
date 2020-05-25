@@ -1,23 +1,35 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <sidebar-menu :menu="menu" />
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                menu: [
+                    {
+                        header: true,
+                        title: 'Main Navigation',
+                        hiddenOnCollapse: true
+                    },
+                    {
+                        href: '/',
+                        title: 'Dashboard',
+                        icon: 'fa fa-user'
+                    },
+                    {
+                        href: '/charts',
+                        title: 'Charts',
+                        icon: 'fa fa-chart-area',
+                        child: [
+                            {
+                                href: '/charts/sublink',
+                                title: 'Sub Link'
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     }
 </script>
