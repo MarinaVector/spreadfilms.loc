@@ -2,18 +2,18 @@
 
     <nav class="main-menu">
         <div>
-            <div class="logo"></div>
+            <img class="logo" src="/public/img/logo_white.png">
         </div>
         <div class="scroll">
 
             <ul class="nav-list mt-5">
                 <li class="nav ml-3">
                     <i class="fa fa-sign-in fa-5x" aria-hidden="true"></i>
-                    <span class="nav-text ml-3">Login</span>
+                    <a href="/login"><span class="nav-text ml-3">Login</span></a>
                 </li>
                 <li class="ml-3">
                     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-                    <span class="nav-text ml-3">Registrieren</span>
+                    <a href="/register"><span class="nav-text ml-3">Registrieren</span></a>
                 </li>
             </ul>
         </div>
@@ -24,7 +24,7 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.');
+            //console.log('Component mounted.');
         }
     };
 </script>
@@ -32,8 +32,8 @@
 <style>
 
     .logo {
-       background: url('https://sfm.spreadfilms.de/img/logo_white.png;');
-        color:white;
+        margin-top: 30px;
+        margin-left: 1rem;
         width: 60px;
         height: 60px;
     }
