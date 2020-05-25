@@ -1,6 +1,6 @@
 <template>
 
-    <nav class="main-menu">
+    <nav class="navbar navbar-default d-print-none">
         <div>
             <div class="logo"></div>
         </div>
@@ -32,7 +32,7 @@
 <style>
 
     .logo {
-       background: url('https://sfm.spreadfilms.de/img/logo_white.png;');
+       background: url('/public/img/logo_white.png');
         color:white;
         width: 60px;
         height: 60px;
