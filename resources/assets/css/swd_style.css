@@ -3,6 +3,7 @@ body {
     height: 100%;
     margin: 0;
     background: url(/public/img/auth/bg-auth.jpg) no-repeat;
+    background-attachment: fixed;
 }
 
 .page-login, .page-register {
