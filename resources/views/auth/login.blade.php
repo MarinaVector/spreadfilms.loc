@@ -5,11 +5,11 @@
 @section('content')
 
 <div class="row">
-    <div class="col-xs-10 col-md-8 col-lg-6 col-xl-4 offset-sm-1 mt-5">
+    <div class="col-xs-10 col-md-8 col-lg-6 col-xl-4 offset-sm-1 mt-5 auth_page_block">
         <div class="box-login">
             <h2 class="text-center mb-3"><strong>SFM</strong>Login</h2>
-            <p class="text-center">Gib einfach deine <strong>E-Mail Adresse</strong> und dein <strong>Passwort</strong>
-                ein um dich einzuloggen.</p>
+            <p class="text-center">Just enter your <strong>E-Mail Adress</strong> and your <strong>Password</strong>
+                to log in.</p>
             <hr>
             <form method="POST" action="/login">
                 {!! csrf_field() !!}
@@ -51,10 +51,7 @@
                 <strong><a href="/password/reset" tabindex="-1" title="Forgot Password">"Forgot Password"</a></strong>
                 Function reset your password.')</p>
         </div>
-
     </div>
-
-
 </div>
 
 @endsection
