@@ -7,7 +7,7 @@ body {
 }
 
 .page-login, .page-register {
-    font-family: 'Montserrat',sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-size: cover;
     overflow: hidden;
     display: flex;
@@ -17,8 +17,8 @@ body {
     z-index: 3;
 }
 
-.box-login{
-    background: rgba(255,255,255,0.9);
+.box-login {
+    background: rgba(255, 255, 255, 0.9);
     background-image: initial;
     background-position-x: initial;
     background-position-y: initial;
@@ -32,28 +32,44 @@ body {
     padding: 30px 30px 45px 30px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
 
-.alerts_block{
+.alerts_block {
     margin-top: 30px;
 }
 
-.auth_page_block{
+.auth_page_block {
     margin-left: 14.5%;
 }
 
-.box-register {
-    background: #2d2d2d;
-    background: -moz-linear-gradient(-45deg, #2d2d2d 0%, #636363 100%);
-    background: -webkit-linear-gradient(-45deg, #2d2d2d 0%,#636363 100%);
-    background: linear-gradient(135deg, #2d2d2d 0%,#636363 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2d2d', endColorstr='#636363',GradientType=1 );
-    padding:45px 30px 30px 30px;
-    position:relative;
-    color:#fff;
-    box-shadow:0 0 10px 0 rgba(0,0,0,0.2);
+#square {
+    width: 120px;
+    height: 120px;
+    background: #f447ff;
+    z-index: 2;
+}
+
+.form-bg {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px 30px 45px 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+    color: #424242;
+    z-index: 2;
+}
+
+.btn-form {
+    background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+    text-transform: uppercase;
+    color: white;
+}
+
+.text-center {
+    text-align: center !important;
 }
 
 .btn:not(.btn-sm) {
@@ -65,21 +81,21 @@ body {
 }
 
 .hidden {
-    display:none;
+    display: none;
 }
 
 a {
-    color:#424242;
+    color: #424242;
 }
 
 a:hover {
-    text-decoration:none;
-    color:#008acb;
+    text-decoration: none;
+    color: #008acb;
 }
 
 .login-arrow {
     background: #fff;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     width: 50px;
     height: 50px;
     border-radius: 50%;
