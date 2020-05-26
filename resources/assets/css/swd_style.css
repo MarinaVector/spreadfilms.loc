@@ -106,8 +106,21 @@ a:hover {
     position: absolute;
     left: 50%;
     bottom: 270px;
+    bottom: 41%;
     transform: translateX(-50%);
     z-index: 2;
+}
+
+.box-register {
+    background: #2d2d2d;
+    background: -moz-linear-gradient(-45deg, #2d2d2d 0%, #636363 100%);
+    background: -webkit-linear-gradient(-45deg, #2d2d2d 0%, #636363 100%);
+    background: linear-gradient(135deg, #2d2d2d 0%, #636363 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d2d2d', endColorstr='#636363', GradientType=1);
+    padding: 45px 30px 30px 30px;
+    position: relative;
+    color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .box-register a {

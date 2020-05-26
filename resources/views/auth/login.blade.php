@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-xs-10 col-md-8 col-lg-6 col-xl-4 offset-sm-1 mt-5 auth_page_block">
+    <div class="offset-lg-2 col-xl-3 col-xl-3 px-5 mt-md-5 col-12">
         <div class="box-login">
             <h2 class="text-center mb-3"><strong>SFM</strong>Login</h2>
             <p class="text-center">Just enter your <strong>E-Mail Adress</strong> and your <strong>Password</strong>
