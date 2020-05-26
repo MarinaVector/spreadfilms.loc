@@ -6,12 +6,14 @@
 
 
     <div class="row">
+
         <div class="offset-lg-2 col-xl-3 col-xl-3 px-5 mt-md-5 col-12 form-bg">
+            <div class="col-1 offset-11"><img src="public/img/icon_close_dark.png"></div>
             @include('layouts.notifications')
             <form method="POST" action="/register">
                 {!! csrf_field() !!}
 
-                <div class="form-group mt-5 mt-lg-0">
+                <div class="form-group mt-4 mt-lg-0">
                     <h2 class="mb-3 text-center"><b>SFM</b>Registrieren</h2>
                     <p class="mb-3">Hallo, schön, dass du dich in unserer Datenbank registrieren möchtest. Bitte trage
                         hier zuerst deinen Namen und deine E-Mail Adresse ein damit wir deinen Account anlegen können.

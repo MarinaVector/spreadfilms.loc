@@ -7,6 +7,7 @@
 <div class="row">
     <div class="offset-lg-2 col-xl-3 col-xl-3 px-5 mt-md-5 col-12">
         <div class="box-login">
+            <div class="col-1 offset-10"><img src="public/img/icon_close_dark.png"></div>
             <h2 class="text-center mb-3"><strong>SFM</strong>Login</h2>
             <p class="text-center">Just enter your <strong>E-Mail Adress</strong> and your <strong>Password</strong>
                 to log in.</p>
