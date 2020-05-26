@@ -21,13 +21,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pretty-checkbox.min.css') }}" rel="stylesheet">
 </head>
 <body>
-
-
-
-    @yield('body')
-
+    <div id="app" class="page-register">
+        @include('layouts.nav')
+        @yield('body')
+    </div>
 </body>
 </html>
