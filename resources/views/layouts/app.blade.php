@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app" class="page-register">
-        @include('layouts.nav')
+        <nav-component></nav-component>
         @yield('body')
     </div>
 </body>

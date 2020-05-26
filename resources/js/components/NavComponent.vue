@@ -1,5 +1,5 @@
 <template>
-    <sidebar-menu :menu="menu" />
+    <sidebar-menu :menu="menu" :collapsed="collapsed" :width="width" />
 </template>
 
 <script>
@@ -11,11 +11,6 @@
             return {
                 menu: [
                     {
-                        header: true,
-                        title: 'Main Navigation',
-                        hiddenOnCollapse: true
-                    },
-                    {
                         href: '/login',
                         title: 'Login',
                         icon: 'fa fa-user'
@@ -24,19 +19,16 @@
                         href: '/register',
                         title: 'Register',
                         icon: 'fa fa-chart-area',
-                        child: [
-                            {
-                                href: '/charts/sublink',
-                                title: 'Sub Link'
-                            }
-                        ]
                     }
-                ]
+                ],
+                collapsed: true,
+                width: '250px',
+
             }
         },
         components: {
             SidebarMenu
-        }
+        },
     }
 
 </script>
