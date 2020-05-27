@@ -28,9 +28,9 @@
 
                 <div class="form-group form-row">
                     <div class="col">
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <button type="submit" class="btn btn-form btn-block">Login</button>
                     </div>
-                    <div class="col stay-logged-in">
+                    <div class="col stay-logged-in ml-5">
                         <div class="pretty p-default p-curve">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="keep_signed" name="keep_signed">
@@ -45,7 +45,7 @@
         <div class="box-register text-center">
             <h2>Registration</h2>
             <p>Not registered yet?</p>
-            <p><a href="/register" class="btn btn-primary btn-full">Get free access</a></p>
+            <p><a href="/register" class="btn btn-form btn-full">Get free access</a></p>
             <hr>
             <p>Everything is new with us! If your registration from a previous version does not work, you can use the
                 <strong><a href="/password/reset" tabindex="-1" title="Forgot Password">"Forgot Password"</a></strong>
