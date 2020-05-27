@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'MainController@index')->name('main');
 Auth::routes(['verify' => true]);
 Route::get('/logout', 'Auth\LoginController@logout');
+
+// Auth routes
+Route::group(['middleware' => 'auth'], function () {
+    //Profile
+    Route::resource('profile', 'Profile\ProfileController');
+});
