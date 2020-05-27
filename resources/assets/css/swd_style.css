@@ -112,12 +112,11 @@ hr {
     border-color: #D4D4D4;
 }
 
-.box-register:after {
+.box-line {
     content: "";
     background: #008fc3;
     width: 100%;
     height: 10px;
-    position: absolute;
     left: 0;
     bottom: -10px;
     border-bottom-left-radius: 5px;

@@ -51,6 +51,7 @@
                 <strong><a href="/password/reset" tabindex="-1" title="Forgot Password">"Forgot Password"</a></strong>
                 Function reset your password.')</p>
         </div>
+        <div class="box-line"></div>
     </div>
 </div>
 
