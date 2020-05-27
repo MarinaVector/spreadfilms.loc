@@ -11,6 +11,7 @@
             <p class="text-center">Just enter your <strong>E-Mail Adress</strong> and your <strong>Password</strong>
                 to log in.</p>
             <hr>
+            @include('layouts.notifications')
             <form method="POST" action="/login">
                 {!! csrf_field() !!}
 
