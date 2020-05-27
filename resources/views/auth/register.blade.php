@@ -45,9 +45,9 @@
                     </div>
                     <div class="form-group form-check">
                         <div class="pretty p-default p-curve">
-                            <div class="custom-control">
-                                <input type="checkbox" class="custom-control-input" id="privacy_policy" name="privacy_policy">
-                                <label class="form-check-label" for="privacy_policy">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="privacy_policy555" name="privacy_policy">
+                                <label class="custom-control-label" for="privacy_policy555">
                                     {{ __('messages.I_agree_with') }} <a href="/privacy_policy" target="_blank"><strong>{{ __('messages.Privacy_Policy') }}</strong></a>
                                 </label>
                             </div>
