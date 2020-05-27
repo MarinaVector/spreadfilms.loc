@@ -9,21 +9,13 @@
     import {SidebarMenu} from 'vue-sidebar-menu';
 
     export default {
+        props: [
+            'authuser'
+        ],
         data() {
             return {
                 // Sidebar menu (required)
-                menu: [
-                    {
-                        href: '/login',
-                        title: 'Login',
-                        icon: 'fa fa-user'
-                    },
-                    {
-                        href: '/register',
-                        title: 'Register',
-                        icon: 'fa fa-chart-area'
-                    }
-                ],
+                menu: this.prepareNavMenu(),
                 // Sidebar Collapse state
                 collapsed: true,
                 // Sidebar width (expanded)
@@ -45,6 +37,57 @@
                 // Disable hover on collapse mode
                 disableHover: false
             };
+        },
+        created() {
+            this.showName();
+        },
+        methods: {
+            showName: function () {
+                //let userObj = JSON.parse(this.authuser);
+                //console.log('Displaying this name ' + userObj.firstname + ' during the method execution');
+            },
+            prepareNavMenu: function () {
+                //console.log(this.authuser);
+                this.authuser = (this.authuser) ? this.authuser : JSON.stringify([]);
+                let userObj = JSON.parse(this.authuser);
+
+                //console.log(userObj);
+
+                if (userObj != undefined) {
+                    this.navMenu = [
+                        {
+                            href: '/profile',
+                            title: 'Profile',
+                            icon: 'fa fa-user'
+                        },
+                        {
+                            href: '/logout',
+                            title: 'Logout',
+                            icon: 'fa fa-chart-area'
+                        }
+                    ];
+                } else {
+                    this.navMenu = [
+                        {
+                            href: '/login',
+                            title: 'Login',
+                            icon: 'fa fa-user'
+                        },
+                        {
+                            href: '/register',
+                            title: 'Register',
+                            icon: 'fa fa-chart-area'
+                        }
+                    ];
+                }
+
+                return this.navMenu;
+            }
+        },
+        mounted () {
+            // Do something useful with the data in the template
+            //let userObj = JSON.parse(this.authuser);
+            //console.dir('Displaying this name ' + userObj.firstname + ' when component is mounted')
         },
         components: {
             SidebarMenu

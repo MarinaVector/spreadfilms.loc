@@ -25,7 +25,6 @@
 </head>
 <body>
     <div id="app" class="page-register">
-        <nav-component></nav-component>
         @yield('body')
     </div>
 </body>
