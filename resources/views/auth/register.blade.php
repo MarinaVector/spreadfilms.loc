@@ -14,40 +14,44 @@
                     {!! csrf_field() !!}
 
                     <div class="form-group mt-5 mt-lg-0">
-                        <h2 class="mb-3 text-center"><b>SFM</b>Registrieren</h2>
-                        <p class="mb-3">Hallo, schön, dass du dich in unserer Datenbank registrieren möchtest. Bitte trage
-                            hier zuerst deinen Namen und deine E-Mail Adresse ein damit wir deinen Account anlegen können.
-                            Anschließend erhältst du eine E-Mail zur Bestätigung.</p>
+                        <h2 class="mb-3 text-center"><b>SFM</b> {{ __('messages.Registration') }}</h2>
+                        <p class="mb-3">{{ __('messages.Registration_page_description') }}</p>
                         <hr>
 
                         <div class="form-group">
-                            <label for="exampleInputVorname">Vorname</label>
+                            <label for="firstname">{{ __('messages.Firstname') }}</label>
                             <input type="text" name="firstname" id="firstname" value="{{ old('firstname') }}"
                                    class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputNachname">Nachname</label>
+                            <label for="surname">{{ __('messages.Surname') }}</label>
                             <input type="text" name="surname" id="surname" value="{{ old('surname') }}"
                                    class="form-control">
                         </div>
 
-                        <label for="exampleInputEmail1">E-Mai</label>
+                        <label for="email">E-Mail</label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                             else.</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Passwort <small>(Mindestens 6 Zeichen)</small></label>
+                        <label for="password">{{ __('messages.Password') }} <small>{{ __('messages.Password_hint') }}</small></label>
                         <input type="password" name="password" id="password" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Passwort bestätigen</label>
+                        <label for="password_confirmation">{{ __('messages.Confirm_Password') }}</label>
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                     </div>
                     <div class="form-group form-check">
-                        <input type="checkbox" class="custom-control-input" id="privacy_policy" name="privacy_policy">
-                        <label class="form-check-label" for="exampleCheck1">Ich bin mit der</label>
+                        <div class="pretty p-default p-curve">
+                            <div class="custom-control">
+                                <input type="checkbox" class="custom-control-input" id="privacy_policy" name="privacy_policy">
+                                <label class="form-check-label" for="privacy_policy">
+                                    {{ __('messages.I_agree_with') }} <a href="/privacy_policy" target="_blank"><strong>{{ __('messages.Privacy_Policy') }}</strong></a>
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -55,7 +59,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-form btn-primary btn-block">Registrieren</button>
+                        <button type="submit" class="btn btn-form btn-primary btn-block">{{ __('messages.Register') }}</button>
                     </div>
                 </form>
             </div>
