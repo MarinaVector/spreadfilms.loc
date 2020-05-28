@@ -122,3 +122,119 @@ hr {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+.fa-plus-circle{
+    color:white;
+}
+
+.profile-user-info {
+    display: table;
+    width: 98%;
+    width: calc(100% - 24px);
+    margin: 0 auto
+}
+
+.profile-info-row {
+    display: table-row
+}
+
+.profile-info-name,
+.profile-info-value {
+    display: table-cell;
+    border-top: 1px dotted #D5E4F1
+}
+
+.profile-info-name {
+    text-align: right;
+    padding: 6px 10px 6px 4px;
+    font-weight: 400;
+    color: #667E99;
+    background-color: transparent;
+    width: 110px;
+    vertical-align: middle
+}
+
+.profile-info-value {
+    padding: 6px 4px 6px 6px
+}
+
+.profile-info-value>span+span:before {
+    display: inline;
+    content: ",";
+    margin-left: 1px;
+    margin-right: 3px;
+    color: #666;
+    border-bottom: 1px solid #FFF
+}
+
+.profile-info-value>span+span.editable-container:before {
+    display: none
+}
+
+.dd-empty,
+.dd-handle,
+.dd-placeholder,
+.dd2-content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.bigger-110 {
+    color: white;
+    text-transform: uppercase;
+}
+
+
+.user-profile .ace-thumbnails li {
+    border: 1px solid #CCC;
+    padding: 3px;
+    margin: 6px
+}
+
+.user-profile .ace-thumbnails li .tools {
+    left: 3px;
+    right: 3px
+}
+
+.user-profile .ace-thumbnails li:hover .tools {
+    bottom: 3px
+}
+
+.user-title-label:hover {
+    text-decoration: none
+}
+
+.user-title-label+.dropdown-menu {
+    margin-left: -12px
+}
+
+.profile-contact-links {
+    padding: 4px 2px 5px;
+    border: 1px solid #E0E2E5;
+    background-color: #F8FAFC
+}
+
+.btn-link:hover .ace-icon {
+    text-decoration: uppercase!important;
+    color:white;
+}
+
+
+.ace-button
+{
+    background:#008acb;
+}
+
+.fa-map-marker {
+    color:#008acb;
+}
+
+a {
+    color: #777!important
+}
+
+.bg-white {
+    min-height: 100%;
+    min-width: 100%;
+    background-color: white;
+}
