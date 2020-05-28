@@ -172,13 +172,6 @@ hr {
     display: none
 }
 
-.dd-empty,
-.dd-handle,
-.dd-placeholder,
-.dd2-content {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box
-}
 
 .bigger-110 {
     color: white;

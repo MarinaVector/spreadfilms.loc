@@ -38,6 +38,13 @@
         height: 60px;
     }
 
+    .logono {
+        margin-top: 30px;
+        margin-left: 1rem;
+        width: 60px;
+        height: 60px;
+    }
+
     .fa-lg {
         font-size: 1em;
     }
