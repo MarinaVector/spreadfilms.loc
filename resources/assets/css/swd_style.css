@@ -215,7 +215,7 @@ hr {
 }
 
 .btn-link:hover .ace-icon {
-    text-decoration: uppercase!important;
+    text-transform: uppercase !important;
     color:white;
 }
 
@@ -237,4 +237,8 @@ a {
     min-height: 100%;
     min-width: 100% !important;
     background-color: white !important;
+}
+
+.admin-container {
+    margin-left: 50px;
 }
