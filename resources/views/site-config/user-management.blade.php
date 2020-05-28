@@ -3,7 +3,7 @@
 @section('title', 'User Management')
 
 @section('content')
-    <div class="container admin-container">
+    <div class="container admin-container bg-white">
         <h2>User Management</h2>
 
         @include('layouts.notifications')
