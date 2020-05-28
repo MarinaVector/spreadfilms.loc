@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <div class="row">
+    <div class="row page-register">
         <div class="offset-lg-2 col-xl-4 col-xl-3 px-5 mt-md-5 col-12 from_menu_margin">
             <div class="form-bg">
                 <div class="col-1 offset-10"><a href="/login"><img src="public/img/icon_close_dark.png"></a></div>

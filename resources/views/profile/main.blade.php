@@ -4,9 +4,8 @@
 
 @section('content')
     <div class="container-fluid bg-white">
-        <div class="row mt-5">
-
-            <div class="col-lg-2 col-xl-2 offset-2 col-10 mx-lg-5 mt-2">
+        <div class="row">
+            <div class="col-lg-2 col-xl-2 offset-2 col-10 mx-lg-5 mt-5">
                 <div class="center container mt-3">
                     <div class="row">
                         <div class="col-12">
@@ -28,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-10">
+            <div class="col-lg-4 col-10 mt-5">
                 <h4 class="gray my-3">
                     <span class="middle ml-3 mb-2">Jon Dye</span>
 
@@ -114,7 +113,7 @@
 
             <hr>
 
-            <div class="col-lg-4 col-xl-4 col-10">
+            <div class="col-lg-4 col-xl-4 col-10 mt-5">
                 <div class="">
                     <h4 class="gray my-3">
                         <span class="middle ml-3 mb-2 my-3">Company</span>

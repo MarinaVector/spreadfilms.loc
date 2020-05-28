@@ -235,6 +235,6 @@ a {
 
 .bg-white {
     min-height: 100%;
-    min-width: 100%;
-    background-color: white;
+    min-width: 100% !important;
+    background-color: white !important;
 }
