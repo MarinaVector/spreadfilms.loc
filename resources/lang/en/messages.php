@@ -15,4 +15,10 @@ return [
     'Register' => 'Register',
     'I_agree_with' => 'I agree with the',
     'Privacy_Policy' => 'Privacy Policy',
+    'Name' => 'Name',
+    'Email' => 'E-mail',
+    'Role' => 'Role',
+    'Edit' => 'Edit',
+    'Delete' => 'Delete',
+    'User_deleted' => 'User was successfully deleted!',
 ];

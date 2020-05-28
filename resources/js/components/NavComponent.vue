@@ -61,6 +61,17 @@
                             icon: 'fa fa-user'
                         },
                         {
+                            href: '/admin/site-config',
+                            title: 'Site Config',
+                            icon: 'fa fa-cogs',
+                            child: [
+                                {
+                                    href: '/admin/user-management',
+                                    title: 'User Management'
+                                }
+                            ]
+                        },
+                        {
                             href: '/logout',
                             title: 'Logout',
                             icon: 'fa fa-chart-area'

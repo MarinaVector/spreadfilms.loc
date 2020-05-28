@@ -22,4 +22,15 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'auth'], function () {
     //Profile
     Route::resource('profile', 'Profile\ProfileController');
+
+    //Site Config=================
+    Route::namespace('Admin')->prefix('admin')->group(function () {
+        //Main Admin Config Page
+        Route::resource('site-config', 'SiteConfigController');
+        //User Management
+        Route::resource('user-management', 'UserManagementController', ['parameters' => [
+            'user-management' => 'user',
+        ]]);
+    });
+    //============================
 });
