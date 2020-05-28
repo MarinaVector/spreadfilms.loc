@@ -4,6 +4,7 @@ body {
     margin: 0;
     background: url(/public/img/auth/bg-auth.jpg) no-repeat;
     background-attachment: fixed;
+    overflow-x:hidden;
 }
 
 .page-login, .page-register {
@@ -15,7 +16,7 @@ body {
     min-height: 100%;
     padding-bottom: 60px;
     z-index: 3;
-}
+    }
 
 .form-bg {
     background: rgba(255, 255, 255, 0.9);
@@ -229,9 +230,6 @@ hr {
     color:#008acb;
 }
 
-a {
-    color: #777!important
-}
 
 .bg-white {
     min-height: 100%;
