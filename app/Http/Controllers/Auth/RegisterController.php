@@ -88,6 +88,6 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
-        return redirect('/login')->with('success', __('messages.Successfully_registered'));
+        return redirect()->route('company.start')->with('success', __('messages.Successfully_registered'));
     }
 }
