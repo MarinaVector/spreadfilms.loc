@@ -29,7 +29,7 @@
             </div>
             <div class="col-lg-4 col-10 mt-5">
                 <h4 class="gray my-3">
-                    <span class="middle ml-3 mb-2">Jon Dye</span>
+                    <span class="middle ml-3 mb-2">{{ $authUser->firstname }}</span>
 
 
                 </h4>
@@ -125,7 +125,7 @@
                             <div class="profile-info-name text-left">Name</div>
 
                             <div class="profile-info-value">
-                                <span>Adidas</span>
+                                <span>{{ $userCompany->name }}</span>
                             </div>
                         </div>
 

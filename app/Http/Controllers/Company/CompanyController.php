@@ -2,8 +2,11 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
+use App\Models\Roles;
+use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Providers\RouteServiceProvider;
 
 class CompanyController extends Controller
 {
@@ -11,9 +14,18 @@ class CompanyController extends Controller
         return view('company.start')->with('authUser', Auth::user());
     }
 
-    public function store() {
+    public function store(Request $request) {
         //register company
-        //become the company admin
+        $company = Company::create([
+            'name' => $request->get('name')
+        ]);
+
+        $user = User::find(Auth::id());
+
+        //become the company owner
+        $user->company_id = $company->id;
+        $user->role_id = Roles::where('name', 'owner')->first()->id;
+        $user->save();
 
         return redirect()->route('profile.index');
     }

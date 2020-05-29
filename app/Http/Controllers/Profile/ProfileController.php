@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     public function index() {
-        return view('profile.main')->with('authUser', Auth::user());
+        $user = Auth::user();
+        $userCompany = $user->company()->first();
+
+        return view('profile.main')->with(['authUser' => $user, 'userCompany' => $userCompany]);
     }
 }
