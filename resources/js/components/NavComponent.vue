@@ -74,7 +74,7 @@
                         {
                             href: '/logout',
                             title: 'Logout',
-                            icon: 'fa fa-chart-area'
+                            icon: 'fa fa-sign-out'
                         }
                     ];
                 } else {

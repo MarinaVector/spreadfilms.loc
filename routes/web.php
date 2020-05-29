@@ -20,6 +20,10 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 // Auth routes
 Route::group(['middleware' => 'auth'], function () {
+    //Company Start
+    Route::get('/company/start', 'Company\CompanyController@start')->name('company.start');
+    Route::post('/company/start', 'Company\CompanyController@store')->name('company.store');
+
     //Profile
     Route::resource('profile', 'Profile\ProfileController');
 
