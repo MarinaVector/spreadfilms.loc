@@ -42,11 +42,11 @@
             this.showName();
         },
         methods: {
-            showName: function () {
+            showName: function() {
                 //let userObj = JSON.parse(this.authuser);
                 //console.log('Displaying this name ' + userObj.firstname + ' during the method execution');
             },
-            prepareNavMenu: function () {
+            prepareNavMenu: function() {
                 //console.log(this.authuser);
                 this.authuser = (this.authuser) ? this.authuser : JSON.stringify([]);
                 let userObj = JSON.parse(this.authuser);
@@ -95,7 +95,7 @@
                 return this.navMenu;
             }
         },
-        mounted () {
+        mounted() {
             // Do something useful with the data in the template
             //let userObj = JSON.parse(this.authuser);
             //console.dir('Displaying this name ' + userObj.firstname + ' when component is mounted')

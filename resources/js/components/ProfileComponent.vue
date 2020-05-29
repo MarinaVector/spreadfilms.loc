@@ -12,6 +12,7 @@
                             </div>
                             <h5 class="mb-1 text-white">Ann Doe</h5>
                             <h6 class="text-light">Senior trader</h6>
+                            <h6 class="text-light">Admin Level2</h6>
                         </div>
                         <div class="card-body">
                             <ul class="list-group shadow-none">
@@ -21,7 +22,7 @@
                                     </div>
                                     <div class="list-details">
                                         <span>9XXXXXXXXX</span>
-                                        <small>Mobile Number</small>
+                                        <small>Phone</small>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
@@ -30,7 +31,7 @@
                                     </div>
                                     <div class="list-details">
                                         <span>mail@example.com</span>
-                                        <small>Email Address</small>
+                                        <small>E-mail</small>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
@@ -39,24 +40,46 @@
                                     </div>
                                     <div class="list-details">
                                         <span>www.example.com</span>
-                                        <small>Website Address</small>
+                                        <small>Website</small>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="list-icon">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <div class="list-details">
+                                        <span>Deutshland</span>
+                                        <small>Country</small>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="list-icon">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <div class="list-details">
+                                        <span>01257</span>
+                                        <small>Zip code</small>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="list-icon">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <div class="list-details">
+                                        <span>Palma, 33</span>
+                                        <small>Adress</small>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="list-icon">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <div class="list-details">
+                                        <span>DE</span>
+                                        <small>language</small>
                                     </div>
                                 </li>
                             </ul>
-                            <div class="row text-center mt-4">
-                                <div class="col p-2">
-                                    <h4 class="mb-1 line-height-5">15</h4>
-                                    <small class="mb-0 font-weight-bold">Tutorials</small>
-                                </div>
-                                <div class="col p-2">
-                                    <h4 class="mb-1 line-height-5">200</h4>
-                                    <small class="mb-0 font-weight-bold">Followers</small>
-                                </div>
-                                <div class="col p-2">
-                                    <h4 class="mb-1 line-height-5">81</h4>
-                                    <small class="mb-0 font-weight-bold">Views</small>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,45 +123,100 @@
                                         <span class="badge badge-success"><i class="fa fa-cog"></i>Edit</span>
                                         <span class="badge red-btn"><i class="fa fa-eye"></i> 245 Views</span>
                                     </div>
-                                    <div class="col-md-12">
-                                        <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span>
-                                            Recent Activity</h5>
-                                        <table class="table table-hover table-striped">
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Gary</strong> deleted My Board1 in
-                                                    <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>John</strong> deleted My Board1 in
-                                                    <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Skell</strong> deleted his post Look at Why this is.. in
-                                                    <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Company</h4>
+                                            </div>
+
+                                                <div class="table-responsive">
+                                                    <table class="table">
+
+                                                        <tbody>
+
+
+                                                        <tr>
+
+
+                                                            <td>
+                                                                <h6 class="mb-0 font-13">Name</h6>
+                                                            </td>
+                                                            <td>
+                                                                <h6 class="mb-0 font-13"><strong>SFM</strong></h6>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                                <h6 class="mb-0 font-13">Site</h6>
+
+
+                                                            </td>
+
+                                                            <td>
+
+
+                                                                <h6 class="mb-0 font-13"><strong>sfm.com</strong></h6>
+
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+
+                                                                <h6 class="mb-0 font-13">Logo</h6>
+                                                            </td>
+
+                                                            <td>
+
+
+                                                                <h6 class="mb-0 font-13"><strong>logo</strong></h6>
+
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h6 class="mb-0 font-13">E-mail</h6>
+
+                                                            </td>
+
+                                                            <td>
+
+
+                                                                <h6 class="mb-0 font-13"><strong>sfm@mail.com</strong>
+                                                                </h6>
+
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                                <h6 class="mb-0 font-13">Activity</h6>
+
+
+                                                            </td>
+
+                                                            <td>
+
+                                                                <h6 class="mb-0 font-13"><strong>Traiding</strong></h6>
+
+                                                            </td>
+
+
+                                                        </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
                                     </div>
                                 </div>
                             </div>
-
 
                             <div class="tab-pane" id="edit">
                                 <form>
@@ -246,6 +324,10 @@
         background: linear-gradient(135deg, #2d2d2d 0%, #636363 100%);
     }
 
+    .badge-dark-gr {
+        background: linear-gradient(135deg, #2d2d2d 0%, #636363 100%);
+    }
+
     .user-box img {
         width: 100%;
         border-radius: 50%;
@@ -278,7 +360,7 @@
     }
 
     .profile-card-2 .card.profile-primary::before {
-        background-color: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+        background-color: #00bff9;
     }
 
     .profile-card-2 .card.profile-success::before {
@@ -596,8 +678,8 @@
 
     .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
         color: #fff;
-        background-color: #008cff;
-        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(0, 140, 255, 0.5);
+        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+
     }
 
     .nav-pills-success .nav-link.active, .nav-pills-success .show > .nav-link {
@@ -608,8 +690,6 @@
 
     .nav-pills-info .nav-link.active, .nav-pills-info .show > .nav-link {
         color: #fff;
-        background-color: #0dceec;
-        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(13, 206, 236, 0.5);
     }
 
     .nav-pills-danger .nav-link.active, .nav-pills-danger .show > .nav-link {
@@ -644,4 +724,99 @@
         -webkit-box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
         box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
     }
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        position: relative;
+        margin-bottom: 30px;
+
+    }
+
+    .card .card-header, .card .card-body, .card .card-footer {
+        background-color: transparent;
+        padding: 20px 25px;
+    }
+
+    .card-header:first-child {
+        border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    }
+
+    .card-header {
+        padding: .75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, .03);
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+    }
+
+    .table:not(.table-sm) thead th {
+        border-bottom: none;
+        background-color: white;
+        color: #666;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .table .table-img img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: 2px solid #bbbbbb;
+        -webkit-box-shadow: 5px 6px 15px 0px rgba(49, 47, 49, 0.5);
+        -moz-box-shadow: 5px 6px 15px 0px rgba(49, 47, 49, 0.5);
+        -ms-box-shadow: 5px 6px 15px 0px rgba(49, 47, 49, 0.5);
+        box-shadow: 5px 6px 15px 0px rgba(49, 47, 49, 0.5);
+        text-shadow: 0 0 black;
+    }
+
+    .table .team-member-sm {
+        width: 32px;
+        -webkit-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        -moz-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+    }
+
+    .table .team-member {
+        position: relative;
+        width: 30px;
+        white-space: nowrap;
+        border-radius: 1000px;
+        vertical-align: bottom;
+        display: inline-block;
+    }
+
+    .table .order-list li img {
+        border: 2px solid #ffffff;
+        box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .table .team-member img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border: 0;
+        border-radius: 1000px;
+    }
+
+
+    .table .order-list li + li {
+        margin-left: -14px;
+        background: transparent;
+    }
+
+
+    .table .order-list li .badge {
+        background: rgba(228, 222, 222, 0.8);
+        color: #6b6f82;
+        margin-bottom: 6px;
+    }
+
+    .tr12 {
+        box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+        0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+    }
+
+
 </style>
