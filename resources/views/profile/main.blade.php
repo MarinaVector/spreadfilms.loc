@@ -5,7 +5,7 @@
 @section('content')
 
     <!--<profile-component></profile-component> -->
-    <div class="container bg-white">
+    <div class="container-fluid">
         <div class="row">
             <div class="offset-2 col-lg-3 mt-3">
                 <div class="profile-card-4 z-depth-3">

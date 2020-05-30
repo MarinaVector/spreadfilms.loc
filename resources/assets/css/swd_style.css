@@ -2,7 +2,7 @@ html,
 body {
     height: 100%;
     margin: 0;
-    background: url(/public/img/auth/bg-auth.jpg) no-repeat;
+    background: white;
     background-attachment: fixed;
     overflow-x:hidden;
 }
@@ -226,7 +226,7 @@ hr {
 .bg-white {
     min-height: 100%;
     min-width: 100% !important;
-    background-color: white !important;
+    background: url(/public/img/auth/bg-auth.jpg) no-repeat !important;
 }
 
 .admin-container {
