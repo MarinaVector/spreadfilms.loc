@@ -36,4 +36,12 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the company of this user
+     */
+    public function company()
+    {
+        return $this->belongsTo('App\Models\Company', 'company_id');
+    }
 }
