@@ -1,7 +1,7 @@
 <template>
     <div class="container bg-white">
         <div class="row">
-            <div class="offset-1 col-lg-4 mt-3">
+            <div class="offset-2 col-lg-3 mt-3">
                 <div class="profile-card-4 z-depth-3">
                     <div class="card">
                         <div class="card-body text-center bg-card rounded-top">
@@ -84,10 +84,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 mt-3">
-                <div class="card z-depth-3">
-                    <div class="card-body">
-                        <ul class="nav nav-pills nav-pills-primary nav-justified">
+            <div class="col-lg-6 mt-3">
+                <div class="profile-card-4 z-depth-3">
+                    <div class="card">
+                        <ul class="nav nav-pills nav-pills-primary nav-justified" id="nav-top">
                             <li class="nav-item">
                                 <a href="" data-target="#profile" data-toggle="pill"
                                    class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">Profile</span></a>
@@ -97,123 +97,96 @@
                                     class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
                             </li>
                         </ul>
-                        <div class="tab-content p-3">
+                        <div class="container tab-content p-3">
                             <div class="tab-pane active show" id="profile">
-                                <h5 class="mb-3">User Profile</h5>
+
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <h5>Senior trader</h5>
-                                        <h5>Admin Level</h5>
-                                        <h5>Woman</h5>
+                                    <div class="col-lg-10 ml-3">
+                                        <h4 class="mb-3">About</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+                                            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+                                            pellentesque eu, pretium quis, sem. </p>
                                     </div>
-                                    <div class="col-md-6">
-                                        <h6>Tutorials</h6>
-                                        <a href="" class="badge badge-dark badge-pill">security</a>
-                                        <a href="" class="badge badge-dark badge-pill">rules</a>
-                                        <a href="" class="badge badge-dark badge-pill">covid-19</a>
-                                        <a href="" class="badge badge-dark badge-pill">oil
+                                    <div class="col-5 col-md-5 ml-3">
+                                        <h4 class="mb-3 mt-3">Tutorials</h4>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">security</a>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">rules</a>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">covid-19</a>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">oil
                                         </a>
-                                        <a href="" class="badge badge-dark badge-pill">finance</a>
-                                        <a href="" class="badge badge-dark badge-pill">staff-management</a>
-                                        <a href="" class="badge badge-dark badge-pill">exchange-risks</a>
-                                        <a href="" class="badge badge-dark badge-pill">exchange-management</a>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">finance</a>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">staff-management</a>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">exchange-risks</a>
+                                        <a href="" class="badge badge-dark badge-pill mb-2 mr-1">exchange-management</a>
                                         <hr>
+
+
                                         <span class="badge badge-primary"><i
                                             class="fa fa-user"></i>30 Followers</span>
                                         <span class="badge badge-success"><i class="fa fa-cog"></i>Edit</span>
                                         <span class="badge red-btn"><i class="fa fa-eye"></i> 245 Views</span>
+
+
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-6 ml-3">
                                         <div class="card">
                                             <div class="card-header">
                                                 <h4>Company</h4>
                                             </div>
-
-                                                <div class="table-responsive">
-                                                    <table class="table">
-
-                                                        <tbody>
-
-
-                                                        <tr>
-
-
-                                                            <td>
-                                                                <h6 class="mb-0 font-13">Name</h6>
-                                                            </td>
-                                                            <td>
-                                                                <h6 class="mb-0 font-13"><strong>SFM</strong></h6>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-
-                                                                <h6 class="mb-0 font-13">Site</h6>
-
-
-                                                            </td>
-
-                                                            <td>
-
-
-                                                                <h6 class="mb-0 font-13"><strong>sfm.com</strong></h6>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>
-
-                                                                <h6 class="mb-0 font-13">Logo</h6>
-                                                            </td>
-
-                                                            <td>
-
-
-                                                                <h6 class="mb-0 font-13"><strong>logo</strong></h6>
-
-
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <h6 class="mb-0 font-13">E-mail</h6>
-
-                                                            </td>
-
-                                                            <td>
-
-
-                                                                <h6 class="mb-0 font-13"><strong>sfm@mail.com</strong>
-                                                                </h6>
-
-
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-
-                                                                <h6 class="mb-0 font-13">Activity</h6>
-
-
-                                                            </td>
-
-                                                            <td>
-
-                                                                <h6 class="mb-0 font-13"><strong>Traiding</strong></h6>
-
-                                                            </td>
-
-
-                                                        </tr>
-
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="list-company mb-0 font-13">Name</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="list-strong mb-0 font-13"><strong>SFM</strong>
+                                                            </h6>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="list-company mb-0 font-13">Site</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="list-strong mb-0 font-13">
+                                                                <strong>sfm.com</strong></h6>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="list-company mb-0 font-13">Logo</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="list-strong mb-0 font-13"><strong>logo</strong>
+                                                            </h6>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="list-company mb-0 font-13">E-mail</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="list-strong mb-0 font-13">
+                                                                <strong>sfm@mail.com</strong>
+                                                            </h6>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="list-company mb-0 font-13">Activity</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="list-strong mb-0 font-13">
+                                                                <strong>Traiding</strong></h6>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-
-
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -268,7 +241,7 @@
 
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Company</label>
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-7">
                                             <input class="form-control" type="text" value="jhonsanmark">
                                         </div>
                                     </div>
@@ -402,14 +375,14 @@
         font-size: 30px;
         padding-right: 20px;
         vertical-align: middle;
-        color: #223035;
+        color: #3A3A3A;
     }
 
     .profile-card-4 .list-details {
         display: table-cell;
         vertical-align: middle;
         font-weight: 600;
-        color: #223035;
+        color: #3A3A3A;
         font-size: 15px;
         line-height: 15px;
     }
@@ -419,8 +392,17 @@
         vertical-align: middle;
         font-size: 12px;
         font-weight: 400;
-        color: #808080;
+        color: #AAB8BC;
     }
+
+    .list-strong {
+        color: #3A3A3A;
+    }
+
+    .list-company {
+        color: #AAB8BC;
+    }
+
 
     /*Nav Tabs & Pills */
     .nav-tabs .nav-link {
@@ -635,7 +617,8 @@
     }
 
     .tabs-vertical-secondary.tabs-vertical .nav-tabs .nav-item.show .nav-link, .tabs-vertical-secondary.tabs-vertical .nav-tabs .nav-link.active {
-        color: #75808a;
+        /*color: #75808a;*/
+        color: orange;
         background-color: #fff;
         border-color: #75808a #75808a #fff;
         border-bottom: 1px solid #75808a;
@@ -645,8 +628,8 @@
 
     .nav-pills .nav-link {
         border-radius: .25rem;
-        color: #223035;
-        font-size: 12px;
+        color: #3A3A3A;
+        font-size: 13px;
         text-align: center;
         letter-spacing: 1px;
         font-weight: 600;
@@ -706,13 +689,15 @@
 
     .nav-pills-dark .nav-link.active, .nav-pills-dark .show > .nav-link {
         color: #fff;
-        background-color: #223035;
+        /*background-color: #223035;*/
+        background-color: green;
         box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(34, 48, 53, .5);
     }
 
     .nav-pills-secondary .nav-link.active, .nav-pills-secondary .show > .nav-link {
         color: #fff;
-        background-color: #75808a;
+        /*background-color: #75808a;*/
+        background-color: hotpink;
         box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(117, 128, 138, .5);
     }
 
@@ -813,10 +798,50 @@
         margin-bottom: 6px;
     }
 
-    .tr12 {
-        box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
-        0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+    #nav-top {
+        background-color: #AAB8BC;
+        border-radius: 5px;
     }
 
+    .btn {
+        border-radius: 3px;
+    }
+
+
+    .social-icon i {
+        display: block;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        line-height: 40px;
+        position: relative;
+    }
+
+    .social-icon i:last-child {
+        color: #FFF !important;
+    }
+
+    .social-icon:hover i:first-child {
+        margin-top: -40px;
+    }
+
+    .social-icon-lg i {
+        display: block;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        line-height: 60px;
+        position: relative;
+    }
+
+    .social-icon-lg i:last-child {
+        color: #FFF !important;
+    }
+
+    .social-icon-lg:hover i:first-child {
+        margin-top: -60px;
+    }
 
 </style>
