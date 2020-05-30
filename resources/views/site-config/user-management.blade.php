@@ -3,7 +3,7 @@
 @section('title', 'User Management')
 
 @section('content')
-    <div class="container admin-container">
+    <div class="container-fluid admin-container">
         <h2 class="mt-5 ml-3">User Management</h2>
         <div class="row">
 
