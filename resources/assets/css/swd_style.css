@@ -920,7 +920,42 @@ hr {
     height: 16px;
 }
 
+/* = скрываем input */
+input {
+    display: none;
+}
 
+/* checkbox */
+
+.stlchek {
+    display: inline-block;
+    border: 1px solid #b2b1b1;
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    position: relative;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin-right: 4px;
+}
+
+/*  div */
+.stlchek:before {
+    content: '';
+    background: #bdc3c7;
+    width: 9px;
+    height: 9px;
+    opacity: 0;
+    transition: 0.3s;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+/* on/off */
+input:checked + .stlchek:before {
+    opacity: 1;
+}
 
 
 

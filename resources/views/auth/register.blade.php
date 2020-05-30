@@ -35,20 +35,22 @@
                             else.</small>
                     </div>
                     <div class="form-group">
-                        <label for="password">{{ __('messages.Password') }} <small>{{ __('messages.Password_hint') }}</small></label>
+                        <label for="password">{{ __('messages.Password') }}
+                            <small>{{ __('messages.Password_hint') }}</small></label>
                         <input type="password" name="password" id="password" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="password_confirmation">{{ __('messages.Confirm_Password') }}</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+                        <input type="password" name="password_confirmation" id="password_confirmation"
+                               class="form-control">
                     </div>
-                    <div class="form-group form-check">
+                    <div class="form-group">
                         <div class="pretty p-default p-curve">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="privacy_policy555" name="privacy_policy">
-                                <label class="custom-control-label" for="privacy_policy555">
-                                    {{ __('messages.I_agree_with') }} <a href="/privacy_policy" target="_blank"><strong>{{ __('messages.Privacy_Policy') }}</strong></a>
-                                </label>
+                            <div class="custom-checkbox">
+                                <label><input type="checkbox" name="carcheck" value="yes">
+                                    <div class="stlchek mr-3"></div>{{ __('messages.I_agree_with') }}<a
+                                        href="/privacy_policy"
+                                        target="_blank"><strong>{{ __('messages.Privacy_Policy') }}</strong></a></label>
                             </div>
                         </div>
                     </div>
@@ -58,7 +60,8 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-form btn-primary btn-block">{{ __('messages.Register') }}</button>
+                        <button type="submit"
+                                class="btn btn-form btn-primary btn-block">{{ __('messages.Register') }}</button>
                     </div>
                 </form>
             </div>
