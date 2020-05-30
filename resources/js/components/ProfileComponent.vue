@@ -176,6 +176,13 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
+                                                            <h6 class="list-company mb-0 font-13">Adress</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="list-strong mb-0 font-13">
+                                                                <strong>Green Street,55</strong></h6>
+                                                        </td>
+                                                        <td>
                                                             <h6 class="list-company mb-0 font-13">Activity</h6>
                                                         </td>
                                                         <td>
