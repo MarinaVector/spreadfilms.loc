@@ -116,89 +116,77 @@
                                     </div>
                                     <div class="col-5 col-md-5 ml-3">
                                         <h4 class="mb-3 mt-3">Tutorials</h4>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">security</a>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">rules</a>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">covid-19</a>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">oil</a>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">finance</a>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">staff-management</a>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">exchange-risks</a>
-                                        <a href="" class="badge badge-dark badge-pill mr-1">exchange-management</a>
-                                        <hr class="mb-2">
+                                        <div class="tutorials-part mb-2">
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">security</a>
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">rules</a>
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">covid-19</a>
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">oil</a>
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">finance</a>
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">staff-management</a>
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-risks</a>
+                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-management</a>
+                                        </div>
+                                        <div class="mt-2 mb-3">
+                                        <hr>
+                                        </div>
 
 
-                                        <span class="badge badge-gray text-white mt-2"><i class="fa fa-eye"></i>View tutorials</span>
-                                        <span class="badge badge-red text-white mt-2"><i class="fa fa-cog"></i>Edit security</span>
+                                      <!--  <div class="badge-gray btn btn-block text-white my-2"><span
+                                                class="fa fa-eye before fa-fw"></span>View tutorials
+                                        </div>
+                                        <div class="badge-red btn btn-block text-white my-2"><span
+                                                class="fa fa-cog fa-fw"></span>Edit security
+                                        </div> -->
+                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">View tutorials</button>
+                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">Edit security</button>
+
 
                                     </div>
                                     <div class="col-6 ml-3">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>Company</h4>
-                                            </div>
+
+
+                                        <div class="card-box">
+                                            <h4 class="header-title mb-3">Company</h4>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <tbody>
                                                     <tr>
-                                                        <td>
-                                                            <h6 class="list-company mb-0 font-13">Name</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="list-strong mb-0 font-13">
-                                                                <strong>{{ $userCompany->name }}</strong>
-                                                            </h6>
-                                                        </td>
+                                                        <td>Name</td>
+                                                        <td>{{ $userCompany->name }}</td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <h6 class="list-company mb-0 font-13">Site</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="list-strong mb-0 font-13">
-                                                                <strong>sfm.com</strong></h6>
-                                                        </td>
+                                                        <td>Website</td>
+                                                        <td>12345.com</td>
                                                     </tr>
                                                     <tr>
+                                                        <td>Logo</td>
                                                         <td>
-                                                            <h6 class="list-company mb-0 font-13">Logo</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="list-strong mb-0 font-13"><strong>logo</strong>
-                                                            </h6>
-                                                        </td>
+  <i class="fa fa-futbol-o" aria-hidden="true"></i>
+
+</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <h6 class="list-company mb-0 font-13">E-mail</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="list-strong mb-0 font-13">
-                                                                <strong>sfm@mail.com</strong>
-                                                            </h6>
-                                                        </td>
+                                                        <td>E-mail</td>
+                                                        <td>company-mail@com</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <h6 class="list-company mb-0 font-13">Adress</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="list-strong mb-0 font-13">
-                                                                <strong>Green Street,55</strong></h6>
-                                                        </td>
+                                                        <td>Adress</td>
+                                                        <td>Palma, 33</td>
                                                     </tr>
+
                                                     <tr>
-                                                        <td>
-                                                            <h6 class="list-company mb-0 font-13">Activity</h6>
-                                                        </td>
-                                                        <td>
-                                                            <h6 class="list-strong mb-0 font-13">
-                                                                <strong>Traiding</strong></h6>
-                                                        </td>
+                                                        <td>Discription</td>
+                                                        <td>Best Company</td>
                                                     </tr>
+
+
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>
