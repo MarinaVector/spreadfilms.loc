@@ -909,16 +909,15 @@ hr {
     margin-top: -60px;
 }
 
-.closeimg {
-
-    background: url(/public/img/closeIcons.png) no-repeat !important;
+.close-img {
+    background: url(/public/img/icon-close.png) no-repeat !important;
     position: absolute;
     right: -36px;
     top: -16px;
     cursor: pointer;
     z-index: 500;
-    width: 19px;
-    height: 19px;
+    width: 16px;
+    height: 16px;
 }
 
 
