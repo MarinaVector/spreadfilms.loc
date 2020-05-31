@@ -107,38 +107,42 @@
                             <div class="tab-pane active show" id="profile">
 
                                 <div class="row">
-                                    <div class="col-lg-10 ml-3">
-                                        <h4 class="mb-3">About</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-                                            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                            pellentesque eu, pretium quis, sem. </p>
-                                    </div>
+                                    <!-- <div class="col-lg-10 ml-3">
+                                         <h4 class="mb-3">About</h4>
+                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                                             ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+                                             parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+                                             pellentesque eu, pretium quis, sem. </p>
+                                     </div> -->
                                     <div class="col-5 col-md-5 ml-3">
-                                        <h4 class="mb-3 mt-3">Tutorials</h4>
+                                        <h4 class="mb-5 mt-3 header-title">Tutorials</h4>
                                         <div class="tutorials-part mb-2">
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">security</a>
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">rules</a>
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">covid-19</a>
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">oil</a>
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">finance</a>
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">staff-management</a>
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-risks</a>
-                                        <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-management</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">security</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">rules</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">covid-19</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">oil</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">finance</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">staff-management</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-risks</a>
+                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-management</a>
                                         </div>
                                         <div class="mt-2 mb-3">
-                                        <hr>
+                                            <hr>
                                         </div>
 
 
-                                      <!--  <div class="badge-gray btn btn-block text-white my-2"><span
-                                                class="fa fa-eye before fa-fw"></span>View tutorials
-                                        </div>
-                                        <div class="badge-red btn btn-block text-white my-2"><span
-                                                class="fa fa-cog fa-fw"></span>Edit security
-                                        </div> -->
-                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">View tutorials</button>
-                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">Edit security</button>
+                                        <!--  <div class="badge-gray btn btn-block text-white my-2"><span
+                                                  class="fa fa-eye before fa-fw"></span>View tutorials
+                                          </div>
+                                          <div class="badge-red btn btn-block text-white my-2"><span
+                                                  class="fa fa-cog fa-fw"></span>Edit security
+                                          </div> -->
+                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">
+                                            View tutorials
+                                        </button>
+                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">
+                                            Edit security
+                                        </button>
 
 
                                     </div>
@@ -146,7 +150,7 @@
 
 
                                         <div class="card-box">
-                                            <h4 class="header-title mb-3">Company</h4>
+                                            <h4 class="header-title mt-3 mb-5">Company</h4>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <tbody>
@@ -162,9 +166,9 @@
                                                     <tr>
                                                         <td>Logo</td>
                                                         <td>
-  <i class="fa fa-futbol-o"></i>
+                                                            <img src="../../../public/img/logo_adidas.png">
 
-</td>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td>E-mail</td>
@@ -211,13 +215,27 @@
                                             <input class="form-control" type="email" value="{{ $authUser->email }}">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                   <!-- <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Foto</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" type="file">
                                         </div>
-                                    </div>
+                                    </div> -->
+
                                     <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Foto</label>
+                                    <div class="fileload">
+                                        <div class="file-load-block">
+                                            <input class="input-btn" type="file" value="" id="file">
+                                            <div class="fileLoad">
+                                                <input type="text" value="Select file">
+                                                <button>Select file</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                  <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Website</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" type="url" value="">
@@ -270,4 +288,25 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+
+    // = Load
+    // change input file
+    $('#file').change(function(){
+
+        var fileResult = $(this).val();
+
+        $(this).parent().find('.fileLoad').find('input').val(fileResult);
+    });
+
+
+    $('#file').hover(function(){
+        $(this).parent().find('button').addClass('button-hover');
+    }, function(){
+        $(this).parent().find('button').removeClass('button-hover');
+    });
+</script>
 @endsection

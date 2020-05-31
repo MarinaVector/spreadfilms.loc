@@ -32,16 +32,19 @@
                         <div class="col">
                             <button type="submit" class="btn btn-form btn-block">Login</button>
                         </div>
+
+
                         <div class="col stay-logged-in ml-5">
                             <div class="pretty p-default p-curve">
                                 <div class="custom-checkbox">
-                                    <label><input type="checkbox" class="custom-control-input" id="keep_signed"
+                                    <label for="keep_signed"><input type="checkbox" class="custom-control-input" name="keep_signed" id="keep_signed"
                                                   name="keep_signed">
                                         <div class="stlchek mr-1"></div>
                                         Keep me signed in</label>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </form>
                 <div class="login-arrow"><i class="fal fa-angle-down"></i></div>

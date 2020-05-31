@@ -38,8 +38,7 @@
             </div>
         </div>
 
-            <h1 class="ml-5 mx-3">Option 2</h1>
-
+        <h1 class="ml-5 mx-3">Option 2</h1>
 
 
         <div class="row">
@@ -70,10 +69,6 @@
                                         <small class="mb-0 font-weight-bold">Tutorials</small>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -94,26 +89,24 @@
                         </ul>
                         <div class="container tab-content p-3">
                             <div class="tab-pane active show row" id="profile">
-<div class="row">
-    <div class="col-6">
-                                <label class="col-lg-12 col-form-label form-control-label ml-4 mb-2">You company
-                                    name</label>
-                                <div class="col-lg-12">
-                                    <input class="form-control ml-4 mb-2" type="text" value="For Example Nike">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="col-lg-12 col-form-label form-control-label ml-4 mb-2">You company
+                                            name</label>
+                                        <div class="col-lg-12">
+                                            <input class="form-control ml-4 mb-2" type="text" value="For Example Nike">
+                                        </div>
+                                        <button type="button" class="btn badge-gray btn-lg text-white mt-2 ml-5 mb-2">
+                                            Create
+                                        </button>
+                                    </div>
+                                    <div class="col-6 mt-3">
+                                        <p>After creating a company, you can invite contributors and flexibly configure
+                                            the service to
+                                            suit your needs</p>
+                                    </div>
                                 </div>
-                                <button type="button" class="btn badge-gray btn-lg text-white mt-2 ml-5 mb-2">Create
-                                </button>
-    </div>
-    <div class="col-6 mt-3">
-        <p>After creating a company, you can invite contributors and flexibly configure the service to
-            suit your needs</p>
-    </div>
-
-</div>
-
                             </div>
-
-
 
                             <div class="tab-pane" id="edit">
 
@@ -121,9 +114,7 @@
                                     <div class="col-12 my-5">
                                         Here's a list of your invitations. If theres any. Apply or decline.
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -131,21 +122,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @endsection
 
