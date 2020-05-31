@@ -162,7 +162,7 @@
                                                     <tr>
                                                         <td>Logo</td>
                                                         <td>
-  <i class="fa fa-futbol-o" aria-hidden="true"></i>
+  <i class="fa fa-futbol-o"></i>
 
 </td>
                                                     </tr>

@@ -47,14 +47,13 @@
                     <div class="form-group">
                         <div class="pretty p-default p-curve">
                             <div class="custom-checkbox">
-                                <label><input type="checkbox" name="carcheck" value="yes">
+                                <label for="privacy_policy555"><input type="checkbox" name="privacy_policy" value="yes" id="privacy_policy555">
                                     <div class="stlchek mr-3"></div>{{ __('messages.I_agree_with') }}<a
                                         href="/privacy_policy"
                                         target="_blank"><strong>{{ __('messages.Privacy_Policy') }}</strong></a></label>
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="g-recaptcha text-center" data-sitekey="{{ env('RECAPTCHAV2_SITEKEY') }}"></div>
                     </div>
