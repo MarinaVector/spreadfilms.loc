@@ -48,7 +48,7 @@ class UserManagementController extends Controller
      */
     public function show($siteconfig)
     {
-        dd('display show method');
+
     }
 
     /**

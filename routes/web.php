@@ -31,7 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/settings', 'Profile\ProfileController@settings')->name('profile.settings');
 
     //Profile | settings | change password
-    Route::get('/profile/settings/password_change', 'Profile\ProfileController@passwordChange')->name('profile.password-change');
+    Route::get('/profile/settings/password_change', 'Profile\ProfileController@passwordChangeForm')->name('profile.password-change');
+    Route::post('/profile/settings/password_change', 'Profile\ProfileController@passwordChangeStore')->name('profile.password-change-store');
 
     //Site Config=================
     Route::namespace('Admin')->prefix('admin')->group(function () {
