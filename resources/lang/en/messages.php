@@ -21,5 +21,6 @@ return [
     'Edit' => 'Edit',
     'Delete' => 'Delete',
     'User_deleted' => 'User was successfully deleted!',
-    'Create' => 'Create'
+    'Create' => 'Create',
+    'Password_changed' => 'Password changed successfully'
 ];

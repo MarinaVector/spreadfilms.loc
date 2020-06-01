@@ -93,8 +93,10 @@
 
                         </table>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-sm btn-grey" type="button"><i
-                                    class="fa fa-key fa-personal fa-profile"></i>PASSWORD CHANGE</button>
+                            <a href="{{ route('profile.password-change') }}">
+                                <button class="btn btn-block btn-sm btn-grey" type="button"><i
+                                        class="fa fa-key fa-personal fa-profile"></i>PASSWORD CHANGE</button>
+                            </a>
                         </div>
                     </div>
                 </div>
