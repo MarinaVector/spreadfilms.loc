@@ -24,9 +24,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/company/start', 'Company\CompanyController@start')->name('company.start');
     Route::post('/company/start', 'Company\CompanyController@store')->name('company.store');
 
-    //Profile
+    ////Profile
+    //Profile | personal-info
     Route::get('/profile/personal-info', 'Profile\ProfileController@personalInfo')->name('profile.personal-info');
-    //Route::resource('profile', 'Profile\ProfileController');
+    //Profile | settings
+    Route::get('/profile/settings', 'Profile\ProfileController@settings')->name('profile.settings');
+
+    //Profile | settings | change password
+    Route::get('/profile/settings/password_change', 'Profile\ProfileController@passwordChange')->name('profile.password-change');
 
     //Site Config=================
     Route::namespace('Admin')->prefix('admin')->group(function () {

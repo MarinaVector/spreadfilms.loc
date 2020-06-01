@@ -92,6 +92,7 @@
 
                             </tbody>
 
+
                         </table>
                         <div class="col-3 mb-3">
                             <button class="btn btn-block btn-sm btn-grey" type="button"><i
@@ -101,7 +102,8 @@
                 </div>
             </div>
         </div>
-        @endsection
+    </div>
+@endsection
 
         @section('scripts')
             <style>
@@ -141,47 +143,46 @@
                     height: 26px !important;
                 }
 
-                .profile-line {
-                    background: linear-gradient(90deg, #232323 0%, #858585 100%);
-                    height: 2px;
-                    display: block;
-                    position: absolute
-                }
+        .profile-line {
+            background: linear-gradient(90deg, #232323 0%, #858585 100%);
+            height: 2px;
+            display: block;
+            position: absolute
+        }
 
-                .bg-profile {
-                    background-color: #f1f1f1;
-                    color: #424242;
-                    height: 100%;
-                    width: 100%;
-                }
+        .bg-profile {
+            background-color: #f1f1f1;
+            color: #424242;
+            height: 100%;
+            width: 100%;
+        }
 
-                .panel {
-                    background: #fff;
-                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-                    margin-bottom: 30px;
-                }
-                .page-title {
-                    text-transform: uppercase;
-                    font-weight: normal;
-                    font-size: 1.2em;
-                    font-weight: 700;
-                    display: inline-block;
-                    max-width: 35vw;
-                }
+        .panel {
+            background: #fff;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .page-title {
+            text-transform: uppercase;
+            font-weight: normal;
+            font-size: 1.2em;
+            font-weight: 700;
+            display: inline-block;
+            max-width: 35vw;
+        }
 
-                .profile-hello {
-                    font-size: 1rem;
-                    font-weight: 400;
-                    line-height: 1.5;
-                    color: #212529;
-                    text-align: left;
-                }
+        .profile-hello {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+        }
 
-            </style>
+    </style>
 
+    <script>
 
-            <script>
-
-            </script>
+    </script>
 @endsection
 

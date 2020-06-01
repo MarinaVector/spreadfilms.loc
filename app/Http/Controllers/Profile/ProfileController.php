@@ -13,10 +13,16 @@ class ProfileController extends Controller
         return view('profile.personal-info')->with(['authUser' => $user, 'userCompany' => $userCompany]);
     }
 
-    //public function vueTest(){
-     //   $user = Auth::user();
-      //  $myVariable = "eXCom";
+    public function settings() {
+        $user = Auth::user();
+        $userCompany = $user->company()->first();
 
-       // return view('profile.test-vue')->with(['authUser' => $user, 'myVariable' => $myVariable]);
-   // }
+        return view('profile.settings')->with(['authUser' => $user, 'userCompany' => $userCompany]);
+    }
+
+    public function passwordChange() {
+        $user = Auth::user();
+
+        return view('profile.password-change')->with(['authUser' => $user]);
+    }
 }
