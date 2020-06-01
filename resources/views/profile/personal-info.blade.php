@@ -9,6 +9,11 @@
     <div class="container-fluid bg-profile">
         <div class="container bg-profile">
             <h1 class="page-title">Profile</h1>
+            <div class="user-box">
+                <img
+                    src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
+                    alt="user avatar">
+            </div>
             <p><strong>Hello Andreas,</strong>
                 <br>
                 glad you're here. A smooth cooperation with our partners is very important to us. If you have any
@@ -24,7 +29,7 @@
 
                       </nav> -->
                     <div class="container mb-3">
-                        <div class="row mx-3">
+                        <div class="row mx-3 mt-2">
                             <div class="col-10">
                                 <h3>Personal Info</h3>
                             </div>
