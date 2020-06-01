@@ -12,7 +12,7 @@
             <br>
             <div class="page-title user-box">
                 <img
-                    src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
+                    src="https://avatars.mds.yandex.net/get-pdb/1689155/4c4ae16c-4c3a-483d-b942-687574f5a762/s1200"
                     alt="user avatar">
             </div>
             <p class="profile-hello"><strong>Hello {{ $authUser->firstname }},</strong>
