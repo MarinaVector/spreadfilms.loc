@@ -12,7 +12,7 @@
             <br>
             <div class="page-title user-box">
                 <img
-                    src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
+                    src="https://avatars.mds.yandex.net/get-pdb/1689155/4c4ae16c-4c3a-483d-b942-687574f5a762/s1200"
                     alt="user avatar">
             </div>
             <p class="profile-hello"><strong>Hello {{ $authUser->firstname }},</strong>
@@ -35,8 +35,8 @@
                                 <h3>Personal Info</h3>
                             </div>
                             <div class="col-2">
-                                <button class="btn btn-block btn-sm" id="btn-grey" type="button"><i
-                                        class="fa fa-pencil" id="fa-pencil"></i>EDIT
+                                <button class="btn btn-block btn-bg btn-sm" type="button"><i
+                                        class="fa fa-pencil fa-profile"></i>EDIT
                                 </button>
                             </div>
                         </div>
@@ -95,8 +95,8 @@
 
                         </table>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-sm" id="btn-grey" type="button"><i
-                                    class="fa fa-key" id="fa-pencil"></i>PASSWORD CHANGE</button>
+                            <button class="btn btn-block btn-sm btn-grey" type="button"><i
+                                    class="fa fa-key fa-personal fa-profile"></i>PASSWORD CHANGE</button>
                         </div>
                     </div>
                 </div>
@@ -107,12 +107,37 @@
 
 @section('scripts')
     <style>
-        #btn-grey {
-            background: #eee;
-            border: 1px solid #ccc;
-            color: #333;
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        .btn-grey {
+         background: #eee !important;
+         border: 1px solid #ccc !important;
+         color: #333 !important;
+         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
+         }
 
+        .btn-bg {
+            background: #eee !important;
+            border: 1px solid #ccc !important;
+            color: #333 !important;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .btn-bg:hover {
+            background: #00bff9 !important;
+        }
+
+       .btn-grey:hover {
+            color: #00bff9 !important;
+        }
+
+        .fa-personal:hover {
+            color: #00bff9 !important;
+        }
+
+        .fa-profile {
+            color: #3A3A3A !important;
+            display: inline-block !important;
+            width: 26px !important;
+            height: 26px !important;
         }
 
         #fa-pencil {
@@ -157,11 +182,6 @@
             color: #212529;
             text-align: left;
         }
-
     </style>
-
-    <script>
-
-    </script>
 @endsection
 
