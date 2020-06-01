@@ -11,9 +11,7 @@
             <h1 class="page-title mb-3 mt-5">Profile | Personal info</h1>
             <br>
             <div class="page-title user-box">
-                <img
-                    src="https://avatars.mds.yandex.net/get-pdb/1689155/4c4ae16c-4c3a-483d-b942-687574f5a762/s1200"
-                    alt="user avatar">
+                <i class="fas fa-user fa-3x"></i>
             </div>
             <p class="profile-hello"><strong>Hello {{ $authUser->firstname }},</strong>
                 <br>

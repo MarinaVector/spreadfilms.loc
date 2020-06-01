@@ -919,14 +919,7 @@ hr {
 }
 
 .close-img {
-    background: url(/public/img/icon-close.png) no-repeat !important;
-    position: absolute;
-    right: -36px;
-    top: -16px;
-    cursor: pointer;
-    z-index: 500;
-    width: 16px;
-    height: 16px;
+    background: black !important;
 }
 
 /* = close input */
