@@ -1,12 +1,18 @@
 <template>
     <sidebar-menu :menu="menu" :collapsed="collapsed" :width="width" :widthCollapsed="widthCollapsed"
                   :showOneChild="showOneChild" :showChild="showChild" :rtl="rtl" :relative="relative"
-                  :hideToggle="hideToggle" :theme="theme" :disableHover="disableHover"/>
+                  :hideToggle="hideToggle" :theme="theme" :disableHover="disableHover" @toggle-collapse="onToggleCollapse"
+                  @item-click="onItemClick"/>
 </template>
-
+<!-- component documentation -->
+<!--https://github.com/yaminncco/vue-sidebar-menu-->
 <script>
 
     import {SidebarMenu} from 'vue-sidebar-menu';
+
+    const separator = {
+        template: `<hr style="border-color: #D4D4D4; margin: 15px 0;">`
+    };
 
     export default {
         props: [
@@ -19,7 +25,7 @@
                 // Sidebar Collapse state
                 collapsed: true,
                 // Sidebar width (expanded)
-                width: '200px',
+                width: '300px',
                 // Sidebar width (collapsed)
                 widthCollapsed: '50px',
                 // Keep only one child opened at a time (first level only)
@@ -42,29 +48,42 @@
             this.showName();
         },
         methods: {
-            showName: function() {
-                //let userObj = JSON.parse(this.authuser);
-                //console.log('Displaying this name ' + userObj.firstname + ' during the method execution');
-            },
             prepareNavMenu: function() {
-                //console.log(this.authuser);
                 this.authuser = (this.authuser) ? this.authuser : JSON.stringify([]);
                 let userObj = JSON.parse(this.authuser);
-
-                //console.log(userObj);
 
                 if (userObj != undefined) {
                     this.navMenu = [
                         {
-                            href: '/profile',
-                            title: 'Profile',
-                            icon: 'fa fa-user'
+                            header: true,
+                            title: 'SpreadFilms',
+                            hiddenOnCollapse: true
                         },
                         {
-                            href: '/admin/site-config',
-                            title: 'Site Config',
+                            title: 'Profile',
+                            icon: 'fa fa-user',
+                            child: [
+                                {
+                                    href: '/profile/personal-info',
+                                    title: 'Personal info'
+                                },
+                                {
+                                    href: '/profile/settings',
+                                    title: 'Settings'
+                                }
+                            ]
+                        },
+                        {
+                            component: separator
+                        },
+                        {
+                            title: 'Config',
                             icon: 'fa fa-cogs',
                             child: [
+                                {
+                                    href: '/admin/general-config',
+                                    title: 'General Config'
+                                },
                                 {
                                     href: '/admin/user-management',
                                     title: 'User Management'
@@ -93,12 +112,29 @@
                 }
 
                 return this.navMenu;
+            },
+            onToggleCollapse (collapsed) {
+                console.log(collapsed)
+                //this.collapsed = collapsed
+            },
+            onItemClick (event, item) {
+                console.log('onItemClick')
+                // console.log(event)
+                // console.log(item)
+            },
+            onResize () {
+                /*if (window.innerWidth <= 767) {
+                    this.isOnMobile = true
+                    this.collapsed = true
+                } else {
+                    this.isOnMobile = false
+                    this.collapsed = false
+                }*/
             }
         },
         mounted() {
-            // Do something useful with the data in the template
-            //let userObj = JSON.parse(this.authuser);
-            //console.dir('Displaying this name ' + userObj.firstname + ' when component is mounted')
+            this.onResize()
+            window.addEventListener('resize', this.onResize)
         },
         components: {
             SidebarMenu

@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function index() {
+    public function personalInfo() {
         $user = Auth::user();
         $userCompany = $user->company()->first();
 
-        return view('profile.main')->with(['authUser' => $user, 'userCompany' => $userCompany]);
+        return view('profile.personal-info')->with(['authUser' => $user, 'userCompany' => $userCompany]);
     }
 }

@@ -37,10 +37,11 @@
                         <div class="col stay-logged-in ml-5">
                             <div class="pretty p-default p-curve">
                                 <div class="custom-checkbox">
-                                    <label for="keep_signed"><input type="checkbox" class="custom-control-input" name="keep_signed" id="keep_signed"
-                                                  name="keep_signed">
+                                    <label for="remember">
+                                        <input type="checkbox" class="custom-control-input" name="remember" id="remember">
                                         <div class="stlchek mr-1"></div>
-                                        Keep me signed in</label>
+                                        Keep me signed in
+                                    </label>
                                 </div>
                             </div>
                         </div>

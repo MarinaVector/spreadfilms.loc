@@ -1,6 +1,6 @@
 @extends('layouts.profile')
 
-@section('title', 'Profile')
+@section('title', 'Personal Info')
 
 @section('content')
 
@@ -143,52 +143,6 @@
                                         <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">
                                             Edit security
                                         </button>
-
-
-                                    </div>
-                                    <div class="col-6 ml-3">
-
-
-                                        <div class="card-box">
-                                            <h4 class="header-title mt-3 mb-5">Company</h4>
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>Name</td>
-                                                        <td>{{ $userCompany->name }}</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Website</td>
-                                                        <td>12345.com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Logo</td>
-                                                        <td>
-                                                            <img src="../../../public/img/logo_adidas.png">
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>E-mail</td>
-                                                        <td>company-mail@com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Adress</td>
-                                                        <td>Palma, 33</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Discription</td>
-                                                        <td>Best Company</td>
-                                                    </tr>
-
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
 
 
                                     </div>
