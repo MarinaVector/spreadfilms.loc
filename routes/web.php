@@ -25,7 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/company/start', 'Company\CompanyController@store')->name('company.store');
 
     //Profile
-    Route::resource('profile', 'Profile\ProfileController');
+    Route::get('/profile/personal-info', 'Profile\ProfileController@personalInfo')->name('profile.personal-info');
+    //Route::resource('profile', 'Profile\ProfileController');
 
     //Site Config=================
     Route::namespace('Admin')->prefix('admin')->group(function () {
