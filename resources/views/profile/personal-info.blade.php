@@ -35,8 +35,8 @@
                                 <h3>Personal Info</h3>
                             </div>
                             <div class="col-2">
-                                <button class="btn btn-block btn-sm" id="btn-grey" type="button"><i
-                                        class="fa fa-pencil" id="fa-pencil"></i>EDIT
+                                <button class="btn btn-block btn-bg btn-sm" type="button"><i
+                                        class="fa fa-pencil fa-profile"></i>EDIT
                                 </button>
                             </div>
                         </div>
@@ -92,11 +92,10 @@
 
                             </tbody>
 
-
                         </table>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-sm" id="btn-grey" type="button"><i
-                                    class="fa fa-key" id="fa-pencil"></i>PASSWORD CHANGE</button>
+                            <button class="btn btn-block btn-sm btn-grey" type="button"><i
+                                    class="fa fa-key fa-personal fa-profile"></i>PASSWORD CHANGE</button>
                         </div>
                     </div>
                 </div>
@@ -107,19 +106,39 @@
         @section('scripts')
             <style>
 
-                #btn-grey {
-                    background: #eee;
-                    border: 1px solid #ccc;
-                    color: #333;
-                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+               .btn-grey {
+                    background: #eee !important;
+                    border: 1px solid #ccc !important;
+                    color: #333 !important;
+                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
 
                 }
 
-                #fa-pencil {
-                    color: #3A3A3A;
-                    display: inline-block;
-                    width: 26px;
-                    height: 26px;
+                .btn-bg {
+                    background: #eee !important;
+                    border: 1px solid #ccc !important;
+                    color: #333 !important;
+                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
+                }
+
+              .btn-bg:hover {
+                    background: #00bff9 !important;
+
+                }
+
+               .btn-grey:hover {
+                    color: #00bff9 !important;
+                }
+
+               .fa-personal:hover {
+                   color: #00bff9 !important;
+               }
+
+                .fa-profile {
+                    color: #3A3A3A !important;
+                    display: inline-block !important;
+                    width: 26px !important;
+                    height: 26px !important;
                 }
 
                 .profile-line {
