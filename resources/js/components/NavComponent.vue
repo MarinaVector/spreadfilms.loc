@@ -45,7 +45,7 @@
             };
         },
         created() {
-            this.showName();
+
         },
         methods: {
             prepareNavMenu: function() {

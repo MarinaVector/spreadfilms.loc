@@ -4,263 +4,146 @@
 
 @section('content')
 
-    <!--<profile-component></profile-component> -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="offset-2 col-lg-3 mt-3">
-                <div class="profile-card-4 z-depth-3">
-                    <div class="card">
-                        <div class="card-body text-center bg-card rounded-top">
-                            <div class="user-box">
-                                <img
-                                    src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
-                                    alt="user avatar">
+    <!--<profile-component></profile-component-->
+
+    <div class="container-fluid bg-profile">
+        <div class="container bg-profile">
+            <h1 class="page-title">Profile</h1>
+            <p><strong>Hello Andreas,</strong>
+                <br>
+                glad you're here. A smooth cooperation with our partners is very important to us. If you have any
+                problems or questions you can always contact our Team via info@verovis.de turn.</p>
+            <div class="row mt-3 panel">
+                <div class="col-12">
+                    <!--  <nav class="navbar navbar-light bg-light">
+                          <a class="navbar-brand">Navbar</a>
+                          <form class="form-inline">
+                              <a href="/user/edit" class="btn btn-default btn-sm btn-profile-edit pull-right"><i class="fa fa-pencil fa-fw"></i> Bearbeiten</a>
+    default btn-sm btn-profile-edit pull-right
+                          </form>
+
+                      </nav> -->
+                    <div class="container mb-3">
+                        <div class="row mx-3">
+                            <div class="col-10">
+                                <h3>Personal Info</h3>
                             </div>
-                            <h5 class="mb-1 text-white">{{ $authUser->firstname }}</h5>
-                            <h6 class="text-light">Senior trader</h6>
-                            <h6 class="text-light">Admin Level2</h6>
+                            <div class="col-2">
+                                <button class="btn btn-block btn-sm" id="btn-grey" type="button"><i
+                                        class="fa fa-pencil" id="fa-pencil"></i>Edit
+                                </button>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <ul class="list-group shadow-none">
-                                <li class="list-group-item">
-                                    <div class="list-icon">
-                                        <i class=""></i>
-                                    </div>
-                                    <div class="list-details">
-                                        <span>9XXXXXXXXX</span>
-                                        <small>Phone</small>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="list-icon">
-                                        <i class=""></i>
-                                    </div>
-                                    <div class="list-details">
-                                        <span>{{ $authUser->email }}</span>
-                                        <small>E-mail</small>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="list-icon">
-                                        <i class=""></i>
-                                    </div>
-                                    <div class="list-details">
-                                        <span>www.example.com</span>
-                                        <small>Website</small>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="list-icon">
-                                        <i class=""></i>
-                                    </div>
-                                    <div class="list-details">
-                                        <span>Deutshland</span>
-                                        <small>Country</small>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="list-icon">
-                                        <i class=""></i>
-                                    </div>
-                                    <div class="list-details">
-                                        <span>01257</span>
-                                        <small>Zip code</small>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="list-icon">
-                                        <i class=" "></i>
-                                    </div>
-                                    <div class="list-details">
-                                        <span>Palma, 33</span>
-                                        <small>Adress</small>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="list-icon">
-                                        <i class=""></i>
-                                    </div>
-                                    <div class="list-details">
-                                        <span>DE</span>
-                                        <small>language</small>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="profile-line">
+                            <hr>
                         </div>
+
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mt-3">
-                <div class="profile-card-4 z-depth-3">
-                    <div class="card">
-                        <ul class="nav nav-pills nav-pills-primary nav-justified" id="nav-top">
-                            <li class="nav-item">
-                                <a href="" data-target="#profile" data-toggle="pill"
-                                   class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">Profile</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" data-target="#edit" data-toggle="pill" class="nav-link"><i
-                                        class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
-                            </li>
-                        </ul>
-                        <div class="container tab-content p-3">
-                            <div class="tab-pane active show" id="profile">
+                    <div class="col-12">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th scope="row">Name:</th>
+                                <td>Mark</td>
 
-                                <div class="row">
-                                    <!-- <div class="col-lg-10 ml-3">
-                                         <h4 class="mb-3">About</h4>
-                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                             ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-                                             parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                             pellentesque eu, pretium quis, sem. </p>
-                                     </div> -->
-                                    <div class="col-5 col-md-5 ml-3">
-                                        <h4 class="mb-5 mt-3 header-title">Tutorials</h4>
-                                        <div class="tutorials-part mb-2">
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">security</a>
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">rules</a>
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">covid-19</a>
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">oil</a>
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">finance</a>
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">staff-management</a>
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-risks</a>
-                                            <a href="" class="btn btn-outline-dark btn-sm mr-1 mb-1">exchange-management</a>
-                                        </div>
-                                        <div class="mt-2 mb-3">
-                                            <hr>
-                                        </div>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sex:</th>
+                                <td>Man</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Language:</th>
+                                <td>Larry</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">E-Mail:</th>
+                                <td>Larry</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Homepage:</th>
+                                <td>https://homepage.de</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Telephone:</th>
+                                <td>086290118000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Adress:</th>
+                                <td>Street, 3</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ZIP code:</th>
+                                <td>83233</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Country:</th>
+                                <td>Deutshland</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Year:</th>
+                                <td>1990</td>
+                            </tr>
 
-
-                                        <!--  <div class="badge-gray btn btn-block text-white my-2"><span
-                                                  class="fa fa-eye before fa-fw"></span>View tutorials
-                                          </div>
-                                          <div class="badge-red btn btn-block text-white my-2"><span
-                                                  class="fa fa-cog fa-fw"></span>Edit security
-                                          </div> -->
-                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">
-                                            View tutorials
-                                        </button>
-                                        <button type="button" class="btn badge-gray btn-lg text-white btn-block mt-2">
-                                            Edit security
-                                        </button>
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane" id="edit">
-                                <form>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="{{ $authUser->firstname }}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="{{ $authUser->firstname }}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">E-mail</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="email" value="{{ $authUser->email }}">
-                                        </div>
-                                    </div>
-                                   <!-- <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Foto</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="file">
-                                        </div>
-                                    </div> -->
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Foto</label>
-                                    <div class="fileload">
-                                        <div class="file-load-block">
-                                            <input class="input-btn" type="file" value="" id="file">
-                                            <div class="fileLoad">
-                                                <input type="text" value="Select file">
-                                                <button>Select file</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                  <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="url" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">ZipCode</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="" placeholder="Street">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="" placeholder="Street">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Company</label>
-                                        <div class="col-lg-7">
-                                            <input class="form-control" type="text" value="jhonsanmark">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Role</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="Admin Level2">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Status</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="password" value="11111122333">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                                        <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                                            <input type="button" class="btn btn-primary" value="Save Changes">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        @endsection
+
+        @section('scripts')
+            <style>
+
+                #btn-grey {
+                    background: #eee;
+                    border: 1px solid #ccc;
+                    color: #333;
+                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+
+                }
+
+                #fa-pencil {
+                    color: #3A3A3A;
+                    display: inline-block;
+                    width: 26px;
+                    height: 26px;
+                }
+
+                .profile-line {
+                    background: linear-gradient(90deg, #232323 0%, #858585 100%);
+                    height: 2px;
+                    display: block;
+                    position: absolute
+                }
+
+                .bg-profile {
+                    background-color: #f1f1f1;
+                    color: #424242;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .panel {
+                    background: #fff;
+                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+                    margin-bottom: 30px;
+                }
+                .page-title {
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    margin: 35px 45px 45px 15px;
+                    font-size: 1.2em;
+                    font-weight: 700;
+                    display: inline-block;
+                    max-width: 35vw;
+                }
+
+            </style>
+
+
+            <script>
+
+            </script>
 @endsection
 
-@section('scripts')
-<script>
-
-    // = Load
-    // change input file
-    $('#file').change(function(){
-
-        var fileResult = $(this).val();
-
-        $(this).parent().find('.fileLoad').find('input').val(fileResult);
-    });
-
-
-    $('#file').hover(function(){
-        $(this).parent().find('button').addClass('button-hover');
-    }, function(){
-        $(this).parent().find('button').removeClass('button-hover');
-    });
-</script>
-@endsection
