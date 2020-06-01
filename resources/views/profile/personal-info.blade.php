@@ -8,13 +8,14 @@
 
     <div class="container-fluid bg-profile">
         <div class="container bg-profile">
-            <h1 class="page-title">Profile</h1>
-            <div class="user-box">
+            <h1 class="page-title mb-3 mt-5">Profile</h1>
+            <br>
+            <div class="page-title user-box">
                 <img
                     src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
                     alt="user avatar">
             </div>
-            <p><strong>Hello Andreas,</strong>
+            <p class="profile-hello"><strong>Hello {{ $authUser->firstname }},</strong>
                 <br>
                 glad you're here. A smooth cooperation with our partners is very important to us. If you have any
                 problems or questions you can always contact our Team via info@verovis.de turn.</p>
@@ -35,7 +36,7 @@
                             </div>
                             <div class="col-2">
                                 <button class="btn btn-block btn-sm" id="btn-grey" type="button"><i
-                                        class="fa fa-pencil" id="fa-pencil"></i>Edit
+                                        class="fa fa-pencil" id="fa-pencil"></i>EDIT
                                 </button>
                             </div>
                         </div>
@@ -49,7 +50,7 @@
                             <tbody>
                             <tr>
                                 <th scope="row">Name:</th>
-                                <td>Mark</td>
+                                <td>{{ $authUser->firstname }}</td>
 
                             </tr>
                             <tr>
@@ -62,7 +63,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">E-Mail:</th>
-                                <td>Larry</td>
+                                <td>{{ $authUser->email }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Homepage:</th>
@@ -90,7 +91,13 @@
                             </tr>
 
                             </tbody>
+
+
                         </table>
+                        <div class="col-3 mb-3">
+                            <button class="btn btn-block btn-sm" id="btn-grey" type="button"><i
+                                    class="fa fa-key" id="fa-pencil"></i>PASSWORD CHANGE</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,11 +144,18 @@
                 .page-title {
                     text-transform: uppercase;
                     font-weight: normal;
-                    margin: 35px 45px 45px 15px;
                     font-size: 1.2em;
                     font-weight: 700;
                     display: inline-block;
                     max-width: 35vw;
+                }
+
+                .profile-hello {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    color: #212529;
+                    text-align: left;
                 }
 
             </style>

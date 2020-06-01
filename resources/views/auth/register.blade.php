@@ -47,10 +47,10 @@
                     <div class="form-group">
                         <div class="pretty p-default p-curve">
                             <div class="custom-checkbox">
-                                <label for="privacy_policy555"><input type="checkbox" name="privacy_policy" value="yes" id="privacy_policy555">
+                                <label for="privacy_policy555"><input class="close-input" type="checkbox" name="privacy_policy" value="yes" id="privacy_policy555">
                                     <div class="stlchek mr-3"></div>{{ __('messages.I_agree_with') }}<a
                                         href="/privacy_policy"
-                                        target="_blank"><strong>{{ __('messages.Privacy_Policy') }}</strong></a></label>
+                                        target="_blank"><strong> {{ __('messages.Privacy_Policy') }}</strong></a></label>
                             </div>
                         </div>
                     </div>
