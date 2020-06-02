@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
     //Profile | settings | change password
     Route::get('/profile/settings/password_change', 'Profile\ProfileController@passwordChangeForm')->name('profile.password-change');
     Route::post('/profile/settings/password_change', 'Profile\ProfileController@passwordChangeStore')->name('profile.password-change-store');
+
+    //Profile | settings | change user info
+    Route::get('/profile/settings/info_change', 'Profile\ProfileController@infoChangeForm')->name('profile.info-change');
 
     //Site Config=================
     Route::namespace('Admin')->prefix('admin')->group(function () {

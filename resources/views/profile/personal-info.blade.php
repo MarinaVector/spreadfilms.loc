@@ -33,9 +33,11 @@
                                 <h3>Personal Info</h3>
                             </div>
                             <div class="col-2">
+                                <a href="{{ route('profile.info-change') }}">
                                 <button class="btn btn-block btn-bg btn-sm" type="button"><i
                                         class="fa fa-pencil fa-profile"></i>EDIT
                                 </button>
+                                </a>
                             </div>
                         </div>
                         <div class="profile-line">

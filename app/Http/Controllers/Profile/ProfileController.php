@@ -28,6 +28,12 @@ class ProfileController extends Controller
         return view('profile.password-change')->with(['authUser' => $user]);
     }
 
+    public function infoChangeForm() {
+        $user = Auth::user();
+
+        return view('profile.info-change')->with(['authUser' => $user]);
+    }
+
     public function passwordChangeStore(ChangePasswordRequest $request){
         $user = Auth::user();
         $user->password = Hash::make($request->get('new_password'));
@@ -35,4 +41,8 @@ class ProfileController extends Controller
 
         return redirect(url()->previous())->with('success', __('messages.Password_changed'));
     }
+
+
+
+
 }

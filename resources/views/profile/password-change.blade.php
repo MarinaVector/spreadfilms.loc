@@ -87,13 +87,6 @@
             max-width: 35vw;
         }
 
-        .profile-hello {
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #212529;
-            text-align: left;
-        }
 
     </style>
 
