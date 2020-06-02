@@ -4,8 +4,6 @@
 
 @section('content')
 
-    <!--<profile-component></profile-component-->
-
     <div class="container-fluid bg-profile">
         <div class="container bg-profile">
             <h1 class="page-title mb-3 mt-5">Profile | Personal info</h1>
@@ -19,87 +17,79 @@
                 problems or questions you can always contact our Team via info@verovis.de turn.</p>
             <div class="row mt-3 panel">
                 <div class="col-12">
-                    <!--  <nav class="navbar navbar-light bg-light">
-                          <a class="navbar-brand">Navbar</a>
-                          <form class="form-inline">
-                              <a href="/user/edit" class="btn btn-default btn-sm btn-profile-edit pull-right"><i class="fa fa-pencil fa-fw"></i> Bearbeiten</a>
-    default btn-sm btn-profile-edit pull-right
-                          </form>
-
-                      </nav> -->
                     <div class="container mb-3">
                         <div class="row mx-3 mt-2">
                             <div class="col-10">
                                 <h3>Personal Info</h3>
                             </div>
                             <div class="col-2">
-                                <a href="{{ route('profile.info-change') }}">
-                                <button class="btn btn-block btn-bg btn-sm" type="button"><i
-                                        class="fa fa-pencil fa-profile"></i>EDIT
-                                </button>
+                                <a href="{{ route('profile.personal-info.edit') }}">
+                                    <button class="btn btn-block btn-bg btn-sm" type="button"><i
+                                            class="fa fa-pencil fa-profile"></i>EDIT
+                                    </button>
                                 </a>
                             </div>
                         </div>
                         <div class="profile-line">
                             <hr>
                         </div>
-
                     </div>
                     <div class="col-12">
                         <table class="table">
                             <tbody>
-                            <tr>
-                                <th scope="row">Name:</th>
-                                <td>{{ $authUser->firstname }}</td>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Name') }}:</th>
+                                    <td>{{ $authUser->firstname }}</td>
 
-                            </tr>
-                            <tr>
-                                <th scope="row">Sex:</th>
-                                <td>Man</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Language:</th>
-                                <td>Larry</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">E-Mail:</th>
-                                <td>{{ $authUser->email }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Homepage:</th>
-                                <td>https://homepage.de</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Telephone:</th>
-                                <td>086290118000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Adress:</th>
-                                <td>Street, 3</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ZIP code:</th>
-                                <td>83233</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Country:</th>
-                                <td>Deutshland</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Year:</th>
-                                <td>1990</td>
-                            </tr>
-
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Surname') }}:</th>
+                                    <td>{{ $authUser->surname }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Email') }}:</th>
+                                    <td>{{ $authUser->email }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Gender') }}:</th>
+                                    <td>{{ $authUser->gender }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Native_Language') }}:</th>
+                                    <td>{{ $authUser->native_language }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Country') }}:</th>
+                                    <td>{{ $authUser->country }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Postcode') }}:</th>
+                                    <td>{{ $authUser->postcode }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Location') }}:</th>
+                                    <td>{{ $authUser->location }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Street') }}:</th>
+                                    <td>{{ $authUser->street }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Homepage') }}:</th>
+                                    <td>{{ $authUser->homepage }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Phone') }}:</th>
+                                    <td>{{ $authUser->phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ __('messages.Birth_Year') }}:</th>
+                                    <td>{{ $authUser->birth_year }}</td>
+                                </tr>
                             </tbody>
 
 
                         </table>
-                        <div class="col-3 mb-3">
-                            <a href="{{ route('profile.password-change') }}">
-                                <button class="btn btn-block btn-sm btn-grey" type="button"><i
-                                        class="fa fa-key fa-personal fa-profile"></i>PASSWORD CHANGE</button>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

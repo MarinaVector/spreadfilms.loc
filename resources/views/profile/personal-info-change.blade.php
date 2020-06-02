@@ -16,20 +16,13 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">{{ __('messages.Name') }}</label>
                                 <input class="form-control no-border" name="name" type="text"
                                        value="{{ $authUser->firstname }}" id="name">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">E-Mail</label>
-                                <input class="form-control no-border" name="email" type="text"
-                                       value="{{ $authUser->email }}"
-                                       id="email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="gender">Gender</label>
+                                <label for="gender">{{ __('messages.Email') }}</label>
                                 <select class="form-control no-border" name="gender">
                                     <option value="Male" selected="selected">Male</option>
                                     <option value="Femail">Femail</option>
@@ -37,7 +30,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="language">Native Language</label>
+                                <label for="language">{{ __('messages.Native_Language') }}</label>
                                 <select class="form-control no-border" name="language">
                                     <option value="1" selected="selected">Deutsch GER</option>
                                     <option value="2">English UK</option>
@@ -77,49 +70,56 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="homepage">Homepage</label>
-                                <input class="form-control no-border" name="homepage" type="text"
-                                       value="http://www.site.de" id="homepage">
+                                <label for="sername">{{ __('messages.Postcode') }}</label>
+                                <input class="form-control no-border" name="sername" type="text" value="Doe"
+                                       id="sername">
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input class="form-control no-border" name="phone" type="text" value="0861 90 15 0000">
+                                <label for="zip">{{ __('messages.Street') }}</label>
+                                <input class="form-control no-border" name="zip" type="text" value="83278" id="zip">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">{{ __('messages.Phone') }}</label>
+                                <input class="form-control no-border" name="country" type="text" value="Deutschland"
+                                       id="country">
                             </div>
                         </div>
 
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label for="sername">Serhname</label>
-                                <input class="form-control no-border" name="sername" type="text" value="Doe"
-                                       id="sername">
+                                <label for="email">{{ __('messages.Surname') }}</label>
+                                <input class="form-control no-border" name="email" type="text"
+                                       value="{{ $authUser->email }}"
+                                       id="email">
                             </div>
 
                             <div class="form-group">
-                                <label for="adress">Adress</label>
+                                <label for="homepage">{{ __('messages.Gender') }}</label>
+                                <input class="form-control no-border" name="homepage" type="text"
+                                       value="http://www.site.de" id="homepage">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">{{ __('messages.Country') }}</label>
+                                <input class="form-control no-border" name="phone" type="text" value="0861 90 15 0000">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="adress">{{ __('messages.Location') }}</label>
                                 <input class="form-control no-border" name="adress" type="text" value="Green 27"
                                        id="adress">
                             </div>
 
                             <div class="form-group">
-                                <label for="zip">ZIP code</label>
-                                <input class="form-control no-border" name="zip" type="text" value="83278" id="zip">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="ort">City</label>
+                                <label for="ort">{{ __('messages.Homepage') }}</label>
                                 <input class="form-control no-border" name="city" type="text" value="Paris" id="city">
                             </div>
 
                             <div class="form-group">
-                                <label for="country">Country</label>
-                                <input class="form-control no-border" name="country" type="text" value="Deutschland"
-                                       id="country">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="year">Birth year</label>
+                                <label for="year">{{ __('messages.Birth_Year') }}</label>
                                 <input class="form-control no-border" name="year" type="text" value="2000"
                                        id="year">
                             </div>

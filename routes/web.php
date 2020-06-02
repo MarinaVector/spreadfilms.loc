@@ -27,15 +27,13 @@ Route::group(['middleware' => 'auth'], function () {
     ////Profile
     //Profile | personal-info
     Route::get('/profile/personal-info', 'Profile\ProfileController@personalInfo')->name('profile.personal-info');
+    Route::get('/profile/personal-info/edit', 'Profile\ProfileController@edit')->name('profile.personal-info.edit');
     //Profile | settings
     Route::get('/profile/settings', 'Profile\ProfileController@settings')->name('profile.settings');
 
     //Profile | settings | change password
     Route::get('/profile/settings/password_change', 'Profile\ProfileController@passwordChangeForm')->name('profile.password-change');
     Route::post('/profile/settings/password_change', 'Profile\ProfileController@passwordChangeStore')->name('profile.password-change-store');
-
-    //Profile | settings | change user info
-    Route::get('/profile/settings/info_change', 'Profile\ProfileController@infoChangeForm')->name('profile.info-change');
 
     //Site Config=================
     Route::namespace('Admin')->prefix('admin')->group(function () {

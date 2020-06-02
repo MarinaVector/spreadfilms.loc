@@ -28,10 +28,10 @@ class ProfileController extends Controller
         return view('profile.password-change')->with(['authUser' => $user]);
     }
 
-    public function infoChangeForm() {
+    public function edit(){
         $user = Auth::user();
 
-        return view('profile.info-change')->with(['authUser' => $user]);
+        return view('profile.personal-info-change')->with(['authUser' => $user]);
     }
 
     public function passwordChangeStore(ChangePasswordRequest $request){

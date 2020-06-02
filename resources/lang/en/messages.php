@@ -22,5 +22,14 @@ return [
     'Delete' => 'Delete',
     'User_deleted' => 'User was successfully deleted!',
     'Create' => 'Create',
-    'Password_changed' => 'Password changed successfully'
+    'Password_changed' => 'Password changed successfully',
+    'Gender' => 'Gender',
+    'Street' => 'Street',
+    'Postcode' => 'Postcode',
+    'Native_Language' => 'Native Language',
+    'Location' => 'Location',
+    'Homepage' => 'Homepage',
+    'Country' => 'Country',
+    'Phone' => 'Phone',
+    'Birth_Year' => 'Birth Year',
 ];
