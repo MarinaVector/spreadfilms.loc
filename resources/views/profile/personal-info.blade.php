@@ -11,7 +11,7 @@
             <h1 class="page-title mb-3 mt-5">Profile | Personal info</h1>
             <br>
             <div class="page-title user-box">
-                <i class="fas fa-user fa-3x"></i>
+                <i class="fas fa-user-tie fa-3x"></i>
             </div>
             <p class="profile-hello"><strong>Hello {{ $authUser->firstname }},</strong>
                 <br>
@@ -93,8 +93,10 @@
 
                         </table>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-sm btn-grey" type="button"><i
-                                    class="fa fa-key fa-personal fa-profile"></i>PASSWORD CHANGE</button>
+                            <a href="{{ route('profile.password-change') }}">
+                                <button class="btn btn-block btn-sm btn-grey" type="button"><i
+                                        class="fa fa-key fa-personal fa-profile"></i>PASSWORD CHANGE</button>
+                            </a>
                         </div>
                     </div>
                 </div>

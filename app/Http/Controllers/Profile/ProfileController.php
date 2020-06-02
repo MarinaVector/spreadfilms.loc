@@ -2,7 +2,9 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -20,9 +22,17 @@ class ProfileController extends Controller
         return view('profile.settings')->with(['authUser' => $user, 'userCompany' => $userCompany]);
     }
 
-    public function passwordChange() {
+    public function passwordChangeForm() {
         $user = Auth::user();
 
         return view('profile.password-change')->with(['authUser' => $user]);
+    }
+
+    public function passwordChangeStore(ChangePasswordRequest $request){
+        $user = Auth::user();
+        $user->password = Hash::make($request->get('new_password'));
+        $user->save();
+
+        return redirect(url()->previous())->with('success', __('messages.Password_changed'));
     }
 }

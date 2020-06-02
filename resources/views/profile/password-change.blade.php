@@ -7,23 +7,26 @@
         <div class="container bg-profile">
             <h1 class="page-title mb-3 mt-5">Profile | Password Change</h1>
 
-            <form method="POST" action="" accept-charset="UTF-8">
+            @include('layouts.notifications')
+
+            <form method="POST" action="{{ route('profile.password-change-store') }}" accept-charset="UTF-8">
+                @csrf
                 <div class="box-white">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="password">Old Password</label>
-                                <input type="password" name="password_old" class="form-control">
+                                <input type="password" name="old_password" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                <label for="password">New Password</label>
-                                <input type="password" name="password_new" class="form-control">
+                                <label for="password">New Password(At least 6 characters)</label>
+                                <input type="password" name="new_password" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="password_confirmation">New Password Confirmation</label>
-                                <input type="password" name="password_new_confirmation" class="form-control">
+                                <input type="password" name="new_password_confirmation" class="form-control">
                             </div>
                         </div>
                     </div>

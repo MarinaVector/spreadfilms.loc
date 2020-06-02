@@ -5,6 +5,8 @@
 @section('content')
     <div class="container-fluid bg-profile admin-container">
         <div class="container bg-profile">
+            @include('layouts.notifications')
+
             <h1 class="page-title mb-3 mt-5">Profile | Personal info</h1>
 
             <a href="{{ route('profile.password-change') }}">
