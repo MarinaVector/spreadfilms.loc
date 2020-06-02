@@ -24,6 +24,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/company/start', 'Company\CompanyController@start')->name('company.start');
     Route::post('/company/start', 'Company\CompanyController@store')->name('company.store');
 
+    //Company
+    Route::get('/company/general-info', 'Company\CompanyController@generalInfo')->name('company.general-info');
+    Route::get('/company/settings', 'Company\CompanyController@settings')->name('company.settings');
+
     ////Profile
     //Profile | personal-info
     Route::get('/profile/personal-info', 'Profile\ProfileController@personalInfo')->name('profile.personal-info');

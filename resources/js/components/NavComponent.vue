@@ -60,6 +60,20 @@
                             hiddenOnCollapse: true
                         },
                         {
+                            title: 'Company',
+                            icon: 'fa fa-building',
+                            child: [
+                                {
+                                    href: '/company/general-info',
+                                    title: 'General info'
+                                },
+                                {
+                                    href: '/company/settings',
+                                    title: 'Settings'
+                                }
+                            ]
+                        },
+                        {
                             title: 'Profile',
                             icon: 'fa fa-user',
                             child: [

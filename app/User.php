@@ -44,4 +44,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo('App\Models\Company', 'company_id');
     }
+
+    public function inCompany(){
+        return $this->company_id ? true : false;
+    }
 }

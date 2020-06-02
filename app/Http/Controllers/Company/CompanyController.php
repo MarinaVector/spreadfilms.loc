@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
+    //A form where user can see a form to create new company or see the company invitations
     public function start() {
         return view('company.start')->with('authUser', Auth::user());
     }
 
+    //Creating a new company
     public function store(Request $request) {
         //register company
         $company = Company::create([
@@ -29,4 +31,15 @@ class CompanyController extends Controller
 
         return redirect()->route('profile.index');
     }
+
+    //Company general info page(company profile)
+    public function generalInfo() {
+        return view('company.general-info')->with('authUser', Auth::user());
+    }
+
+    //Company settings(only for company owner)
+    public function settings(){
+        return view('company.settings')->with('authUser', Auth::user());
+    }
+
 }
