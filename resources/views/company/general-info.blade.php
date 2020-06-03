@@ -5,19 +5,20 @@
 @section('content')
 
 
-
-
     <div class="container-fluid bg-profile admin-container">
         <div class="container bg-profile">
-            <h1 class="page-title mb-3 mt-5">Profile | Company info</h1>
+            <h1 class="page-title mb-4 mt-5">Profile | Company info</h1>
             <br>
-            <div class="panel p-4">
-                <br>
-                <div class="row">
-                    <div class="col-3">
+            <div class="panel">
+                <div class="col-1 pull-right offset-11 mt-2">
+                    <i class="fas fa-pen-square fa-2x"></i>
+                </div>
+                <div class="row p-5">
+
+                    <div class="col-3 profile-hello">
                         <p>From <strong>2020</strong></p>
-                        <h2>
-                            Name
+                        <h2 class="text mb-4">
+                            Facebook
                         </h2>
                     </div>
 
@@ -28,41 +29,28 @@
                     </div>
                     <div class="col-4">
                         <div class="row">
-
-
-                            <h5 class="col-12">
+                            <h5 class="col-12 text">
                                 Activity: <strong>Web development</strong>
                             </h5>
-
-
                         </div>
                     </div>
-
                     <div class="col offset-3">
-
                     </div>
-
                     <hr>
                     <div class="col-12">
                         <table class="table">
                             <tbody>
                             <tr>
-
-                                <td>Description</td>
-
-                            </tr>
-                            <tr>
-
-
+                                <td class="profile-hello"><strong>Description</strong></td>
 
                             </tr>
+
                             </tbody>
                         </table>
-
-
                     </div>
+
                     <hr>
-                    <div class="col-8">
+                    <div class="col-8 profile-hello">
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
                         mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
@@ -74,12 +62,16 @@
                         Quisque rutrum. Aenean imperdiet
                     </div>
                     <div class="col-4">
-                        <a href="{{ route('profile.personal-info.edit') }}">
-                            <button class="btn btn-block btn-bg btn-sm" type="button"><i
-                                    class="fa fa-pencil fa-profile"></i>EDIT
-                            </button>
-                        </a>
+
+                        <button type="submit mb-2"
+                                class="btn btn-form btn-primary btn-block">View company tutorials</button>
+                        <ul class="fa-ul mt-4">
+                            <li class="mb-3 ml-3 profile-hello"><span class="fa-li"><i class="fas fa-globe fa-2x mr-4 tm-2"></i></span>company.com</li>
+                            <li class="mb-2 ml-3 profile-hello"><span class="fa-li"><i class="fas fa-map-marker-alt fa-2x mr-4"></i></span>Germany</li>
+                        </ul>
+
                     </div>
+
 
                 </div>
             </div>
@@ -89,31 +81,9 @@
 
 @section('scripts')
     <style>
-        .btn-grey {
-            background: #eee !important;
-            border: 1px solid #ccc !important;
-            color: #333 !important;
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .btn-bg {
-            background: #eee !important;
-            border: 1px solid #ccc !important;
-            color: #333 !important;
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .btn-bg:hover {
-            background: #00bff9 !important;
-        }
-
-        .btn-grey:hover {
-            color: #00bff9 !important;
-        }
-
-        .fa-personal:hover {
-            color: #00bff9 !important;
-        }
+       .text {
+           color: #212529;
+       }
 
         .fa-profile {
             color: #3A3A3A !important;
@@ -169,6 +139,18 @@
         .company-logo {
             max-width: 200px;
             height: auto;
+        }
+
+        .profile-hello {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+        }
+
+        .fa-map-marker-alt, .fa-globe {
+            color: #212529;
         }
     </style>
 @endsection
