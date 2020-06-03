@@ -8,7 +8,7 @@ class MainController extends Controller
 {
     public function index() {
         if(Auth::check()){
-            return redirect('profile');
+            return redirect('/profile/personal-info');
         } else {
             return redirect('login');
         }

@@ -32,4 +32,6 @@ return [
     'Country' => 'Country',
     'Phone' => 'Phone',
     'Birth_Year' => 'Birth Year',
+    'Select_gender' => 'Select gender',
+    'Information_saved_successfully' => 'Information has been saved successfully'
 ];

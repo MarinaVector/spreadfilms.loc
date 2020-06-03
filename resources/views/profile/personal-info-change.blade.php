@@ -1,14 +1,14 @@
 @extends('layouts.profile')
 
-@section('title', 'User Info Change')
+@section('title', 'Edit Personal Info')
 
 @section('content')
     <div class="container-fluid bg-profile admin-container">
         <div class="container bg-profile">
-            <h1 class="page-title mb-3 mt-5">Profile | Info Change</h1>
+            <h1 class="page-title mb-3 mt-5">Profile | Edit Personal Info</h1>
 
             @include('layouts.notifications')
-            <form method="POST" action="" accept-charset="UTF-8"><input name="_token" type="hidden" value="">
+            <form method="POST" action="{{ route('profile.personal-info.update') }}" accept-charset="UTF-8">
                 @csrf
                 <div class="box-white">
 
@@ -16,22 +16,20 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">{{ __('messages.Name') }}</label>
-                                <input class="form-control no-border" name="name" type="text"
-                                       value="{{ $authUser->firstname }}" id="name">
+                                <label for="firstname">{{ __('messages.Firstname') }}</label>
+                                <input class="form-control no-border" name="firstname" type="text"
+                                       value="{{ $authUser->firstname }}" id="firstname">
                             </div>
 
                             <div class="form-group">
                                 <label for="gender">{{ __('messages.Email') }}</label>
-                                <select class="form-control no-border" name="gender">
-                                    <option value="Male" selected="selected">Male</option>
-                                    <option value="Femail">Femail</option>
-                                </select>
+                                <input class="form-control no-border" name="email" type="text"
+                                       value="{{ $authUser->email }}" id="email">
                             </div>
 
                             <div class="form-group">
                                 <label for="language">{{ __('messages.Native_Language') }}</label>
-                                <select class="form-control no-border" name="language">
+                                <select class="form-control no-border" name="native_language">
                                     <option value="1" selected="selected">Deutsch GER</option>
                                     <option value="2">English UK</option>
                                     <option value="3">English USA</option>
@@ -71,19 +69,18 @@
 
                             <div class="form-group">
                                 <label for="sername">{{ __('messages.Postcode') }}</label>
-                                <input class="form-control no-border" name="sername" type="text" value="Doe"
-                                       id="sername">
+                                <input class="form-control no-border" name="postcode" type="text" value="{{ $authUser->postcode }}" id="zip">
                             </div>
 
                             <div class="form-group">
                                 <label for="zip">{{ __('messages.Street') }}</label>
-                                <input class="form-control no-border" name="zip" type="text" value="83278" id="zip">
+                                <input class="form-control no-border" name="street" type="text" value="{{ $authUser->street }}"
+                                       id="adress">
                             </div>
 
                             <div class="form-group">
                                 <label for="country">{{ __('messages.Phone') }}</label>
-                                <input class="form-control no-border" name="country" type="text" value="Deutschland"
-                                       id="country">
+                                <input class="form-control no-border" name="phone" type="text" value="{{ $authUser->phone }}">
                             </div>
                         </div>
 
@@ -91,36 +88,39 @@
 
                             <div class="form-group">
                                 <label for="email">{{ __('messages.Surname') }}</label>
-                                <input class="form-control no-border" name="email" type="text"
-                                       value="{{ $authUser->email }}"
-                                       id="email">
+                                <input class="form-control no-border" name="surname" type="text" value="{{ $authUser->surname }}"
+                                       id="surname">
                             </div>
 
                             <div class="form-group">
                                 <label for="homepage">{{ __('messages.Gender') }}</label>
-                                <input class="form-control no-border" name="homepage" type="text"
-                                       value="http://www.site.de" id="homepage">
+                                <select class="form-control no-border" name="gender">
+                                    <option value="0" {{ in_array($authUser->gender, array(0, null), true ) ? 'selected' : '' }}>{{ __('messages.Select_gender') }}</option>
+                                    <option value="Male" {{ $authUser->gender === 'Male' ? 'selected' : '' }}>Male</option>
+                                    <option value="Female" {{ $authUser->gender === 'Female' ? 'selected' : '' }}>Female</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="phone">{{ __('messages.Country') }}</label>
-                                <input class="form-control no-border" name="phone" type="text" value="0861 90 15 0000">
+                                <input class="form-control no-border" name="country" type="text" value="{{ $authUser->country }}"
+                                       id="country">
                             </div>
 
                             <div class="form-group">
                                 <label for="adress">{{ __('messages.Location') }}</label>
-                                <input class="form-control no-border" name="adress" type="text" value="Green 27"
-                                       id="adress">
+                                <input class="form-control no-border" name="location" type="text" value="{{ $authUser->location }}" id="city">
                             </div>
 
                             <div class="form-group">
                                 <label for="ort">{{ __('messages.Homepage') }}</label>
-                                <input class="form-control no-border" name="city" type="text" value="Paris" id="city">
+                                <input class="form-control no-border" name="homepage" type="text"
+                                       value="{{ $authUser->homepage }}" id="homepage">
                             </div>
 
                             <div class="form-group">
                                 <label for="year">{{ __('messages.Birth_Year') }}</label>
-                                <input class="form-control no-border" name="year" type="text" value="2000"
+                                <input class="form-control no-border" name="birth_year" type="text" value="{{ $authUser->birth_year }}"
                                        id="year">
                             </div>
                         </div>
