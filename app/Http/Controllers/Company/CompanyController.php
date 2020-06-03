@@ -29,7 +29,7 @@ class CompanyController extends Controller
         $user->role_id = Roles::where('name', 'owner')->first()->id;
         $user->save();
 
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.personal-info');
     }
 
     //Company general info page(company profile)

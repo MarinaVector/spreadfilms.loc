@@ -25,8 +25,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/company/start', 'Company\CompanyController@store')->name('company.store');
 
     //Company
-    Route::get('/company/general-info', 'Company\CompanyController@generalInfo')->name('company.general-info');
-    Route::get('/company/settings', 'Company\CompanyController@settings')->name('company.settings');
+    Route::group(['middleware' => ['inCompany']], function () {
+        Route::get('/company/general-info', 'Company\CompanyController@generalInfo')->name('company.general-info');
+        Route::get('/company/settings', 'Company\CompanyController@settings')->name('company.settings');
+    });
 
     ////Profile
     //Profile | personal-info
