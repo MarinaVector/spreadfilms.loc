@@ -38,7 +38,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th scope="row">{{ __('messages.Name') }}:</th>
+                                    <th scope="row">{{ __('messages.Firstname') }}:</th>
                                     <td>{{ $authUser->firstname }}</td>
 
                                 </tr>

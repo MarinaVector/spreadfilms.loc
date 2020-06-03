@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -28,10 +29,17 @@ class ProfileController extends Controller
         return view('profile.password-change')->with(['authUser' => $user]);
     }
 
-    public function edit(){
+    public function personalInfoEdit(){
         $user = Auth::user();
 
         return view('profile.personal-info-change')->with(['authUser' => $user]);
+    }
+
+    public function personalInfoUpdate(Request $request){
+        $user = Auth::user();
+        $user->update($request->all());
+
+        return redirect(url()->previous())->with('success', __('messages.Information_saved_successfully'));
     }
 
     public function passwordChangeStore(ChangePasswordRequest $request){

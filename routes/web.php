@@ -31,7 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
     ////Profile
     //Profile | personal-info
     Route::get('/profile/personal-info', 'Profile\ProfileController@personalInfo')->name('profile.personal-info');
-    Route::get('/profile/personal-info/edit', 'Profile\ProfileController@edit')->name('profile.personal-info.edit');
+    Route::get('/profile/personal-info/edit', 'Profile\ProfileController@personalInfoEdit')->name('profile.personal-info.edit');
+    Route::post('/profile/personal-info/edit', 'Profile\ProfileController@personalInfoUpdate')->name('profile.personal-info.update');
     //Profile | settings
     Route::get('/profile/settings', 'Profile\ProfileController@settings')->name('profile.settings');
 
