@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Company Admin
     Route::get('/admin/users', 'Company\UsersController@index')->name('company-users.index');
+    Route::get('/admin/roles_permissions', 'Company\CompanyController@rolesPermissionsPage')->name('company.roles-permissions-page');
 
     //Site Config=================
     Route::namespace('Admin')->prefix('admin')->group(function () {

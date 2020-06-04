@@ -42,4 +42,9 @@ class CompanyController extends Controller
         return view('company.settings')->with('authUser', Auth::user());
     }
 
+    //Company roles & permissions management
+    public function rolesPermissionsPage() {
+        return view('company.roles-permissions-page')->with('authUser', Auth::user());
+    }
+
 }

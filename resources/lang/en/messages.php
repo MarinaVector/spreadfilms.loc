@@ -34,5 +34,6 @@ return [
     'Birth_Year' => 'Birth Year',
     'Select_gender' => 'Select gender',
     'Information_saved_successfully' => 'Information has been saved successfully',
-    'Users' => 'Users'
+    'Users' => 'Users',
+    'Roles_and_permissions' => 'Roles and Permissions'
 ];
