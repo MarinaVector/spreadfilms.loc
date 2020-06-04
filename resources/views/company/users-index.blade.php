@@ -20,7 +20,7 @@
                         <div class="d-print-none">
                         </div>
                         <div class="btn-group group-actions mb-2" role="group">
-                            <a href="/admin/benutzer/neu" class="btn btn-admin "><i
+                            <a href="" class="btn btn-admin "><i
                                     class="fas fa-plus-circle fas-admin"></i>
                                 Add user</a>
                         </div>
@@ -28,11 +28,11 @@
                         <div class="box-white">
                             <div class="btn-group group-filter mb-2" role="group">
                                 <div class="btn group-label">Role:</div>
-                                <a href="/admin/benutzer" class="btn btn-admin active">Spreadfilms</a>
-                                <a href="/admin/benutzer?rolle=admin" class="btn btn-admin">Admin</a>
-                                <a href="/admin/benutzer?rolle=mitarbeiter" class="btn btn-admin">Employee</a>
-                                <a href="/admin/benutzer?rolle=praktikant" class="btn btn-admin">Intern</a>
-                                <a href="/admin/benutzer?rolle=null" class="btn btn-admin">No role</a>
+                                <a href="/" class="btn btn-admin active">Spreadfilms</a>
+                                <a href="/" class="btn btn-admin">Admin</a>
+                                <a href="/" class="btn btn-admin">Employee</a>
+                                <a href="/" class="btn btn-admin">Intern</a>
+                                <a href="/" class="btn btn-admin">No role</a>
                             </div>
                             <div>
                                 <p>3 entries</p>
@@ -141,6 +141,5 @@
         }
 
     </style>
-
 
 @endsection
