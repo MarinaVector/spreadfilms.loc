@@ -71,6 +71,24 @@
                                     href: '/company/settings',
                                     title: 'Settings'
                                 }
+                            ],
+                            hidden: true
+                        },
+                        {
+                            component: separator
+                        },
+                        {
+                            title: 'Config',
+                            icon: 'fa fa-cogs',
+                            child: [
+                                {
+                                    href: '/admin/general-config',
+                                    title: 'General Config'
+                                },
+                                {
+                                    href: '/admin/user-management',
+                                    title: 'User Management'
+                                }
                             ]
                         },
                         {
@@ -98,23 +116,6 @@
                                 {
                                     href: '/profile/settings',
                                     title: 'Settings'
-                                }
-                            ]
-                        },
-                        {
-                            component: separator
-                        },
-                        {
-                            title: 'Config',
-                            icon: 'fa fa-cogs',
-                            child: [
-                                {
-                                    href: '/admin/general-config',
-                                    title: 'General Config'
-                                },
-                                {
-                                    href: '/admin/user-management',
-                                    title: 'User Management'
                                 }
                             ]
                         },

@@ -48,4 +48,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function inCompany(){
         return $this->company_id ? true : false;
     }
+
+    public function showGender() {
+        if ($this->gender === null || $this->gender == "0") {
+            return '';
+        }
+
+        return $this->gender;
+    }
 }

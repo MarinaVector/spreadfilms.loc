@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <label for="gender">{{ __('messages.Email') }}</label>
                                 <input class="form-control no-border" name="email" type="text"
-                                       value="{{ $authUser->email }}" id="email">
+                                       value="{{ $authUser->email }}" id="email" disabled>
                             </div>
 
                             <div class="form-group">
