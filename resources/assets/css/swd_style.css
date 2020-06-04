@@ -1020,20 +1020,13 @@ input:checked + .stlchek:before {
     border: 1px solid #ccc;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.page-title {
+    color: #4A494A;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 35px 45px 45px 15px;
+    font-size: 1.2em;
+    font-weight: 700;
+    display: inline-block;
+    max-width: 35vw;
+}
