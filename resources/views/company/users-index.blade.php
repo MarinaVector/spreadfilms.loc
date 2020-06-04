@@ -20,7 +20,7 @@
                         <div class="d-print-none">
                         </div>
                         <div class="btn-group group-actions mb-2" role="group">
-                            <a href="" class="btn btn-admin "><i
+                            <a href="{{ route('company.roles-permissions-page') }}" class="btn btn-admin "><i
                                     class="fas fa-plus-circle fas-admin"></i>
                                 Add user</a>
                         </div>
@@ -31,7 +31,7 @@
                                 <a href="/" class="btn btn-admin active">Spreadfilms</a>
                                 <a href="/" class="btn btn-admin">Admin</a>
                                 <a href="/" class="btn btn-admin">Employee</a>
-                                <a href="/" class="btn btn-admin">Intern</a>
+                                <a href="/" class="btn btn-admin">Probationer</a>
                                 <a href="/" class="btn btn-admin">No role</a>
                             </div>
                             <div>
