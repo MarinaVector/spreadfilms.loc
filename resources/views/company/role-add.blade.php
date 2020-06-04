@@ -1,6 +1,6 @@
 @extends('layouts.profile')
 
-@section('title', 'Admin Roles&Permissions Management')
+@section('title', 'Add Role')
 
 @section('content')
 
@@ -9,18 +9,32 @@
             <div class="row" id="view">
                 <div class="col-xl-9">
                     <div class="row">
-                        <h1 class="page-title">{{ __('messages.Roles_and_permissions')}}</h1>
+                        <h1 class="page-title">{{ __('messages.Add_role')}}</h1>
                     </div>
 
-                    <div class="btn-group group-actions mb-2" role="group">
-                        <a href="{{ route('company.role.add') }}" class="btn btn-admin "><i
-                                class="fas fa-plus-circle fas-admin"></i>
-                            Add role</a>
+                    <div class="panel">
                     </div>
 
-                    Roles and permissions like here <a href="https://verovis.spreadfilms.space/admin/permissions">
-                        https://verovis.spreadfilms.space/admin/permissions
-                    </a>
+
+                    <form method="POST" action=""
+                          accept-charset="UTF-8"><input name="token" type="hidden"
+                                                        value="">
+
+                        <div class="box-white">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input class="form-control no-border" name="name" type="text" id="name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="Save">
+                            <a href="{{ route('company.roles-permissions-page') }}" class="btn btn-default">Cancel</a>
+                        </div>
+
+                    </form>
+
+
                 </div>
                 <div class="col-xl-3">
                 </div>

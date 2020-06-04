@@ -33,7 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Company Admin
     Route::get('/admin/users', 'Company\UsersController@index')->name('company-users.index');
+    Route::get('/admin/users/add', 'Company\UsersController@addUserForm')->name('company-users.add');
     Route::get('/admin/roles_permissions', 'Company\CompanyController@rolesPermissionsPage')->name('company.roles-permissions-page');
+    Route::get('/admin/roles_permissions/add', 'Company\CompanyController@addRoleForm')->name('company.role.add');
 
     //Site Config=================
     Route::namespace('Admin')->prefix('admin')->group(function () {
