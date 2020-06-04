@@ -74,6 +74,20 @@
                             ]
                         },
                         {
+                            title: 'Admin',
+                            icon: 'fas fa-user-lock',
+                            child: [
+                                {
+                                    href: '/admin/users',
+                                    title: 'Users'
+                                },
+                                {
+                                    href: '/admin/roles_permissions',
+                                    title: 'Roles and permissions'
+                                }
+                            ]
+                        },
+                        {
                             title: 'Profile',
                             icon: 'fa fa-user',
                             child: [
