@@ -20,7 +20,7 @@
                         <div class="d-print-none">
                         </div>
                         <div class="btn-group group-actions mb-2" role="group">
-                            <a href="{{ route('company.roles-permissions-page') }}" class="btn btn-admin "><i
+                            <a href="{{ route('company-users.add') }}" class="btn btn-admin "><i
                                     class="fas fa-plus-circle fas-admin"></i>
                                 Add user</a>
                         </div>

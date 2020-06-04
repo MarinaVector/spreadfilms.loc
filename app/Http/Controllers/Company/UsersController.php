@@ -14,4 +14,9 @@ class UsersController extends Controller
     public function index() {
         return view('company.users-index')->with('authUser', Auth::user());
     }
+
+    //Company add user form
+    public function addUserForm() {
+        return view('company.user-add')->with('authUser', Auth::user());
+    }
 }

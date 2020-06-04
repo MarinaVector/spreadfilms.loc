@@ -35,5 +35,7 @@ return [
     'Select_gender' => 'Select gender',
     'Information_saved_successfully' => 'Information has been saved successfully',
     'Users' => 'Users',
-    'Roles_and_permissions' => 'Roles and Permissions'
+    'Roles_and_permissions' => 'Roles and Permissions',
+    'Add_user' => 'Add User',
+    'Add_role' => 'Add Role',
 ];
