@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Company extends Model
+class Company extends Pivot
 {
+    protected $table = 'companies';
+
     protected $fillable = [
         'name', 'description', 'logo', 'adress', 'website'
     ];
@@ -16,5 +19,15 @@ class Company extends Model
     public function users()
     {
         return $this->hasMany('App\User');
+    }
+
+    /**
+     * Get the roles of this company
+     */
+    public function roles() {
+        return $this->hasManyThrough('App\Models\Role', 'App\Models\Pivots\CompanyRole'
+
+        );
+        //return $this->hasManyThrough('App\Post', 'App\User');
     }
 }

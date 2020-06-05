@@ -11,7 +11,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'auth'], function () {
     //Company Start
     Route::get('/company/start', 'Company\CompanyController@start')->name('company.start');
-    Route::post('/company/start', 'Company\CompanyController@store')->name('company.store');
+    Route::post('/company/start', 'Company\CompanyController@createCompany')->name('company.create');
 
     //Company
     Route::group(['middleware' => ['inCompany']], function () {

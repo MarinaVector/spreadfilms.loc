@@ -22,8 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId('company_id')->nullable()->constrained();
-            $table->foreignId('role_id')->nullable()->constrained();
             $table->string('gender')->nullable();
             $table->string('street')->nullable();
             $table->string('postcode')->nullable();
@@ -44,11 +42,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_company_id_foreign');
-            $table->dropForeign('users_role_id_foreign');
-        });
-
         Schema::dropIfExists('users');
     }
 }
