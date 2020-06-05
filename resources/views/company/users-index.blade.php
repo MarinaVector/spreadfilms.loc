@@ -17,8 +17,7 @@
                             <h1 class="page-title">{{ __('messages.Users')}}</h1>
                         </div>
 
-                        <div class="d-print-none">
-                        </div>
+
                         <div class="btn-group group-actions mb-2" role="group">
                             <a href="{{ route('company-users.add') }}" class="btn btn-admin "><i
                                     class="fas fa-plus-circle fas-admin"></i>
@@ -71,13 +70,7 @@
                 </div>
             </div>
 
-            <div>
-                <v-dialog/>
-            </div>
-            <div>
-                <modals-container/>
-            </div>
-        </div>
+                  </div>
 
     </div>
 @endsection
@@ -110,7 +103,7 @@
         .bg-profile {
             background-color: #f1f1f1;
             color: #424242;
-            height: 100%;
+            height: auto;
             width: 100%;
         }
 

@@ -41,12 +41,6 @@
             </div>
         </div>
 
-        <div>
-            <v-dialog/>
-        </div>
-        <div>
-            <modals-container/>
-        </div>
     </div>
 @endsection
 
