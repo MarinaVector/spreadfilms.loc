@@ -26,7 +26,7 @@
                             <div class="tab-pane active show row" id="profile">
                                 <div class="row">
                                     <div class="col-6">
-                                        <form action="{{ route('company.store') }}" method="POST">
+                                        <form action="{{ route('company.create') }}" method="POST">
                                             @csrf
                                             <label class="col-lg-12 col-form-label form-control-label ml-4 mb-2">You company
                                                 name</label>

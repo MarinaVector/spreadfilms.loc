@@ -37,9 +37,9 @@ class ProfileController extends Controller
 
     public function personalInfoUpdate(Request $request){
         $user = Auth::user();
-        $user->update($request->all());
+        $user->update($request->except(['email']));
 
-        return redirect(url()->previous())->with('success', __('messages.Information_saved_successfully'));
+        return redirect()->route('profile.personal-info')->with('success', __('messages.Information_saved_successfully'));
     }
 
     public function passwordChangeStore(ChangePasswordRequest $request){

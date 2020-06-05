@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Role;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,5 +48,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function inCompany(){
         return $this->company_id ? true : false;
+    }
+
+    public function showGender() {
+        if ($this->gender === null || $this->gender == "0") {
+            return '';
+        }
+
+        return $this->gender;
+    }
+
+    public function roles() {
+        return $this->hasMany('App\Models\Role', '');
     }
 }

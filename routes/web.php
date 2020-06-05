@@ -3,17 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', 'MainController@index')->name('main');
 Auth::routes(['verify' => true]);
 Route::get('/logout', 'Auth\LoginController@logout');
@@ -22,7 +11,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'auth'], function () {
     //Company Start
     Route::get('/company/start', 'Company\CompanyController@start')->name('company.start');
-    Route::post('/company/start', 'Company\CompanyController@store')->name('company.store');
+    Route::post('/company/start', 'Company\CompanyController@createCompany')->name('company.create');
 
     //Company
     Route::group(['middleware' => ['inCompany']], function () {

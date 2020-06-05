@@ -7,6 +7,7 @@
     <div class="container-fluid bg-profile">
         <div class="container bg-profile">
             <h1 class="page-title mb-3 mt-5">Profile | Personal info</h1>
+            @include('layouts.notifications')
             <br>
             <div class="page-title user-box">
                 <i class="fas fa-user-tie fa-3x"></i>
@@ -52,11 +53,11 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">{{ __('messages.Gender') }}:</th>
-                                    <td>{{ $authUser->gender }}</td>
+                                    <td>{{ $authUser->showGender() }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">{{ __('messages.Native_Language') }}:</th>
-                                    <td>{{ $authUser->native_language }}</td>
+                                    <td>{{ $authUser->native_language }} (not showing properly, need to fix later)</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">{{ __('messages.Country') }}:</th>
