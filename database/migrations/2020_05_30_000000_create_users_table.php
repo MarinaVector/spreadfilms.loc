@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('birth_year')->nullable();
             $table->string('avatar')->nullable();
+            $table->unsignedInteger('company_id')->nullable();
         });
     }
 

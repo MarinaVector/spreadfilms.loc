@@ -9,6 +9,8 @@ class Company extends Pivot
 {
     protected $table = 'companies';
 
+    public $incrementing = true;
+
     protected $fillable = [
         'name', 'description', 'logo', 'adress', 'website'
     ];
