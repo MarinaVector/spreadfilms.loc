@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     /**
-     * Get the user of the post.
+     * Get the user of the role.
      */
     public function user()
     {

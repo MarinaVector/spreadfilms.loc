@@ -17,7 +17,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'firstname', 'surname', 'email', 'password', 'gender', 'native_language', 'country', 'postcode', 'location', 'street', 'homepage', 'phone', 'birth_year'
+        'firstname', 'surname', 'email', 'password', 'gender', 'native_language', 'country', 'postcode', 'location',
+        'street', 'homepage', 'phone', 'birth_year', 'company_id'
     ];
 
     /**
@@ -43,7 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function company()
     {
-        return $this->belongsTo('App\Models\Company', 'company_id');
+        return $this->belongsTo('App\Models\Company', 'company_id')->first();
     }
 
     public function inCompany(){
@@ -61,4 +62,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function roles() {
         return $this->hasMany('App\Models\Role', '');
     }
+
+
 }

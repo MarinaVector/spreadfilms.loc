@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreateCompanyRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
-            $table->foreignId('company_role_id')->references('id')->on('company_role');
-            $table->smallInteger('default')->default(0);
+        Schema::create('company_role', function (Blueprint $table) {
+            $table->foreignId('company_id')->references('id')->on('companies');
+            $table->foreignId('role_id')->references('id')->on('company_roles');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('company_role');
     }
 }

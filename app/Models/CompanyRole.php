@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Pivots;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserRole extends Model
+class CompanyRole extends Model
 {
     protected $fillable = [
-        'user_id', 'role_id'
+        'name', 'description'
     ];
 }

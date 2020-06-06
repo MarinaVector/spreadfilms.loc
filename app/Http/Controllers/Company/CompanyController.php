@@ -3,6 +3,10 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\CompanyRole;
+use App\Models\Pivots\CompanyRole as CompanyRolePivot;
+use App\Models\DefaultCompanyRole;
+use App\Models\Pivots\UserRole;
 use App\Models\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,27 +16,49 @@ class CompanyController extends Controller
 {
     //A form where user can see a form to create new company or see the company invitations
     public function start() {
-        //$user = Auth::user();
+        $user = Auth::user();
 
-        //dd($user->roles());
-        $company = Company::find(1);
-        dd($company->roles()->first());
-
+        //dd('end');
+        //dd($user->company());
         return view('company.start')->with('authUser', Auth::user());
     }
 
     //Creating a new company
     public function createCompany(Request $request) {
-        //register company
+        // вот тут, в этом методе createCompany создаетс якомпания, ниже в комментариях я написал какие действия нужны,
+        // но это по моей старой логике
+
+        // создать саму компанию, это очень легко, и оно прекрасно работает, еще бы блин не работало, это основы ларавел))
+        // потом я раньше пытался сделать связь между юзером и компанией, очень сложную и изощренную, но теперь это будет
+        // сделать легко
+
+        $user = Auth::user();
+
+        // 1. register company
         $company = Company::create([
             'name' => $request->get('name')
         ]);
 
-        // 2. create default roles
+        // 2. assigning this user to a company
+        $user->company_id = $company->id;
+        $user->save();
 
-        // 3. register those roles to created company
-        // 4. create default permissions to roles
-        // 5. assign role admin to user
+        // 3. user got his website role(in this case he became company admin)
+        UserRole::create(['user_id' => $user->id, 'role_id' => Role::where('name', 'admin')->first()->id]);
+
+        // 4. now company must get default roles
+        $defaultCompanyRoles = DefaultCompanyRole::all();
+        //dd($defaultCompanyRoles);
+        foreach ($defaultCompanyRoles as $defaultCompanyRole){
+            $companyRole = CompanyRole::create(['name' => $defaultCompanyRole->name, 'description' => $defaultCompanyRole->description]);
+            CompanyRolePivot::create(['company_id' => $company->id, 'role_id' => $companyRole->id]);
+            // 1. create company role same as $defaultCompanyRole
+            // 2. assign that role as a company role
+        }
+
+        dd('company created');
+
+        // 5. create default permissions to roles
 
         /*
         $user = User::find(Auth::id());
