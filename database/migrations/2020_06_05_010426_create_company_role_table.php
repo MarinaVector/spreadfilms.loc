@@ -15,6 +15,7 @@ class CreateCompanyRoleTable extends Migration
     {
         Schema::create('company_role', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->foreignId('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
