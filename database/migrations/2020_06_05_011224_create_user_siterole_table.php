@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompanyRoleTable extends Migration
+class CreateUserSiteroleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCompanyRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_role', function (Blueprint $table) {
-            $table->foreignId('company_id')->references('id')->on('companies');
-            $table->foreignId('role_id')->references('id')->on('company_roles');
+        Schema::create('user_siterole', function (Blueprint $table) {
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('role_id')->references('id')->on('siteroles');
             $table->timestamps();
         });
     }
@@ -27,6 +27,7 @@ class CreateCompanyRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_role');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('user_siterole');
     }
 }

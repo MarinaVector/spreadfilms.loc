@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DefaultCompanyRoles extends Migration
+class CreateCompanyrolePermissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class DefaultCompanyRoles extends Migration
      */
     public function up()
     {
-        Schema::create('default_company_roles', function (Blueprint $table) {
+        Schema::create('companyrole_permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('name')->unique();
+            $table->string('name_en')->nullable();
+            $table->string('name_de')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class DefaultCompanyRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('default_company_roles');
+        Schema::dropIfExists('companyrole_permissions');
     }
 }

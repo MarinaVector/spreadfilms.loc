@@ -27,7 +27,7 @@ class Company extends Pivot
      * Get the roles of this company
      */
     public function roles() {
-        return $this->hasManyThrough('App\Models\Role', 'App\Models\Pivots\CompanyRole'
+        return $this->hasManyThrough('App\Models\Siterole', 'App\Models\Pivots\CompanyCompanyrole'
 
         );
         //return $this->hasManyThrough('App\Post', 'App\User');
