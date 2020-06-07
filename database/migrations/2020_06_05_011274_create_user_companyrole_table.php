@@ -14,8 +14,8 @@ class CreateUserCompanyroleTable extends Migration
     public function up()
     {
         Schema::create('user_companyrole', function (Blueprint $table) {
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('role_id')->references('id')->on('companyroles');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('role_id')->references('id')->on('companyroles')->onDelete('cascade');
             $table->timestamps();
         });
     }

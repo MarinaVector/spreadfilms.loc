@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Company extends Pivot
+class Company extends Model
 {
     protected $table = 'companies';
 

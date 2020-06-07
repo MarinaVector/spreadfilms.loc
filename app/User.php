@@ -59,9 +59,32 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->gender;
     }
 
-    public function roles() {
-        return $this->hasMany('App\Models\Siterole', '');
+    public function companyroles() {
+        return $this->belongsToMany('App\Models\Companyrole', 'user_companyrole', 'user_id', 'role_id');
     }
 
+    /**
+     * Get the user's companyroles list.
+     *
+     * @return string
+     */
+    public function companyrolesList() {
+        $roles = $this->companyroles;
+        $rolesArr = [];
+        foreach($roles as $role) {
+            $rolesList[] = $role->name;
+        }
 
+        return implode(", ", $rolesList);
+    }
+
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->firstname} {$this->surname}";
+    }
 }

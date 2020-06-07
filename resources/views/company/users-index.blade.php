@@ -5,10 +5,7 @@
 @section('content')
     <!--suppress HtmlFormInputWithoutLabel -->
     <div class="container-fluid bg-profile admin-container">
-
         @include('layouts.notifications')
-
-
         <div id="page">
             <div class="container bg-profile admin-container">
                 <div class="row" id="view">
@@ -17,11 +14,10 @@
                             <h1 class="page-title">{{ __('messages.Users')}}</h1>
                         </div>
 
-
                         <div class="btn-group group-actions mb-2" role="group">
-                            <a href="{{ route('company-users.add') }}" class="btn btn-admin "><i
-                                    class="fas fa-plus-circle fas-admin"></i>
-                                Add user</a>
+                            <a href="{{ route('company-users.add') }}" class="btn btn-admin ">
+                                <i class="fas fa-plus-circle fas-admin"></i>Add user
+                            </a>
                         </div>
 
                         <div class="box-white">
@@ -38,40 +34,38 @@
                             </div>
                             <table class="table table-user">
                                 <thead>
-                                <th>Name</th>
-                                <th>E-Mail</th>
-                                <th>Role</th>
-                                <th></th>
+                                    <th>{{ __('messages.Name') }}</th>
+                                    <th>{{ __('messages.Email') }}</th>
+                                    <th>{{ __('messages.Role') }}</th>
+                                    <th></th>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Andreas Ramelsberger</td>
-                                    <td>andi@spreadfilms.de</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <div class="btn-group pull-right mt-2">
-                                            <a href="/" class="btn btn-sm btn-change"><i
-                                                    class="fas fa-pen fa-fw fas-admin mr-1"></i>Edit</a>
-                                            <a href="/" class="btn btn-sm btn-change"><i
-                                                    class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a>
-                                            <a href="/" class="btn btn-sm btn-change"><i
-                                                    class="fas fas fa-sitemap fa-fw fas-admin mr-1"></i>Plan</a>
-                                        </div>
-                                    </td>
-                                </tr>
-
+                                    @foreach ($authUserCompanyUsers as $user)
+                                        <tr>
+                                            <td>{{ $user->fullname }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->companyrolesList() }}</td>
+                                            <td>
+                                                <div class="btn-group pull-right mt-2">
+                                                    <a href="/" class="btn btn-sm btn-change"><i
+                                                            class="fas fa-pen fa-fw fas-admin mr-1"></i>Edit</a>
+                                                    <a href="/" class="btn btn-sm btn-change"><i
+                                                            class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a>
+                                                    <a href="/" class="btn btn-sm btn-change"><i
+                                                            class="fas fas fa-sitemap fa-fw fas-admin mr-1"></i>Plan</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                     <div class="col-xl-3">
                     </div>
                 </div>
             </div>
-
-                  </div>
-
+        </div>
     </div>
 @endsection
 

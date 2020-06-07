@@ -12,7 +12,11 @@ class UsersController extends Controller
 {
     //Company users list
     public function index() {
-        return view('company.users-index')->with('authUser', Auth::user());
+        $authUser = Auth::user();
+        $authUserCompany = $authUser->company();
+        $authUserCompanyUsers = $authUserCompany->users;
+
+        return view('company.users-index')->with(['authUser' => $authUser, 'authUserCompanyUsers' => $authUserCompanyUsers]);
     }
 
     //Company add user form
