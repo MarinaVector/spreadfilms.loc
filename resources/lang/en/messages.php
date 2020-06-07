@@ -38,4 +38,7 @@ return [
     'Roles_and_permissions' => 'Roles and Permissions',
     'Add_user' => 'Add User',
     'Add_role' => 'Add Role',
+    'Not_required' => 'Not required',
+    'Required' => 'Required',
+    'User_invitation_sent' => 'User invitation sent',
 ];

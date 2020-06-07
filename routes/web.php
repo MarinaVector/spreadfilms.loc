@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     //Company Admin
     Route::get('/admin/users', 'Company\UsersController@index')->name('company-users.index');
     Route::get('/admin/users/add', 'Company\UsersController@addUserForm')->name('company-users.add');
+    Route::post('/admin/users/add', 'Company\UsersController@inviteUser')->name('company-users.invite');
     Route::get('/admin/roles_permissions', 'Company\CompanyController@rolesPermissionsPage')->name('company.roles-permissions-page');
     Route::get('/admin/roles_permissions/add', 'Company\CompanyController@addRoleForm')->name('company.role.add');
     Route::post('/admin/user/destroy', 'Company\UserManagmentController@destroy')->name('company-user.destroy');

@@ -2,11 +2,16 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateInvitationRequest;
+use App\Mail\UserInvitationMail;
 use App\Models\Company;
 use App\Models\Siterole;
+use App\Models\UserInvitation;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UsersController extends Controller
 {
@@ -21,7 +26,25 @@ class UsersController extends Controller
 
     //Company add user form
     public function addUserForm() {
-        return view('company.user-add')->with('authUser', Auth::user());
+        $authUser = Auth::user();
+        $authUserCompany = $authUser->company();
+        $authUserCompanyRoles = $authUserCompany->companyroles;
+
+        return view('company.user-add')->with(['authUser' => $authUser, 'authUserCompanyRoles' => $authUserCompanyRoles]);
+    }
+
+    // Company invites a new user to the company
+    public function inviteUser(CreateInvitationRequest $request) {
+        $requestData = $request->except('_token');
+        $requestData['password'] = $requestData['password'] ? $requestData['password'] : Str::random(10);
+        $requestData['company_id'] = Auth::user()->company_id;
+
+        $userInvitation = UserInvitation::create($requestData);
+
+        // 1. Send invitation email
+        Mail::to($requestData['email'])->send(new UserInvitationMail($userInvitation));
+
+        return redirect()->route('company-users.index')->with('success', __('messages.User_invitation_sent'));
     }
 
 

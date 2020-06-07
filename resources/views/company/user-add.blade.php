@@ -5,6 +5,7 @@
 @section('content')
 
     <div class="container-fluid bg-profile admin-container">
+        @include('layouts.notifications')
         <div class="container bg-profile">
             <div class="row" id="view">
                 <div class="col-xl-9">
@@ -15,52 +16,41 @@
                     <div class="panel">
                     </div>
 
-
-                    <form method="POST" action=""
-                          accept-charset="UTF-8"><input name="token" type="hidden"
-                                                        value="">
-
+                    <form method="POST" action="{{ route('company-users.invite') }}" accept-charset="UTF-8">
+                        @csrf
                         <div class="box-white">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input class="form-control no-border" name="name" type="text" id="name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="surname">Surname</label>
-                                <input class="form-control no-border" name="surnamee" type="text" id="surname">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">E-Mail</label>
+                                <label for="email">{{ __('messages.Email') }} ({{ __('messages.Required') }})</label>
                                 <input class="form-control no-border" name="email" type="text" id="email">
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input class="form-control no-border" name="pnone" type="text" id="phone">
+                                <label for="name">{{ __('messages.Firstname') }}</label>
+                                <input class="form-control no-border" name="name" type="text" id="name">
                             </div>
 
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="surname">{{ __('messages.Surname') }}</label>
+                                <input class="form-control no-border" name="surname" type="text" id="surname">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">{{ __('messages.Phone') }}</label>
+                                <input class="form-control no-border" name="phone" type="text" id="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">{{ __('messages.Password') }}</label>
                                 <input class="form-control no-border" name="password" type="text" value="" id="password">
                             </div>
 
                             <div class="form-group">
-                                <label for="role">Role</label><br>
-                                <input id="admin" name="roles[]" type="checkbox" value="admin">
-                                <label for="admin">Admin</label><br>
-                                <input id="employee" name="employee" type="checkbox" value="employee">
-                                <label for="employee">Employee</label><br>
-                                <input id="intern" name="roles[]" type="checkbox" value="intern">
-                                <label for="intern">Probationer</label><br>
+                                <label for="role">{{ __('messages.Role') }}</label><br>
+                                @foreach ($authUserCompanyRoles as $role)
+                                    <input id="{{ $role->name }}" name="roles[]" type="checkbox" value="{{ $role->name }}">
+                                    <label for="{{ $role->name }}">{{ $role->name }}</label><br>
+                                @endforeach
                             </div>
-
-                            <div class="form-group">
-                                <input type="text" class="elfinder" value="" name="benutzerbild">
-                            </div>
-
-
                         </div>
 
                         <div class="form-group">
