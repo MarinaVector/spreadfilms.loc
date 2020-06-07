@@ -65,10 +65,10 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td colspan="4"><strong>Permissions</strong></td>
+                                <td colspan="4"><strong>Company Permissions</strong></td>
                             </tr>
                             <tr>
-                                <td>admin permissions
+                                <td>Admin Permissions
                                     <a href=""><i class="fal fa-pencil fa-fw"></i></a>
                                     <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
                                 </td>
@@ -81,10 +81,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="4"><strong>Roles</strong></td>
-                            </tr>
-                            <tr>
-                                <td>admin roles
+                                <td>Admin Roles
                                     <a href=""><i class="fal fa-pencil fa-fw"></i></a>
                                     <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
                                 </td>
@@ -97,10 +94,55 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="4"><strong>Users</strong></td>
+                                <td colspan="4"><strong>Company Roles</strong></td>
                             </tr>
                             <tr>
-                                <td>admin users
+                                <td>admin
+                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fal fa-check"></i>
+                                </td>
+                                <td class="text-center">
+                                </td>
+                                <td class="text-center">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>member
+                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fal fa-check"></i>
+                                </td>
+                                <td class="text-center">
+                                </td>
+                                <td class="text-center">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>actor
+                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fal fa-check"></i>
+                                </td>
+                                <td class="text-center">
+                                </td>
+                                <td class="text-center">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="4"><strong>Site Roles</strong></td>
+                            </tr>
+                            <tr>
+                                <td>superadmin
                                     <a href=""><i class="fal fa-pencil fa-fw"></i></a>
                                     <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
                                 </td>
@@ -113,7 +155,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>view users
+                                <td>admin
                                     <a href=""><i class="fal fa-pencil fa-fw"></i></a>
                                     <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
                                 </td>
@@ -126,7 +168,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>create users
+                                <td>member
                                     <a href=""><i class="fal fa-pencil fa-fw"></i></a>
                                     <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
                                 </td>
@@ -138,601 +180,12 @@
                                 <td class="text-center">
                                 </td>
                             </tr>
+
+
+
+
                             <tr>
-                                <td>edit users
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>delete users
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Manager</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view manager
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>create manager
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit manager
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Manager</strong></td>
-                            </tr>
-                            <tr>
-                                <td>delete Manager
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Consultant</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view Consultant
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>create Consultant
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit Consultant
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>delete Consultant
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>User</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view user
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>create user
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit user
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>delete user
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Projects</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view projects
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>create projects
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit projects
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>delete projects
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>close projects
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href="/"><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Сontacts</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view Сontacts
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>create сontacts
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit сontacts
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>delete сontacts
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Pm</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view pm
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit pm
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Planning</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view planning
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Dashboard</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view dashboard
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href="/"><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Tutorials</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view tutorials
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>create tutorials
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit tutorials
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>delete tutorials
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Holidays</strong></td>
-                            </tr>
-                            <tr>
-                                <td>view holidays
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>create holidays
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>edit holidays
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>delete holidays
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>admin holidays
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Projects type</strong></td>
-                            </tr>
-                            <tr>
-                                <td>admin projects
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Sick days</strong></td>
-                            </tr>
-                            <tr>
-                                <td>admin sick days
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Calendar</strong></td>
-                            </tr>
-                            <tr>
-                                <td>admin calendar
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"><strong>Groups</strong></td>
-                            </tr>
-                            <tr>
-                                <td>admin groups
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <i class="fal fa-check"></i>
-                                </td>
-                                <td class="text-center">
-                                </td>
-                                <td class="text-center">
-                                </td>
-                            </tr>
-                            </tbody>
+                                                            </tbody>
                             <tfoot>
                             <tr>
                                 <th></th>
