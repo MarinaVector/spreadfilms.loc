@@ -86,4 +86,7 @@ class UserManagementController extends Controller
 
         return redirect(url()->previous())->with('success', __('messages.User_deleted'));
     }
+
+
+
 }

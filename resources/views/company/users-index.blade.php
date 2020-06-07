@@ -49,8 +49,17 @@
                                                 <div class="btn-group pull-right mt-2">
                                                     <a href="/" class="btn btn-sm btn-change"><i
                                                             class="fas fa-pen fa-fw fas-admin mr-1"></i>Edit</a>
-                                                    <a href="/" class="btn btn-sm btn-change"><i
-                                                            class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a>
+                                                  <!--  <a href="/" class="btn btn-sm btn-change"><i
+                                                            class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a> -->
+
+                                                        <form action="/admin/user/destroy" method=POST>
+                                                            @csrf
+                                                            <input type="hidden" name="userId" value="{{$user->id}}" />
+                                                            <a class="btn btn-sm btn-change" onclick="event.preventDefault();
+                                                            if(confirm('Delete user ?')){this.form.submit();}"><i
+                                                                    class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a>
+                                                        </form>
+
                                                     <a href="/" class="btn btn-sm btn-change"><i
                                                             class="fas fas fa-sitemap fa-fw fas-admin mr-1"></i>Plan</a>
                                                 </div>

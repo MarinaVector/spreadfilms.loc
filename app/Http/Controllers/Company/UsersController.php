@@ -23,4 +23,6 @@ class UsersController extends Controller
     public function addUserForm() {
         return view('company.user-add')->with('authUser', Auth::user());
     }
+
+
 }
