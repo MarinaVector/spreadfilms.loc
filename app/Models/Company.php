@@ -22,13 +22,7 @@ class Company extends Model
         return $this->hasMany('App\User');
     }
 
-    /**
-     * Get the roles of this company
-     */
-    public function roles() {
-        return $this->hasManyThrough('App\Models\Siterole', 'App\Models\Pivots\CompanyCompanyrole'
-
-        );
-        //return $this->hasManyThrough('App\Post', 'App\User');
+    public function companyroles() {
+        return $this->belongsToMany('App\Models\Companyrole', 'company_companyrole', 'company_id', 'role_id');
     }
 }
