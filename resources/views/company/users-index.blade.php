@@ -52,12 +52,12 @@
                                                   <!--  <a href="/" class="btn btn-sm btn-change"><i
                                                             class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a> -->
 
-                                                        <form action="/admin/user/destroy" method=POST>
+                                                        <form action="{{ route('company-user.delete') }}" method="POST" id="deleteUserForm" name="deleteUserForm">
                                                             @csrf
                                                             <input type="hidden" name="userId" value="{{$user->id}}" />
-                                                            <a class="btn btn-sm btn-change" onclick="event.preventDefault();
-                                                            if(confirm('Delete user ?')){this.form.submit();}"><i
-                                                                    class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a>
+                                                            <a class="btn btn-sm btn-change" onclick="event.preventDefault(); if(confirm('Delete user ?')){document.getElementsByName('deleteUserForm')[0].submit();}">
+                                                                <i class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>{{ __('messages.Delete') }}
+                                                            </a>
                                                         </form>
 
                                                     <a href="/" class="btn btn-sm btn-change"><i

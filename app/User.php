@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Pivots\UserCompanyrole as UserCompanyrolePivot;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -70,7 +71,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function companyrolesList() {
         $roles = $this->companyroles;
-        $rolesArr = [];
         foreach($roles as $role) {
             $rolesList[] = $role->name;
         }
@@ -86,5 +86,23 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getFullNameAttribute()
     {
         return "{$this->firstname} {$this->surname}";
+    }
+
+    /**
+     * Remove the user's companyrole.
+     *
+     * @return void
+     */
+    public function removeCompanyRoleByName($rolename) {
+        $roles = $this->companyroles;
+
+        foreach($roles as $role) {
+            if ($role->name == $rolename) {
+                UserCompanyrolePivot::where(['user_id' => $this->id, 'role_id' => $role->id])->delete();
+                return;
+            }
+        }
+
+        return;
     }
 }

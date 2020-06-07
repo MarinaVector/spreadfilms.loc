@@ -47,5 +47,17 @@ class UsersController extends Controller
         return redirect()->route('company-users.index')->with('success', __('messages.User_invitation_sent'));
     }
 
+    public function deleteUserFromCompany(Request $request) {
+        // 1. remove all user company roles
+        $user = User::find($request->get('userId'));
+        foreach ($user->companyroles as $role) {
+            $user->removeCompanyRoleByName($role->name);
+        }
 
+        // 2. set users company_id to null
+        $user->company_id = null;
+        $user->save();
+
+        return redirect()->route('company-users.index')->with('success', __('messages.User_removed_from_the_company'));
+    }
 }
