@@ -10,6 +10,7 @@ use App\Models\UserInvitation;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -81,6 +82,33 @@ class UsersController extends Controller
 
         return view('company.admin-user-edit')->with(['User' => $user_id]);
 
+    }
+
+    public function editUser($user_id) {
+        $user = User::find($user_id);
+
+        $authUser = Auth::user();
+        $authUserCompany = $authUser->company();
+        $authUserCompanyRoles = $authUserCompany->companyroles;
+
+        return view('company.user-edit')->with(['user' => $user, 'authUser' => $authUser, 'authUserCompanyRoles' => $authUserCompanyRoles]);
+    }
+
+    public function updateUser(Request $request, $user_id) {
+        $user = User::find($user_id);
+
+        $userData = $request->except(['_token', 'password', 'roles']);
+        if ($request->get('password')) {
+            $userData['password'] = Hash::make($request->get('password'));
+        }
+
+        // updating user fields
+        $user->update($userData);
+
+        // setting user companyroles
+        $user->setOnlyTheseRolesByRoleId($request->get('roles'));
+
+        return redirect()->route('company-users.index')->with('success', __('messages.User_edited'));
     }
 
 }

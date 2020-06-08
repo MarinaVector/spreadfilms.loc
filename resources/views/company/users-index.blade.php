@@ -47,7 +47,7 @@
                                             <td>{{ $user->companyrolesList() }}</td>
                                             <td>
                                                 <div class="btn-group pull-right mt-2">
-                                                    <a href="{{route('admin-company-user.edit')}}" class="btn btn-sm btn-change"><i
+                                                    <a href="{{ route('admin-company-user.edit', ['user_id' => $user->id]) }}" class="btn btn-sm btn-change"><i
                                                             class="fas fa-pen fa-fw fas-admin mr-1"></i>Edit</a>
                                                                                                       <!--  <a href="/" class="btn btn-sm btn-change"><i
                                                             class="fas fa-trash-alt fas-admin fa-fw mr-1"></i>Delete</a> -->

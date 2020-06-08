@@ -40,7 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/admin/roles_permissions/add', 'Company\CompanyController@storeRole')->name('company.role.store');
         Route::get('/admin/roles_permissions/edit/{role_id}', 'Company\CompanyController@editRole')->name('company.role.edit');
         Route::post('/admin/roles_permissions/update/{role_id}', 'Company\CompanyController@updateRole')->name('company.role.update');
-        Route::get('/admin/company/user/edit/$user_id', 'Company\UsersController@editUserRolesPermissions')->name('admin-company-user.edit');
+        Route::get('/admin/company/user/edit/{user_id}', 'Company\UsersController@editUser')->name('admin-company-user.edit');
+        Route::post('/admin/company/user/edit/{user_id}', 'Company\UsersController@updateUser')->name('admin-company-user.update');
         Route::post('/admin/user/delete', 'Company\UsersController@deleteUserFromCompany')->name('company-user.delete');
     });
 

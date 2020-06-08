@@ -139,4 +139,15 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return;
     }
+
+    public function setOnlyTheseRolesByRoleId(array $roles) {
+        //deleting all previous permissions
+        UserCompanyrolePivot::where('user_id', $this->id)->delete();
+
+        foreach ($roles as $roleId => $value) {
+            UserCompanyrolePivot::create(['user_id' => $this->id, 'role_id' => $roleId]);
+        }
+
+        return;
+    }
 }
