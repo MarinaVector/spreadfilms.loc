@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/roles_permissions', 'Company\CompanyController@rolesPermissionsPage')->name('company.roles-permissions-page');
         Route::get('/admin/roles_permissions/add', 'Company\CompanyController@addRoleForm')->name('company.role.add');
         Route::post('/admin/roles_permissions/add', 'Company\CompanyController@storeRole')->name('company.role.store');
+        Route::get('/admin/company/user/edit/$user_id', 'Company\UsersController@editUserRolesPermissions')->name('admin-company-user.edit');
         Route::post('/admin/user/delete', 'Company\UsersController@deleteUserFromCompany')->name('company-user.delete');
     });
 
