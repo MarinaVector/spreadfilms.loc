@@ -4,40 +4,9 @@
 
 @section('content')
 
-    <!--<div class="container-fluid bg-profile admin-container">
-        <div class="container bg-profile">
-            <div class="row" id="view">
-                <div class="col-xl-9">
-                    <div class="row">
-                        <h1 class="page-title">{{ __('messages.Roles_and_permissions')}}</h1>
-                    </div>
-
-                    <div class="btn-group group-actions mb-2" role="group">
-                        <a href="{{ route('company.role.add') }}" class="btn btn-admin "><i
-                                class="fas fa-plus-circle fas-admin"></i>
-                            Add role</a>
-                    </div>
-
-                    Roles and permissions like here <a href="https://verovis.spreadfilms.space/admin/permissions">
-                        https://verovis.spreadfilms.space/admin/permissions
-                    </a>
-                </div>
-                <div class="col-xl-3">
-                </div>
-            </div>
-        </div>
-              <div>
-            <v-dialog/>
-        </div>
-        <div>
-            <modals-container/>
-        </div>
-    </div>
-      -->
-
-
-                <div class="container-fluid bg-profile admin-container">
-                    <div class="container bg-roles">
+    <div class="container-fluid bg-profile admin-container">
+        @include('layouts.notifications')
+        <div class="container bg-roles">
             <div class="row">
                 <div class="col-xl-12 panel">
                     <div class="row">
@@ -48,7 +17,7 @@
                     <div class="btn-group group-actions mb-2" role="group">
                         <a href="{{ route('company.role.add') }}" class="btn btn-admin"><i
                                 class="fas fa-plus-circle fas-admin"></i>
-                            Add the permission</a>
+                            Add role</a>
                     </div>
 
 
@@ -212,8 +181,8 @@
                     </div>
                 </div>
              </div>
-                    </div>
-           </div>
+        </div>
+    </div>
 
 @endsection
 

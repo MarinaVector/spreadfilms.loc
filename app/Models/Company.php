@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pivots\CompanyCompanyrole as CompanyCompanyrolePivot;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
@@ -24,5 +25,13 @@ class Company extends Model
 
     public function companyroles() {
         return $this->belongsToMany('App\Models\Companyrole', 'company_companyrole', 'company_id', 'role_id');
+    }
+
+    public function addRoleByName($roleName) {
+        //create a role
+        $companyRole = Companyrole::create(['name' => $roleName]);
+
+        //assign this role to a company
+        CompanyCompanyrolePivot::create(['company_id' => $this->id, 'role_id' => $companyRole->id]);
     }
 }

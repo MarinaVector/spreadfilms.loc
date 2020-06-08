@@ -5,6 +5,7 @@
 @section('content')
 
     <div class="container-fluid bg-profile admin-container">
+        @include('layouts.notifications')
         <div class="container bg-profile">
             <div class="row" id="view">
                 <div class="col-xl-9">
@@ -16,10 +17,8 @@
                     </div>
 
 
-                    <form method="POST" action=""
-                          accept-charset="UTF-8"><input name="token" type="hidden"
-                                                        value="">
-
+                    <form method="POST" action="{{ route('company.role.store') }}" accept-charset="UTF-8">
+                        @csrf
                         <div class="box-white">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -31,7 +30,6 @@
                             <input class="btn btn-primary" type="submit" value="Save">
                             <a href="{{ route('company.roles-permissions-page') }}" class="btn btn-default">Cancel</a>
                         </div>
-
                     </form>
 
 

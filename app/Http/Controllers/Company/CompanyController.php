@@ -82,7 +82,10 @@ class CompanyController extends Controller
 
     //Company roles & permissions management
     public function rolesPermissionsPage() {
-        return view('company.roles-permissions-page')->with('authUser', Auth::user());
+        $authUser = Auth::user();
+        $authUserCompanyroles = $authUser->company()->companyroles;
+
+        return view('company.roles-permissions-page')->with(['authUser' => $authUser, 'authUserCompanyroles' => $authUserCompanyroles]);
     }
 
     //Company add role form
@@ -90,4 +93,12 @@ class CompanyController extends Controller
         return view('company.role-add')->with('authUser', Auth::user());
     }
 
+    public function storeRole(Request $request) {
+        $authUser = Auth::user();
+        $authUserCompany = $authUser->company();
+
+        $authUserCompany->addRoleByName($request->get('name'));
+
+        return redirect()->route('company.roles-permissions-page')->with('success', __('messages.Role_created'));
+    }
 }

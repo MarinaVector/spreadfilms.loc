@@ -113,6 +113,6 @@ class RegisterController extends Controller
         // deleting used invitation
         $userInvitation->delete();
 
-        return redirect()->route('company.start')->with('success', __('messages.Successfully_registered'));
+        return redirect()->route('profile.personal-info')->with('success', __('messages.Successfully_registered'));
     }
 }
