@@ -22,6 +22,7 @@ class CreateUserInvitationsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('roles')->nullable();
             $table->unsignedInteger('company_id');
+            $table->string('invite-uuid');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'firstname', 'surname', 'email', 'password', 'gender', 'native_language', 'country', 'postcode', 'location',
-        'street', 'homepage', 'phone', 'birth_year', 'company_id'
+        'street', 'homepage', 'phone', 'birth_year', 'company_id', 'email_verified_at'
     ];
 
     /**
@@ -86,6 +86,26 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getFullNameAttribute()
     {
         return "{$this->firstname} {$this->surname}";
+    }
+
+    /**
+     * Add a companyrole by name to the user.
+     *
+     * @return boolean
+     */
+    public function addCompanyRoleByName($rolename) {
+        $role = $this->company()->companyroles->where('name', $rolename)->first();
+
+        if($this->companyroles->where('name', $rolename)->first()){
+            return false; //cannot add role, it already exist
+        }
+
+        if ($role) {
+            UserCompanyrolePivot::create(['user_id' => $this->id, 'role_id' => $role->id]);
+            return true;
+        }
+
+        return false;
     }
 
     /**

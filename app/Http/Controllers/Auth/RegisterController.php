@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserInvitation;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Auth\Events\Registered;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Support\Carbon;
 
 class RegisterController extends Controller
 {
@@ -87,6 +89,29 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
+
+        return redirect()->route('company.start')->with('success', __('messages.Successfully_registered'));
+    }
+
+    public function acceptInvitation($uuid) {
+        $userInvitation = UserInvitation::where('invite-uuid', $uuid)->first();
+        $userInvitationArr = $userInvitation->toArray();
+        $userInvitationArr['email_verified_at'] = Carbon::now()->format('Y-m-d H:i:s');
+        $userInvitationArr['password'] = Hash::make($userInvitationArr['password']);
+        $rolesArr = explode(',', $userInvitationArr['roles']);
+        unset($userInvitationArr['roles']);
+
+        $user = User::create($userInvitationArr);
+
+        $this->guard()->login($user);
+
+        //assigning user roles
+        foreach($rolesArr as $rolename) {
+            $user->addCompanyRoleByName($rolename);
+        }
+
+        // deleting used invitation
+        $userInvitation->delete();
 
         return redirect()->route('company.start')->with('success', __('messages.Successfully_registered'));
     }

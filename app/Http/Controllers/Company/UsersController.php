@@ -38,8 +38,11 @@ class UsersController extends Controller
         $requestData = $request->except('_token');
         $requestData['password'] = $requestData['password'] ? $requestData['password'] : Str::random(10);
         $requestData['company_id'] = Auth::user()->company_id;
+        $requestData['invite-uuid'] = Str::uuid();
+        $requestData['roles'] = implode(",", $requestData['roles']);
 
         $userInvitation = UserInvitation::create($requestData);
+        $userInvitation->company_name = Auth::user()->company()->name;
 
         // 1. Send invitation email
         Mail::to($requestData['email'])->send(new UserInvitationMail($userInvitation));

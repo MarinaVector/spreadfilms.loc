@@ -25,8 +25,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="name">{{ __('messages.Firstname') }}</label>
-                                <input class="form-control no-border" name="name" type="text" id="name">
+                                <label for="firstname">{{ __('messages.Firstname') }}</label>
+                                <input class="form-control no-border" name="firstname" type="text" id="firstname">
                             </div>
 
                             <div class="form-group">

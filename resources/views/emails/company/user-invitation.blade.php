@@ -13,23 +13,6 @@
                         <div>
                             <div id="style_15915530541280273891_BODY">
                                 <div class="cl_603725">
-                                    <style>@media only screen and (max-width: 600px) {
-                                            .cl_603725 .inner-body_mr_css_attr {
-                                                width: 100% !important;
-                                            }
-
-                                            .cl_603725 .footer_mr_css_attr {
-                                                width: 100% !important;
-                                            }
-                                        }
-
-                                        @media only screen and (max-width: 500px) {
-                                            .cl_603725 .button_mr_css_attr {
-                                                width: 100% !important;
-                                            }
-                                        }
-                                    </style>
-
                                     <table class="wrapper_mr_css_attr" width="100%" cellpadding="0" cellspacing="0"
                                            role="presentation"
                                            style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont,
@@ -115,7 +98,9 @@
                                                                           font-weight: bold;margin-top: 0;text-align: left;">
                                                                             Hello!</h1>
                                                                         <p style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 16px;line-height: 1.5em;margin-top: 0;text-align: left;">
-                                                                            Please click the button below to acceppt invitation.</p>
+                                                                            Please click the button below to accept the invitation from company <strong>{{ $data['company_name'] }}</strong>.</p>
+                                                                        <p>Your password:</p>
+                                                                        <p><strong>{{ $data['password'] }}</strong></p>
                                                                         <table class="action_mr_css_attr" align="center"
                                                                                width="100%" cellpadding="0"
                                                                                cellspacing="0" role="presentation"
@@ -141,7 +126,7 @@
                                                                                                     <tbody>
                                                                                                     <tr>
                                                                                                         <td style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">
-                                                                                                            <a href="https://spreadfilms/email/verify/2/be1a30b74d8bf1f65a91ec239faf8a245dcdf9c3?expires=1591556647&amp;signature=ed2328ea9ab7c373db33f337d124d8d6a465a7d23c7c525a4497349b3dc9c41e"
+                                                                                                            <a href="{{ env('APP_URL') }}accept-invitation/{{ $data['invite-uuid'] }}"
                                                                                                                class="button_mr_css_attr button-primary_mr_css_attr"
                                                                                                                target="_blank"
                                                                                                                style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';-webkit-text-size-adjust: none;border-radius: 4px;color: #fff;display: inline-block;overflow: hidden;text-decoration: none;background-color: #2d3748;border-bottom: 8px solid #2d3748;border-left: 18px solid #2d3748;border-right: 18px solid #2d3748;border-top: 8px solid #2d3748;"
@@ -164,7 +149,7 @@
                                                                          'Apple Color Emoji', 'Segoe UI Emoji',
                                                                          'Segoe UI Symbol';font-size: 16px;line-height:
                                                                           1.5em;margin-top: 0;text-align: left;">
-                                                                            If you did not create an account, no further
+                                                                            If you do not expect any invites, no further
                                                                             action is required.</p>
                                                                         <p style="box-sizing: border-box;font-family:
                                                                         -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -207,10 +192,10 @@
                                                                                         into your web browser: <span
                                                                                             class="break-all_mr_css_attr"
                                                                                             style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';word-break: break-all;"><a
-                                                                                                href="{{ env('APP_URL') }}accept-invitation/{{ $data['id'] }}"
+                                                                                                href="{{ env('APP_URL') }}accept-invitation/{{ $data['invite-uuid'] }}"
                                                                                                 style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';color: #3869d4;"
                                                                                                 target="_blank"
-                                                                                                rel=" noopener noreferrer">{{ env('APP_URL') }}accept-invitation/{{ $data['id'] }}</a></span>
+                                                                                                rel=" noopener noreferrer">{{ env('APP_URL') }}accept-invitation/{{ $data['invite-uuid'] }}</a></span>
                                                                                     </p>
                                                                                 </td>
                                                                             </tr>
@@ -273,4 +258,21 @@
             </div>
         </div>
     </div>
+
+    <style>@media only screen and (max-width: 600px) {
+            .cl_603725 .inner-body_mr_css_attr {
+                width: 100% !important;
+            }
+
+            .cl_603725 .footer_mr_css_attr {
+                width: 100% !important;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .cl_603725 .button_mr_css_attr {
+                width: 100% !important;
+            }
+        }
+    </style>
 @endsection
