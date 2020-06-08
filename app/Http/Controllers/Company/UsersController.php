@@ -63,4 +63,24 @@ class UsersController extends Controller
 
         return redirect()->route('company-users.index')->with('success', __('messages.User_removed_from_the_company'));
     }
+
+
+
+    public static function editUserRolesPermissions($user_id)
+    {
+        // 1. edit user roles and permissions
+
+
+        $user = User::find($user_id);
+
+        //dd($user->Companyroles($user->companyrole));
+
+
+       // $user->role = $request->role;
+       // $user->save();
+
+        return view('company.admin-user-edit')->with(['User' => $user_id]);
+
+    }
+
 }
