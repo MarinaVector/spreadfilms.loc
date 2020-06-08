@@ -83,7 +83,7 @@ class CompanyController extends Controller
     //Company roles & permissions management
     public function rolesPermissionsPage() {
         $authUser = Auth::user();
-        $authUserCompanyroles = $authUser->company()->companyroles;
+        $authUserCompanyroles = $authUser->company()->companyroles->sortBy('name');
 
         $allCompanyPermissions = CompanyrolePermission::all();
 
