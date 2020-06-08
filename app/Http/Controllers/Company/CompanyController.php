@@ -85,7 +85,12 @@ class CompanyController extends Controller
         $authUser = Auth::user();
         $authUserCompanyroles = $authUser->company()->companyroles;
 
-        return view('company.roles-permissions-page')->with(['authUser' => $authUser, 'authUserCompanyroles' => $authUserCompanyroles]);
+        $allCompanyPermissions = CompanyrolePermission::all();
+
+        return view('company.roles-permissions-page')->with([
+            'authUser' => $authUser,
+            'authUserCompanyroles' => $authUserCompanyroles,
+            'allCompanyPermissions' => $allCompanyPermissions]);
     }
 
     //Company add role form
