@@ -19,7 +19,7 @@
                 </div>
                 <div class="box-white row table-user">
                     <div class="col box-white table-user">
-                        <div class="bg-col my-2" width="25%"><strong>Permissions</strong></div>
+                        <div class="bg-col my-2"><strong>Permissions</strong></div>
 
                         @foreach ($allCompanyPermissions as $permission)
                             <div class="bg-col my-2">
@@ -31,7 +31,12 @@
 
                     @foreach ($authUserCompanyroles as $role)
                         <div class="col">
-                            <div width="25%" class="text-center bg-col my-2"><strong>{{ $role->name }}</strong><i class="fal fa-pencil fa-fw mr-1"></i></div>
+                            <div class="text-center bg-col my-2">
+                                <strong>{{ $role->name }}</strong>
+                                <a href="{{ route('company.role.edit', ['role_id' => $role->id]) }}">
+                                    <i class="fal fa-pencil fa-fw mr-1"></i>
+                                </a>
+                            </div>
 
                             @foreach ($allCompanyPermissions as $permission)
                                 <div class="text-center bg-col my-2">
@@ -41,10 +46,10 @@
                                 </div>
                             @endforeach
 
-                            <div width="25%" class="text-center mb-2">
+                            <div class="text-center mb-2">
                                 <p class="mb-2"><strong>{{ $role->name }}</strong>
                                 <p>
-                                    <a href="" class="btn btn-sm px-3 btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
+                                    <a href="{{ route('company.role.edit', ['role_id' => $role->id]) }}" class="btn btn-sm px-3 btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
                                 </p>
                             </div>
                         </div>

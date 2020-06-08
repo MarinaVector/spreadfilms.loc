@@ -106,4 +106,25 @@ class CompanyController extends Controller
 
         return redirect()->route('company.roles-permissions-page')->with('success', __('messages.Role_created'));
     }
+
+    public function editRole($role_id) {
+        $companyRole = Companyrole::find($role_id);
+        $allCompanyPermissions = CompanyrolePermission::all();
+
+        return view('company.role-edit')->with([
+            'authUser' => Auth::user(),
+            'role' => $companyRole,
+            'allCompanyPermissions' => $allCompanyPermissions]);
+    }
+
+    public function updateRole(Request $request, $role_id) {
+        $companyRole = Companyrole::find($role_id);
+
+        $companyRole->name = $request->get('name');
+        $companyRole->save();
+
+        $companyRole->setOnlyThesePermissionsByPermissionId($role_id, $request->get('permissions'));
+
+        return redirect()->route('company.roles-permissions-page')->with('success', __('messages.Role_edited'));
+    }
 }

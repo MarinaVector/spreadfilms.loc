@@ -41,5 +41,7 @@ return [
     'Not_required' => 'Not required',
     'Required' => 'Required',
     'User_invitation_sent' => 'User invitation sent',
-    'Role_created' => 'Role created'
+    'Role_created' => 'Role created',
+    'Edit_role' => 'Edit role',
+    'Role_edited' => 'Role edited'
 ];
