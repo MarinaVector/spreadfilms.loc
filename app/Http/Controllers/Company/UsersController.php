@@ -70,8 +70,8 @@ class UsersController extends Controller
     {
         // 1. edit user roles and permissions
 
-
-        $user = User::find($user_id);
+        //$user = User::find($request->get('userId'));
+       $user = User::find($user_id);
 
         //dd($user->Companyroles($user->companyrole));
 
