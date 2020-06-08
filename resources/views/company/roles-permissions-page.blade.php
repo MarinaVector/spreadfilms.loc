@@ -44,69 +44,70 @@
                     </div>
 
                     <div class="btn-group group-actions mb-5" role="group">
-                        <a href="{{ route('company.role.add') }}" class="btn btn-admin"><i class="fas fa-plus-circle fas-admin mr-2"></i>
+                        <a href="{{ route('company.role.add') }}" class="btn btn-admin"><i
+                                class="fas fa-plus-circle fas-admin mr-2"></i>
                             Add the permission</a>
                     </div>
                     <div class="box-white row table-bordered table-user">
 
                         <div class="col box-white table-user">
 
-                                <div class="bg-col my-2" width="25%"></div>
+                            <div class="bg-col my-2" width="25%"></div>
 
 
-                                <div class="bg-col my-2" colspan="4"><strong>Company Permissions</strong></div>
+                            <div class="bg-col my-2" colspan="4"><strong>Company Permissions</strong></div>
 
-                                <div class="bg-col my-2">Admin Permissions
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">Admin Permissions
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
 
-                                <div class="bg-col my-2">Admin Roles
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">Admin Roles
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
 
-                                <div class="bg-col my-2" colspan="4"><strong>Company Roles</strong></div>
+                            <div class="bg-col my-2" colspan="4"><strong>Company Roles</strong></div>
 
-                                <div class="bg-col my-2">admin
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">admin
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
 
-                                <div class="bg-col my-2">member
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">member
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
 
-                                <div class="bg-col my-2">actor
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">actor
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
 
-                                <div class="bg-col my-2"colspan="4"><strong>Site Roles</strong></div>
+                            <div class="bg-col my-2" colspan="4"><strong>Site Roles</strong></div>
 
-                                <div class="bg-col my-2">superadmin
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">superadmin
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
 
-                                <div class="bg-col my-2">admin
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">admin
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
 
-                                <div class="bg-col my-2">member
-                                    <a href=""><i class="fal fa-pencil fa-fw"></i></a>
-                                    <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
-                                </div>
+                            <div class="bg-col my-2">member
+                                <a href=""><i class="fal fa-pencil fa-fw"></i></a>
+                                <a href=""><i class="fal fa-trash-alt fa-fw"></i></a>
+                            </div>
                         </div>
                         <div class="col">
 
-                                <div width="25%" class="text-center bg-col my-2"><strong>Admin</strong></div>
+                            <div width="25%" class="text-center bg-col my-2"><strong>Admin</strong></div>
 
-                                <div class="text-center bg-col my-2">
-                                    <i class="fal fa-check"></i>
-                                </div>
+                            <div class="text-center bg-col my-2">
+                                <i class="fal fa-check"></i>
+                            </div>
                             <div class="text-center bg-col my-2">
                                 <i class="fal fa-check"></i>
                             </div>
@@ -140,11 +141,12 @@
                             <div class="text-center my-2 bg-col">
 
                             </div>
-                                <div width="25%" class="text-center mb-2">
-                                    <p class="mb-2">Admin<p>
-                                        <a href="" class="btn btn-sm px-3 btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
-                                    </p>
-                                </div>
+                            <div width="25%" class="text-center mb-2">
+                                <p class="mb-2">Admin
+                                <p>
+                                    <a href="" class="btn btn-sm px-3 btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
+                                </p>
+                            </div>
                         </div>
                         <div class="col">
 
@@ -183,10 +185,11 @@
 
                             </div>
 
-                                <div width="26%" class="text-center mb-2">
-                                    <p class="mb-2">Employee<p>
-                                        <a href="" class="btn btn-sm px-3 btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
-                                </div>
+                            <div width="26%" class="text-center mb-2">
+                                <p class="mb-2">Employee
+                                <p>
+                                    <a href="" class="btn btn-sm px-3 btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
+                            </div>
                         </div>
 
                         <div class="col">
@@ -227,16 +230,18 @@
                             <div class="text-center my-2 bg-col">
                             </div>
 
-                                <div width="26%" class="text-center mb-2">
-                                    <p class="mb-2">Probationer<p>
-                                        <a href="" class="btn btn-sm px-3  btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
-                                </div>
-
+                            <div width="26%" class="text-center mb-2">
+                                <p class="mb-2">Probationer
+                                <p>
+                                    <a href="" class="btn btn-sm px-3  btn-sea"><i class="fal fa-pencil fa-fw mr-1"></i>Edit</a>
+                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('scripts')
@@ -351,7 +356,7 @@
         }
 
         .fa-check {
-            margin-top:15px;
+            margin-top: 15px;
         }
 
     </style>
