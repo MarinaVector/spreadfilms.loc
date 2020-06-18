@@ -78,6 +78,28 @@
                             component: separator
                         },
                         {
+                            title: 'Tutorials',
+                            icon: 'fa fa-graduation-cap',
+                            child: [
+                                {
+                                    href: '/module/tutorials',
+                                    title: 'View tutorials'
+                                },
+                                {
+                                    href: '/module/tutorials/admin',
+                                    title: 'Manage tutorials'
+                                },
+                                {
+                                    href: '/module/tutorials/templates',
+                                    title: 'Templates'
+                                },
+                                {
+                                    href: '/module/tutorials/settings',
+                                    title: 'Settings'
+                                },
+                            ]
+                        },
+                        {
                             title: 'Config',
                             icon: 'fa fa-cogs',
                             child: [

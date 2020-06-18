@@ -43,6 +43,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/company/user/edit/{user_id}', 'Company\UsersController@editUser')->name('admin-company-user.edit');
         Route::post('/admin/company/user/edit/{user_id}', 'Company\UsersController@updateUser')->name('admin-company-user.update');
         Route::post('/admin/user/delete', 'Company\UsersController@deleteUserFromCompany')->name('company-user.delete');
+
+        //Tutorials module
+        Route::get('/module/tutorials', 'Modules\Tutorials\TutorialsController@index')->name('module.tutorials.index');
+        Route::get('/module/tutorials/admin', 'Modules\Tutorials\TutorialsController@manageTutorials')->name('module.tutorials.admin');
+        Route::get('/module/tutorials/admin/add', 'Modules\Tutorials\TutorialsController@addTutorial')->name('module.tutorials.add');
     });
 
     //Site Config=================

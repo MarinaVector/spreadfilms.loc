@@ -45,5 +45,6 @@ return [
     'Edit_role' => 'Edit role',
     'Role_edited' => 'Role edited',
     'Edit_user' => 'Edit user',
-    'User_edited' => 'User edited'
+    'User_edited' => 'User edited',
+    'Tutorials' => 'Tutorials'
 ];
