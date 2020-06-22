@@ -42,13 +42,25 @@ class ProfileController extends Controller
         return redirect()->route('profile.personal-info')->with('success', __('messages.Information_saved_successfully'));
     }
 
-    public function passwordChangeStore(ChangePasswordRequest $request){
+    public function passwordChangeStore(ChangePasswordRequest $request)
+    {
         $user = Auth::user();
         $user->password = Hash::make($request->get('new_password'));
         $user->save();
 
         return redirect(url()->previous())->with('success', __('messages.Password_changed'));
+
     }
+
+        //============================
+    public function vueTest(){
+        $user = Auth::user();
+        $myVariable = "eXCom";
+
+        return view('profile.test-vue')->with(['authUser' => $user, 'myVariable' => $myVariable]);
+    }
+
+
 
 
 

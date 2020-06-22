@@ -59,7 +59,15 @@ Route::group(['middleware' => 'auth'], function () {
             'user-management' => 'user',
         ]]);
     });
+
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+
+
+
     //============================
+    Route::get('/vue-test-component', 'Profile\ProfileController@vueTest');
 });
 
 
