@@ -215,19 +215,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 block-tutorial block">
-                    <div class="alert text-tutorial">
-                        <button type="button" class="close ml-3" data-dismiss="alert" aria-hidden="true"><i
-                                class="fa fa-trash-o blueiconcolor" aria-hidden="true"></i></button>
-                        <div class="default">
-                            <div class="inner-trigger">
-                                <i class="fa fa-bars blueiconcolor fa-5x">
-                                </i>
-                                <p class="ml-4 pl-2">Text</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="card p-2">
