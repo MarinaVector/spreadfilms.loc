@@ -18,12 +18,13 @@
 
                 <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial btn-circle new-text" type="button"><i
-                        class="fa fa-file-video-o fa-3x pt-2"></i>
+                <button class="mr-2 btn-tutorial btn-circle new-text" type="button"><i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                        class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
-                </button>
+                <!-- <button id="subscribeform" class="mr-2 btn-tutorial btn-circle" type="button"><i
+                             class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
+                     </button> -->
+                <span class="menage-block"><button onclick="showText()" class="subscribeform mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i></button></span>
+
                 <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-sliders fa-3x pt-2"></i>
@@ -43,17 +44,13 @@
                 <div class="">
                     <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-header fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-align-left fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-align-left fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-align-center fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-align-center fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-text-height fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-text-height fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-address-card-o fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-address-card-o fa-3x pt-2"></i>
                     </button>
                     <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
                     </button>
@@ -65,31 +62,24 @@
                 <p class="">Video</p>
                 <hr class="mr-5">
                 <div class="">
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-file-video-o fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-file-video-o fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-file-video-o fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-file-video-o fa-3x pt-2"></i>
                     </button>
                 </div>
 
                 <p class="">Image</p>
                 <hr class="mr-5">
                 <div class="">
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-picture-o fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-picture-o fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-slideshare fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-slideshare fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-toggle-on fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-toggle-on fa-3x pt-2"></i>
                     </button>
                     <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-grav fa-3x pt-2"></i>
                     </button>
@@ -100,11 +90,9 @@
                 <div class="mb-2">
                     <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-arrows-v fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-envelope-o fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-envelope-o fa-3x pt-2"></i>
                     </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-puzzle-piece fa-3x pt-2"></i>
+                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-puzzle-piece fa-3x pt-2"></i>
                     </button>
                     <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-question fa-3x pt-2"></i>
                     </button>
@@ -116,7 +104,7 @@
             </div>
         </div>
 
-
+        <div id="button-arrow2"></div>
         <form>
 
             <div class="container group">
@@ -125,21 +113,15 @@
                 <span class="highlight"></span>
                 <span class="bar"></span>
             </div>
-
-
         </form>
 
-
         <div class="container form-group paragraph-form-group">
-
             <input type="hidden" name="ideas">
-
-
             <div class="panel panel-default">
-
-                <h2 class="empty-paragraphs-message">Currently the Tutorial is still without content, modules can be
-                    selected above or a template can be loaded</h2>
-
+                <div class="panel-create">
+                    <h2 class="empty-paragraphs-message" id="empty-paragraphs">Currently the Tutorial is still without content, modules can be
+                        selected above or a template can be loaded</h2>
+                </div>
                 <div class="panel-heading">
                     <div class="panel-title">Background image for Tutorial Overview</div>
                     <div class="i-have-a-tooltip" data-description="Currently the Tutorial is still without content, modules can be selected above or a template
@@ -147,11 +129,10 @@
                         <div class="admin-description"></div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <img class="">
                     <div class="elfinder-container">
-                        <input id="hintergrundbild-image" class="elfinder-idea" name="image" type="hidden"/>
+                        <input id="hintergrundbild-image" class="elfinder-idea" name="image" type="hidden" />
                         <button data-inputid="hintergrundbild-image" class="popup_selector btn btn-default">
                             Select Wallpaper
                         </button>
@@ -164,12 +145,9 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title">Parent Topic</div>
-                            <div class="i-have-a-tooltip"
-                                 data-description="Choose a Tutorial that acts as a parent Tutorial.">
+                            <div class="i-have-a-tooltip" data-description="Choose a Tutorial that acts as a parent Tutorial.">
                                 <div class="admin-description"></div>
                             </div>
-
-
                         </div>
 
                         <div class="panel-body">
@@ -199,8 +177,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title">Categories</div>
-                            <div class="i-have-a-tooltip"
-                                 data-description="Choose a Tutorial that acts as a parent Tutorial.">
+                            <div class="i-have-a-tooltip" data-description="Choose a Tutorial that acts as a parent Tutorial.">
                                 <div class="admin-description"></div>
                             </div>
                         </div>
@@ -223,12 +200,9 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title"><span data-toggle="collapse" data-target="#collapse-staff">Employees assign</span><span
-                                    data-toggle="collapse" class="pull-right staff-toggler"
-                                    data-target="#collapse-staff"></span></div>
+                            <div class="panel-title"><span data-toggle="collapse" data-target="#collapse-staff">Employees assign</span><span data-toggle="collapse" class="pull-right staff-toggler" data-target="#collapse-staff"></span></div>
 
-                            <div class="i-have-a-tooltip"
-                                 data-description="Make the Tutorial visible to all or only selected employees">
+                            <div class="i-have-a-tooltip" data-description="Make the Tutorial visible to all or only selected employees">
                                 <div class="admin-description"></div>
                             </div>
                         </div>
@@ -259,9 +233,7 @@
                                         <td>
                                             <div class="btn-group pull-right">
 
-                                                <label class="btn btn-sm btn-default"><input type="hidden" value="0"
-                                                                                             name="attendees[67]"><input
-                                                        type="checkbox" value="1" name="attendees[67]"> </label>
+                                                <label class="btn btn-sm btn-default"><input type="hidden" value="0" name="attendees[67]"><input type="checkbox" value="1" name="attendees[67]"> </label>
                                             </div>
                                         </td>
                                     </tr>
@@ -276,12 +248,9 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="panel-title"><span data-toggle="collapse" data-target="#collapse-praktikanten">Probationers assign</span><span
-                                    data-toggle="collapse" class="pull-right staff-toggler"
-                                    data-target="#collapse-praktikanten"></span></div>
+                            <div class="panel-title"><span data-toggle="collapse" data-target="#collapse-praktikanten">Probationers assign</span><span data-toggle="collapse" class="pull-right staff-toggler" data-target="#collapse-praktikanten"></span></div>
 
-                            <div class="i-have-a-tooltip"
-                                 data-description="Make the Tutorial visible to either all or only selected probationers">
+                            <div class="i-have-a-tooltip" data-description="Make the Tutorial visible to either all or only selected probationers">
                                 <div class="admin-description"></div>
 
                             </div>
@@ -311,9 +280,7 @@
                                         <td>
                                             <div class="btn-group pull-right">
 
-                                                <label class="btn btn-sm btn-default"><input type="hidden" value="0"
-                                                                                             name="attendees[23]"><input
-                                                        type="checkbox" value="1" name="attendees[23]"> </label>
+                                                <label class="btn btn-sm btn-default"><input type="hidden" value="0" name="attendees[23]"><input type="checkbox" value="1" name="attendees[23]"> </label>
                                             </div>
                                         </td>
                                     </tr>
@@ -323,22 +290,39 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 block-tutorial block">
-                    <div class="alert text-tutorial">
-                        <button type="button" class="close ml-3" data-dismiss="alert" aria-hidden="true"><i
-                                class="fa fa-trash-o blueiconcolor" aria-hidden="true"></i></button>
-                        <div class="default">
-                            <div class="inner-trigger">
-                                <i class="fa fa-bars blueiconcolor fa-5x">
+
+
+
+                <div class='out-kod'></div>
+
+            </div>
+
+
+
+            <div class="card p-2">
+                <div class="container">
+                    <div class="row block-tutorial block-text">
+                        <div class="mt-4 ml-4">
+                            <button type="button" class="btn-icon"><i class="fa fa-arrows-v pt-2"></i></button>
+                        </div>
+                        <div class="mt-5">
+                            <div class="mt-5">
+                                <i class="fa fa-bars blueiconcolor fa-5x mt-5">
                                 </i>
-                                <p class="ml-4 pl-2">Text</p>
+                                <p class="mt-n3 ml-text">Text</p>
                             </div>
+                        </div>
+                        <div class="mt-4 mr-4">
+                            <button type="button" class="btn-icon mb-5"><i class="fa fa-trash-o pt-2"></i></button>
+                            <br>
+                            <button type="button" class="btn-icon mt-5 mb-4"><i class="fa fa-files-o pt-2"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<br>
 
 
 @endsection
@@ -346,6 +330,12 @@
 @section('scripts')
 
     <style>
+        .block-text {
+
+            display: flex;
+            justify-content: space-between;
+
+        }
 
         .default {
             margin: 0 auto;
@@ -363,13 +353,14 @@
             width: 100%;
             height: 100%;
             background-color: transparent;
-
-
         }
 
+        .ml-text {
+            margin-left: 35px;
+        }
 
         .block-tutorial {
-            display: none;
+
             width: 100%;
             position: absolute;
             top: 0;
@@ -377,7 +368,8 @@
             border: dotted 1px #333;
         }
 
-        .form-control, .form-control:focus {
+        .form-control,
+        .form-control:focus {
             font-size: 14px;
             background: #fff;
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
@@ -398,24 +390,6 @@
         .input-hidden:focus {
             outline: none;
         }
-
-        .taggle_placeholder {
-
-            position: absolute;
-            color: #ccc;
-            top: 12px;
-            left: 8px;
-            transition: opacity, .25s;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        #data-categories {
-            position: relative;
-        }
-
 
         .panel-title {
             font-size: 18px;
@@ -443,20 +417,11 @@
             cursor: help;
             top: 5px;
             right: 5px;
-
         }
 
-        .hierarchy-select {
+        .panel-heading {}
 
-        }
-
-        .panel-heading {
-
-        }
-
-        .panel-default {
-
-        }
+        .panel-default {}
 
         .panel {
             background: #fff;
@@ -475,9 +440,7 @@
             right: 5px;
         }
 
-        .label-danger {
-
-        }
+        .label-danger {}
 
         .elfinder-container {
             position: relative;
@@ -505,32 +468,30 @@
             padding: 20px;
         }
 
-        *, ::after, ::before {
+        *,
+        ::after,
+        ::before {
             box-sizing: border-box;
         }
 
-        user agent stylesheet
-        div {
-            display: block;
-        }
-
-        body.route-offer-show, body.route-offer-edit, body.route-offer-edit-hash, body.route-offer-create, body.route-tutorial-meta, body.route-tutorial-show, body.route-tutorial-edit, body.route-tutorial-create {
+        body.route-offer-show,
+        body.route-offer-edit,
+        body.route-offer-edit-hash,
+        body.route-offer-create,
+        body.route-tutorial-meta,
+        body.route-tutorial-show,
+        body.route-tutorial-edit,
+        body.route-tutorial-create {
             background-color: #fff;
             font-family: 'Didact Gothic', sans-serif;
 
         }
 
-        .form-group {
+        .form-group {}
 
-        }
-
-
-        .paragraph-form-group {
-
-        }
+        .paragraph-form-group {}
 
         .panel-heading {
-
             padding: 10px 15px;
             background: #FFFFFF;
             border-radius: 0;
@@ -553,15 +514,9 @@
             font-weight: bold;
         }
 
+        . dmin-description {}
 
-        . dmin-description {
-
-        }
-
-        .text {
-
-        }
-
+        .text {}
 
         .empty-paragraphs-message {
             padding: 50px 20px;
@@ -588,14 +543,23 @@
             padding: 5px 15px 5px 20px;
             display: inline-block;
             vertical-align: bottom;
-            margin-bottom: 12px;
-            margin-right: 20px;
-            margin-left: 20px;
             border-radius: 3px;
             background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
             color: #fff;
         }
 
+        .btn-icon {
+            background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+            color: #fff;
+            border: none;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
 
         .blueiconcolor {
             color: #00bff9 !important;
@@ -622,7 +586,6 @@
 
         }
 
-
         .i-have-a-tooltip:before {
             content: attr(data-description);
             box-sizing: border-box;
@@ -648,11 +611,9 @@
             top: 32px;
             z-index: 1;
         }
-
     </style>
 
     <script>
-
         function view(n) {
             style = document.getElementById(n).style;
             style.display = (style.display == 'block') ? 'none' : 'block';
@@ -663,24 +624,16 @@
         }
 
         document.addEventListener("click", changeText);
-        // document.addEventListener("click", change2);
 
-        // document.querySelector(".button-doc").onclick = function () {
-        //    let r = document.querySelector("div").classList.toggle("move");
-
-        //  }
-
-        let btn = document.querySelector(".button-doc");
-        btn.onclick = function () {
-            let element = document.querySelector(".block");
-            if (element.classList.contains("show-block")) {
-                element.classList.remove("show-block");
-            } else {
-                element.classList.add("show-block");
-            }
+        function showText() {
+            // return document.querySelector(".panel-create").append("ВСЕ ОК !");
+            let elemKod = document.getElementById("subscribe-form");
+            parent = elemKod.parentNode;
+            let cloneBlock = block.cloneNode(true);
+            //let elemOutKod = document.querySelector(".out-kod");
+            //elemOutKod.innerHTML += append('<div>' + elemKod + '</div>');
+            return document.querySelector(".out-kod").after(elemKod).innerHTML;
         }
-
-
     </script>
 
 
