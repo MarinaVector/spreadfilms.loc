@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('nav-component', require('./components/NavComponent.vue').default);
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
+Vue.component('layouts-panel', require('./components/modules/tutorials/admin/LayoutsPanel.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

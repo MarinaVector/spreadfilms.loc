@@ -6,122 +6,14 @@
 
     <div class="container bg-add">
         @include('layouts.notifications')
-        This page must be like <a href="https://verovis.spreadfilms.space/tools/tutorial/create" target="_blank">https://verovis.spreadfilms.space/tools/tutorial/create</a>
 
-        <div class="container inner-menu mt-3 pt-1">
-            <div class="mt-3 mb-3">
-                <a href="#">
-                    <button type="button" class="btn-blue layouts">
-                        Laouts filters<i class="fas fa-filter ml-1"></i>
-                    </button>
-                </a>
+        <layouts-panel></layouts-panel>
 
-                <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-file-video-o fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle new-text" type="button"><i
-                        class="fa fa-file-video-o fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                        class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-sliders fa-3x pt-2"></i>
-                </button>
-
-                <a href="#" onclick="view('hidden1'); return false">
-                    <button type="button" class="btn-blue button-arrow layouts">
-                        Show all<i class="fas fa-arrow-down ml-1"></i>
-                    </button>
-                </a>
-
-            </div>
-
-            <div id="hidden1" style="display: none;">
-                <p class="">Text</p>
-                <hr class="mr-5">
-                <div class="">
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-header fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-align-left fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-align-center fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-text-height fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-address-card-o fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
-                    </button>
-                </div>
-                <p class="">Video</p>
-                <hr class="mr-5">
-                <div class="">
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-file-video-o fa-3x pt-2"></i>
-                    </button>
-                </div>
-
-                <p class="">Image</p>
-                <hr class="mr-5">
-                <div class="">
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-picture-o fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-slideshare fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-toggle-on fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-grav fa-3x pt-2"></i>
-                    </button>
-                </div>
-
-                <p class="">Other</p>
-                <hr class="mr-5">
-                <div class="mb-2">
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-arrows-v fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-envelope-o fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i
-                            class="fa fa-puzzle-piece fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-question fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial" type="button"><i class="fa fa-quote-left fa-3x pt-2"></i>
-                    </button>
-                    <button class="mr-2 btn-tutorial" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-
-        <form>
+        <form method="POST" action="{{ route('module.tutorials.store') }}">
 
             <div class="container group">
                 <label for="name">Name</label>
-                <input class="input-hidden" type="text" required value="New Tutorial">
+                <input class="input-hidden" type="text" required placeholder="New Tutorial">
                 <span class="highlight"></span>
                 <span class="bar"></span>
             </div>
@@ -652,35 +544,11 @@
     </style>
 
     <script>
-
-        function view(n) {
-            style = document.getElementById(n).style;
+        function switchLayoutsPanel(panelId) {
+            style = document.getElementById(panelId).style;
             style.display = (style.display == 'block') ? 'none' : 'block';
+            document.querySelector(".button-arrow").innerHTML = (style.display == 'block') ? 'Hide<i class="fas fa-arrow-up ml-1"></i>' : 'Show all<i class="fas fa-arrow-down ml-1"></i>';
         }
-
-        function changeText() {
-            return document.querySelector(".button-arrow").innerHTML = "New text";
-        }
-
-        document.addEventListener("click", changeText);
-        // document.addEventListener("click", change2);
-
-        // document.querySelector(".button-doc").onclick = function () {
-        //    let r = document.querySelector("div").classList.toggle("move");
-
-        //  }
-
-        let btn = document.querySelector(".button-doc");
-        btn.onclick = function () {
-            let element = document.querySelector(".block");
-            if (element.classList.contains("show-block")) {
-                element.classList.remove("show-block");
-            } else {
-                element.classList.add("show-block");
-            }
-        }
-
-
     </script>
 
 
