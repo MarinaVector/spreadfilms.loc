@@ -229,6 +229,28 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card p-2">
+                <div class="container">
+                    <div class="row block-tutorial block-text">
+                        <div class="mt-4 ml-4">
+                            <button type="button" class="btn-icon"><i class="fa fa-arrows-v pt-2"></i></button>
+                        </div>
+                        <div class="mt-5">
+                            <div class="mt-5">
+                                <i class="fa fa-bars blueiconcolor fa-5x mt-5">
+                                </i>
+                                <p class="mt-n3 ml-text">Text</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 mr-4">
+                            <button type="button" class="btn-icon mb-5"><i class="fa fa-trash-o pt-2"></i></button>
+                            <br>
+                            <button type="button" class="btn-icon mt-5 mb-4"><i class="fa fa-files-o pt-2"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -257,16 +279,6 @@
             background-color: transparent;
 
 
-        }
-
-
-        .block-tutorial {
-            display: none;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            pointer-events: none;
-            border: dotted 1px #333;
         }
 
         .form-control, .form-control:focus {
@@ -461,13 +473,6 @@
             border-radius: 3px;
         }
 
-        .bg-add {
-            background-color: white;
-            color: #424242;
-            height: 100%;
-            width: 100%;
-        }
-
         .inner-menu {
             background: #ECECEC;
             text-align: left;
@@ -487,12 +492,6 @@
             background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
             color: #fff;
         }
-
-
-        .blueiconcolor {
-            color: #00bff9 !important;
-        }
-
 
         .float-e-margins .btn {
             margin-bottom: 5px;
@@ -539,6 +538,48 @@
             opacity: 1;
             top: 32px;
             z-index: 1;
+        }
+
+        .block-text {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ml-text {
+            margin-left: 35px;
+        }
+
+        .block-tutorial {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            pointer-events: none;
+            border: dotted 1px #333;
+        }
+
+
+        .bg-add {
+            background-color: white;
+            color: #424242;
+            height: 100%;
+            width: 100%;
+        }
+
+        .btn-icon {
+            background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+            color: #fff;
+            border: none;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        .blueiconcolor {
+            color: #00bff9 !important;
         }
 
     </style>
