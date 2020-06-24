@@ -21,4 +21,14 @@ class TutorialsController extends Controller
 
         return view('modules.tutorials.add')->with('authUser', Auth::user());
     }
+
+
+public function statisticsTutorial() {
+    $user = Auth::user();
+
+    return view('modules.tutorials.statistics')->with('authUser', Auth::user());
 }
+}
+
+
+
