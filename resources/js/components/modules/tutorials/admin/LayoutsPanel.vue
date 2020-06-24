@@ -7,31 +7,36 @@
                 </button>
             </a>
 
-            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Video">
+            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
+                    data-placement="bottom" title="Video">
                 <i class="fa fa-file-video-o fa-3x pt-2"></i>
             </button>
-            <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip" data-placement="bottom" title="Video with Background">
+            <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip"
+                    data-placement="bottom" title="Video with Background">
                 <i class="fa fa-file-video-o fa-3x pt-2"></i>
             </button>
-            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Normal Text">
+            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
+                    data-placement="bottom" title="Normal Text">
                 <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
             </button>
-            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Text and Picture">
+            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
+                    data-placement="bottom" title="Text and Picture">
                 <i class="fa fa-id-card fa-3x pt-2"></i>
             </button>
-            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Picture-Slider">
+            <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
+                    data-placement="bottom" title="Picture-Slider">
                 <i class="fa fa-sliders fa-3x pt-2"></i>
             </button>
 
-            <a href="#" onclick="switchLayoutsPanel('layouts-panel'); return false">
-                <button type="button" class="btn-blue button-arrow layouts">
+            <a href="#" @click="switchLayoutsPanel()">
+                <button type="button" class="btn-blue button-arrow layouts" ref="layoutsButton">
                     Show all<i class="fas fa-arrow-down ml-1"></i>
                 </button>
             </a>
 
         </div>
 
-        <div id="layouts-panel" style="display: none;">
+        <div id="layoutsPanel" ref="layoutsPanel" :style="{ display: 'none' }">
             <p class="">Text</p>
             <hr class="mr-5">
             <div class="">
@@ -112,13 +117,6 @@
 </template>
 
 <script>
-
-    import {SidebarMenu} from 'vue-sidebar-menu';
-
-    const separator = {
-        template: `<hr style="border-color: #D4D4D4; margin: 15px 0;">`
-    };
-
     export default {
         props: [
 
@@ -132,16 +130,20 @@
 
         },
         methods: {
-
+            switchLayoutsPanel: function() {
+                this.$refs.layoutsPanel.style.display = (this.$refs.layoutsPanel.style.display === 'none') ? 'block' : 'none';
+                this.$refs.layoutsButton.innerHTML = (this.$refs.layoutsPanel.style.display === 'none') ? 'Show all<i class="fas fa-arrow-down ml-1"></i>' : 'Hide<i class="fas fa-arrow-up ml-1"></i>';
+            }
         },
         mounted() {
             $('.tooltip-btn').tooltip();
         },
-        components: {
-
+        computed: {
+            computedLayoutsDisplay: function () {
+                return this.layoutsDisplay;
+            }
         }
     };
-
 </script>
 
 <style>

@@ -23,6 +23,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('nav-component', require('./components/NavComponent.vue').default);
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
 Vue.component('layouts-panel', require('./components/modules/tutorials/admin/LayoutsPanel.vue').default);
+Vue.component('tutorial-page-builder', require('./components/modules/tutorials/admin/PageBuilder.vue').default);
+Vue.component('save-cancel-block', require('./components/modules/tutorials/admin/SaveCancelBlock.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
