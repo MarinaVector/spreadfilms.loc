@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-3 pt-1">
+    <div class="container mt-3 pt-1 button-selection">
 
         <div class="box-white row" id="option-buttons-form">
             <div class="col-12 inner-menu">
@@ -35,11 +35,19 @@
 </script>
 
 <style>
+
+    .button-selection {
+        position: relative;
+        margin: 0 auto;
+    }
+
     #option-buttons-form > div {
         background: #ECECEC;
         border: solid 1px #aaa;
         padding: 20px 20px 10px 20px;
         border-bottom: none;
+        bottom: 0;
+        margin: 0 auto;
     }
 
     .btn:not(.btn-sm) {

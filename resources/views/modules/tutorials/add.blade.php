@@ -8,7 +8,7 @@
 
         <layouts-panel></layouts-panel>
 
-        <form method="POST" action="{{ route('module.tutorials.store') }}">
+        <form class="no-bottom" method="POST" action="{{ route('module.tutorials.store') }}">
             <tutorial-page-builder></tutorial-page-builder>
         </form>
     </div>

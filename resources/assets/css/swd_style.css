@@ -1030,3 +1030,10 @@ input:checked + .stlchek:before {
     display: inline-block;
     max-width: 35vw;
 }
+
+.no-bottom {
+    margin-block-end: 0!important;
+    bottom: 0!important;
+    margin: 0 auto!important;
+    margin-bottom: 0 !important;
+}

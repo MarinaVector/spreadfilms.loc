@@ -262,6 +262,15 @@
 </script>
 
 <style>
+
+    .paragraph-form-group {
+           margin-block-end: 0!important;
+            bottom: 0!important;
+            margin: 0 auto!important;
+            margin-bottom: 0!important;
+            }
+
+
     .form-control, .form-control:focus {
         font-size: 14px;
         background: #fff;
