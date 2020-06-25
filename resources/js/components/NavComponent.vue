@@ -97,6 +97,10 @@
                                     href: '/module/tutorials/settings',
                                     title: 'Settings'
                                 },
+                                {
+                                    href: '/module/tutorials/statistics',
+                                    title: 'Statistics'
+                                },
                             ]
                         },
                         {
