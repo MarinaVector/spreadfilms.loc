@@ -98,7 +98,10 @@
                                                                           font-weight: bold;margin-top: 0;text-align: left;">
                                                                             Hello!</h1>
                                                                         <p style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 16px;line-height: 1.5em;margin-top: 0;text-align: left;">
-                                                                            Please click the button below to accept the invitation from company <strong>{{ $data['company_name'] }}</strong>.</p>
+                                                                            Please click the button below to accept the
+                                                                            invitation from company
+                                                                            <strong>{{ $data['company_name'] }}</strong>.
+                                                                        </p>
                                                                         <p>Your password:</p>
                                                                         <p><strong>{{ $data['password'] }}</strong></p>
                                                                         <table class="action_mr_css_attr" align="center"
@@ -130,7 +133,8 @@
                                                                                                                class="button_mr_css_attr button-primary_mr_css_attr"
                                                                                                                target="_blank"
                                                                                                                style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';-webkit-text-size-adjust: none;border-radius: 4px;color: #fff;display: inline-block;overflow: hidden;text-decoration: none;background-color: #2d3748;border-bottom: 8px solid #2d3748;border-left: 18px solid #2d3748;border-right: 18px solid #2d3748;border-top: 8px solid #2d3748;"
-                                                                                                               rel=" noopener noreferrer">Accept Invitation</a>
+                                                                                                               rel=" noopener noreferrer">Accept
+                                                                                                                Invitation</a>
                                                                                                         </td>
                                                                                                     </tr>
                                                                                                     </tbody>
@@ -187,7 +191,8 @@
                                                                                      1.5em;margin-top: 0;text-align: left;
                                                                                      font-size: 14px;">
                                                                                         If you’re having trouble
-                                                                                        clicking the "Accept Invitation" button, copy and paste
+                                                                                        clicking the "Accept Invitation"
+                                                                                        button, copy and paste
                                                                                         the URL below
                                                                                         into your web browser: <span
                                                                                             class="break-all_mr_css_attr"
@@ -236,7 +241,8 @@
                                                                          'Apple Color Emoji', 'Segoe UI Emoji',
                                                                          'Segoe UI Symbol';line-height: 1.5em;margin-top:
                                                                          0;color: #b0adc5;font-size: 12px;text-align: center;">
-                                                                            © 2020 {{ env('APP_NAME') }}. All rights reserved.</p>
+                                                                            © 2020 {{ env('APP_NAME') }}. All rights
+                                                                            reserved.</p>
 
                                                                     </td>
                                                                 </tr>

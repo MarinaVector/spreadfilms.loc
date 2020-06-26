@@ -100,12 +100,6 @@
 
 @section('scripts')
     <style>
-        .btn-grey {
-         background: #eee !important;
-         border: 1px solid #ccc !important;
-         color: #333 !important;
-         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
-         }
 
         .btn-bg {
             background: #eee !important;
@@ -118,13 +112,6 @@
             background: #00bff9 !important;
         }
 
-       .btn-grey:hover {
-            color: #00bff9 !important;
-        }
-
-        .fa-personal:hover {
-            color: #00bff9 !important;
-        }
 
         .fa-profile {
             color: #3A3A3A !important;
@@ -133,12 +120,6 @@
             height: 26px !important;
         }
 
-        #fa-pencil {
-            color: #3A3A3A;
-            display: inline-block;
-            width: 26px;
-            height: 26px;
-        }
 
         .profile-line {
             background: linear-gradient(90deg, #232323 0%, #858585 100%);

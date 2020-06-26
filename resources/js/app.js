@@ -25,6 +25,8 @@ Vue.component('profile-component', require('./components/ProfileComponent.vue').
 Vue.component('layouts-panel', require('./components/modules/tutorials/admin/LayoutsPanel.vue').default);
 Vue.component('tutorial-page-builder', require('./components/modules/tutorials/admin/PageBuilder.vue').default);
 Vue.component('save-cancel-block', require('./components/modules/tutorials/admin/SaveCancelBlock.vue').default);
+Vue.component('signs-statistics', require('./components/modules/tutorials/admin/SignsStatistics').default);
+Vue.component('tutorials-statistics', require('./components/modules/tutorials/admin/TutorialsStatistics').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

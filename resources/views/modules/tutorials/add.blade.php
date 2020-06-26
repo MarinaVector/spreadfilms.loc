@@ -12,6 +12,12 @@
             @csrf
             <tutorial-page-builder></tutorial-page-builder>
         </form>
+        <div class="container mt-5">
+            <div class="row mt-5">
+
+            </div>
+        </div>
+
     </div>
 @endsection
 
