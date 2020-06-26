@@ -1,16 +1,4 @@
-@extends('layouts.profile')
-
-@section('title', 'Manage tutorials')
-
-@section('content')
-    <div class="container bg-add">
-        @include('layouts.notifications')
-
-        <form class="no-bottom" method="POST" action="{{ route('module.tutorials.store') }}">
-            @csrf
-            <tutorial-page-builder></tutorial-page-builder>
-        </form>
-    </div>
+<template>
     <div class="card p-2">
         <div class="container" style="width: 100%;">
             <div class="row block-tutorial block-text">
@@ -34,14 +22,32 @@
             </div>
         </div>
     </div>
-@endsection
+</template>
 
-@section('scripts')
-    <style>
+<script>
+    export default {
+        props: [],
+        data() {
+            return {};
+        },
+        created() {
 
-    </style>
+        },
+        methods: {
+            callParentDeleteParagraphBlock: function(paragraphBlock) {
+                alert('delete button triggered');
+                //this.$emit('childToParent', paragraphBlock);
+            }
+        },
+        mounted() {
 
-    <script>
+        },
+        computed: {}
+    };
+</script>
 
-    </script>
-@endsection
+<style>
+    .card{
+        /*min-height: 200px;*/
+    }
+</style>

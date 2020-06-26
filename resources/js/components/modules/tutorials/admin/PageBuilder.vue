@@ -1,6 +1,7 @@
 <template>
     <div class="container form-group paragraph-form-group">
 
+        <layouts-panel v-on:childToParent="addParagraphBlock"></layouts-panel>
         <!-- Tutorial Name Block -->
         <div class="container group">
             <label for="tutorial_name">Name</label>
@@ -12,34 +13,13 @@
         <div class="container group">
             <h2 class="empty-paragraphs-message">Currently the Tutorial is still without content, modules can be
                 selected above or a template can be loaded</h2>
+            <component
+                v-on:childToParent="deleteParagraph(paragraph)"
+                v-for="(paragraph, index) in paragraphs"
+                :key="index"
+                :is="paragraph"
+            />
 
-            <div v-for="paragrapgh in paragraphs">
-                <div>{{paragrapgh}}</div>
-            </div>
-
-            <!-- PageBuilderParagraphBlocks must be HERE
-                <div class="card p-2">
-                    <div class="container">
-                        <div class="row block-tutorial block-text">
-                            <div class="mt-4 ml-4">
-                                <button type="button" class="btn-icon"><i class="fa fa-arrows-v pt-2"></i></button>
-                            </div>
-                            <div class="mt-5">
-                                <div class="mt-5">
-                                    <i class="fa fa-bars blueiconcolor fa-5x mt-5">
-                                    </i>
-                                    <p class="mt-n3 ml-text">Text</p>
-                                </div>
-                            </div>
-                            <div class="mt-4 mr-4">
-                                <button type="button" class="btn-icon mb-5"><i class="fa fa-trash-o pt-2"></i></button>
-                                <br>
-                                <button type="button" class="btn-icon mt-5 mb-4"><i class="fa fa-files-o pt-2"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            -->
         </div>
         <!-- Default Page Block with PageBuilderParagraphBlocks -->
 
@@ -241,26 +221,33 @@
 </template>
 
 <script>
+    import NormalText from './paragraphs/NormalText'
+
     export default {
         props: [
 
         ],
         data() {
             return {
-                paragraphs: ['one', 'two', 'three']
+                paragraphs: []
             };
         },
         created() {
 
         },
         methods: {
-
+            addParagraphBlock (value) {
+                this.paragraphs.push(NormalText);
+            },
+            deleteParagraph (paragraph) {
+                console.log(paragraph);
+            }
         },
         mounted() {
 
         },
         components: {
-
+            NormalText
         }
     };
 

@@ -27,6 +27,7 @@ Vue.component('tutorial-page-builder', require('./components/modules/tutorials/a
 Vue.component('save-cancel-block', require('./components/modules/tutorials/admin/SaveCancelBlock.vue').default);
 Vue.component('signs-statistics', require('./components/modules/tutorials/admin/SignsStatistics').default);
 Vue.component('tutorials-statistics', require('./components/modules/tutorials/admin/TutorialsStatistics').default);
+Vue.component('normal-text', require('./components/modules/tutorials/admin/paragraphs/NormalText').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
