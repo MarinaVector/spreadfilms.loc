@@ -14,9 +14,10 @@
             <h2 class="empty-paragraphs-message">Currently the Tutorial is still without content, modules can be
                 selected above or a template can be loaded</h2>
             <component
-                v-on:childToParent="deleteParagraph(paragraph)"
+                v-on:childToParent="deleteParagraph(index, paragraph)"
                 v-for="(paragraph, index) in paragraphs"
-                :key="index"
+                :index="index"
+                :key="`${index}`"
                 :is="paragraph"
             />
 
@@ -239,8 +240,8 @@
             addParagraphBlock (value) {
                 this.paragraphs.push(NormalText);
             },
-            deleteParagraph (paragraph) {
-                console.log(paragraph);
+            deleteParagraph (i) {
+                this.paragraphs.splice(i, 1);
             }
         },
         mounted() {
