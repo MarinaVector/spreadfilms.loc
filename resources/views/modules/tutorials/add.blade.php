@@ -9,6 +9,7 @@
         <layouts-panel></layouts-panel>
 
         <form class="no-bottom" method="POST" action="{{ route('module.tutorials.store') }}">
+            @csrf
             <tutorial-page-builder></tutorial-page-builder>
         </form>
     </div>

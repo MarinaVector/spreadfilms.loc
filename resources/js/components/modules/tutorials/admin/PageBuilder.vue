@@ -12,6 +12,11 @@
         <div class="container group">
             <h2 class="empty-paragraphs-message">Currently the Tutorial is still without content, modules can be
                 selected above or a template can be loaded</h2>
+
+            <div v-for="paragrapgh in paragraphs">
+                <div>{{paragrapgh}}</div>
+            </div>
+
             <!-- PageBuilderParagraphBlocks must be HERE
                 <div class="card p-2">
                     <div class="container">
@@ -242,7 +247,7 @@
         ],
         data() {
             return {
-
+                paragraphs: ['one', 'two', 'three']
             };
         },
         created() {

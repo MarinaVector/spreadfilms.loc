@@ -16,7 +16,7 @@
                 <i class="fa fa-file-video-o fa-3x pt-2"></i>
             </button>
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
-                    data-placement="bottom" title="Normal Text">
+                    data-placement="bottom" title="Normal Text" @click="addParagraphBlock('normalText')">
                 <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
             </button>
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
@@ -133,6 +133,16 @@
             switchLayoutsPanel: function() {
                 this.$refs.layoutsPanel.style.display = (this.$refs.layoutsPanel.style.display === 'none') ? 'block' : 'none';
                 this.$refs.layoutsButton.innerHTML = (this.$refs.layoutsPanel.style.display === 'none') ? 'Show all<i class="fas fa-arrow-down ml-1"></i>' : 'Hide<i class="fas fa-arrow-up ml-1"></i>';
+            },
+            addParagraphBlock: function(blockType) {
+                switch (blockType) {
+                    case 'normalText':
+                        console.log('Need to add block of ' + blockType + ' type');
+                        //now need to insert a block into blocks container
+                        break;
+                    default:
+                        return;
+                }
             }
         },
         mounted() {
