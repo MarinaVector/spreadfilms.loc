@@ -15,6 +15,7 @@
                 selected above or a template can be loaded</h2>
             <component
                 v-on:childToParent="deleteParagraph(index, paragraph)"
+                v-on:duplicateParagraph="duplicateParagraph(index)"
                 v-for="(paragraph, index) in paragraphs"
                 :index="index"
                 :key="`${index}`"
@@ -223,6 +224,7 @@
 
 <script>
     import NormalText from './paragraphs/NormalText'
+    import Video from './paragraphs/Video'
 
     export default {
         props: [
@@ -237,18 +239,34 @@
 
         },
         methods: {
-            addParagraphBlock (value) {
-                this.paragraphs.push(NormalText);
+            addParagraphBlock (paragraphName) {
+                //console.log(value);
+                //this.paragraphs.push(NormalText);
+
+                switch (paragraphName) {
+                  case 'normalText':
+                    this.paragraphs.push(NormalText);
+                    break;
+                  case 'video':
+                    this.paragraphs.push(Video);
+                    break;
+                  default:
+                    return;
+                }
             },
-            deleteParagraph (i) {
-                this.paragraphs.splice(i, 1);
+            deleteParagraph (index) {
+                this.paragraphs.splice(index, 1);
+            },
+            duplicateParagraph (index) {
+                this.paragraphs.push(this.paragraphs[index]);
             }
         },
         mounted() {
 
         },
         components: {
-            NormalText
+            NormalText,
+            Video
         }
     };
 

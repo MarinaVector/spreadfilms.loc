@@ -8,7 +8,7 @@
             </a>
 
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
-                    data-placement="bottom" title="Video">
+                    data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('video')">
                 <i class="fa fa-file-video-o fa-3x pt-2"></i>
             </button>
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip"

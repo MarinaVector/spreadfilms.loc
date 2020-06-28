@@ -10,20 +10,21 @@
                 </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-1 offset-lg-5">
-                <div >
+        <div class="row my-5 pt-5">
+            <div class="my-5 col-lg-1 offset-lg-5">
+                <div class="my-5">
                     <div class="ml-5">
-                        <i class="fa fa-bars fa-3x blueiconcolor fa-5x">
+                        <i class="fa fa-file-video-o fa-3x blueiconcolor fa-5x mt-5">
                         </i>
                     </div>
-                    <p class="mt-n3 ml-text">Text</p>
+                    <p class="mt-n3 ml-text">Video</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-1 offset-lg-11">
-                <button type="button" class="btn-icon mb-3 ml-4" @click="callParentDuplicateParagraphBlock()">
+
+                <button type="button" class="btn-icon mt-5 mb-3 ml-4" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>
