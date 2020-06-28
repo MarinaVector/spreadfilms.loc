@@ -1,8 +1,8 @@
 <template>
-    <div class="container tutorial-video">
-        <div class="row mt-3">
+    <div class="container tutorial-text">
+        <div class="row mt-2">
             <div class="col-lg-1">
-                <button type="button" class="btn-icon"><i class="fa fa-arrows-v pt-2"></i></button>
+                <button type="button" class="btn-icon ml-n2"><i class="fa fa-arrows-v pt-2"></i></button>
             </div>
             <div class="col-lg-1 offset-lg-10">
                 <button type="button" class="btn-icon ml-4" @click="callParentDeleteParagraphBlock()">
@@ -11,19 +11,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-1 offset-lg-5">
-                <div >
-                    <div class="ml-5">
-                        <i class="fa fa-bars fa-3x blueiconcolor fa-5x">
-                        </i>
-                    </div>
-                    <p class="mt-n3 ml-text">Text</p>
-                </div>
+            <div class="col-lg-1 offset-lg-5 inner-trigger">
+                <button class="text-button ml-4 py-2 px-5" type="button">
+                    <i class="fa fa-bars blueiconcolor fa-5x">
+                    </i>
+                    <p class="mt-n3 mb-n1">Text</p>
+                </button>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-1 offset-lg-11">
-                <button type="button" class="btn-icon mb-3 ml-4" @click="callParentDuplicateParagraphBlock()">
+                <button type="button" class="btn-icon mb-2 ml-4" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>
@@ -43,10 +41,10 @@
 
         },
         methods: {
-            callParentDeleteParagraphBlock: function() {
+            callParentDeleteParagraphBlock: function () {
                 this.$emit('childToParent');
             },
-            callParentDuplicateParagraphBlock: function() {
+            callParentDuplicateParagraphBlock: function () {
                 this.$emit('duplicateParagraph');
             }
         },
@@ -58,20 +56,27 @@
 </script>
 
 <style>
-    .ml-text {
-        margin-left: 35px;
+
+    .inner-trigger {
+        transition: background-color .3s ease;
+        background-color: transparent;
+        padding: 5px 10px;
+        min-width: 160px;
+        text-align: center;
     }
 
-    .tutorial-video {
+    .text-button {
+        background-color: white;
+        border: none;
+    }
+
+    .tutorial-text {
         width: 100%;
         border: dotted 1px #333;
     }
 
-    .bg-add {
-        background-color: white;
-        color: #424242;
-        height: 100%;
-        width: 100%;
+    .tutorial-text:hover {
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
     .btn-icon {
@@ -85,9 +90,18 @@
         text-align: center;
         line-height: 40px;
         cursor: pointer;
+        opacity:0.5 !important;
+        transition: opacity .25s ease-in-out!important;
+        -moz-transition: opacity .25s ease-in-out!important;
+        -webkit-transition: opacity .25s ease-in-out!important;
+    }
+
+    .tutorial-text:hover .btn-icon {
+        opacity:1!important;
     }
 
     .blueiconcolor {
         color: #00bff9 !important;
     }
+
 </style>
