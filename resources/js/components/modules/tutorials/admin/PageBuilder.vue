@@ -3,37 +3,47 @@
 
         <layouts-panel v-on:childToParent="addParagraphBlock"></layouts-panel>
         <!-- Tutorial Name Block -->
-        <div class="container group">
-            <label for="tutorial_name">Name</label>
-            <input class="input-hidden" type="text" required placeholder="New Tutorial" name="tutorial_name" id="tutorial_name">
+        <div class="container group mt-5">
+            <label class="tutorial-name" for="tutorial_name">Name</label>
+            <div class="row mb-2">
+                <div class="col-lg-12">
+            <input class="input-hidden" type="text" required placeholder="New Tutorial" name="tutorial_name"
+                   id="tutorial_name">
+                </div>
+            </div>
         </div>
         <!-- Tutorial Name Block -->
 
         <!-- Default Page Block with PageBuilderParagraphBlocks -->
-        <div class="container group">
-            <h2 class="empty-paragraphs-message">Currently the Tutorial is still without content, modules can be
+        <div class="container group py-5 mt-2">
+            <h2 class="empty-paragraphs-message py-5">Currently the Tutorial is still without content, modules can be
                 selected above or a template can be loaded</h2>
-            <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
-                <div v-for="(paragraph, index) in paragraphs" class=".paragraph">
-                    <component
-                        v-on:childToParent="deleteParagraph(index)"
-                        v-on:duplicateParagraph="duplicateParagraph(index)"
-                        :index="index"
-                        :key="index"
-                        :is=paragraph.component
-                    />
-                </div>
-            </draggable>
+            <component
+                v-on:childToParent="deleteParagraph(index, paragraph)"
+                v-on:duplicateParagraph="duplicateParagraph(index)"
+                v-for="(paragraph, index) in paragraphs"
+                :index="index"
+                :key="`${index}`"
+                :is="paragraph"
+            />
+
         </div>
         <!-- Default Page Block with PageBuilderParagraphBlocks -->
 
         <!-- Tutorial Background Image -->
         <div class="container group">
-            <div class="panel-heading">
-                <div class="panel-title">Background image for Tutorial Overview</div>
-                <div class="i-have-a-tooltip" data-description="Currently the Tutorial is still without content, modules can be selected above or a template
-                            can be loaded">
-                    <div class="admin-description"></div>
+            <div class="panel-heading row">
+                <div class="col-lg-11">
+                    <div class="panel-title block-title">Background image for Tutorial Overview</div>
+                </div>
+                <div class="col-lg-1 pl-5 pl-2">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                    <question-dropdown :answerdropdown="'Currently the Tutorial is still without content, modules can ' +
+                     'be selected above or a template\n'+
+'                            can be loaded'"></question-dropdown>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -51,115 +61,113 @@
         <!-- Parent Topic, Categories and Visibility Blocks -->
         <div class="row mb-5 pb-5">
             <!-- Parent Topic Column -->
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">Parent Topic</div>
-                        <div class="i-have-a-tooltip"
-                             data-description="Choose a Tutorial that acts as a parent Tutorial.">
-                            <div class="admin-description"></div>
+                    <div class="panel-heading row">
+                        <div class="col-lg-11">
+                            <div class="panel-title block-title">Parent Topic</div>
+                        </div>
+                        <div class="col-lg-1">
+                            <question-dropdown
+                                :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
                         </div>
                     </div>
+                </div>
 
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <select class="form-control" id="parent_topic" name="parent_id">
-                                <option value="0">No Parent Tutorial</option>
-                                <option value="5">Welcome to Verovis!</option>
-                                <option value="10">What makes us successful</option>
-                                <option value="11">Our Vision</option>
-                                <option value="12">Onboarding for advisers</option>
-                                <option value="13">How was Verovis founded</option>
-                                <option value="14">Our Strategy</option>
-                                <option value="15">verovis DNA</option>
-                                <option value="16">Strategy, Values, #Project To A Successful Creators</option>
-                                <option value="17">Excellence Concept</option>
-                                <option value="22">New Tutorial</option>
-                            </select>
-                            <hr>
-                        </div>
+                <div class="panel-body block-title">
+                    <div class="form-group">
+                        <select class="form-control" id="parent_topic" name="parent_id">
+                            <option value="0">No Parent Tutorial</option>
+                            <option value="5">Welcome to Verovis!</option>
+                            <option value="10">What makes us successful</option>
+                            <option value="11">Our Vision</option>
+                            <option value="12">Onboarding for advisers</option>
+                            <option value="13">How was Verovis founded</option>
+                            <option value="14">Our Strategy</option>
+                            <option value="15">verovis DNA</option>
+                            <option value="16">Strategy, Values, #Project To A Successful Creators</option>
+                            <option value="17">Excellence Concept</option>
+                            <option value="22">New Tutorial</option>
+                        </select>
+                        <hr>
                     </div>
                 </div>
             </div>
             <!-- Parent Topic Column -->
 
             <!-- Categories Column -->
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">Categories</div>
-                        <div class="i-have-a-tooltip"
-                             data-description="Choose a Tutorial that acts as a parent Tutorial.">
-                            <div class="admin-description"></div>
+                    <div class="panel-heading row">
+                        <div class="col-lg-11">
+                            <div class="panel-title block-title">Categories</div>
                         </div>
-                    </div>
-
-                    <div class="panel-body">
-                        <div class="form-group">
-
-                            <select class="form-control" id="hierarchy-select" name="parent_id">
-                                <option value="0">Companies</option>
-                                <option value="5">Strategic value # successful creators</option>
-                                <option value="10">Superiority</option>
-
-                            </select>
-                            <hr>
+                        <div class="col-lg-1">
+                            <question-dropdown
+                                :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
                         </div>
                     </div>
                 </div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        <select class="form-control block-title" id="hierarchy-select" name="parent_id">
+                            <option value="0">Companies</option>
+                            <option value="5">Strategic value # successful creators</option>
+                            <option value="10">Superiority</option>
+                        </select>
+                        <hr>
+                    </div>
+                </div>
             </div>
+
             <!-- Categories Column -->
-
             <!-- Employees Assign -->
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title"><span data-toggle="collapse" data-target="#collapse-staff">Employees assign</span><span
-                            data-toggle="collapse" class="pull-right staff-toggler"
-                            data-target="#collapse-staff"></span></div>
-
-                        <div class="i-have-a-tooltip"
-                             data-description="Make the Tutorial visible to all or only selected employees">
-                            <div class="admin-description"></div>
+                    <div class="panel-heading row">
+                        <div class="col-lg-11">
+                            <div class="panel-title block-title"><span data-toggle="collapse" data-target="#collapse-staff">Employees assign</span><span
+                                data-toggle="collapse" class="pull-right staff-toggler"
+                                data-target="#collapse-staff"></span></div>
+                        </div>
+                        <div class="col-lg-1">
+                            <question-dropdown
+                                :answerdropdown="'Make the Tutorial visible to all or only selected employees'"></question-dropdown>
                         </div>
                     </div>
 
                     <div class="form-control">
                         <label for="visible_for_all">
-                            <input checked type="checkbox" name="visible_for_all" id="visible_for_all">
+                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_all" id="visible_for_all">
                             Make visible to all employees
                         </label>
                     </div>
                     <div class="panel-body collapse" id="collapse-staff">
-                        <div class="form-group">
-
+                        <div class="form-group block-title">
                             <table class="table">
                                 <thead>
                                 <th>Name</th>
                                 <th>E-Mail</th>
                                 <th>Status</th>
-                                <th><span class="pull-right">Assign</span></th>
+                                <th><span class="pull-right block-title">Assign</span></th>
                                 </thead>
                                 <tbody>
-
 
                                 <tr>
                                     <td>Andreas Ramelsberger</td>
                                     <td>ar@spreadfilms.de</td>
-                                    <td><span class="label label-danger">Not assigned</span></td>
+                                    <td><span class="label label-danger block-title">Not assigned</span></td>
                                     <td>
                                         <div class="btn-group pull-right">
-
                                             <label class="btn btn-sm btn-default"><input type="hidden" value="0"
                                                                                          name="attendees[67]"><input
                                                 type="checkbox" value="1" name="attendees[67]"> </label>
                                         </div>
                                     </td>
                                 </tr>
-
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
@@ -169,25 +177,24 @@
             <!-- Trainees Assign -->
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title"><span data-toggle="collapse" data-target="#collapse-praktikanten">Probationers assign</span><span
-                            data-toggle="collapse" class="pull-right staff-toggler"
-                            data-target="#collapse-praktikanten"></span></div>
-
-                        <div class="i-have-a-tooltip"
-                             data-description="Make the Tutorial visible to either all or only selected probationers">
-                            <div class="admin-description"></div>
-
+                    <div class="panel-heading row">
+                        <div class="col-lg-11">
+                            <div class="panel-title block-title"><span data-toggle="collapse" data-target="#collapse-praktikanten">Probationers assign</span><span
+                                data-toggle="collapse" class="pull-right staff-toggler"
+                                data-target="#collapse-praktikanten"></span></div>
                         </div>
-
+                        <div class="col-lg-1">
+                            <question-dropdown
+                                :answerdropdown="'Make the Tutorial visible to either all or only selected probationers'"></question-dropdown>
+                        </div>
                     </div>
-                    <div class="form-control">
+                    <div class="form-control block-title">
                         <label for="visible_for_trainees">
                             <input checked type="checkbox" name="visible_for_trainees" id="visible_for_trainees">
                             Make it visible to all probationers
                         </label>
                     </div>
-                    <div class="panel-body collapse" id="collapse-praktikanten">
+                    <div class="panel-body collapse block-title" id="collapse-praktikanten">
                         <div class="form-group">
                             <table class="table">
                                 <thead>
@@ -203,7 +210,6 @@
                                     <td><span class="label label-danger">Not assigned</span></td>
                                     <td>
                                         <div class="btn-group pull-right">
-
                                             <label class="btn btn-sm btn-default"><input type="hidden" value="0"
                                                                                          name="attendees[23]"><input
                                                 type="checkbox" value="1" name="attendees[23]"> </label>
@@ -219,26 +225,16 @@
             <!-- Trainees Assign -->
         </div>
         <!-- Parent Topic and Categories Block -->
-
         <save-cancel-block></save-cancel-block>
     </div>
 </template>
 
 <script>
-    let id = 0;
     import NormalText from './paragraphs/NormalText'
     import Video from './paragraphs/Video'
-    import draggable from 'vuedraggable'
 
     export default {
-        components: {
-            NormalText,
-            Video,
-            draggable
-        },
-        props: [
-
-        ],
+        props: [],
         data() {
             return {
                 paragraphs: []
@@ -248,27 +244,34 @@
 
         },
         methods: {
-            addParagraphBlock (paragraphName) {
+            addParagraphBlock(paragraphName) {
+                //console.log(value);
+                //this.paragraphs.push(NormalText);
+
                 switch (paragraphName) {
-                  case 'normalText':
-                    this.paragraphs.push({component: NormalText});
-                    break;
-                  case 'video':
-                    this.paragraphs.push({component: Video});
-                    break;
-                  default:
-                    return;
+                    case 'normalText':
+                        this.paragraphs.push(NormalText);
+                        break;
+                    case 'video':
+                        this.paragraphs.push(Video);
+                        break;
+                    default:
+                        return;
                 }
             },
-            deleteParagraph (index) {
+            deleteParagraph(index) {
                 this.paragraphs.splice(index, 1);
             },
-            duplicateParagraph (index) {
+            duplicateParagraph(index) {
                 this.paragraphs.push(this.paragraphs[index]);
             }
         },
         mounted() {
 
+        },
+        components: {
+            NormalText,
+            Video
         }
     };
 
@@ -277,11 +280,11 @@
 <style>
 
     .paragraph-form-group {
-           margin-block-end: 0!important;
-            bottom: 0!important;
-            margin: 0 auto!important;
-            margin-bottom: 0!important;
-            }
+        margin-block-end: 0 !important;
+        bottom: 0 !important;
+        margin: 0 auto !important;
+        margin-bottom: 0 !important;
+    }
 
 
     .form-control, .form-control:focus {
@@ -294,7 +297,8 @@
     }
 
     .input-hidden {
-        font-size: 18px;
+        font-size: 15px;
+        color: #777777;
         padding: 10px 10px 10px 5px;
         display: block;
         width: 300px;
@@ -308,31 +312,6 @@
 
     .panel-title {
         font-size: 18px;
-    }
-
-    div.admin-description:before {
-        content: "\f128";
-        font-family: "Font Awesome 5 Pro";
-        width: 25px;
-        height: 25px;
-        line-height: 25px;
-        text-align: center;
-        font-size: 1em;
-        border: solid 1px #333;
-        border-radius: 100%;
-        display: block;
-        font-weight: bold;
-    }
-
-    .admin-description {
-        float: right;
-        position: absolute;
-        margin-bottom: 5px;
-        opacity: 0.5;
-        cursor: help;
-        top: 5px;
-        right: 5px;
-
     }
 
     .panel {
@@ -396,16 +375,6 @@
         position: relative;
     }
 
-    .admin-description {
-        float: right;
-        position: absolute;
-        margin-bottom: 5px;
-        opacity: 0.5;
-        cursor: help;
-        top: 5px;
-        right: 5px;
-    }
-
     .panel-title {
         font-size: 18px;
         font-weight: bold;
@@ -421,8 +390,7 @@
         background: #ECECEC;
         text-align: left;
         border: solid 1px #aaa;
-        position: sticky;
-        top: 0;
+        border-top: none;
     }
 
     .layouts {
@@ -455,33 +423,6 @@
         background: #d5d5d5;
         border: 6px solid white;
         border-radius: 3px;
-
-    }
-
-    .i-have-a-tooltip:before {
-        content: attr(data-description);
-        box-sizing: border-box;
-        display: block;
-        background: white;
-        border: 1px solid black;
-        color: grey;
-        padding: 5px;
-        position: absolute;
-        left: 90%;
-        top: -30px;
-        margin-left: -100px;
-        width: 200px;
-        height: auto;
-        line-height: 15px;
-        border-radius: 2px;
-        opacity: 0;
-        transition: .25s ease-in-out;
-    }
-
-    .i-have-a-tooltip:hover:before {
-        opacity: 1;
-        top: 32px;
-        z-index: 1;
     }
 
     .block-text {
@@ -517,4 +458,21 @@
     .blueiconcolor {
         color: #00bff9 !important;
     }
+
+    .tutorial-name {
+        font-size: 16px;
+        color: #424242;
+    }
+
+    .empty-paragraphs-message {
+        font-size: 32px;
+        color: #424242;
+        font-weight: normal;
+        padding: 10px 40px;
+    }
+
+    .block-title {
+        color: #424242;
+    }
+
 </style>

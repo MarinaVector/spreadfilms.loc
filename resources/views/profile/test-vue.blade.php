@@ -5,5 +5,8 @@
 @section('content')
 
 
-    <vuetest-component :myvariable="'{{ $myVariable }}'" :marina="'developer'"></vuetest-component>
+    <vuetest-component :myvariable="'{{ $myVariable }}'" :marina="'developer8'"></vuetest-component>
+
+    <question-dropdown :answerdropdown="'developer88'"></question-dropdown>
 @endsection
+

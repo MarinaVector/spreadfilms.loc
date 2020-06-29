@@ -60,7 +60,11 @@ class ProfileController extends Controller
         return view('profile.test-vue')->with(['authUser' => $user, 'myVariable' => $myVariable]);
     }
 
-
+    public function vueQuestion(){
+        $user = Auth::user();
+        $questionAnswer = "eXCom";
+               return view('profile.test-vue')->with(['authUser' => $user, 'questionAnswer' => $questionAnswer]);
+    }
 
 
 
