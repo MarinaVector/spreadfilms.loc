@@ -13,15 +13,17 @@
         <div class="container group">
             <h2 class="empty-paragraphs-message">Currently the Tutorial is still without content, modules can be
                 selected above or a template can be loaded</h2>
-            <component
-                v-on:childToParent="deleteParagraph(index, paragraph)"
-                v-on:duplicateParagraph="duplicateParagraph(index)"
-                v-for="(paragraph, index) in paragraphs"
-                :index="index"
-                :key="`${index}`"
-                :is="paragraph"
-            />
-
+            <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
+                <div v-for="(paragraph, index) in paragraphs" class=".paragraph">
+                    <component
+                        v-on:childToParent="deleteParagraph(index)"
+                        v-on:duplicateParagraph="duplicateParagraph(index)"
+                        :index="index"
+                        :key="index"
+                        :is=paragraph.component
+                    />
+                </div>
+            </draggable>
         </div>
         <!-- Default Page Block with PageBuilderParagraphBlocks -->
 
@@ -223,10 +225,17 @@
 </template>
 
 <script>
+    let id = 0;
     import NormalText from './paragraphs/NormalText'
     import Video from './paragraphs/Video'
+    import draggable from 'vuedraggable'
 
     export default {
+        components: {
+            NormalText,
+            Video,
+            draggable
+        },
         props: [
 
         ],
@@ -240,15 +249,12 @@
         },
         methods: {
             addParagraphBlock (paragraphName) {
-                //console.log(value);
-                //this.paragraphs.push(NormalText);
-
                 switch (paragraphName) {
                   case 'normalText':
-                    this.paragraphs.push(NormalText);
+                    this.paragraphs.push({component: NormalText});
                     break;
                   case 'video':
-                    this.paragraphs.push(Video);
+                    this.paragraphs.push({component: Video});
                     break;
                   default:
                     return;
@@ -263,10 +269,6 @@
         },
         mounted() {
 
-        },
-        components: {
-            NormalText,
-            Video
         }
     };
 

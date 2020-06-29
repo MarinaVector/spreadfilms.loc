@@ -2,7 +2,9 @@
     <div class="container tutorial-video">
         <div class="row mt-2">
             <div class="col-lg-1">
-                <button type="button" class="btn-icon ml-n2"><i class="fa fa-arrows-v pt-2"></i></button>
+                <button type="button" class="btn-icon ml-n2 draggable">
+                    <i class="fa fa-arrows-v pt-2"></i>
+                </button>
             </div>
             <div class="col-lg-1 offset-lg-10">
                 <button type="button" class="btn-icon ml-4" @click="callParentDeleteParagraphBlock()">
