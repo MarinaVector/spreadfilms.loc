@@ -241,12 +241,11 @@
         ],
         data() {
             return {
-                paragraphs: [],
-                myArray: []
+                paragraphs: []
             };
         },
         created() {
-            id = this.paragraphs.length;
+
         },
         methods: {
             addParagraphBlock (paragraphName) {
@@ -269,13 +268,7 @@
             }
         },
         mounted() {
-            let arr1 = {component: NormalText};
-            let arr2 = {component: Video};
-            let arr3 = {component: NormalText};
 
-            this.myArray.push(arr1);
-            this.myArray.push(arr2);
-            this.myArray.push(arr3);
         }
     };
 
