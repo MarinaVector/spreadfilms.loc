@@ -419,7 +419,8 @@
         background: #ECECEC;
         text-align: left;
         border: solid 1px #aaa;
-        border-top: none;
+        position: sticky;
+        top: 0;
     }
 
     .layouts {

@@ -13,11 +13,11 @@
         <div class="row my-5 pt-5">
             <div class="col-lg-1 offset-lg-5 inner-trigger my-5">
                 <div class="my-5">
-                <button class="text-button ml-4 py-2 px-5 mt-2" type="button">
-                    <i class="fa fa-file-video-o blueiconcolor fa-5x">
-                    </i>
-                    <p class="mt-n3 mb-n1">Video</p>
-                </button>
+                    <button class="text-button ml-4 py-2 px-5 mt-2" type="button">
+                        <i class="fa fa-file-video-o blueiconcolor fa-5x">
+                        </i>
+                        <p class="mt-n3 mb-n1">Video</p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -80,6 +80,7 @@
 
     .tutorial-video:hover {
         background-color: rgba(0, 0, 0, 0.5);
+        transition: 3s;
     }
 
     .btn-icon {

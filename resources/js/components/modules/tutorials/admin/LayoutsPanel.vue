@@ -1,5 +1,5 @@
 <template>
-    <div class="container inner-menu mt-3 pt-1">
+    <div class="container inner-menu top-menu pt-1">
         <div class="mt-3 mb-3">
             <a href="#">
                 <button type="button" class="btn-blue layouts">
@@ -150,5 +150,15 @@
 </script>
 
 <style>
+    .inner-menu {
+        background: #ECECEC;
+        text-align: left;
+        border: solid 1px #aaa;
+        position: sticky;
+        top: 0;
+    }
 
+    .top-menu {
+        border-top: none;
+    }
 </style>

@@ -1,15 +1,17 @@
 <template>
     <div class="container mt-3 pt-1 button-selection">
+        <div class="row">
+            <div class="col-lg-12>
 
-        <div class="box-white row" id="option-buttons-form">
-            <div class="col-12 inner-menu">
+        <div class="box-white id="option-buttons-form">
+            </div>
+            <div class="col-lg-11 inner-menu pt-3">
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Save">
                     <a href="/module/tutorials/admin" class="btn btn-default ml-1">Cancel</a>
                     <input type="hidden" name="saveAsDraft" value="false">
                     <input type="hidden" name="openPreview" value="false">
                     <div class="pull-right">
-
                     </div>
                 </div>
             </div>
@@ -37,7 +39,8 @@
 <style>
 
     .button-selection {
-        position: relative;
+        position: fixed;
+        bottom: 0;
         margin: 0 auto;
     }
 
@@ -80,12 +83,13 @@
         font-size: 1rem;
         line-height: 1.5;
         border-radius: .25rem;
-        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-            }
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+    }
 
     .btn-default {
         background: #fff;
-        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
         color: #777777;
     }
 

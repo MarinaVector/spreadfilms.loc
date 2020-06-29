@@ -77,6 +77,7 @@
 
     .tutorial-text:hover {
         background-color: rgba(0, 0, 0, 0.5);
+        transition: 3s;
     }
 
     .btn-icon {
