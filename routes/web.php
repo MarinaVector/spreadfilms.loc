@@ -64,9 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
         ]]);
     });
 
-
-        //============================ for Marina after Delete (must do it Marina)
-    Route::get('/vue-test-component', 'Profile\ProfileController@vueTest');
-});
+      });
 
 
