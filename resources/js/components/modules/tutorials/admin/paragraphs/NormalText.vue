@@ -12,7 +12,7 @@
                 </button>
             </div>
         </div>
-        <div class="row">
+        <div class="row" @click="showTextModal()">
             <div class="col-lg-1 offset-lg-5 inner-trigger">
                 <button class="text-button ml-4 py-2 px-5" type="button">
                     <i class="fa fa-bars blueiconcolor fa-5x">
@@ -28,16 +28,25 @@
                 </button>
             </div>
         </div>
+
+        <NormalTextModal ref="showNormalTextModal"></NormalTextModal>
     </div>
 </template>
 
 <script>
+    import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
+
     export default {
+        components: {
+            NormalTextModal
+        },
         props: [
             'index'
         ],
         data() {
-            return {};
+            return {
+
+            };
         },
         created() {
 
@@ -48,6 +57,9 @@
             },
             callParentDuplicateParagraphBlock: function () {
                 this.$emit('duplicateParagraph');
+            },
+            showTextModal: function () {
+                this.$refs.showNormalTextModal.callWindow();
             }
         },
         mounted() {
@@ -106,5 +118,4 @@
     .blueiconcolor {
         color: #00bff9 !important;
     }
-
 </style>
