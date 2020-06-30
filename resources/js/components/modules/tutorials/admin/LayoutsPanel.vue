@@ -156,6 +156,7 @@
         border: solid 1px #aaa;
         position: sticky;
         top: 0;
+        z-index: 2;
     }
 
     .top-menu {

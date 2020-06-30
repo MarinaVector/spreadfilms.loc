@@ -25,8 +25,8 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 </head>
 <body id="body">
-    <div id="app">
-        @yield('body')
-    </div>
+<div id="app">
+    @yield('body')
+</div>
 </body>
 </html>

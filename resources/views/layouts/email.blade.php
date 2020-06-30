@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -24,7 +25,7 @@
         }
 
         div[style*="margin: 16px 0"] {
-            margin:0 !important;
+            margin: 0 !important;
         }
 
         table,
@@ -39,12 +40,13 @@
             table-layout: fixed !important;
             margin: 0 auto !important;
         }
+
         table table table {
             table-layout: auto;
         }
 
         img {
-            -ms-interpolation-mode:bicubic;
+            -ms-interpolation-mode: bicubic;
         }
 
         *[x-apple-data-detectors] {
@@ -63,8 +65,9 @@
             display: none !important;
             opacity: 0.01 !important;
         }
+
         img.g-img + div {
-            display:none !important;
+            display: none !important;
         }
 
         .button-link {
@@ -86,6 +89,7 @@
         .button-a {
             transition: all 100ms ease-in;
         }
+
         .button-td:hover,
         .button-a:hover {
             background: #555555 !important;
@@ -115,6 +119,6 @@
 
 </head>
 <body style="margin: 0; mso-line-height-rule: exactly;">
-    @yield('body')
+@yield('body')
 </body>
 </html>
