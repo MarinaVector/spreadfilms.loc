@@ -12,7 +12,8 @@
                 <i class="fa fa-file-video-o fa-3x pt-2"></i>
             </button>
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip"
-                    data-placement="bottom" title="Video with Background">
+                    data-placement="bottom" title="Video with Background"
+                    @click="callParentAddParagraphBlock('bgVideo')">
                 <i class="fa fa-file-video-o fa-3x pt-2"></i>
             </button>
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
@@ -20,11 +21,11 @@
                 <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
             </button>
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
-                    data-placement="bottom" title="Text and Picture">
+                    data-placement="bottom" title="Text and Picture" @click="callParentAddParagraphBlock('textImg')">
                 <i class="fa fa-id-card fa-3x pt-2"></i>
             </button>
             <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
-                    data-placement="bottom" title="Picture-Slider">
+                    data-placement="bottom" title="Picture-Slider" @click="callParentAddParagraphBlock('slider')">
                 <i class="fa fa-sliders fa-3x pt-2"></i>
             </button>
 
@@ -118,23 +119,19 @@
 
 <script>
     export default {
-        props: [
-
-        ],
+        props: [],
         data() {
-            return {
-
-            };
+            return {};
         },
         created() {
 
         },
         methods: {
-            switchLayoutsPanel: function() {
+            switchLayoutsPanel: function () {
                 this.$refs.layoutsPanel.style.display = (this.$refs.layoutsPanel.style.display === 'none') ? 'block' : 'none';
                 this.$refs.layoutsButton.innerHTML = (this.$refs.layoutsPanel.style.display === 'none') ? 'Show all<i class="fas fa-arrow-down ml-1"></i>' : 'Hide<i class="fas fa-arrow-up ml-1"></i>';
             },
-            callParentAddParagraphBlock: function(blockType) {
+            callParentAddParagraphBlock: function (blockType) {
                 this.$emit('childToParent', blockType);
             }
         },

@@ -15,7 +15,7 @@
         <div class="row mb-5 my-5">
             <div class="col-md-2 offset-md-5 col-12 mx-sm-auto buttons-box my-5 py-2">
                 <div>
-                    <button class="py-2 px-5 slide-border" type="button">
+                    <button class="py-2 px-5 first-button slide-border" type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
                         <div class="mb-n1">Slide 1</div>
@@ -25,7 +25,7 @@
                     <button class="text-button py-2 px-5" type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
-                        <div class="mb-n1">Slide add</div>
+                        <div class="mb-n1">Slide 2</div>
                     </button>
                 </div>
             </div>
@@ -38,7 +38,6 @@
             </div>
         </div>
     </div>
-
 
 </template>
 
@@ -70,10 +69,19 @@
 </script>
 
 <style scoped>
+
     .buttons-box {
         border-radius: 3px !important;
         background-color: white !important;
         height: auto;
         text-align: center;
     }
+
+    .first-button {
+
+        background-color: white;
+        border: none;
+        border-bottom: 1px solid grey !important;
+    }
+
 </style>

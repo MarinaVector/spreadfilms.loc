@@ -6,7 +6,8 @@
                     <div class="col-lg-9 mt-2 tutorial-text">
                         <div class="row">
                             <div class="col-lg-1 mt-2 ml-2">
-                                <button type="button" class="btn-icon ml-n2 draggable">
+                                <button type="button" class="btn-icon ml-n2 draggable"
+                                        @click="callParentDeleteParagraphBlock()">
                                     <i class="fa fa-arrows-v pt-2"></i>
                                 </button>
                             </div>
@@ -75,10 +76,10 @@
 
         },
         methods: {
-            callParentDeleteParagraphBlock: function() {
+            callParentDeleteParagraphBlock: function () {
                 this.$emit('childToParent');
             },
-            callParentDuplicateParagraphBlock: function() {
+            callParentDuplicateParagraphBlock: function () {
                 this.$emit('duplicateParagraph');
             }
         },

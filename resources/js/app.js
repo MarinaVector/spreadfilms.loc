@@ -28,7 +28,7 @@ Vue.component('save-cancel-block', require('./components/modules/tutorials/admin
 Vue.component('signs-statistics', require('./components/modules/tutorials/admin/SignsStatistics').default);
 Vue.component('tutorials-statistics', require('./components/modules/tutorials/admin/TutorialsStatistics').default);
 Vue.component('normal-text', require('./components/modules/tutorials/admin/paragraphs/NormalText').default);
-Vue.component('build-component', require('./components/modules/tutorials/admin/paragraphs/TextBild').default);
+Vue.component('text-img', require('./components/modules/tutorials/admin/paragraphs/TextImg').default);
 Vue.component('slider-add', require('./components/modules/tutorials/admin/paragraphs/SliderAdd').default);
 Vue.component('background-video', require('./components/modules/tutorials/admin/paragraphs/BackgroundVideo').default);
 Vue.component('question-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/QuestionDropdown').default);

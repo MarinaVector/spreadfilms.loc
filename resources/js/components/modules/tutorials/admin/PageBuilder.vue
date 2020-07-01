@@ -7,8 +7,8 @@
             <label class="tutorial-name" for="tutorial_name">Name</label>
             <div class="row mb-2">
                 <div class="col-lg-12">
-            <input class="input-hidden" type="text" required placeholder="New Tutorial" name="tutorial_name"
-                   id="tutorial_name">
+                    <input class="input-hidden" type="text" required placeholder="New Tutorial" name="tutorial_name"
+                           id="tutorial_name">
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <div class="col-lg-1 pl-5 pl-2">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-6">
-                    <question-dropdown :answerdropdown="'Currently the Tutorial is still without content, modules can ' +
+                            <question-dropdown :answerdropdown="'Currently the Tutorial is still without content, modules can ' +
                      'be selected above or a template\n'+
 '                            can be loaded'"></question-dropdown>
                         </div>
@@ -127,7 +127,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading row">
                         <div class="col-lg-11">
-                            <div class="panel-title block-title"><span data-toggle="collapse" data-target="#collapse-staff">Employees assign</span><span
+                            <div class="panel-title block-title"><span data-toggle="collapse"
+                                                                       data-target="#collapse-staff">Employees assign</span><span
                                 data-toggle="collapse" class="pull-right staff-toggler"
                                 data-target="#collapse-staff"></span></div>
                         </div>
@@ -139,7 +140,8 @@
 
                     <div class="form-control">
                         <label for="visible_for_all">
-                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_all" id="visible_for_all">
+                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_all"
+                                   id="visible_for_all">
                             Make visible to all employees
                         </label>
                     </div>
@@ -179,7 +181,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading row">
                         <div class="col-lg-11">
-                            <div class="panel-title block-title"><span data-toggle="collapse" data-target="#collapse-praktikanten">Probationers assign</span><span
+                            <div class="panel-title block-title"><span data-toggle="collapse"
+                                                                       data-target="#collapse-praktikanten">Probationers assign</span><span
                                 data-toggle="collapse" class="pull-right staff-toggler"
                                 data-target="#collapse-praktikanten"></span></div>
                         </div>
@@ -232,6 +235,9 @@
 <script>
     import NormalText from './paragraphs/NormalText'
     import Video from './paragraphs/Video'
+    import TextImg from './paragraphs/TextImg'
+    import SliderAdd from './paragraphs/SliderAdd'
+    import BackgroundVideo from './paragraphs/BackgroundVideo'
 
     export default {
         props: [],
@@ -244,7 +250,7 @@
 
         },
         methods: {
-            addParagraphBlock(paragraphName) {
+            addParagraphBlock: function (paragraphName) {
                 //console.log(value);
                 //this.paragraphs.push(NormalText);
 
@@ -254,6 +260,15 @@
                         break;
                     case 'video':
                         this.paragraphs.push(Video);
+                        break;
+                    case 'textImg':
+                        this.paragraphs.push(TextImg);
+                        break;
+                    case 'slider':
+                        this.paragraphs.push(SliderAdd);
+                        break;
+                    case 'bgVideo':
+                        this.paragraphs.push(BackgroundVideo);
                         break;
                     default:
                         return;
@@ -271,7 +286,10 @@
         },
         components: {
             NormalText,
-            Video
+            Video,
+            TextImg,
+            SliderAdd,
+            BackgroundVideo
         }
     };
 
