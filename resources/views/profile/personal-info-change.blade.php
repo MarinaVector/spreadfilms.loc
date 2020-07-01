@@ -126,17 +126,15 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group mt-2">
                     <input class="btn btn-primary btn-sea mr-1" type="submit" value="Save">
                     <a href="{{ route('profile.personal-info') }}" class="btn btn-cancel">Cancel</a>
                 </div>
-
             </form>
-
-
         </div>
     </div>
+
+
 @endsection
 
 @section('scripts')

@@ -38,64 +38,63 @@
                     <div class="col-12">
                         <table class="table">
                             <tbody>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Firstname') }}:</th>
-                                    <td>{{ $authUser->firstname }}</td>
+                            <tr>
+                                <th scope="row">{{ __('messages.Firstname') }}:</th>
+                                <td>{{ $authUser->firstname }}</td>
 
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Surname') }}:</th>
-                                    <td>{{ $authUser->surname }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Email') }}:</th>
-                                    <td>{{ $authUser->email }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Gender') }}:</th>
-                                    <td>{{ $authUser->showGender() }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Native_Language') }}:</th>
-                                    <td>{{ $authUser->native_language }} (not showing properly, need to fix later)</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Country') }}:</th>
-                                    <td>{{ $authUser->country }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Postcode') }}:</th>
-                                    <td>{{ $authUser->postcode }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Location') }}:</th>
-                                    <td>{{ $authUser->location }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Street') }}:</th>
-                                    <td>{{ $authUser->street }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Homepage') }}:</th>
-                                    <td>{{ $authUser->homepage }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Phone') }}:</th>
-                                    <td>{{ $authUser->phone }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{{ __('messages.Birth_Year') }}:</th>
-                                    <td>{{ $authUser->birth_year }}</td>
-                                </tr>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Surname') }}:</th>
+                                <td>{{ $authUser->surname }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Email') }}:</th>
+                                <td>{{ $authUser->email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Gender') }}:</th>
+                                <td>{{ $authUser->showGender() }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Native_Language') }}:</th>
+                                <td>{{ $authUser->native_language }} (not showing properly, need to fix later)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Country') }}:</th>
+                                <td>{{ $authUser->country }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Postcode') }}:</th>
+                                <td>{{ $authUser->postcode }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Location') }}:</th>
+                                <td>{{ $authUser->location }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Street') }}:</th>
+                                <td>{{ $authUser->street }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Homepage') }}:</th>
+                                <td>{{ $authUser->homepage }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Phone') }}:</th>
+                                <td>{{ $authUser->phone }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('messages.Birth_Year') }}:</th>
+                                <td>{{ $authUser->birth_year }}</td>
+                            </tr>
                             </tbody>
-
-
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('scripts')
@@ -140,6 +139,7 @@
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
         }
+
         .page-title {
             text-transform: uppercase;
             font-weight: normal;
@@ -156,6 +156,15 @@
             color: #212529;
             text-align: left;
         }
+
+        .slide-border {
+            border-bottom: 1px solid darkgray !important;
+            background-color: white !important;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
     </style>
 @endsection
 

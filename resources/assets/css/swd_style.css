@@ -8,6 +8,19 @@ body {
     overflow-x: hidden;
 }
 
+button:active, .btn:active,
+button:focus, .btn:focus {
+    outline: none;
+}
+
+button::-moz-focus-inner, .btn::-moz-focus-inner {
+    border: 0;
+}
+
+a:active,
+a:focus { outline: none;
+}
+
 .page-login, .page-register {
     font-family: 'Montserrat', sans-serif;
     background-size: cover;
@@ -1037,3 +1050,4 @@ input:checked + .stlchek:before {
     margin: 0 auto!important;
     margin-bottom: 0 !important;
 }
+
