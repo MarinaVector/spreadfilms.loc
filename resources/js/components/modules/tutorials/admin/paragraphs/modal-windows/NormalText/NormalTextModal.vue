@@ -1,61 +1,57 @@
 <template>
-    <div v-if="showTextModal">
-        <transition name="modal">
-            <div class="modal-mask">
-                <div class="modal-wrapper" @click="showTextModal = false">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true" @click="showTextModal = false">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Modal body text goes here.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" @click="showTextModal = false">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Header</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ckeditor :editor="editor" v-model="NormalTextHeader" :config="editorConfig"></ckeditor>
+                </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Text</h5>
+                </div>
+                <div class="modal-body">
+                    <ckeditor :editor="editor" v-model="NormalTextBody" :config="editorConfig"></ckeditor>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
-        </transition>
+        </div>
     </div>
 </template>
 
 <script>
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
     export default {
+        components: {
+
+        },
         data() {
             return {
-                showTextModal: false
+                editor: ClassicEditor,
+                NormalTextHeader: '<p>Header content</p>',
+                NormalTextBody: '<p>Header content</p>',
+                editorConfig: {
+                    // The configuration of the editor.
+                }
             };
         },
         methods: {
-            callWindow: function () {
-                this.showTextModal = true;
-            }
-        }
+
+        },
+        created() {
+
+        },
     };
 </script>
 
 <style>
-    .modal-mask {
-        position: fixed;
-        z-index: 9998;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, .5);
-        display: table;
-        transition: opacity .3s ease;
-    }
 
-    .modal-wrapper {
-        display: table-cell;
-        vertical-align: middle;
-    }
 </style>
