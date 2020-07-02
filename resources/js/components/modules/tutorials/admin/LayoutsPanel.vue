@@ -132,7 +132,7 @@
                 this.$refs.layoutsButton.innerHTML = (this.$refs.layoutsPanel.style.display === 'none') ? 'Show all<i class="fas fa-arrow-down ml-1"></i>' : 'Hide<i class="fas fa-arrow-up ml-1"></i>';
             },
             callParentAddParagraphBlock: function (blockType) {
-                this.$emit('childToParent', blockType);
+                this.$emit('addParagraphBlock', blockType);
             }
         },
         mounted() {

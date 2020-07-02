@@ -36,8 +36,8 @@
         data() {
             return {
                 editor: ClassicEditor,
-                NormalTextHeader: '<p>Header content</p>',
-                NormalTextBody: '<p>Header content</p>',
+                NormalTextHeader: '<p></p>',
+                NormalTextBody: '<p></p>',
                 editorConfig: {
                     // The configuration of the editor.
                 }

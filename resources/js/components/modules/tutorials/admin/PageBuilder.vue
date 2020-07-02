@@ -1,7 +1,7 @@
 <template>
     <div class="container form-group paragraph-form-group">
 
-        <layouts-panel v-on:childToParent="addParagraphBlock"></layouts-panel>
+        <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
         <!-- Tutorial Name Block -->
         <div class="container group mt-5">
             <label class="tutorial-name" for="tutorial_name">Name</label>
