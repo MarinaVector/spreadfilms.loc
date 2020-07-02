@@ -3,7 +3,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Header</h5>
+                    <h5 class="modal-title">Header</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -12,7 +12,7 @@
                     <ckeditor :editor="editor" v-model="NormalTextHeader" :config="editorConfig"></ckeditor>
                 </div>
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Text</h5>
+                    <h5 class="modal-title">Text</h5>
                 </div>
                 <div class="modal-body">
                     <ckeditor :editor="editor" v-model="NormalTextBody" :config="editorConfig"></ckeditor>
