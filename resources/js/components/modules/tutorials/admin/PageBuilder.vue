@@ -16,7 +16,7 @@
 
         <!-- Default Page Block with PageBuilderParagraphBlocks -->
         <div class="container group py-5 mt-2">
-            <h2 class="empty-paragraphs-message py-5">Currently the Tutorial is still without content, modules can be
+            <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still without content, modules can be
                 selected above or a template can be loaded</h2>
             <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
                 <div v-for="(paragraph, index) in paragraphs" class=".paragraph">

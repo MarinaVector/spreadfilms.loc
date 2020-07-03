@@ -6,6 +6,8 @@
     <div class="container bg-add">
         @include('layouts.notifications')
 
+        <a href="{{ route('elfinder.index') }}">Elfinder</a>
+
         <form class="no-bottom" method="POST" action="{{ route('module.tutorials.store') }}">
             @csrf
             <tutorial-page-builder></tutorial-page-builder>
