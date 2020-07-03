@@ -1,7 +1,7 @@
 <template>
     <div class="container form-group paragraph-form-group">
 
-        <layouts-panel v-on:childToParent="addParagraphBlock"></layouts-panel>
+        <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
         <!-- Tutorial Name Block -->
         <div class="container group mt-5">
             <label class="tutorial-name" for="tutorial_name">Name</label>
@@ -18,15 +18,17 @@
         <div class="container group py-5 mt-2">
             <h2 class="empty-paragraphs-message py-5">Currently the Tutorial is still without content, modules can be
                 selected above or a template can be loaded</h2>
-            <component
-                v-on:childToParent="deleteParagraph(index, paragraph)"
-                v-on:duplicateParagraph="duplicateParagraph(index)"
-                v-for="(paragraph, index) in paragraphs"
-                :index="index"
-                :key="`${index}`"
-                :is="paragraph"
-            />
-
+            <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
+                <div v-for="(paragraph, index) in paragraphs" class=".paragraph">
+                    <component
+                        v-on:childToParent="deleteParagraph(index)"
+                        v-on:duplicateParagraph="duplicateParagraph(index)"
+                        :index="index"
+                        :key="index"
+                        :is=paragraph.component
+                    />
+                </div>
+            </draggable>
         </div>
         <!-- Default Page Block with PageBuilderParagraphBlocks -->
 
@@ -239,6 +241,7 @@
     import SliderAdd from './paragraphs/SliderAdd'
     import BackgroundVideo from './paragraphs/BackgroundVideo'
     import SimpleHead from './paragraphs/SimpleHead'
+    import draggable from 'vuedraggable'
 
     export default {
         props: [],
@@ -251,37 +254,34 @@
 
         },
         methods: {
-            addParagraphBlock: function (paragraphName) {
-                //console.log(value);
-                //this.paragraphs.push(NormalText);
-
+            addParagraphBlock (paragraphName) {
                 switch (paragraphName) {
                     case 'normalText':
-                        this.paragraphs.push(NormalText);
+                        this.paragraphs.push({component: NormalText});
                         break;
                     case 'video':
-                        this.paragraphs.push(Video);
+                        this.paragraphs.push({component: Video});
                         break;
                     case 'textImg':
-                        this.paragraphs.push(TextImg);
+                        this.paragraphs.push({component: TextImg});
                         break;
                     case 'slider':
-                        this.paragraphs.push(SliderAdd);
+                        this.paragraphs.push({component: SliderAdd});
                         break;
                     case 'bgVideo':
-                        this.paragraphs.push(BackgroundVideo);
+                        this.paragraphs.push({component: BackgroundVideo});
                         break;
                     case 'simpleHead':
-                        this.paragraphs.push(SimpleHead);
+                        this.paragraphs.push({component: SimpleHead});
                         break;
                     default:
                         return;
                 }
             },
-            deleteParagraph(index) {
+            deleteParagraph (index) {
                 this.paragraphs.splice(index, 1);
             },
-            duplicateParagraph(index) {
+            duplicateParagraph (index) {
                 this.paragraphs.push(this.paragraphs[index]);
             }
         },
@@ -293,6 +293,7 @@
             Video,
             TextImg,
             SliderAdd,
+            draggable,
             BackgroundVideo,
             SimpleHead
         }

@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <NormalTextModal ref="showNormalTextModal"></NormalTextModal>
+        <NormalTextModal ref="modal"></NormalTextModal>
     </div>
 </template>
 
@@ -59,7 +59,8 @@
                 this.$emit('duplicateParagraph');
             },
             showTextModal: function () {
-                this.$refs.showNormalTextModal.callWindow();
+                let element = this.$refs.modal.$el;
+                $(element).modal('show');
             }
         },
         mounted() {
