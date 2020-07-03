@@ -238,6 +238,7 @@
     import TextImg from './paragraphs/TextImg'
     import SliderAdd from './paragraphs/SliderAdd'
     import BackgroundVideo from './paragraphs/BackgroundVideo'
+    import SimpleHead from './paragraphs/SimpleHead'
 
     export default {
         props: [],
@@ -270,6 +271,9 @@
                     case 'bgVideo':
                         this.paragraphs.push(BackgroundVideo);
                         break;
+                    case 'simpleHead':
+                        this.paragraphs.push(SimpleHead);
+                        break;
                     default:
                         return;
                 }
@@ -289,7 +293,8 @@
             Video,
             TextImg,
             SliderAdd,
-            BackgroundVideo
+            BackgroundVideo,
+            SimpleHead
         }
     };
 
