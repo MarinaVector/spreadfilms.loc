@@ -1,8 +1,8 @@
 <template>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="row text-bild">
+            <div class="col-lg-12 text-bild">
+                <div class="row">
                     <div class="col-lg-9 mt-2 tutorial-text">
                         <div class="row">
                             <div class="col-lg-1 mt-2 ml-2">

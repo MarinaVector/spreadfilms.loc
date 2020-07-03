@@ -240,6 +240,7 @@
     import TextImg from './paragraphs/TextImg'
     import SliderAdd from './paragraphs/SliderAdd'
     import BackgroundVideo from './paragraphs/BackgroundVideo'
+    import SimpleHead from './paragraphs/SimpleHead'
     import draggable from 'vuedraggable'
 
     export default {
@@ -270,6 +271,9 @@
                     case 'bgVideo':
                         this.paragraphs.push({component: BackgroundVideo});
                         break;
+                    case 'simpleHead':
+                        this.paragraphs.push({component: SimpleHead});
+                        break;
                     default:
                         return;
                 }
@@ -289,8 +293,9 @@
             Video,
             TextImg,
             SliderAdd,
+            draggable,
             BackgroundVideo,
-            draggable
+            SimpleHead
         }
     };
 

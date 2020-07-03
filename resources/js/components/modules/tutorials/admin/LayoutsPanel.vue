@@ -41,8 +41,11 @@
             <p class="">Text</p>
             <hr class="mr-5">
             <div class="">
-                <button class="mr-2 btn-tutorial btn-circle" type="button"><i class="fa fa-header fa-3x pt-2"></i>
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Head" @click="callParentAddParagraphBlock('simpleHead')">
+                    <i class="fa fa-header fa-3x pt-2"></i>
                 </button>
+
                 <button class="mr-2 btn-tutorial btn-circle" type="button"><i
                     class="fa fa-align-left fa-3x pt-2"></i>
                 </button>
