@@ -12,12 +12,12 @@
                 </button>
             </div>
         </div>
-        <div class="row" @click="showTextModal()">
+        <div class="row my-n3" @click="showTextModal()">
             <div class="col-md-4 offset-md-4 inner-trigger col-12 mx-sm-auto">
                 <button class="text-button slide-border ml-4 py-2 px-5" type="button">
                     <i class="fas fa-bars blueiconcolor fa-2x">
                     </i>
-                    <div class="mt-n1 mb-n1">Text</div>
+                    <div class="mb-n2">Quote</div>
                 </button>
             </div>
         </div>
@@ -72,52 +72,5 @@
 
 <style>
 
-    .inner-trigger {
-        transition: background-color .3s ease;
-        background-color: transparent;
-        border-radius: 2px;
-        padding: 5px 10px;
-        min-width: 100px;
-        text-align: center;
-    }
 
-    .text-button {
-        background-color: white;
-        border: none;
-    }
-
-    .tutorial-text {
-        width: 100%;
-        border: dotted 1px #333;
-    }
-
-    .tutorial-text:hover {
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: 3s;
-    }
-
-    .btn-icon {
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
-        color: #fff;
-        border: none;
-        top: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        opacity:0.5 !important;
-        transition: opacity .25s ease-in-out!important;
-        -moz-transition: opacity .25s ease-in-out!important;
-        -webkit-transition: opacity .25s ease-in-out!important;
-    }
-
-    .tutorial-text:hover .btn-icon {
-        opacity:1!important;
-    }
-
-    .blueiconcolor {
-        color: #00bff9 !important;
-    }
 </style>

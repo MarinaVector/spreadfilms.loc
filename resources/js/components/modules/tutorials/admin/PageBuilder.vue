@@ -7,7 +7,7 @@
             <label class="tutorial-name" for="tutorial_name">Name</label>
             <div class="row mb-2">
                 <div class="col-lg-12">
-                    <input class="input-hidden" type="text" required placeholder="New Tutorial" name="tutorial_name"
+                    <input class="input-hidden form-control" type="text" required placeholder="New Tutorial" name="tutorial_name"
                            id="tutorial_name">
                 </div>
             </div>
@@ -242,6 +242,7 @@
     import BackgroundVideo from './paragraphs/BackgroundVideo'
     import SimpleHead from './paragraphs/SimpleHead'
     import draggable from 'vuedraggable'
+    import Quote from './paragraphs/Quote'
 
     export default {
         props: [],
@@ -274,6 +275,9 @@
                     case 'simpleHead':
                         this.paragraphs.push({component: SimpleHead});
                         break;
+                    case 'quote':
+                        this.paragraphs.push({component: Quote});
+                        break;
                     default:
                         return;
                 }
@@ -295,7 +299,8 @@
             SliderAdd,
             draggable,
             BackgroundVideo,
-            SimpleHead
+            SimpleHead,
+            Quote
         }
     };
 
@@ -311,7 +316,9 @@
     }
 
 
-    .form-control, .form-control:focus {
+    .form-control,
+    .form-control:focus,
+    .form-control:hover {
         font-size: 14px;
         background: #fff;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
@@ -423,8 +430,6 @@
         display: inline-block;
         vertical-align: bottom;
         margin-bottom: 12px;
-        margin-right: 20px;
-        margin-left: 20px;
         border-radius: 3px;
         background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
         color: #fff;
@@ -443,7 +448,6 @@
     }
 
     .btn-tutorial {
-        color: #26d7d9;
         background: #d5d5d5;
         border: 6px solid white;
         border-radius: 3px;

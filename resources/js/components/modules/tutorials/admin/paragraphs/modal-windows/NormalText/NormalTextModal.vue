@@ -1,9 +1,9 @@
 <template>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content py-5">
                 <div class="modal-header">
-                    <h5 class="modal-title">Header</h5>
+                    <label class="input-title"><i class="fas fa-heading mr-2"></i>Headline</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -12,16 +12,16 @@
                     <ckeditor :editor="editor" v-model="NormalTextHeader" :config="editorConfig"></ckeditor>
                 </div>
                 <div class="modal-header">
-                    <h5 class="modal-title">Text</h5>
+                    <label class="input-title"><i class="fas fa-align-left mr-2"></i>Text</label>
                 </div>
                 <div class="modal-body">
                     <ckeditor :editor="editor" v-model="NormalTextBody" :config="editorConfig"></ckeditor>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
             </div>
+                <div class="modal-footer1 mt-3 ml-5">
+                    <button type="button" class="btn btn-primary btn-modal ml-5">Save changes</button>
+                    <button type="button" class="btn close-modal btn-modal" data-dismiss="modal">Close window</button>
+                </div>
         </div>
     </div>
 </template>
@@ -53,5 +53,16 @@
 </script>
 
 <style>
+    .btn-modal {
+        margin-right: 40px;
+        box-shadow: 0 0px 20px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .close-modal {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+    }
+
 
 </style>

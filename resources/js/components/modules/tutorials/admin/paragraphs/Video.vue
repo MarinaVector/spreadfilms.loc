@@ -68,6 +68,7 @@
         padding: 5px 10px;
         min-width: 160px;
         text-align: center;
+        z-index:5;
     }
 
     .text-button {
