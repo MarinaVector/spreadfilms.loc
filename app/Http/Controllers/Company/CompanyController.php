@@ -14,6 +14,7 @@ use App\Models\Siterole;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class CompanyController extends Controller
 {
@@ -58,14 +59,20 @@ class CompanyController extends Controller
             CompanyCompanyrolePivot::create(['company_id' => $company->id, 'role_id' => $companyRole->id]);
         }
 
-        // 6. user must get one of companyroles
+        // 5. user must get one of companyroles
         UserCompanyrole::create(['user_id' => $user->id, 'role_id' => $companyAdminRole->id]);
 
-        // 7. grant companyrole 'admin' with all company permissions
+        // 6. grant companyrole 'admin' with all company permissions
         $allCompanyPermissions = CompanyrolePermission::all();
         foreach ($allCompanyPermissions as $permission) {
             CompanyrolePermissionPivot::create(['role_id' => $companyAdminRole->id, 'permission_id' => $permission->id]);
         }
+
+        // 7. Create company public and user private folders
+        $companyPublicPath = public_path().'/userfiles/companies/' . $company->id . '/public';
+        $companyUserPrivatePath = public_path().'/userfiles/companies/' . $company->id . '/private/' . $user->id;
+        File::makeDirectory($companyPublicPath, $mode = 0755, true, true);
+        File::makeDirectory($companyUserPrivatePath, $mode = 0755, true, true);
 
         return redirect()->route('profile.personal-info');
     }

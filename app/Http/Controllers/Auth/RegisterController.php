@@ -7,6 +7,7 @@ use App\Models\UserInvitation;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -112,6 +113,10 @@ class RegisterController extends Controller
 
         // deleting used invitation
         $userInvitation->delete();
+
+        // creating company user private folder
+        $companyUserPrivatePath = public_path().'/userfiles/companies/' . $user->company()->id . '/private/' . $user->id;
+        File::makeDirectory($companyUserPrivatePath, $mode = 0755, true, true);
 
         return redirect()->route('profile.personal-info')->with('success', __('messages.Successfully_registered'));
     }
