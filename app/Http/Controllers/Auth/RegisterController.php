@@ -115,7 +115,7 @@ class RegisterController extends Controller
         $userInvitation->delete();
 
         // creating company user private folder
-        $companyUserPrivatePath = public_path().'/userfiles/companies/' . $user->company()->id . '/private/' . $user->id;
+        $companyUserPrivatePath = storage_path().'/userfiles/companies/' . $user->company()->id . '/private/' . $user->id;
         File::makeDirectory($companyUserPrivatePath, $mode = 0755, true, true);
 
         return redirect()->route('profile.personal-info')->with('success', __('messages.Successfully_registered'));

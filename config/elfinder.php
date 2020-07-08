@@ -10,7 +10,7 @@ return array(
     | The dir where to store the images (relative from public)
     |
     */
-    'dir' => ['files'],
+    'dir' => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,13 @@ return array(
     |    ]
     */
     'disks' => [
+        'company-public' => [
+            'alias' => 'public'
+        ],
 
+        'company-private' => [
+            'alias' => 'private'
+        ],
     ],
 
     /*
@@ -40,7 +46,7 @@ return array(
 
     'route' => [
         'prefix' => 'elfinder',
-        'middleware' => array('web', 'auth'), //Set to null to disable middleware filter
+        'middleware' => ['web', 'auth', 'SetCompanyPublicPrivateFolders'], //Set to null to disable middleware filter
     ],
 
     /*
@@ -76,8 +82,10 @@ return array(
     |
     */
 
-    'options' => array(),
-    
+    'options' => [
+        'debug' => true,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Root Options

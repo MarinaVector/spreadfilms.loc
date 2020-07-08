@@ -69,8 +69,8 @@ class CompanyController extends Controller
         }
 
         // 7. Create company public and user private folders
-        $companyPublicPath = public_path().'/userfiles/companies/' . $company->id . '/public';
-        $companyUserPrivatePath = public_path().'/userfiles/companies/' . $company->id . '/private/' . $user->id;
+        $companyPublicPath = storage_path().'/userfiles/companies/' . $company->id . '/public';
+        $companyUserPrivatePath = storage_path().'/userfiles/companies/' . $company->id . '/private/' . $user->id;
         File::makeDirectory($companyPublicPath, $mode = 0755, true, true);
         File::makeDirectory($companyUserPrivatePath, $mode = 0755, true, true);
 

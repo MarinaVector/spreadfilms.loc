@@ -25,7 +25,9 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^20.0.0",
+        "@ckeditor/ckeditor5-vue": "^1.0.1",
         "font-awesome": "^4.7.0",
+        "jquery-colorbox": "^1.6.4",
         "portal-vue": "^2.1.7",
         "vue-sidebar-menu": "^4.6.0",
         "vuedraggable": "^2.23.2"

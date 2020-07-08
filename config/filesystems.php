@@ -65,6 +65,16 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'company-public' => [
+            'driver' => 'local',
+            'root' => storage_path('userfiles/companies/'),
+        ],
+
+        'company-private' => [
+            'driver' => 'local',
+            'root' => storage_path('userfiles/companies/'),
+        ],
+
     ],
 
     /*
