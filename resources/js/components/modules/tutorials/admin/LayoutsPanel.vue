@@ -59,17 +59,32 @@
                 <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
                     class="fa fa-align-center fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
-                    class="fa fa-text-height fa-3x pt-2"></i>
-                </button>
+
                 <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
                     class="fa fa-address-card-o fa-3x pt-2"></i>
                 </button>
+
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('logoText')">
+                    <i class="fa fa-id-card fa-3x pt-2"></i>
+                </button>
+
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('lgHeadText')">
+                    <i class="fa fa-text-height fa-3x pt-2"></i>
+                </button>
+
                 <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
+
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('spImgText')">
+                   <i class="fa fa-lg fa-image pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
+
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('highText')">
+                    <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
             </div>
             <p class="">Video</p>
@@ -174,6 +189,8 @@
 
     .top-menu {
         border-top: none;
+        z-index: 50;
+        position: absolute;
     }
 
 </style>

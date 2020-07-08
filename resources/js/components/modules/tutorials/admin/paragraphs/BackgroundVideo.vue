@@ -62,6 +62,7 @@
 </script>
 
 <style scoped>
+
     .video-wrapper{
         background-size: cover;
         z-index: 2;
