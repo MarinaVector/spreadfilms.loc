@@ -243,6 +243,10 @@
     import SimpleHead from './paragraphs/SimpleHead'
     import draggable from 'vuedraggable'
     import Quote from './paragraphs/Quote'
+    import ImgHeadText from './paragraphs/ImgHeadText'
+    import LgHeadText from './paragraphs/LgHeadText'
+    import TextLogo from './paragraphs/TextLogo'
+    import TextImgHigh from './paragraphs/TextImgHigh'
 
     export default {
         props: [],
@@ -278,6 +282,18 @@
                     case 'quote':
                         this.paragraphs.push({component: Quote});
                         break;
+                    case 'spImgText':
+                        this.paragraphs.push({component: ImgHeadText});
+                        break;
+                    case 'lgHeadText':
+                        this.paragraphs.push({component: LgHeadText});
+                        break;
+                    case 'logoText':
+                        this.paragraphs.push({component: TextLogo});
+                        break;
+                    case 'highText':
+                        this.paragraphs.push({component: TextImgHigh});
+                        break;
                     default:
                         return;
                 }
@@ -300,7 +316,11 @@
             draggable,
             BackgroundVideo,
             SimpleHead,
-            Quote
+            Quote,
+            ImgHeadText,
+            LgHeadText,
+            TextLogo,
+            TextImgHigh
         }
     };
 

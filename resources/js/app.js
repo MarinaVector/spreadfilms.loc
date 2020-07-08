@@ -31,15 +31,31 @@ Vue.component('tutorial-page-builder', require('./components/modules/tutorials/a
 Vue.component('save-cancel-block', require('./components/modules/tutorials/admin/SaveCancelBlock.vue').default);
 Vue.component('signs-statistics', require('./components/modules/tutorials/admin/SignsStatistics').default);
 Vue.component('tutorials-statistics', require('./components/modules/tutorials/admin/TutorialsStatistics').default);
+
+
+/**
+ * Paragrafs windows
+ */
+
 Vue.component('normal-text', require('./components/modules/tutorials/admin/paragraphs/NormalText').default);
 Vue.component('text-img', require('./components/modules/tutorials/admin/paragraphs/TextImg').default);
 Vue.component('slider-add', require('./components/modules/tutorials/admin/paragraphs/SliderAdd').default);
 Vue.component('background-video', require('./components/modules/tutorials/admin/paragraphs/BackgroundVideo').default);
 Vue.component('simple-head', require('./components/modules/tutorials/admin/paragraphs/SimpleHead').default);
+Vue.component('quote-component', require('./components/modules/tutorials/admin/paragraphs/Quote').default);
+Vue.component('imghead-text', require('./components/modules/tutorials/admin/paragraphs/ImgHeadText').default);
+Vue.component('lghead-text', require('./components/modules/tutorials/admin/paragraphs/LgHeadText').default);
+Vue.component('logo-text', require('./components/modules/tutorials/admin/paragraphs/TextLogo').default);
+Vue.component('imghigh-text', require('./components/modules/tutorials/admin/paragraphs/TextImgHigh').default);
+
+/**
+ * Small elements
+ */
 Vue.component('question-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/QuestionDropdown').default);
 Vue.component('dropdown-button', require('./components/modules/tutorials/admin/paragraphs/small-elements/DropdownButton').default);
 Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/Collapse').default);
-Vue.component('quote-component', require('./components/modules/tutorials/admin/paragraphs/Quote').default);
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

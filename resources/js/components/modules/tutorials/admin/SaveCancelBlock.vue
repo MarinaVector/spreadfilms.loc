@@ -5,7 +5,7 @@
 
         <div class="box-white id="option-buttons-form">
             </div>
-            <div class="col-lg-11 inner-menu pt-3">
+            <div class="col-lg-11 inner-menu pt-3 save-chancel">
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Save">
                     <a href="/module/tutorials/admin" class="btn btn-default ml-1">Cancel</a>
@@ -91,6 +91,9 @@
         background: #fff;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
         color: #777777;
+    }
+    .save-chancel {
+        z-index: 20;
     }
 
 </style>
