@@ -14,8 +14,6 @@
                 </div>
             </div>
 
-
-
             <div class="col-lg-3 inner-trigger lg-head">
                 <div class="tutorial-text py-2 mt-5">
                     <button class="text-button py-2 px-5 my-2" type="button">
@@ -24,11 +22,7 @@
                         <p class="mb-n1 mx-1">HeadLine</p>
                     </button>
                 </div>
-
             </div>
-
-
-
 
             <div class="col-lg-5 inner-trigger lg-head">
                 <div class="row ml-2 mt-5">
@@ -62,10 +56,7 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
-
-
 
                 </div>
             </div>
@@ -87,7 +78,6 @@
             </div>
         </div>
     </div>
-
 
 </template>
 

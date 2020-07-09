@@ -93,8 +93,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+
 @endsection
 
 @section('scripts')
@@ -163,13 +163,7 @@
             border-top: none;
             border-left: none;
             border-right: none;
-
-
         }
-
-
-
-
 
     </style>
 @endsection

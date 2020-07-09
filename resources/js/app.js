@@ -47,6 +47,8 @@ Vue.component('imghead-text', require('./components/modules/tutorials/admin/para
 Vue.component('lghead-text', require('./components/modules/tutorials/admin/paragraphs/LgHeadText').default);
 Vue.component('logo-text', require('./components/modules/tutorials/admin/paragraphs/TextLogo').default);
 Vue.component('imghigh-text', require('./components/modules/tutorials/admin/paragraphs/TextImgHigh').default);
+Vue.component('contact-img', require('./components/modules/tutorials/admin/paragraphs/Contact').default);
+Vue.component('questions-answers', require('./components/modules/tutorials/admin/paragraphs/QuestionsAnswers').default);
 
 /**
  * Small elements

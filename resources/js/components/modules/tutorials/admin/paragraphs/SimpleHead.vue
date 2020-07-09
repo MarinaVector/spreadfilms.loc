@@ -38,6 +38,7 @@
 </template>
 
 <script>
+
     export default {
         props: [
             'index'
@@ -61,6 +62,7 @@
         },
         computed: {}
     };
+
 </script>
 
 <style scoped>

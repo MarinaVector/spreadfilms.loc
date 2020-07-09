@@ -42,6 +42,7 @@
         position: fixed;
         bottom: 0;
         margin: 0 auto;
+        z-index: 55;
     }
 
     #option-buttons-form > div {

@@ -247,6 +247,9 @@
     import LgHeadText from './paragraphs/LgHeadText'
     import TextLogo from './paragraphs/TextLogo'
     import TextImgHigh from './paragraphs/TextImgHigh'
+    import Contact from './paragraphs/Contact'
+    import QuestionsAnswers from './paragraphs/QuestionsAnswers'
+
 
     export default {
         props: [],
@@ -294,6 +297,12 @@
                     case 'highText':
                         this.paragraphs.push({component: TextImgHigh});
                         break;
+                    case 'contact':
+                        this.paragraphs.push({component: Contact});
+                        break;
+                    case 'question':
+                        this.paragraphs.push({component: QuestionsAnswers});
+                        break;
                     default:
                         return;
                 }
@@ -320,7 +329,9 @@
             ImgHeadText,
             LgHeadText,
             TextLogo,
-            TextImgHigh
+            TextImgHigh,
+            Contact,
+            QuestionsAnswers
         }
     };
 
