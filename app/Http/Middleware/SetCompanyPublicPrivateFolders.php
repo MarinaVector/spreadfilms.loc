@@ -18,8 +18,8 @@ class SetCompanyPublicPrivateFolders
     public function handle($request, Closure $next)
     {
         if (auth()->check()) {
-            config(['filesystems.disks.company-public.root' => storage_path().'/userfiles/companies/' . Auth::user()->company()->id . '/public/']);
-            config(['filesystems.disks.company-private.root' => storage_path().'/userfiles/companies/' . Auth::user()->company()->id . '/private/' . Auth::user()->id]);
+            config(['filesystems.disks.company-public.root' => public_path().'/userfiles/companies/' . Auth::user()->company()->id . '/public/']);
+            config(['filesystems.disks.company-private.root' => public_path().'/userfiles/companies/' . Auth::user()->company()->id . '/private/' . Auth::user()->id]);
         }
 
         return $next($request);
