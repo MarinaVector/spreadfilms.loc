@@ -52,6 +52,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/module/tutorials/statistics', 'Modules\Tutorials\TutorialsController@statisticsTutorial')->name('module.tutorials.statistics');
         Route::resource('/modules/tutorials/editor', 'Modules\Tutorials\CKEditorController');
         Route::post('/module/tutorials/editor/image_upload', 'Modules\Tutorials\CKEditorController@upload')->name('module.tutorials.editor.upload');
+
+        Route::any('/elfinder-popup/{input_id}', '\Barryvdh\Elfinder\ElfinderController@showPopup')->name('elfinder.popup');
     });
 
     //Site Config=================
