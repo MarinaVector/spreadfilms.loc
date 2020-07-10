@@ -51,8 +51,8 @@
 
             <div class="form-group">
                 <div class="elfinder-container">
-                    <input id="hintergrundbild-image" class="elfinder-idea" name="image" type="hidden"/>
-                    <button data-inputid="hintergrundbild-image" class="popup_selector btn btn-default">
+                    <input id="background-image" class="elfinder-idea" name="image" type="hidden"/>
+                    <button data-inputid="background-image" class="popup_selector btn btn-default">
                         Select Wallpaper
                     </button>
                 </div>

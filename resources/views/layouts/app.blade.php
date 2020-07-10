@@ -12,6 +12,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.colorbox-min.js') }}" defer></script>
+    <script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.min.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,6 +25,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/colorbox.css') }}" rel="stylesheet">
 </head>
 <body id="body">
 <div id="app">
