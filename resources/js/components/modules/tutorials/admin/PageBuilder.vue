@@ -50,6 +50,7 @@
             </div>
 
             <div class="form-group">
+                <img class="elfinder-preview-image">
                 <div class="elfinder-container">
                     <input id="background-image" class="elfinder-idea" name="image" type="hidden"/>
                     <button data-inputid="background-image" class="popup_selector btn btn-default">

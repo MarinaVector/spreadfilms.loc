@@ -13,7 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.colorbox-min.js') }}" defer></script>
-    <script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.min.js" defer></script>
+    <script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

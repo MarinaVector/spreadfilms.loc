@@ -16,5 +16,13 @@ $(document).on('click','.popup_selector',function (event) {
 });
 // function to update the file selected by elfinder
 function processSelectedFile(filePath, requestingField) {
-    $('#' + requestingField).val(filePath).trigger('change');
+    let publicPath = $('#public_path').val();
+    let privatePath = $('#private_path').val();
+
+    let folderName = filePath.substr(0, filePath.indexOf('\\'));
+    let fileRelevantPath = filePath.substr(filePath.indexOf('\\') + 1, filePath.length);
+    let path = folderName === 'private' ? privatePath + fileRelevantPath : publicPath + fileRelevantPath;
+
+    $('#' + requestingField).val(path).trigger('change');
+    $('.elfinder-preview-image').attr('src', path);
 }
