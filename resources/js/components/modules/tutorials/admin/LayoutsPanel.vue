@@ -1,12 +1,14 @@
 <template>
     <div class="container inner-menu top-menu pt-1">
         <div class="row mt-3 mb-3">
-            <div class="col-lg-10">
-                <a href="#" class="">
-                    <button type="button" class="btn-blue layouts">
-                        Layouts filters<i class="fas fa-filter ml-2"></i>
+            <div class="col-lg-12">
+
+                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2"><span class="filter-content"  v-if="text_content">{{text_content}}
+                       </span>
+                        <div class="tool ml-2 mr-4 mb-1 filter-content" v-on:click.stop v-if="show_tooltip">
+                            <input type="text" class="btn-fltr"/>
+                        </div>
                     </button>
-                </a>
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('video')">
@@ -34,11 +36,9 @@
 
                 <a href="#" @click="switchLayoutsPanel()">
                     <button type="button" class="btn-blue button-arrow layouts" ref="layoutsButton">
-                        Show all<i class="fas fa-arrow-down"></i>
+                        Show all<i class="fas fa-arrow-down ml-2"></i>
                     </button>
                 </a>
-            </div>
-            <div class="col-lg-2">
                 <dropdown-button></dropdown-button>
             </div>
         </div>
@@ -79,7 +79,7 @@
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('spImgText')">
-                   <i class="fa fa-lg fa-image pt-2"></i>
+                    <i class="fa fa-lg fa-image pt-2"></i>
                 </button>
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
@@ -154,7 +154,10 @@
     export default {
         props: [],
         data() {
-            return {};
+            return {
+                show_tooltip: false,
+                text_content: 'Layouts filters'
+            };
         },
         created() {
 
@@ -164,9 +167,29 @@
                 this.$refs.layoutsPanel.style.display = (this.$refs.layoutsPanel.style.display === 'none') ? 'block' : 'none';
                 this.$refs.layoutsButton.innerHTML = (this.$refs.layoutsPanel.style.display === 'none') ? 'Show all<i class="fas fa-arrow-down ml-1"></i>' : 'Hide<i class="fas fa-arrow-up ml-1"></i>';
             },
+
             callParentAddParagraphBlock: function (blockType) {
                 this.$emit('addParagraphBlock', blockType);
+            },
+
+            hideTooltip: function(){
+
+               // this.show_tooltip = true;
+               // this.text_content = false;
+                //this.text_content = false;
+                //this.text_content = !this.text_content;
+            },
+            toggleTooltip: function(){
+                this.show_tooltip = !this.show_tooltip;
+                if (!this.show_tooltip) {
+                    this.text_content = 'Layouts filters';
+                }
+                else {
+                    this.text_content = false;
+                }
+
             }
+
         },
         mounted() {
             $('.tooltip-btn').tooltip();
@@ -176,10 +199,13 @@
                 return this.layoutsDisplay;
             }
         }
+
+
     };
 </script>
 
 <style>
+
     .inner-menu {
         background: #ECECEC;
         text-align: left;
@@ -195,4 +221,71 @@
         position: absolute;
     }
 
+    .btn-blue {
+        color: white;
+        border: none;
+        display: inline-block;
+        font-weight: 400;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+    }
+
+    .btn-tutorial {
+        background: #d5d5d5;
+        border: 6px solid white;
+        border-radius: 3px;
+    }
+
+    .block-text {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ml-text {
+        margin-left: 35px;
+    }
+
+    .block-tutorial {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+        border: dotted 1px #333;
+    }
+
+    [v-cloak] {
+        display: none;
+    }
+
+    .tool input {
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        text-align: left;
+        font-size: 16px;
+        font-family: inherit;
+        outline: none;
+    }
+
+    .filter-content {
+        cursor:default;
+    }
+
+    .filter-content:after {
+        font-family: FontAwesome;
+        content:'\f0b0';
+        font-size: 22px;
+        display:inline-block;
+        margin-left:5px;
+        font-weight:normal;
+        color: white;
+    }
+
+    .btn-fltr {
+    white-space: nowrap;
+      min-width: 170px;
+      vertical-align: bottom;
+      }
+
 </style>
+

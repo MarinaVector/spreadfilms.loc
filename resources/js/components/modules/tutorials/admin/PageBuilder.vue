@@ -346,10 +346,7 @@
         margin-bottom: 0 !important;
     }
 
-
-    .form-control,
-    .form-control:focus,
-    .form-control:hover {
+    .form-control {
         font-size: 14px;
         background: #fff;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
@@ -470,38 +467,7 @@
         margin-bottom: 5px;
     }
 
-    .btn-blue {
-        color: white;
-        border: none;
-        display: inline-block;
-        font-weight: 400;
-        text-transform: uppercase;
-    }
-
-    .btn-tutorial {
-        background: #d5d5d5;
-        border: 6px solid white;
-        border-radius: 3px;
-    }
-
-    .block-text {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .ml-text {
-        margin-left: 35px;
-    }
-
-    .block-tutorial {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        pointer-events: none;
-        border: dotted 1px #333;
-    }
-
-    .btn-icon {
+      .btn-icon {
         background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
         color: #fff;
         border: none;

@@ -1,5 +1,5 @@
 <template>
-    <div class="block">
+    <div class="drop-btn">
         <button @click="open = !open" type="button" class="btn-blue button-arrow layouts btn-template">
             Template
         </button>
@@ -37,16 +37,16 @@
     .dropdown-content  {
         background-color: #fff;
         max-width: 270px;
-        position: absolute;
         border-radius: 3px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         text-align:  center;
-        z-index: 1;
         right: 0;
         font-size: 16px;
         padding: 6px;
     }
-
+    .drop-btn {
+        display: inline
+     }
 
 </style>
