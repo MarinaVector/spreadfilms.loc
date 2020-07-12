@@ -4,9 +4,10 @@
         <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
         <!-- Tutorial Name Block -->
         <div class="container group mt-5">
-            <label class="tutorial-name" for="tutorial_name">Name</label>
+
             <div class="row mb-2">
-                <div class="col-lg-12">
+                <div class="col-lg-12 mt-5">
+                    <label class="tutorial-name" for="tutorial_name">Name</label>
                     <input class="input-hidden form-control" type="text" required placeholder="New Tutorial" name="tutorial_name"
                            id="tutorial_name">
                 </div>
@@ -361,9 +362,7 @@
         color: #777777;
         padding: 10px 10px 10px 5px;
         display: block;
-        width: 300px;
         border: none;
-        border-bottom: 1px solid #757575;
     }
 
     .input-hidden:focus {
@@ -500,5 +499,6 @@
     .block-title {
         color: #424242;
     }
+
 
 </style>

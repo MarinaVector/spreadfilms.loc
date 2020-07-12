@@ -1,16 +1,16 @@
 <template>
-    <div class="container inner-menu top-menu pt-1">
-        <div class="row mt-3 mb-3">
-            <div class="col-lg-12">
+    <div class="container inner-menu top-menu pt-1 mb-5">
+        <div class="row">
+            <div class="col-lg-12 mb-3">
 
-                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2"><span class="filter-content"  v-if="text_content">{{text_content}}
+                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2 mb-1 pb-1 mr-2"><span class="filter-content"  v-if="text_content">{{text_content}}
                        </span>
-                        <div class="tool ml-2 mr-4 mb-1 filter-content" v-on:click.stop v-if="show_tooltip">
-                            <input type="text" class="btn-fltr"/>
+                        <div class="tool ml-2 mr-4 mb-1 filter-content" v-on:click.stop v-if="show_input">
+                            <input type="text" class="btn-inp"/>
                         </div>
                     </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0 ml-2" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
@@ -35,11 +35,12 @@
                 </button>
 
                 <a href="#" @click="switchLayoutsPanel()">
-                    <button type="button" class="btn-blue button-arrow layouts" ref="layoutsButton">
-                        Show all<i class="fas fa-arrow-down ml-2"></i>
+                    <button type="button" class="btn-blue button-arrow layouts mt-4 py-2 ml-2 mr-3" ref="layoutsButton">
+                        Show all<i class="fas fa-arrow-down ml-1"></i>
                     </button>
                 </a>
                 <dropdown-button></dropdown-button>
+
             </div>
         </div>
 
@@ -155,7 +156,7 @@
         props: [],
         data() {
             return {
-                show_tooltip: false,
+                show_input: false,
                 text_content: 'Layouts filters'
             };
         },
@@ -180,14 +181,13 @@
                 //this.text_content = !this.text_content;
             },
             toggleTooltip: function(){
-                this.show_tooltip = !this.show_tooltip;
-                if (!this.show_tooltip) {
+                this.show_input = !this.show_input;
+                if (!this.show_input) {
                     this.text_content = 'Layouts filters';
                 }
                 else {
                     this.text_content = false;
                 }
-
             }
 
         },
@@ -282,10 +282,11 @@
     }
 
     .btn-fltr {
-    white-space: nowrap;
+      white-space: nowrap;
       min-width: 170px;
       vertical-align: bottom;
-      }
+        border-radius: 3px;
+    }
 
 </style>
 
