@@ -5,7 +5,7 @@
 
                 <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2 mb-1 pb-1 mr-2"><span class="filter-content"  v-if="text_content">{{text_content}}
                        </span>
-                        <div class="tool ml-2 mr-4 mb-1 filter-content" v-on:click.stop v-if="show_input">
+                        <div class="tool ml-2 mb-1 filter-content" v-on:click.stop v-if="show_input">
                             <input type="text" class="btn-inp"/>
                         </div>
                     </button>
@@ -46,7 +46,7 @@
 
 
         <div id="layoutsPanel" ref="layoutsPanel" :style="{ display: 'none' }">
-            <p class="">Text</p>
+            <p class="head-group">Text</p>
             <hr class="mr-5">
             <div class="">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
@@ -54,102 +54,119 @@
                     <i class="fa fa-header fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Normal Text"><i
                     class="fa fa-align-left fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Center Text"><i
                     class="fa fa-align-center fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text with large headline"><i
                     class="fa fa-address-card-o fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('logoText')">
+                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text with logo" @click="callParentAddParagraphBlock('logoText')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('lgHeadText')">
+                        data-placement="bottom" title="Image-text" @click="callParentAddParagraphBlock('lgHeadText')">
                     <i class="fa fa-text-height fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image-text special" ><i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('spImgText')">
                     <i class="fa fa-lg fa-image pt-2"></i>
                 </button>
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('highText')">
+                        data-placement="bottom" title="Text and image high" @click="callParentAddParagraphBlock('highText')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
             </div>
-            <p class="">Video</p>
+            <p class="head-group">Video</p>
             <hr class="mr-5">
             <div class="">
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video"><i
                     class="fa fa-file-video-o fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
-                    class="fa fa-file-video-o fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
-                    class="fa fa-file-video-o fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
-                    class="fa fa-file-video-o fa-3x pt-2"></i>
-                </button>
-            </div>
-
-            <p class="">Image</p>
-            <hr class="mr-5">
-            <div class="">
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
-                    class="fa fa-picture-o fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
-                    class="fa fa-slideshare fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
-                    class="fa fa-toggle-on fa-3x pt-2"></i>
-                </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i class="fa fa-grav fa-3x pt-2"></i>
-                </button>
-            </div>
-
-            <p class="">Other</p>
-            <hr class="mr-5">
-            <div class="mb-2">
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i class="fa fa-arrows-v fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('contact')">
+                        data-placement="bottom" title="Video with background"><i
+                    class="fa fa-file-video-o fa-3x pt-2"></i>
+                </button>
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video with text"><i
+                    class="fa fa-file-video-o fa-3x pt-2"></i>
+                </button>
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video slider"><i
+                    class="fa fa-file-video-o fa-3x pt-2"></i>
+                </button>
+            </div>
+
+            <p class="head-group">Image</p>
+            <hr class="mr-5">
+            <div class="">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image"><i
+                    class="fa fa-picture-o fa-3x pt-2"></i>
+                </button>
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image slider"><i
+                    class="fa fa-slideshare fa-3x pt-2"></i>
+                </button>
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image switch"><i
+                    class="fa fa-toggle-on fa-3x pt-2"></i>
+                </button>
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Icons"><i class="fa fa-grav fa-3x pt-2"></i>
+                </button>
+            </div>
+
+            <p class="head-group">Other</p>
+            <hr class="mr-5">
+            <div class="mb-2">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Distance"><i class="fa fa-arrows-v fa-3x pt-2"></i>
+                </button>
+                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Contact person" @click="callParentAddParagraphBlock('contact')">
                     <i class="fa fa-envelope-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial btn-circle p-0" type="button"><i
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Multiple choice"><i
                     class="fa fa-puzzle-piece fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('question')">
+                        data-placement="bottom" title="FAQs" @click="callParentAddParagraphBlock('question')">
                     <i class="fa fa-question fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Quote"
+                        data-placement="bottom" title="Citation"
                         @click="callParentAddParagraphBlock('quote')">
                     <i class="fa fa-quote-left fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial" type="button"><i class="fa fa-id-card fa-3x pt-2"></i>
+                <button class="mr-2 btn-tutorial tooltip-btn" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Header"><i class="fa fa-picture-o fa-3x pt-2"></i>
+                </button>
+                <button class="mr-2 btn-tutorial tooltip-btn" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Footer"><i class="fa fa-picture-o fa-3x pt-2"></i>
                 </button>
             </div>
         </div>
     </div>
 </template>
-
 
 <script>
     export default {
@@ -253,13 +270,16 @@
         border: dotted 1px #333;
     }
 
+    .head-group {
+        text-transform: uppercase;
+    }
+
     [v-cloak] {
         display: none;
     }
 
     .tool input {
         border: none;
-        width: 100%;
         line-height: 24px;
         text-align: left;
         font-size: 16px;
@@ -283,10 +303,10 @@
 
     .btn-fltr {
       white-space: nowrap;
-      min-width: 170px;
-      vertical-align: bottom;
+        vertical-align: bottom;
         border-radius: 3px;
     }
+
 
 </style>
 
