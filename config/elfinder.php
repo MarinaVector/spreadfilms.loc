@@ -96,7 +96,8 @@ return array(
     |
     */
     'root_options' => array(
-
+        'tmbPath' => 'userfiles/tmb',
+        'tmbURL' => '/public/userfiles/tmb'
     ),
 
 );

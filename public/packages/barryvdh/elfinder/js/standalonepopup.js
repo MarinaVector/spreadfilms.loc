@@ -24,5 +24,7 @@ function processSelectedFile(filePath, requestingField) {
     let path = folderName === 'private' ? privatePath + fileRelevantPath : publicPath + fileRelevantPath;
 
     $('#' + requestingField).val(path).trigger('change');
-    $('.elfinder-preview-image').attr('src', path);
+    /*$('#' + requestingField + '-preview').attr('src', path);*/
+    /*console.log($('#' + requestingField + '-preview'));*/
+    $('#' + requestingField + '-preview').css("background-image", "url("+path+")");
 }

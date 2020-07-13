@@ -1,13 +1,12 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-bild">
+            <div class="col-lg-12 text-image">
                 <div class="row">
-                    <div class="col-lg-9 mt-2 tutorial-text">
+                    <div class="col-lg-9 mt-2 tutorial-text" :id="dataInputPreviewID">
                         <div class="row">
                             <div class="col-lg-1 mt-2 ml-2">
-                                <button type="button" class="btn-icon ml-n2 draggable"
-                                        @click="callParentDeleteParagraphBlock()">
+                                <button type="button" class="btn-icon ml-n2 draggable">
                                     <i class="fa fa-arrows-v pt-2"></i>
                                 </button>
                             </div>
@@ -16,24 +15,23 @@
                         </div>
                         <div class="row mt-5">
                             <div class="col-lg-1 offset-lg-5 inner-trigger">
-                                <button class="text-button ml-4 py-2 px-5" type="button">
+                                <input :id="dataInputID" class="elfinder-idea" name="image" type="hidden"/>
+                                <button :data-inputid="dataInputID" class="popup_selector text-button ml-4 py-2 px-5" type="button">
                                     <i class="fa fa-image blueiconcolor fa-5x">
                                     </i>
-                                    <p class="mt-n3 mb-n1">Build</p>
+                                    <p class="mt-n3 mb-n1">Image</p>
                                 </button>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="row">
-                                <div class="level-2 pt-5">
-                                    <div class="row mt-4">
-                                        <div class="inner-trigger col-lg-5 offset-lg-3">
-                                            <button class="text-button py-2" type="button">
-                                                <i class="fa fa-bars blueiconcolor fa-5x">
-                                                </i>
-                                                <p class="mt-n3 mb-n1">Text</p>
-                                            </button>
-                                        </div>
+                            <div class="level-2 pt-5" @click="showTextModal()">
+                                <div class="row mt-4">
+                                    <div class="inner-trigger col-lg-5 offset-lg-3">
+                                        <button class="text-button py-2" type="button">
+                                            <i class="fa fa-bars blueiconcolor fa-5x">
+                                            </i>
+                                            <p class="mt-n3 mb-n1">Text</p>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -59,18 +57,27 @@
                 </div>
             </div>
         </div>
+
+        <NormalTextModal ref="modal"></NormalTextModal>
     </div>
 </template>
 
 <script>
+    import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
 
     export default {
-
+        components: {
+            NormalTextModal
+        },
         props: [
-            'index'
+            'index',
+            'blocksCounterID'
         ],
         data() {
-            return {};
+            return {
+                dataInputID: '',
+                dataInputPreviewID: ''
+            };
         },
         created() {
 
@@ -81,10 +88,16 @@
             },
             callParentDuplicateParagraphBlock: function () {
                 this.$emit('duplicateParagraph');
+            },
+            showTextModal: function () {
+                let element = this.$refs.modal.$el;
+                $(element).modal('show');
             }
         },
         mounted() {
-
+            //console.log(this.$props.blocksCounterID);
+            this.dataInputID = 'background-image-' + this.$props.blocksCounterID;
+            this.dataInputPreviewID = 'background-image-' + this.$props.blocksCounterID + '-preview';
         },
         computed: {}
     };
@@ -123,6 +136,8 @@
         width: 100%;
         border: dotted 1px #333;
         z-index: 1 !important;
+        background-size: cover;
+        background-position: center;
     }
 
     .tutorial-right {
@@ -164,7 +179,7 @@
         color: #00bff9 !important;
     }
 
-    .text-bild {
+    .text-image {
         border-bottom: 1px solid #d9d9d9;
         background-color: #f9f9f9;
         top: 0px;

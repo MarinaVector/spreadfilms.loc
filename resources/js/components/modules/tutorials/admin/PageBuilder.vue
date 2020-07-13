@@ -25,6 +25,7 @@
                         v-on:childToParent="deleteParagraph(index)"
                         v-on:duplicateParagraph="duplicateParagraph(index)"
                         :index="index"
+                        :blocksCounterID="blocksCounterID"
                         :key="index"
                         :is=paragraph.component
                     />
@@ -51,10 +52,10 @@
             </div>
 
             <div class="form-group">
-                <img class="elfinder-preview-image">
+                <div class="elfinder-preview-image" id="background-tutorial-image-preview"></div>
                 <div class="elfinder-container">
-                    <input id="background-image" class="elfinder-idea" name="image" type="hidden"/>
-                    <button data-inputid="background-image" class="popup_selector btn btn-default">
+                    <input id="background-tutorial-image" class="elfinder-idea" name="image" type="hidden"/>
+                    <button data-inputid="background-tutorial-image" class="popup_selector btn btn-default">
                         Select Wallpaper
                     </button>
                 </div>
@@ -257,7 +258,8 @@
         props: [],
         data() {
             return {
-                paragraphs: []
+                paragraphs: [],
+                blocksCounterID: 0
             };
         },
         created() {
@@ -308,6 +310,7 @@
                     default:
                         return;
                 }
+                this.blocksCounterID += 1;
             },
             deleteParagraph (index) {
                 this.paragraphs.splice(index, 1);
@@ -500,5 +503,10 @@
         color: #424242;
     }
 
+    .elfinder-preview-image {
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+    }
 
 </style>
