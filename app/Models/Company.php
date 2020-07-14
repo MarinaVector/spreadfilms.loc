@@ -27,6 +27,10 @@ class Company extends Model
         return $this->belongsToMany('App\Models\Companyrole', 'company_companyrole', 'company_id', 'role_id');
     }
 
+    public function companycategories() {
+        return $this->belongsToMany('App\Models\Companycategory', 'company_companycategory', 'company_id', 'category_id');
+    }
+
     public function addRoleByName($roleName) {
         //create a role
         $companyRole = Companyrole::create(['name' => $roleName]);

@@ -3,9 +3,12 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\Companycategory;
 use App\Models\Companyrole;
 use App\Models\CompanyrolePermission;
+use App\Models\DefaultCompanycategory;
 use App\Models\Pivots\CompanyCompanyrole as CompanyCompanyrolePivot;
+use App\Models\Pivots\CompanyCompanycategory as CompanyCompanycategoryPivot;
 use App\Models\Pivots\CompanyrolePermission as CompanyrolePermissionPivot;
 use App\Models\DefaultCompanyrole;
 use App\Models\Pivots\UserCompanyrole;
@@ -46,7 +49,6 @@ class CompanyController extends Controller
 
         // 4. now company must get default roles
         $defaultCompanyRoles = DefaultCompanyrole::all();
-        //dd($defaultCompanyRoles);
         foreach ($defaultCompanyRoles as $defaultCompanyRole){
             // copy a default role into companyroles
             $companyRole = Companyrole::create(['name' => $defaultCompanyRole->name, 'description' => $defaultCompanyRole->description]);
@@ -73,6 +75,15 @@ class CompanyController extends Controller
         $companyUserPrivatePath = storage_path().'/userfiles/companies/' . $company->id . '/private/' . $user->id;
         File::makeDirectory($companyPublicPath, $mode = 0755, true, true);
         File::makeDirectory($companyUserPrivatePath, $mode = 0755, true, true);
+
+        // 8. Create company default categories
+        $defaultCompanyCategories = DefaultCompanycategory::all();
+        foreach ($defaultCompanyCategories as $defaultCompanyCategory){
+            $companyCategory = Companycategory::create(['name' => $defaultCompanyCategory->name, 'description' => $defaultCompanyCategory->description]);
+
+            // tie this companycategory to a company
+            CompanyCompanycategoryPivot::create(['company_id' => $company->id, 'category_id' => $companyCategory->id]);
+        }
 
         return redirect()->route('profile.personal-info');
     }

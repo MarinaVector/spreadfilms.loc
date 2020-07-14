@@ -117,9 +117,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <select class="form-control block-title" id="hierarchy-select" name="parent_id">
-                            <option value="0">Companies</option>
-                            <option value="5">Strategic value # successful creators</option>
-                            <option value="10">Superiority</option>
+                            <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">{{category.name}}</option>
                         </select>
                         <hr>
                     </div>
@@ -255,11 +253,14 @@
 
 
     export default {
-        props: [],
+        props: [
+            'usercompanycategories'
+        ],
         data() {
             return {
                 paragraphs: [],
-                blocksCounterID: 0
+                blocksCounterID: 0,
+                usercompanycategoriesObj: {}
             };
         },
         created() {
@@ -320,7 +321,8 @@
             }
         },
         mounted() {
-
+            // converting usercompanycategories JSON prop into data object
+            this.usercompanycategoriesObj = JSON.parse(this.$props.usercompanycategories);
         },
         components: {
             NormalText,

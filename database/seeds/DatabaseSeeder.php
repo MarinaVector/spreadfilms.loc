@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SiterolesSeeder::class);
         $this->call(DefaultCompanyrolesSeeder::class);
         $this->call(CompanyrolePermissionsSeeder::class);
+        $this->call(DefaultCompanycategoriesSeeder::class);
     }
 }
