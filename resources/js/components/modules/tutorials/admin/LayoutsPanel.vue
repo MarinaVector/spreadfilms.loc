@@ -82,10 +82,12 @@
                         data-placement="bottom" title="Image-text special" ><i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('spImgText')">
-                    <i class="fa fa-lg fa-image pt-2"></i>
+
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text and image high" @click="callParentAddParagraphBlock('spImgText')">
+                    <i class="fa fa-picture-o fa-3x pt-2"></i>
                 </button>
+
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Text and image high" @click="callParentAddParagraphBlock('highText')">
