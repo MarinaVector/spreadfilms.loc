@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div v-cloak v-once class="form-group1">
+            <div class="form-group">
                 <div class="elfinder-preview-image" id="background-tutorial-image-preview"></div>
                 <div class="elfinder-container">
                     <input id="background-tutorial-image" class="elfinder-idea" name="image" type="hidden"/>
@@ -396,6 +396,18 @@
     .elfinder-container {
         position: relative;
         border: 2px dashed #ddd;
+        border-top-color: rgb(221, 221, 221);
+        border-top-style: dashed;
+        border-top-width: 2px;
+        border-right-color: rgb(221, 221, 221);
+        border-right-style: dashed;
+        border-right-width: 2px;
+        border-bottom-color: rgb(221, 221, 221);
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+        border-left-color: rgb(221, 221, 221);
+        border-left-style: dashed;
+        border-left-width: 2px;
         border-image-source: initial;
         border-image-slice: initial;
         border-image-width: initial;
@@ -494,16 +506,7 @@
     .elfinder-preview-image {
         background-size: cover;
         background-position: center;
-        height: 100%;
-
-    }
-
-    [v-once] {
-        display: none;
-    }
-
-    [v-cloak] {
-        display: none;
+        max-height: 200px;
     }
 
 </style>

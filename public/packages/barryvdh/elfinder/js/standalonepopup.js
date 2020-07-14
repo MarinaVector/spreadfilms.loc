@@ -27,4 +27,10 @@ function processSelectedFile(filePath, requestingField) {
     /*$('#' + requestingField + '-preview').attr('src', path);*/
     /*console.log($('#' + requestingField + '-preview'));*/
     $('#' + requestingField + '-preview').css("background-image", "url("+path+")");
+
+    //console.log(requestingField);
+
+    if (requestingField == 'background-tutorial-image') {
+        $('.elfinder-preview-image').css('height', '100%');
+    }
 }
