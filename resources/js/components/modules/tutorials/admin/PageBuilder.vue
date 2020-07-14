@@ -506,7 +506,7 @@
     .elfinder-preview-image {
         background-size: cover;
         background-position: center;
-        height: 100%;
+        max-height: 200px;
     }
 
 </style>
