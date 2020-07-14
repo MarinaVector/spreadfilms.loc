@@ -82,10 +82,12 @@
                         data-placement="bottom" title="Image-text special" ><i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image-text special" @click="callParentAddParagraphBlock('spImgText')">
-                    <i class="fa fa-lg fa-image pt-2"></i>
+
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text and image high" @click="callParentAddParagraphBlock('spImgText')">
+                    <i class="fa fa-picture-o fa-3x pt-2"></i>
                 </button>
+
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Text and image high" @click="callParentAddParagraphBlock('highText')">
@@ -282,9 +284,12 @@
         border: none;
         line-height: 24px;
         text-align: left;
-        font-size: 16px;
+        font-size: 12px;
         font-family: inherit;
         outline: none;
+        width: 150px;
+        height: 27px;
+        display:inline-block;
     }
 
     .filter-content {
@@ -305,8 +310,16 @@
       white-space: nowrap;
         vertical-align: bottom;
         border-radius: 3px;
+        width: 200px;
+        height: 46px;
+        display:inline-block;
     }
 
+    .button-arrow {
+        width: 110px;
+        height: 35px;
+        display:inline-block;
+    }
 
 </style>
 

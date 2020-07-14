@@ -5,7 +5,7 @@
 
         <div class="box-white id="option-buttons-form">
             </div>
-            <div class="col-lg-11 inner-menu pt-3 save-chancel">
+            <div class="col-lg-12 inner-menu pt-3 save-chancel">
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Save">
                     <a href="/module/tutorials/admin" class="btn btn-default ml-1">Cancel</a>

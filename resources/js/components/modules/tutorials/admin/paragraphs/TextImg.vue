@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-image">
-                <div class="row">
-                    <div class="col-lg-9 mt-2 tutorial-text" :id="dataInputPreviewID">
+                <div class="row row-image">
+                    <div class="col-lg-9 tutorial-text" :id="dataInputPreviewID">
                         <div class="row">
-                            <div class="col-lg-1 mt-2 ml-2">
+                            <div class="col-lg-1 mt-3 ml-2">
                                 <button type="button" class="btn-icon ml-n2 draggable">
                                     <i class="fa fa-arrows-v pt-2"></i>
                                 </button>
@@ -188,6 +188,10 @@
         height: 274px !important;
         max-height: 1000px !important;
         min-height: 239px !important;
+    }
+
+    .row-image {
+        height: inherit;
     }
 
 </style>

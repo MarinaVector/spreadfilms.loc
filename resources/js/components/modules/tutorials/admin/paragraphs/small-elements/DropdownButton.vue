@@ -1,6 +1,6 @@
 <template>
     <div class="drop-btn">
-        <button @click="open = !open" type="button" class="btn-blue button-arrow layouts btn-template">
+        <button @click="open = !open" type="button" class="btn-blue layouts btn-template">
             Template
         </button>
         <div v-if="open" class="dropdown-content">
