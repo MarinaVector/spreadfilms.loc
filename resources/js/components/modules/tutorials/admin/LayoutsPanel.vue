@@ -282,9 +282,12 @@
         border: none;
         line-height: 24px;
         text-align: left;
-        font-size: 16px;
+        font-size: 12px;
         font-family: inherit;
         outline: none;
+        width: 150px;
+        height: 27px;
+        display:inline-block;
     }
 
     .filter-content {
@@ -305,8 +308,16 @@
       white-space: nowrap;
         vertical-align: bottom;
         border-radius: 3px;
+        width: 200px;
+        height: 46px;
+        display:inline-block;
     }
 
+    .button-arrow {
+        width: 110px;
+        height: 35px;
+        display:inline-block;
+    }
 
 </style>
 
