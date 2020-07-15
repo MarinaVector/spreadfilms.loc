@@ -8,7 +8,8 @@
             <div class="row mb-2">
                 <div class="col-lg-12 mt-5">
                     <label class="tutorial-name" for="tutorial_name">Name</label>
-                    <input class="input-hidden form-control" type="text" required placeholder="New Tutorial" name="tutorial_name"
+                    <input class="input-hidden form-control" type="text" required placeholder="New Tutorial"
+                           name="tutorial_name"
                            id="tutorial_name">
                 </div>
             </div>
@@ -17,7 +18,8 @@
 
         <!-- Default Page Block with PageBuilderParagraphBlocks -->
         <div class="container group py-5 mt-2">
-            <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still without content, modules can be
+            <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still
+                without content, modules can be
                 selected above or a template can be loaded</h2>
             <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
                 <div v-for="(paragraph, index) in paragraphs" class=".paragraph">
@@ -68,7 +70,7 @@
             <!-- Parent Topic Column -->
             <div class="col-lg-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading row">
+                    <div class="panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
                             <div class="panel-title block-title">Parent Topic</div>
                         </div>
@@ -94,7 +96,6 @@
                             <option value="17">Excellence Concept</option>
                             <option value="22">New Tutorial</option>
                         </select>
-                        <hr>
                     </div>
                 </div>
             </div>
@@ -103,7 +104,7 @@
             <!-- Categories Column -->
             <div class="col-lg-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading row">
+                    <div class=" panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
                             <div class="panel-title block-title">Categories</div>
                         </div>
@@ -117,57 +118,75 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <select class="form-control block-title" id="hierarchy-select" name="parent_id">
-                            <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">{{category.name}}</option>
+                            <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">
+                                {{category.name}}
+                            </option>
                         </select>
-                        <hr>
                     </div>
                 </div>
             </div>
 
             <!-- Categories Column -->
             <!-- Employees Assign -->
-            <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading row">
+            <div class="col-lg-6 mt-2">
+                <div class="panel-default panel">
+                    <div class="panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
                             <div class="panel-title block-title"><span data-toggle="collapse"
-                                                                       data-target="#collapse-staff">Employees assign</span><span
-                                data-toggle="collapse" class="pull-right staff-toggler"
-                                data-target="#collapse-staff"></span></div>
+                                                                       data-target="#collapse-staff">Employees assign</span>
+                                <span
+                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
+                                    data-target="#collapse-staff"
+                                    aria-expanded="true"></span>
+                            </div>
                         </div>
                         <div class="col-lg-1">
                             <question-dropdown
                                 :answerdropdown="'Make the Tutorial visible to all or only selected employees'"></question-dropdown>
                         </div>
                     </div>
-
-                    <div class="form-control">
-                        <label for="visible_for_all">
-                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_all"
-                                   id="visible_for_all">
+                    <div class="form-control form-make pt-2">
+                        <label for="visible_for_trainees" class="mb-3">
+                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees">
                             Make visible to all employees
                         </label>
                     </div>
-                    <div class="panel-body collapse" id="collapse-staff">
-                        <div class="form-group block-title">
+                    <div class="panel-body collapse show mt-3">
+                        <div class="form-group">
                             <table class="table">
                                 <thead>
-                                <th>Name</th>
-                                <th>E-Mail</th>
-                                <th>Status</th>
-                                <th><span class="pull-right block-title">Assign</span></th>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>E-Mail</th>
+                                    <th>Status</th>
+                                    <th><span class="pull-right">Assign</span></th>
+                                </tr>
                                 </thead>
                                 <tbody>
-
                                 <tr>
-                                    <td>Andreas Ramelsberger</td>
-                                    <td>ar@spreadfilms.de</td>
-                                    <td><span class="label label-danger block-title">Not assigned</span></td>
+                                    <td>Marina Fetisova</td>
+                                    <td>m@gmail.com</td>
+                                    <td><span class="label label-danger ">Not assigned</span></td>
                                     <td>
-                                        <div class="btn-group pull-right">
-                                            <label class="btn btn-sm btn-default"><input type="hidden" value="0"
-                                                                                         name="attendees[67]"><input
-                                                type="checkbox" value="1" name="attendees[67]"> </label>
+                                        <div class="btn-group pull-right"><label
+                                            class="btn btn-sm btn-check panel"><input
+                                            type="hidden" value="0" name="attendees[70]"><input type="checkbox"
+                                                                                                value="1"
+                                                                                                name="attendees[70]">
+                                        </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>eXCom</td>
+                                    <td>excom.te.ua@gmail.com</td>
+                                    <td><span class="label label-danger ">Not assigned</span></td>
+                                    <td>
+                                        <div class="btn-group pull-right"><label
+                                            class="btn btn-sm btn-check panel"><input
+                                            type="hidden"
+                                            value="0" name="attendees[68]">
+                                            <input type="checkbox" value="1" name="attendees[68]"></label>
                                         </div>
                                     </td>
                                 </tr>
@@ -177,30 +196,33 @@
                     </div>
                 </div>
             </div>
-            <!-- Employees Assign -->
 
             <!-- Trainees Assign -->
-            <div class="col-md-6">
+            <div class="col-md-6 mt-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading row">
+                    <div class="panel-heading panel-list mx-1 row">
                         <div class="col-lg-11">
                             <div class="panel-title block-title"><span data-toggle="collapse"
-                                                                       data-target="#collapse-praktikanten">Probationers assign</span><span
-                                data-toggle="collapse" class="pull-right staff-toggler"
-                                data-target="#collapse-praktikanten"></span></div>
+                                                                       data-target="#collapse-praktikanten">Trainees Assign</span>
+                                <span
+                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
+                                    data-target="#collapse-staff"
+                                    aria-expanded="true"></span>
+                            </div>
                         </div>
                         <div class="col-lg-1">
                             <question-dropdown
                                 :answerdropdown="'Make the Tutorial visible to either all or only selected probationers'"></question-dropdown>
                         </div>
                     </div>
-                    <div class="form-control block-title">
-                        <label for="visible_for_trainees">
-                            <input checked type="checkbox" name="visible_for_trainees" id="visible_for_trainees">
+                    <div class="form-control form-make pt-2">
+                        <label for="visible_for_trainees" class="mb-3">
+                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees"
+                                   id="visible_for_trainees">
                             Make it visible to all probationers
                         </label>
                     </div>
-                    <div class="panel-body collapse block-title" id="collapse-praktikanten">
+                    <div class="panel-body collapse show mt-3" id="">
                         <div class="form-group">
                             <table class="table">
                                 <thead>
@@ -216,8 +238,8 @@
                                     <td><span class="label label-danger">Not assigned</span></td>
                                     <td>
                                         <div class="btn-group pull-right">
-                                            <label class="btn btn-sm btn-default"><input type="hidden" value="0"
-                                                                                         name="attendees[23]"><input
+                                            <label class="btn btn-sm btn-check"><input type="hidden" value="0"
+                                                                                       name="attendees[23]"><input
                                                 type="checkbox" value="1" name="attendees[23]"> </label>
                                         </div>
                                     </td>
@@ -233,6 +255,7 @@
         <!-- Parent Topic and Categories Block -->
         <save-cancel-block></save-cancel-block>
     </div>
+
 </template>
 
 <script>
@@ -251,7 +274,6 @@
     import Contact from './paragraphs/Contact'
     import QuestionsAnswers from './paragraphs/QuestionsAnswers'
 
-
     export default {
         props: [
             'usercompanycategories'
@@ -267,7 +289,7 @@
 
         },
         methods: {
-            addParagraphBlock (paragraphName) {
+            addParagraphBlock(paragraphName) {
                 switch (paragraphName) {
                     case 'normalText':
                         this.paragraphs.push({component: NormalText});
@@ -313,10 +335,10 @@
                 }
                 this.blocksCounterID += 1;
             },
-            deleteParagraph (index) {
+            deleteParagraph(index) {
                 this.paragraphs.splice(index, 1);
             },
-            duplicateParagraph (index) {
+            duplicateParagraph(index) {
                 this.paragraphs.push(this.paragraphs[index]);
             }
         },
@@ -472,7 +494,7 @@
         margin-bottom: 5px;
     }
 
-      .btn-icon {
+    .btn-icon {
         background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
         color: #fff;
         border: none;
@@ -510,5 +532,75 @@
         background-position: center;
         max-height: 200px;
     }
+
+    .arrow-toggler.active::after {
+        content: "▲";
+    }
+
+    .arrow-toggler::after {
+        content: "▼";
+        position: absolute;
+        left: 24px;
+        top: 0px;
+        font-weight: normal;
+    }
+
+    .arrow-toggler {
+        cursor: pointer;
+        padding-right: 20px;
+        position: relative;
+    }
+
+    .panel-list {
+        border: 0;
+        padding: 10px 15px;
+    }
+
+
+    .panel .form-control, .panel .form-control:focus, .card .form-control,
+    .card .form-control:focus, .card .form-control[type="email"], .card
+    .form-control[readonly] {
+        background: #f2f2f2;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .panel-list:after {
+        content: "";
+        background: -moz-linear-gradient(90deg, #232323 0%, #858585 100%);
+        background: -webkit-linear-gradient(90deg, #232323 0%, #858585 100%);
+        background: linear-gradient(90deg, #232323 0%, #858585 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#232323',
+        endColorstr='#858585', GradientType=1);
+        width: 100%;
+        height: 2px;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+    }
+
+    .panel {
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    }
+
+    .form-make {
+        font-size: 14px;
+        background: #fff;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        color: #777777;
+        border: 0;
+        padding: 0 15px;
+    }
+
+    tr {
+        background-color: transparent;
+    }
+
+    .btn-check {
+        background: #eee;
+        border: 1px solid #ccc;
+    }
+
 
 </style>
