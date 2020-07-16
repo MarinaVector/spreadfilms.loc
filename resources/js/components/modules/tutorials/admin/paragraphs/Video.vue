@@ -15,10 +15,10 @@
         <div class="row my-5 pt-5">
             <div class="col-lg-1 offset-lg-5 inner-trigger my-5">
                 <div class="my-5">
-                    <button class="text-button ml-4 py-2 px-5 mt-2" type="button">
-                        <i class="fa fa-file-video-o blueiconcolor fa-5x">
+                    <button class="text-button ml-4 py-3 px-5 mt-2" type="button">
+                        <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
-                        <p class="mt-n3 mb-n1">Video</p>
+                        <p class="mt-n1 mb-n1">Video</p>
                     </button>
                 </div>
             </div>
@@ -73,7 +73,7 @@
 
     .text-button {
         background-color: white;
-        border: none;
+        border-radius: 3px
     }
 
     .tutorial-video {
