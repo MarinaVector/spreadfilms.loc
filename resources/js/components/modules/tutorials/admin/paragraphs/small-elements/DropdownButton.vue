@@ -47,6 +47,7 @@
         font-size: 16px;
         padding: 6px;
     }
+
     .drop-btn {
         display: inline
      }
