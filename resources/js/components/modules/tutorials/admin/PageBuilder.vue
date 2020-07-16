@@ -125,33 +125,36 @@
                     </div>
                 </div>
             </div>
-
             <!-- Categories Column -->
-            <!-- Employees Assign -->
+
+            <!-- Users Assign -->
             <div class="col-lg-6 mt-2">
                 <div class="panel-default panel">
                     <div class="panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
-                            <div class="panel-title block-title"><span data-toggle="collapse"
-                                                                       data-target="#collapse-staff">Employees assign</span>
+                            <div class="panel-title block-title">
+                                <span data-toggle="collapse" data-target="#collapse-staff">
+                                    Users assign
+                                </span>
                                 <span
                                     data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
                                     data-target="#collapse-staff"
-                                    aria-expanded="true"></span>
+                                    aria-expanded="true">
+                                </span>
                             </div>
                         </div>
                         <div class="col-lg-1">
                             <question-dropdown
-                                :answerdropdown="'Make the Tutorial visible to all or only selected employees'"></question-dropdown>
+                                :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
                         </div>
                     </div>
                     <div class="form-control form-make pt-2">
                         <label for="visible_for_trainees" class="mb-3">
-                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees">
+                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees" id="visible_for_trainees">
                             Make visible to all employees
                         </label>
                     </div>
-                    <div class="panel-body collapse show mt-3">
+                    <div class="panel-body collapse mt-3" id="collapse-staff">
                         <div class="form-group">
                             <table class="table">
                                 <thead>
@@ -196,63 +199,22 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Trainees Assign -->
-            <div class="col-md-6 mt-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading panel-list mx-1 row">
-                        <div class="col-lg-11">
-                            <div class="panel-title block-title"><span data-toggle="collapse"
-                                                                       data-target="#collapse-praktikanten">Trainees Assign</span>
-                                <span
-                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
-                                    data-target="#collapse-staff"
-                                    aria-expanded="true"></span>
-                            </div>
-                        </div>
-                        <div class="col-lg-1">
-                            <question-dropdown
-                                :answerdropdown="'Make the Tutorial visible to either all or only selected probationers'"></question-dropdown>
-                        </div>
-                    </div>
-                    <div class="form-control form-make pt-2">
-                        <label for="visible_for_trainees" class="mb-3">
-                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees"
-                                   id="visible_for_trainees">
-                            Make it visible to all probationers
-                        </label>
-                    </div>
-                    <div class="panel-body collapse show mt-3" id="">
-                        <div class="form-group">
-                            <table class="table">
-                                <thead>
-                                <th>Name</th>
-                                <th>E-Mail</th>
-                                <th>Status</th>
-                                <th><span class="pull-right">Assign</span></th>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Christoph Manys</td>
-                                    <td>cmanys@verovis.de</td>
-                                    <td><span class="label label-danger">Not assigned</span></td>
-                                    <td>
-                                        <div class="btn-group pull-right">
-                                            <label class="btn btn-sm btn-check"><input type="hidden" value="0"
-                                                                                       name="attendees[23]"><input
-                                                type="checkbox" value="1" name="attendees[23]"> </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Trainees Assign -->
         </div>
         <!-- Parent Topic and Categories Block -->
+
+        <p>
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Link with href
+            </a>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Button with data-target
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+            </div>
+        </div>
         <save-cancel-block></save-cancel-block>
     </div>
 
