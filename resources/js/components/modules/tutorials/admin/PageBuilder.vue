@@ -125,15 +125,14 @@
                     </div>
                 </div>
             </div>
-            <!-- Categories Column -->
 
-            <!-- Users Assign -->
+            <!-- Categories Column -->
+            <!-- Employees Assign -->
             <div class="col-lg-6 mt-2">
                 <div class="panel-default panel">
                     <div class="panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
                             <div class="panel-title block-title">
-<<<<<<< HEAD
                                 <span
                                       data-toggle="collapse"
                                       data-target="#collapse-staff">Employees assign</span>
@@ -142,36 +141,22 @@
                                      class="arrowtoggler hidetoggler ml-2 pull-right"
                                       data-target="#collapse-staff"
                                       aria-expanded="true">
-=======
-                                <span data-toggle="collapse" data-target="#collapse-staff">
-                                    Users assign
-                                </span>
-                                <span
-                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
-                                    data-target="#collapse-staff"
-                                    aria-expanded="true">
->>>>>>> master
                                 </span>
                             </div>
                         </div>
                         <div class="col-lg-1">
                             <question-dropdown
-                                :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
+                                :answerdropdown="'Make the Tutorial visible to all or only selected employees'"></question-dropdown>
                         </div>
                     </div>
                     <div class="form-control form-make pt-2">
                         <label for="visible_for_trainees" class="mb-3">
-                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees" id="visible_for_trainees">
+                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees">
                             Make visible to all employees
                         </label>
                     </div>
-<<<<<<< HEAD
                     <div class="panel-body collapse  show mt-3">
                         <div v-if="showemployees" class="form-group users-list-container">
-=======
-                    <div class="panel-body collapse mt-3" id="collapse-staff">
-                        <div class="form-group">
->>>>>>> master
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -215,10 +200,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Parent Topic and Categories Block -->
 
-<<<<<<< HEAD
             <!-- Trainees Assign -->
             <div class="col-md-6 mt-2">
                 <div class="panel panel-default">
@@ -271,21 +253,10 @@
                         </div>
                     </div>
                 </div>
-=======
-        <p>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Link with href
-            </a>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Button with data-target
-            </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
->>>>>>> master
             </div>
+            <!-- Trainees Assign -->
         </div>
+        <!-- Parent Topic and Categories Block -->
         <save-cancel-block></save-cancel-block>
     </div>
 
