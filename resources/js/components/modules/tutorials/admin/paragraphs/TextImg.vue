@@ -13,7 +13,7 @@
                             <div class="col-lg-5 offset-lg-2 inner-trigger mt-5">
                                 <input :id="dataInputID" class="elfinder-idea" name="image" type="hidden"/>
                                 <button :data-inputid="dataInputID" class="popup_selector text-button ml-4 py-2 px-5 mt-5 slide-border" type="button">
-                                    <i class="fas fa-image blueiconcolor fa-2x">
+                                    <i class="fas fa-image blueiconcolor fa-2x pt-1">
                                     </i>
                                     <p class="mt-n1 mb-n1">Image</p>
                                 </button>

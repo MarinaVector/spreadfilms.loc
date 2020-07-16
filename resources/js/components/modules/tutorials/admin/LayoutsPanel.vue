@@ -1,48 +1,57 @@
 <template>
     <div class="container inner-menu top-menu pt-1 mb-5">
-        <div class="row">
-            <div class="col-lg-12 mb-3">
+        <div class="row mt-3 ml-2">
 
-                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2 mb-1 pb-1 mr-2"><span class="filter-content"  v-if="text_content">{{text_content}}
+                <div class="col-lg-3 col-12 mb-3 ml-1">
+                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2 mb-1 pb-1 ml-4"><span class="filter-content"  v-if="text_content">{{text_content}}
                        </span>
                         <div class="tool ml-2 mb-1 filter-content" v-on:click.stop v-if="show_input">
                             <input type="text" class="btn-inp"/>
                         </div>
                     </button>
-
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0 ml-2" type="button" data-toggle="tooltip"
+                </div>
+                <div class="col-lg-2 col-12 mb-3 btn-layout">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text p-0" type="button"
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button"
                         data-toggle="tooltip"
                         data-placement="bottom" title="Video with Background"
                         @click="callParentAddParagraphBlock('bgVideo')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                </div>
+                <div class="col-lg-2 col-12 mb-3 btn-layout">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Normal Text" @click="callParentAddParagraphBlock('normalText')">
                     <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+
+
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Text and Picture"
                         @click="callParentAddParagraphBlock('textImg')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                </div>
+                <div class="col-lg-1 col-12 mb-3 btn-layout">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Picture-Slider" @click="callParentAddParagraphBlock('slider')">
                     <i class="fa fa-sliders fa-3x pt-2"></i>
                 </button>
-
+                </div>
+            <div class="col-lg-3 col-12 mb-3 btn-layout">
                 <a href="#" @click="switchLayoutsPanel()">
-                    <button type="button" class="btn-blue button-arrow layouts mt-4 py-2 ml-2 mr-3" ref="layoutsButton">
+                    <button type="button" class="btn-blue button-arrow layouts py-2 ml-4 mr-3" ref="layoutsButton">
                         Show all<i class="fas fa-arrow-down ml-1"></i>
                     </button>
                 </a>
                 <dropdown-button></dropdown-button>
-
-            </div>
+                </div>
         </div>
+
+
 
 
         <div id="layoutsPanel" ref="layoutsPanel" :style="{ display: 'none' }">
@@ -253,6 +262,7 @@
         background: #d5d5d5;
         border: 6px solid white;
         border-radius: 3px;
+        width: 82px;
     }
 
     .block-text {
@@ -319,6 +329,13 @@
         width: 110px;
         height: 35px;
         display:inline-block;
+    }
+
+    .btn-layout {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right:0;
     }
 
 </style>
