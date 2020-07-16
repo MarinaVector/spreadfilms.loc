@@ -32,4 +32,5 @@
     @yield('body')
 </div>
 </body>
+@yield('scripts')
 </html>

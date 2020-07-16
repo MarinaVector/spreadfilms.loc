@@ -3,5 +3,8 @@
 @section('body')
     @yield('content')
 
-    @yield('scripts')
+@endsection
+
+@section('scripts')
+
 @endsection
