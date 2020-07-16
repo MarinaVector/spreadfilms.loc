@@ -132,12 +132,16 @@
                 <div class="panel-default panel">
                     <div class="panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
-                            <div class="panel-title block-title"><span @click="showlist = !showlist" data-toggle="collapse"
-                                                                       data-target="#collapse-staff">Employees assign</span>
-                                <span @click="showemployees = !showemployees"
-                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
-                                    data-target="#collapse-staff"
-                                    aria-expanded="true"></span>
+                            <div class="panel-title block-title">
+                                <span
+                                      data-toggle="collapse"
+                                      data-target="#collapse-staff">Employees assign</span>
+                                <span @click="showlist()"
+                                      data-toggle="collapse"
+                                     class="arrowtoggler hidetoggler ml-2 pull-right"
+                                      data-target="#collapse-staff"
+                                      aria-expanded="true">
+                                </span>
                             </div>
                         </div>
                         <div class="col-lg-1">
@@ -202,12 +206,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading panel-list mx-1 row">
                         <div class="col-lg-11">
-                            <div class="panel-title block-title"><span  data-toggle="collapse"
+                            <div class="panel-title block-title"><span data-toggle="collapse"
                                                                        data-target="#collapse-praktikanten">Trainees Assign</span>
                                 <span @click="showtrainees = !showtrainees"
-                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
-                                    data-target="#collapse-staff"
-                                    aria-expanded="true"></span>
+                                      data-toggle="collapse" class="ml-2 pull-right arrowtoggler hidetoggler"
+                                      data-target="#collapse-staff"
+                                      aria-expanded="true"></span>
                             </div>
                         </div>
                         <div class="col-lg-1">
@@ -222,7 +226,7 @@
                             Make it visible to all trainees
                         </label>
                     </div>
-                    <div  class="panel-body collapse show mt-3 users-list-container"  id="">
+                    <div class="panel-body collapse show mt-3 users-list-container" id="">
                         <div v-if="showtrainees" class="form-group users-list">
                             <table class="table">
                                 <thead>
@@ -280,6 +284,9 @@
         ],
         data() {
             return {
+
+                arrowtoggler: true,
+                hidetoggler: false,
                 showemployees: false,
                 showtrainees: false,
                 paragraphs: [],
@@ -291,6 +298,12 @@
 
         },
         methods: {
+            showlist(){
+
+                this.hidetoggler = !this.hidetoggler;
+                this.showemployees = !this.showemployees;
+            },
+
             addParagraphBlock(paragraphName) {
                 switch (paragraphName) {
                     case 'normalText':
@@ -349,6 +362,7 @@
             this.usercompanycategoriesObj = JSON.parse(this.$props.usercompanycategories);
         },
         components: {
+
             NormalText,
             Video,
             TextImg,
@@ -545,11 +559,15 @@
         max-height: 200px;
     }
 
-    .arrow-toggler.active::after {
+    .hidetoggler::after {
         content: "▲";
+        position: absolute;
+        left: 24px;
+        top: 0px;
+        font-weight: normal;
     }
 
-    .arrow-toggler::after {
+    .arrowtoggler::after {
         content: "▼";
         position: absolute;
         left: 24px;
@@ -557,7 +575,8 @@
         font-weight: normal;
     }
 
-    .arrow-toggler {
+    .arrowtoggler,
+    .hidetoggler {
         cursor: pointer;
         padding-right: 20px;
         position: relative;
