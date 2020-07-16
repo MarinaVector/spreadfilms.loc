@@ -83,7 +83,7 @@
 
                 <div class="panel-body block-title">
                     <div class="form-group">
-                        <select class="form-control" id="parent_topic" name="parent_id">
+                        <select class="form-control select-tutorial" id="parent_topic" name="parent_id">
                             <option value="0">No Parent Tutorial</option>
                             <option value="5">Welcome to Verovis!</option>
                             <option value="10">What makes us successful</option>
@@ -117,7 +117,7 @@
 
                 <div class="panel-body">
                     <div class="form-group">
-                        <select class="form-control block-title" id="hierarchy-select" name="parent_id">
+                        <select class="form-control block-title select-tutorial" id="hierarchy-select" name="parent_id">
                             <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">
                                 {{category.name}}
                             </option>
@@ -509,6 +509,16 @@
 
     .blueiconcolor {
         color: #00bff9 !important;
+    }
+
+    select.select-tutorial {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        min-width: 200px;
+        color: #333;
+        border: solid #ccc 1px;
+        border-radius: 0;
     }
 
     .tutorial-name {
