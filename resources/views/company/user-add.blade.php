@@ -59,20 +59,12 @@
                         </div>
 
                     </form>
-
-
                 </div>
                 <div class="col-xl-3">
                 </div>
             </div>
         </div>
 
-        <div>
-            <v-dialog/>
-        </div>
-        <div>
-            <modals-container/>
-        </div>
     </div>
 @endsection
 
