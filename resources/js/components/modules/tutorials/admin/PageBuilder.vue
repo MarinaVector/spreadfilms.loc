@@ -132,9 +132,9 @@
                 <div class="panel-default panel">
                     <div class="panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
-                            <div class="panel-title block-title"><span data-toggle="collapse"
+                            <div class="panel-title block-title"><span @click="showlist = !showlist" data-toggle="collapse"
                                                                        data-target="#collapse-staff">Employees assign</span>
-                                <span
+                                <span @click="showemployees = !showemployees"
                                     data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
                                     data-target="#collapse-staff"
                                     aria-expanded="true"></span>
@@ -151,8 +151,8 @@
                             Make visible to all employees
                         </label>
                     </div>
-                    <div class="panel-body collapse show mt-3">
-                        <div class="form-group">
+                    <div class="panel-body collapse  show mt-3">
+                        <div v-if="showemployees" class="form-group users-list-container">
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -202,9 +202,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading panel-list mx-1 row">
                         <div class="col-lg-11">
-                            <div class="panel-title block-title"><span data-toggle="collapse"
+                            <div class="panel-title block-title"><span  data-toggle="collapse"
                                                                        data-target="#collapse-praktikanten">Trainees Assign</span>
-                                <span
+                                <span @click="showtrainees = !showtrainees"
                                     data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
                                     data-target="#collapse-staff"
                                     aria-expanded="true"></span>
@@ -219,11 +219,11 @@
                         <label for="visible_for_trainees" class="mb-3">
                             <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees"
                                    id="visible_for_trainees">
-                            Make it visible to all probationers
+                            Make it visible to all trainees
                         </label>
                     </div>
-                    <div class="panel-body collapse show mt-3" id="">
-                        <div class="form-group">
+                    <div  class="panel-body collapse show mt-3 users-list-container"  id="">
+                        <div v-if="showtrainees" class="form-group users-list">
                             <table class="table">
                                 <thead>
                                 <th>Name</th>
@@ -280,6 +280,8 @@
         ],
         data() {
             return {
+                showemployees: false,
+                showtrainees: false,
                 paragraphs: [],
                 blocksCounterID: 0,
                 usercompanycategoriesObj: {}
@@ -610,6 +612,10 @@
     .btn-check {
         background: #eee;
         border: 1px solid #ccc;
+    }
+
+    .users-list-container {
+
     }
 
 
