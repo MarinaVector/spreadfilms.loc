@@ -149,47 +149,38 @@
                         </div>
                     </div>
                     <div class="form-control form-make pt-2">
-                        <label for="visible_for_trainees" class="mb-3">
-                            <input class="panel-title block-title" checked type="checkbox" name="visible_for_trainees" id="visible_for_trainees">
-                            Make visible to all employees
+                        <label for="assign_to_all" class="mb-3" @click="assignTo($event, 'all')">
+                            <input class="panel-title block-title" checked type="checkbox" name="assign_to_all" id="assign_to_all">
+                            Make visible to all
                         </label>
                     </div>
+
                     <div class="panel-body collapse mt-3" id="collapse-staff">
+                        <div class="form-control form-make pt-2" v-for="(role, index) in usercompanyrolesArr">
+                            <label :for="'assign_to_' + role.name" class="mb-3" @click="assignTo($event, role.name)">
+                                <input class="panel-title block-title" checked type="checkbox" :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
+                                Make visible to all users with role <b>"{{role.name}}"</b>
+                            </label>
+                        </div>
                         <div class="form-group">
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>E-Mail</th>
-                                    <th>Status</th>
                                     <th><span class="pull-right">Assign</span></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Marina Fetisova</td>
-                                    <td>m@gmail.com</td>
-                                    <td><span class="label label-danger ">Not assigned</span></td>
+                                <tr v-for="(user, index) in usercompanyusersArr">
+                                    <td>{{user.firstname}}</td>
+                                    <td>{{user.email}}</td>
                                     <td>
-                                        <div class="btn-group pull-right"><label
-                                            class="btn btn-sm btn-check panel"><input
-                                            type="hidden" value="0" name="attendees[70]"><input type="checkbox"
-                                                                                                value="1"
-                                                                                                name="attendees[70]">
-                                        </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>eXCom</td>
-                                    <td>excom.te.ua@gmail.com</td>
-                                    <td><span class="label label-danger ">Not assigned</span></td>
-                                    <td>
-                                        <div class="btn-group pull-right"><label
-                                            class="btn btn-sm btn-check panel"><input
-                                            type="hidden"
-                                            value="0" name="attendees[68]">
-                                            <input type="checkbox" value="1" name="attendees[68]"></label>
+                                        <div class="btn-group pull-right">
+                                            <label class="btn btn-sm btn-check panel">
+                                                <input type="checkbox" checked :name="'assignee[' + user.id + ']'"
+                                                       class="user_assign_cb" :data-roles="companyrolesList(user.companyroles)">
+                                            </label>
                                         </div>
                                     </td>
                                 </tr>
@@ -202,19 +193,6 @@
         </div>
         <!-- Parent Topic and Categories Block -->
 
-        <p>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Link with href
-            </a>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Button with data-target
-            </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-            </div>
-        </div>
         <save-cancel-block></save-cancel-block>
     </div>
 
@@ -238,13 +216,17 @@
 
     export default {
         props: [
-            'usercompanycategories'
+            'usercompanycategories',
+            'usercompanyroles',
+            'usercompanyusers'
         ],
         data() {
             return {
                 paragraphs: [],
                 blocksCounterID: 0,
-                usercompanycategoriesObj: {}
+                usercompanycategoriesObj: {},
+                usercompanyrolesArr: [],
+                usercompanyusersArr: []
             };
         },
         created() {
@@ -302,11 +284,47 @@
             },
             duplicateParagraph(index) {
                 this.paragraphs.push(this.paragraphs[index]);
+            },
+            assignTo(event, role){
+                if(role === 'all') {
+                    $('input:checkbox').not(this).prop('checked', event.target.checked);
+                } else {
+                    $('input:checkbox.user_assign_cb').not(this).each(function() {
+                        if($(this).attr('data-roles').includes(role)){
+                            $(this).prop('checked', event.target.checked)
+                        }
+                    });
+                }
+
+                if (event.target.checked){
+                    // assign roles
+                    console.log('assign to' + role);
+                } else {
+                    // unassign roles
+                    console.log('unassign to' + role);
+                }
+            },
+            companyrolesList(rolesArr){
+                let rolesList = [];
+
+                rolesArr.map(function(value, key) {
+                    rolesList.push(value.name);
+                });
+
+                return rolesList.join(", ");
             }
         },
         mounted() {
             // converting usercompanycategories JSON prop into data object
             this.usercompanycategoriesObj = JSON.parse(this.$props.usercompanycategories);
+
+            // converting usercompanyroles JSON prop into data object
+            this.usercompanyrolesArr = JSON.parse(this.$props.usercompanyroles);
+
+            // converting usercompanyusers JSON prop into data object
+            this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
+
+            console.log(this.usercompanyusersArr);
         },
         components: {
             NormalText,

@@ -18,8 +18,9 @@ class TutorialsController extends Controller
     //
     public function addTutorial() {
         $user = Auth::user();
+        $usercompanyusers = $user->company()->users()->with('companyroles')->get();
 
-        return view('modules.tutorials.add')->with('authUser', Auth::user());
+        return view('modules.tutorials.add')->with(['authUser' => Auth::user(), 'userCompanyUsers' => $usercompanyusers]);
     }
 
     public function statisticsTutorial() {

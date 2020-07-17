@@ -129,7 +129,7 @@
                                                                                                     <tbody>
                                                                                                     <tr>
                                                                                                         <td style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">
-                                                                                                            <a href="{{ env('APP_URL') }}accept-invitation/{{ $data['invite-uuid'] }}"
+                                                                                                            <a href="{{ URL::to('/') }}/accept-invitation/{{ $data['invite-uuid'] }}"
                                                                                                                class="button_mr_css_attr button-primary_mr_css_attr"
                                                                                                                target="_blank"
                                                                                                                style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';-webkit-text-size-adjust: none;border-radius: 4px;color: #fff;display: inline-block;overflow: hidden;text-decoration: none;background-color: #2d3748;border-bottom: 8px solid #2d3748;border-left: 18px solid #2d3748;border-right: 18px solid #2d3748;border-top: 8px solid #2d3748;"
@@ -197,10 +197,10 @@
                                                                                         into your web browser: <span
                                                                                             class="break-all_mr_css_attr"
                                                                                             style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';word-break: break-all;"><a
-                                                                                                href="{{ env('APP_URL') }}accept-invitation/{{ $data['invite-uuid'] }}"
+                                                                                                href="{{ URL::to('/') }}/accept-invitation/{{ $data['invite-uuid'] }}"
                                                                                                 style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';color: #3869d4;"
                                                                                                 target="_blank"
-                                                                                                rel=" noopener noreferrer">{{ env('APP_URL') }}accept-invitation/{{ $data['invite-uuid'] }}</a></span>
+                                                                                                rel=" noopener noreferrer">{{ URL::to('/') }}/accept-invitation/{{ $data['invite-uuid'] }}</a></span>
                                                                                     </p>
                                                                                 </td>
                                                                             </tr>
