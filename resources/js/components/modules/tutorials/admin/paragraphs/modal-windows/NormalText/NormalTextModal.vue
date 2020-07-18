@@ -53,6 +53,7 @@
 </script>
 
 <style>
+
    button.btn-modal {
         margin-right: 40px;
         box-shadow: 0 0px 20px 3px rgba(0, 0, 0, 0.2);
@@ -67,8 +68,6 @@
         background-color: #6c757d;
         border-color: #6c757d;
         color: white;
-
     }
-
 
 </style>

@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+#app {
+    height: 100%;
+}
+
 button:active, .btn:active,
 button:focus, .btn:focus {
     outline: none;

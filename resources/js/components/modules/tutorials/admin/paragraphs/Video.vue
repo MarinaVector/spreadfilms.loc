@@ -15,14 +15,16 @@
         <div class="row my-5 pt-5">
             <div class="col-lg-1 offset-lg-5 inner-trigger my-5">
                 <div class="my-5">
-                    <button class="text-button ml-4 py-3 px-5 mt-2" type="button">
+                    <button @click=showVideoSimpleModule() class="text-button ml-4 py-3 px-5 mt-2" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
                         <p class="mt-n1 mb-n1">Video</p>
                     </button>
+                    <VideoSimple ref="modal"></VideoSimple>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-1 offset-lg-11">
 
@@ -35,7 +37,12 @@
 </template>
 
 <script>
+    import VideoSimple from './modal-windows/Video/VideoSimple'
+
     export default {
+        components: {
+            VideoSimple
+        },
         props: [
             'index'
         ],
@@ -51,6 +58,10 @@
             },
             callParentDuplicateParagraphBlock: function() {
                 this.$emit('duplicateParagraph');
+            },
+            showVideoSimpleModule: function () {
+                let element = this.$refs.modal.$el;
+                $(element).modal('show');
             }
         },
         mounted() {
@@ -109,6 +120,11 @@
 
     .blueiconcolor {
         color: #00bff9 !important;
+    }
+
+    .modal-video {
+        top: 50%;
+        left: 50%;
     }
 
 </style>
