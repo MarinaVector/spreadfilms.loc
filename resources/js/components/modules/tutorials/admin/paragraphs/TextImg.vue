@@ -11,14 +11,15 @@
                                 </button>
                             </div>
                             <div class="col-lg-5 offset-lg-2 inner-trigger mt-5">
-                                <input :id="dataInputID" class="elfinder-idea" name="image" type="hidden"/>
-                                <button :data-inputid="dataInputID" class="popup_selector text-button ml-4 py-2 px-5 mt-5 slide-border" type="button">
+                                <input class="elfinder-idea" name="image" type="hidden"/>
+                                <button  @click="showImageSimpleModule()" class="text-button ml-4 py-2 px-5 mt-5 slide-border" type="button">
                                     <i class="fas fa-image blueiconcolor fa-2x pt-1">
                                     </i>
                                     <p class="mt-n1 mb-n1">Image</p>
                                 </button>
 
                             </div>
+                            <ImageSimple ref="img"></ImageSimple>
                         </div>
 
                         <div class="row">
@@ -62,10 +63,14 @@
 
 <script>
     import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
+    import ImageSimple from './modal-windows/Image/ImageSimple'
+
+
 
     export default {
         components: {
-            NormalTextModal
+            NormalTextModal,
+            ImageSimple
         },
         props: [
             'index',
@@ -90,8 +95,13 @@
             showTextModal: function () {
                 let element = this.$refs.modal.$el;
                 $(element).modal('show');
+            },
+            showImageSimpleModule: function () {
+                let element = this.$refs.img.$el;
+                $(element).modal('show');
             }
         },
+
         mounted() {
             //console.log(this.$props.blocksCounterID);
             this.dataInputID = 'background-image-' + this.$props.blocksCounterID;

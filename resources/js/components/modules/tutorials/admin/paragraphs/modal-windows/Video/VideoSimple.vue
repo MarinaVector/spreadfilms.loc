@@ -11,7 +11,7 @@
                                                                        data-value="image" class="elfinder-idea">
                                     <button data-inputid="neu-1" data-dismiss="modal" class="popup_selector btn btn-default">Select image
                                     </button>
-                                </div> <!---->
+                                </div>
                                 <hr>
                                 <label class="input-title"><i class="fas fa-film mr-2"></i>Video</label>
                                 <div class="elfinder-container"><input type="text" placeholder="Video-URL"
@@ -24,16 +24,16 @@
                                 <div class="stay-logged-in">
                                     <div class="pretty p-default p-round">
                                         <div class="custom-checkbox pretty p-default p-round">
-                                            <label for="remember">
-                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember">
+                                            <label for="remember1">
+                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember1">
                                                 <div class="roundchek mr-1"></div>
                                                 16:9
                                             </label>
                                         </div>
                                         <div class="pretty p-default p-round p-curve">
                                         <div class="custom-checkbox">
-                                            <label for="remember">
-                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember">
+                                            <label for="remember2">
+                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember2">
                                                 <div class="roundchek mr-1"></div>
                                                 4:3
                                             </label>
@@ -144,7 +144,7 @@
     }
 </script>
 
-<style scoped>
+<style>
     #modals-container
     .edit-view
     .edit-inner

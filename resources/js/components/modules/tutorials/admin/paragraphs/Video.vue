@@ -20,7 +20,6 @@
                         </i>
                         <p class="mt-n1 mb-n1">Video</p>
                     </button>
-
                 </div>
             </div>
         </div>
