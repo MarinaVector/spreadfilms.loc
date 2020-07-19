@@ -272,6 +272,6 @@
 
     .buttons {
         display: inline;
-        margin-left: 120px;
+        margin-left: 35%;
     }
 </style>

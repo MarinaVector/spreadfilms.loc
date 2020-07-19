@@ -20,10 +20,11 @@
                         </i>
                         <p class="mt-n1 mb-n1">Video</p>
                     </button>
-                    <VideoSimple ref="modal"></VideoSimple>
+
                 </div>
             </div>
         </div>
+        <VideoSimple ref="modal"></VideoSimple>
 
         <div class="row">
             <div class="col-lg-1 offset-lg-11">
