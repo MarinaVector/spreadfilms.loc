@@ -20,15 +20,32 @@
                                 <hr>
                                 <label class="input-title"><i data-fa-transform="rotate-45"
                                                               class="fas fa-arrows-alt-h mr-2"></i>Dimension</label>
-                                <fieldset data-content="dimension" data-content-field="videos"
-                                          class="radio-data-video-slider">
-                                    <div class="pretty p-default p-round"><input type="radio" value="16:9">
-                                        <div class="state"><label>16:9</label></div>
+
+                                <div class="stay-logged-in">
+                                    <div class="pretty p-default p-round">
+                                        <div class="custom-checkbox pretty p-default p-round">
+                                            <label for="remember">
+                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember">
+                                                <div class="roundchek mr-1"></div>
+                                                16:9
+                                            </label>
+                                        </div>
+                                        <div class="pretty p-default p-round p-curve">
+                                        <div class="custom-checkbox">
+                                            <label for="remember">
+                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember">
+                                                <div class="roundchek mr-1"></div>
+                                                4:3
+                                            </label>
+                                        </div>
+                                        </div>
+
                                     </div>
-                                    <div class="pretty p-default p-round"><input type="radio" value="4:3">
-                                        <div class="state"><label>4:3</label></div>
-                                    </div>
-                                </fieldset>
+                                </div>
+
+
+
+
                                 <hr>
                                 <label class="input-title"><i class="far fa-sticky-note mr-2"></i>Notice</label>
                                 <div class="row">
@@ -209,56 +226,6 @@
         cursor: pointer;
     }
 
-
-    .pretty .state label {
-        position: initial;
-        display: inline-block;
-        font-weight: 400;
-        margin: 0;
-        text-indent: 1.5em;
-        min-width: calc(1em + 2px)
-    }
-
-    .pretty .state label:after,
-    .pretty .state label:before {
-        content: '';
-        width: calc(1em + 2px);
-        height: calc(1em + 2px);
-        display: block;
-        box-sizing: border-box;
-        border-radius: 0;
-        border: 1px solid transparent;
-        z-index: 0;
-        position: absolute;
-        left: 0;
-        top: calc((0% - (100% - 1em)) - 8%);
-        background-color: transparent
-    }
-
-    .pretty .state label:before {
-        border-color: #bdc3c7
-    }
-
-
-    .pretty.p-default .state label:after {
-        -webkit-transform: scale(.6);
-        -ms-transform: scale(.6);
-        transform: scale(.6)
-    }
-
-    .pretty.p-default input:checked ~ .state label:after {
-        background-color: #bdc3c7 !important
-    }
-
-    .pretty.p-icon input:checked ~ .state label:before {
-        border-color: #5a656b
-    }
-
-    .pretty.p-round .state label:after,
-    .pretty.p-round .state label:before {
-        border-radius: 100%
-    }
-
      .video-time {
         width: 100%;
     }
@@ -274,4 +241,35 @@
         display: inline;
         margin-left: 35%;
     }
+
+    .roundchek {
+        display: inline-block;
+        border: 1px solid #b2b1b1;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        position: relative;
+        vertical-align: middle;
+        box-sizing: border-box;
+        margin-right: 4px;
+    }
+
+    .roundchek:before {
+        content: '';
+        background: #bdc3c7;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        transition: 0.3s;
+        position: absolute;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+    }
+
+    input:checked + .roundchek:before {
+        opacity: 1;
+    }
+
+
 </style>
