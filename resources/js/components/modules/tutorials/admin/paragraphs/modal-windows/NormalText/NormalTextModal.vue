@@ -4,9 +4,6 @@
             <div class="modal-content py-5">
                 <div class="modal-header">
                     <label class="input-title"><i class="fas fa-heading mr-2"></i>Headline</label>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <ckeditor :editor="editor" v-model="NormalTextHeader" :config="editorConfig"></ckeditor>
