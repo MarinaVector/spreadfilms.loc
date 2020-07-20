@@ -29,8 +29,8 @@ class TutorialsController extends Controller
         return view('modules.tutorials.statistics')->with('authUser', Auth::user());
     }
 
-    public function storeTutorial() {
-        dd('store tutorial');
+    public function storeTutorial(Request $request) {
+        dd($request->all());
     }
 }
 

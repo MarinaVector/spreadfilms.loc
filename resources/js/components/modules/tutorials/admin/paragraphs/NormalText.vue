@@ -7,6 +7,7 @@
                 </button>
             </div>
             <div class="col-lg-1 offset-lg-10 col-md-3 offset-md-5 col-5">
+                <input type="hidden" name="normal_text[]" value="">
                 <button type="button" class="btn-icon ml-4" @click="callParentDeleteParagraphBlock()">
                     <i class="fa fa-trash-o pt-2"></i>
                 </button>
@@ -14,6 +15,8 @@
         </div>
         <div class="row" @click="showTextModal()">
             <div class="col-md-4 offset-md-4 inner-trigger col-12 mx-sm-auto">
+                <input type="hidden" name="normal_text_header[]" v-model="NormalTextHeader">
+                <input type="hidden" name="normal_text_body[]" v-model="NormalTextBody">
                 <button class="text-button slide-border ml-4 py-2 px-5" type="button">
                     <i class="fas fa-bars blueiconcolor fa-2x">
                     </i>
@@ -29,7 +32,7 @@
             </div>
         </div>
 
-        <NormalTextModal ref="modal"></NormalTextModal>
+        <NormalTextModal ref="modal" v-on:saveData="saveData"></NormalTextModal>
     </div>
 </template>
 
@@ -45,7 +48,8 @@
         ],
         data() {
             return {
-
+                NormalTextHeader: '',
+                NormalTextBody: '',
             };
         },
         created() {
@@ -61,6 +65,12 @@
             showTextModal: function () {
                 let element = this.$refs.modal.$el;
                 $(element).modal('show');
+            },
+            saveData: function (header, body) {
+                /*console.log('save header: ' + header);
+                console.log('save body: ' + body);*/
+                this.NormalTextHeader = header;
+                this.NormalTextBody = body;
             }
         },
         mounted() {

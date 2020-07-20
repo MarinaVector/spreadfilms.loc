@@ -16,7 +16,7 @@
                 </div>
             </div>
                 <div class="modal-footer1 mt-3 ml-5">
-                    <button type="button" class="btn btn-primary btn-modal ml-5">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-modal ml-5" data-dismiss="modal" @click="save()">Save changes</button>
                     <button type="button" class="btn close-modal btn-modal" data-dismiss="modal">Close window</button>
                 </div>
         </div>
@@ -41,7 +41,9 @@
             };
         },
         methods: {
-
+            save: function () {
+                this.$emit('saveData', this.NormalTextHeader, this.NormalTextBody)
+            }
         },
         created() {
 
