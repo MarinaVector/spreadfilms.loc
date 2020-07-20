@@ -50,6 +50,7 @@ Vue.component('imghigh-text', require('./components/modules/tutorials/admin/para
 Vue.component('contact-img', require('./components/modules/tutorials/admin/paragraphs/Contact').default);
 Vue.component('questions-answers', require('./components/modules/tutorials/admin/paragraphs/QuestionsAnswers').default);
 
+
 /**
  * Small elements
  */
@@ -61,7 +62,7 @@ Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin
  * Modals windows
  */
 Vue.component('simple-video-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Video/VideoSimpleModal').default);
-
+Vue.component('img-simple', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Image/ImageSimpleModal').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
