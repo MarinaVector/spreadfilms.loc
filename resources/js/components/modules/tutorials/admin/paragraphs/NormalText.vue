@@ -1,5 +1,5 @@
 <template>
-    <div class="container tutorial-text">
+    <div class="container tutorial-text" id="tutorial-text">
         <div class="row mt-2">
             <div class="col-lg-1 offset-lg-0 col-md-3 offset-md-1 col-7">
                 <button type="button" class="btn-icon ml-n2 draggable">
@@ -13,8 +13,16 @@
             </div>
         </div>
         <div class="row" @click="showTextModal()">
-            <div class="col-md-4 offset-md-4 inner-trigger col-12 mx-sm-auto">
-                <button class="text-button slide-border ml-4 py-2 px-5" type="button">
+            <div class="col-md-8 offset-md-1 inner-trigger col-12 mx-sm-auto">
+                <div class="text-output mx-n5">
+                    <div class="text-header text-left mb-3">
+
+                    </div>
+                    <div class="text-print text-justify">
+
+                    </div>
+                </div>
+                <button class="text-button position-button slide-border ml-4 py-2 px-5" type="button">
                     <i class="fas fa-bars blueiconcolor fa-2x">
                     </i>
                     <div class="mt-n1 mb-n1">Text</div>
@@ -44,9 +52,7 @@
             'index'
         ],
         data() {
-            return {
-
-            };
+            return {};
         },
         created() {
 
@@ -89,6 +95,7 @@
     .tutorial-text {
         width: 100%;
         border: dotted 1px #333;
+        overflow: auto;
     }
 
     .tutorial-text:hover {
@@ -107,17 +114,34 @@
         text-align: center;
         line-height: 40px;
         cursor: pointer;
-        opacity:0.5 !important;
-        transition: opacity .25s ease-in-out!important;
-        -moz-transition: opacity .25s ease-in-out!important;
-        -webkit-transition: opacity .25s ease-in-out!important;
+        opacity: 0.5 !important;
+        transition: opacity .25s ease-in-out !important;
+        -moz-transition: opacity .25s ease-in-out !important;
+        -webkit-transition: opacity .25s ease-in-out !important;
     }
 
     .tutorial-text:hover .btn-icon {
-        opacity:1!important;
+        opacity: 1 !important;
     }
 
     .blueiconcolor {
         color: #00bff9 !important;
     }
+
+    .position-button {
+        z-index: 20;
+        position: relative;
+    }
+
+    .text-print {
+
+        column-count: 2;
+        margin-bottom: 20px;
+    }
+
+    .text-output {
+        position: absolute;
+    }
+
+
 </style>
