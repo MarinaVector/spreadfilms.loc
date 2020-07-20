@@ -37,7 +37,7 @@
 </template>
 
 <script>
-    import VideoSimple from './modal-windows/Video/VideoSimple'
+    import VideoSimple from './modal-windows/Video/VideoSimpleModal'
 
     export default {
         components: {

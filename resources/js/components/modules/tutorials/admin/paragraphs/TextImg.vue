@@ -17,7 +17,6 @@
                                     </i>
                                     <p class="mt-n1 mb-n1">Image</p>
                                 </button>
-
                             </div>
                             <ImageSimple ref="img"></ImageSimple>
                         </div>
@@ -63,7 +62,7 @@
 
 <script>
     import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
-    import ImageSimple from './modal-windows/Image/ImageSimple'
+    import ImageSimple from './modal-windows/Image/ImageSimpleModal'
 
 
 

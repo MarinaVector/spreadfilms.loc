@@ -4,9 +4,9 @@
 
 @section('content')
     <!--suppress HtmlFormInputWithoutLabel -->
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-6 mt-3">
+            <div class="col-lg-12 mt-5">
                 <div class="profile-card-4 z-depth-3">
                     <div class="card">
                         @include('layouts.notifications')
@@ -33,7 +33,7 @@
                                             <div class="col-lg-12">
                                                 <input class="form-control ml-4 mb-2" type="text" placeholder="Enter company name" name="name">
                                             </div>
-                                            <button type="submit" class="btn badge-gray btn-lg text-white mt-2 ml-5 mb-2">
+                                            <button type="submit" class="btn badge-gray btn-lg text-white mt-3 ml-5 mb-2">
                                                 Create
                                             </button>
                                         </form>

@@ -976,9 +976,7 @@ input:checked + .stlchek:before {
     opacity: 1;
 }
 
-
 /*	=	File Load */
-
 .file-load-block {
     width: 210px;
     height: 35px;

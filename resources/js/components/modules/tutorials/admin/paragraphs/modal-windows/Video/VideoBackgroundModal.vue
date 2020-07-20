@@ -1,11 +1,34 @@
 <template>
-    <div class="modal fade container fade-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="row">
+    <div class="modal fade container video-modal scroll-hidden" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="row scroll-show">
             <div class="col-md-8">
                 <div class="edit-view">
                     <div class="edit-inner">
-                        <div class="edit-content mb-3">
-                            <div class="part"><label class="input-title"><i class="fas fa-image mr-2"></i>Banner</label>
+                        <div class="mb-3">
+
+                            <div class="edit-content ">
+                                <div class="modal-header">
+                                    <label class="input-title"><i class="fas fa-heading mr-2"></i>Headline</label>
+                                </div>
+                                <div class="modal-body">
+                                    <ckeditor :editor="editor" v-model="NormalTextHeader" :config="editorConfig"></ckeditor>
+                                </div>
+                            </div>
+
+
+
+                            <div class="edit-content px-3">
+                                <label class="input-title"><i class="fas fa-image mr-2"></i>Image in the background</label>
+
+                                <div class="elfinder-container"><input id="neu-2" type="hidden" data-type="bild"
+                                                                       data-value="image" class="elfinder-idea">
+                                    <button data-inputid="neu-1" data-dismiss="modal" class="popup_selector btn btn-default">Select image
+                                    </button>
+                                </div>
+                                <hr>
+
+
+                                <label class="input-title"><i class="fas fa-image mr-2"></i>Banner</label>
 
                                 <div class="elfinder-container"><input id="neu-1" type="hidden" data-type="bild"
                                                                        data-value="image" class="elfinder-idea">
@@ -31,20 +54,17 @@
                                             </label>
                                         </div>
                                         <div class="pretty p-default p-round p-curve">
-                                        <div class="custom-checkbox">
-                                            <label for="remember2">
-                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember2">
-                                                <div class="roundchek mr-1"></div>
-                                                4:3
-                                            </label>
-                                        </div>
+                                            <div class="custom-checkbox">
+                                                <label for="remember2">
+                                                    <input type="checkbox" class="custom-control-input" name="remember" id="remember2">
+                                                    <div class="roundchek mr-1"></div>
+                                                    4:3
+                                                </label>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </div>
-
-
-
 
                                 <hr>
                                 <label class="input-title"><i class="far fa-sticky-note mr-2"></i>Notice</label>
@@ -139,137 +159,48 @@
 </template>
 
 <script>
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
     export default {
-        name: "VideoSimple"
-    }
+        components: {
+
+        },
+        data() {
+            return {
+                editor: ClassicEditor,
+                NormalTextHeader: '<p></p>',
+                editorConfig: {
+                    // The configuration of the editor.
+                }
+            };
+        },
+        methods: {
+
+        },
+        created() {
+
+        },
+    };
+
 </script>
 
-<style>
-    #modals-container
-    .edit-view
-    .edit-inner
-    .edit-content {
-        max-height: 80vh;
-        overflow: auto;
-        color: #424242;
+<style scoped>
+
+    .scroll-hidden {
+        overflow: hidden;
     }
 
-    .fade-modal {
-        top: 20%;
-        left: 30%;
-    }
-
-    .edit-view
-    .edit-inner
-    .part {
-        background: #fff;
-        margin-bottom: 10px;
-        padding: 15px;
-        border-radius: 3px;
-        position: relative;
-    }
-
-    .edit-content {
-        background-color: white;
-        text-align: left;
-        border-radius: 3px;
-        box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
-        padding: 0;
-    }
-
-    .edit-view
-    label.input-title {
-        margin-bottom: 10px;
-        display: inline-block;
-        border-bottom: solid 1px;
-        font-size: 0.8em;
-    }
-
-
-    .elfinder-container {
-        position: relative;
-        border: 2px dashed #ddd;
-        background: #f1f1f1;
-        border-radius: 7px;
-        text-align: center;
-        padding: 20px;
-    }
-
-    fieldset {
-        margin-bottom: 20px;
-    }
-
-    label .input-title {
-        color: #777777;
-        font-size: 12px;
-    }
-
-    .pretty {
-        position: relative;
-        display: inline-block;
-        margin-right: 1em;
-        white-space: nowrap;
-        line-height: 1;
-    }
-
-    .pretty input {
-        position: absolute;
-        left: 0;
-        top: 0;
-        min-width: 1em;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        opacity: 0;
+    .scroll-show {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        position: sticky;
         margin: 0;
-        padding: 0;
-        cursor: pointer;
     }
 
-     .video-time {
-        width: 100%;
-    }
-
-    .save-btn,
-    .cancel-btn {
-        margin-right: 40px;
-        box-shadow: 0 0px 20px 3px rgba(0, 0, 0, 0.2);
-        width: 100px !important;
-    }
-
-    .buttons {
-        display: inline;
-        margin-left: 35%;
-    }
-
-    .roundchek {
-        display: inline-block;
-        border: 1px solid #b2b1b1;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        position: relative;
-        vertical-align: middle;
-        box-sizing: border-box;
-        margin-right: 4px;
-    }
-
-    .roundchek:before {
-        content: '';
-        background: #bdc3c7;
-        width: 10px;
-        height: 10px;
-        opacity: 0;
-        transition: 0.3s;
-        position: absolute;
-        border-radius: 50%;
-        top: 2px;
-        left: 2px;
-    }
-
-    input:checked + .roundchek:before {
-        opacity: 1;
+    .video-modal {
+        left: 30%;
+        height: 300px;
     }
 
 
-</style>
+    </style>
