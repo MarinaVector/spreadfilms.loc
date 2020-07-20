@@ -128,7 +128,7 @@
             <!-- Categories Column -->
 
             <!-- Users Assign -->
-            <div class="col-lg-6 mt-2">
+            <div class="col-lg-12 mt-2">
                 <div class="panel-default panel">
                     <div class="panel-heading panel-list row mx-1">
                         <div class="col-lg-11">
@@ -166,17 +166,17 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>E-Mail</th>
-                                    <th><span class="pull-right">Assign</span></th>
+                                    <th class="col-md-4">Name</th>
+                                    <th class="col-md-4">E-Mail</th>
+                                    <th class="col-md-4">Assign</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr v-for="(user, index) in usercompanyusersArr">
-                                    <td>{{user.firstname}}</td>
-                                    <td>{{user.email}}</td>
-                                    <td>
-                                        <div class="btn-group pull-right">
+                                    <td class="col-md-4">{{user.firstname}}</td>
+                                    <td class="col-md-4">{{user.email}}</td>
+                                    <td class="col-md-4">
+                                        <div class="btn-group1">
                                             <label class="btn btn-sm btn-check panel">
                                                 <input type="checkbox" checked :name="'assignee[' + user.id + ']'"
                                                        class="user_assign_cb" :data-roles="companyrolesList(user.companyroles)">
