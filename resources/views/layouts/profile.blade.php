@@ -5,6 +5,4 @@
     @yield('content')
 @endsection
 
-@section('scripts')
-
-@endsection
+@yield('scripts')
