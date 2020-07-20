@@ -57,6 +57,10 @@ Vue.component('question-dropdown', require('./components/modules/tutorials/admin
 Vue.component('dropdown-button', require('./components/modules/tutorials/admin/paragraphs/small-elements/DropdownButton').default);
 Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/Collapse').default);
 
+/**
+ * Modals windows
+ */
+Vue.component('simple-video-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Video/VideoSimpleModal').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

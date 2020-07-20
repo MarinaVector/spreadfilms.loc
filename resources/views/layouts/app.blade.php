@@ -28,7 +28,7 @@
     <link href="{{ asset('css/colorbox.css') }}" rel="stylesheet">
 </head>
 <body id="body">
-<div id="app">
+<div id="app" class="bg-profile">
     @yield('body')
 </div>
 </body>

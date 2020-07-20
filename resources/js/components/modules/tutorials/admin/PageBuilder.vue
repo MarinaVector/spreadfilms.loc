@@ -192,7 +192,6 @@
             </div>
         </div>
         <!-- Parent Topic and Categories Block -->
-
         <save-cancel-block></save-cancel-block>
     </div>
 
