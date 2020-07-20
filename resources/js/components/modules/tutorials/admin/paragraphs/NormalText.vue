@@ -16,10 +16,10 @@
         <div class="row" @click="showTextModal()">
             <div class="col-md-8 offset-md-1 inner-trigger col-12 mx-sm-auto">
                 <div class="text-output mx-n5">
-                    <div class="text-header text-left mb-3">
+                    <div class="text-header text-left mb-3" v-html="NormalTextHeader">
 
                     </div>
-                    <div class="text-print text-justify">
+                    <div class="text-print text-justify" v-html="NormalTextBody">
 
                     </div>
                 </div>
