@@ -422,6 +422,12 @@
         padding: 20px;
     }
 
+    .elfinder-preview-image {
+          background-size: cover;
+         background-position: center;
+         height: 100%;
+       }
+
     *, ::after, ::before {
         box-sizing: border-box;
     }
