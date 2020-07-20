@@ -425,7 +425,6 @@
     .elfinder-preview-image {
           background-size: cover;
          background-position: center;
-         height: 100%;
        }
 
     *, ::after, ::before {
