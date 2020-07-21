@@ -136,50 +136,57 @@
                                 <span data-toggle="collapse" data-target="#collapse-staff">
                                     Users assign
                                 </span>
-                                <span
-                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
-                                    data-target="#collapse-staff"
-                                    aria-expanded="true">
-                                </span>
+
                             </div>
                         </div>
                         <div class="col-lg-1">
+                              <span
+                                  data-toggle="collapse" class="mr-4 arrow-toggler"
+                                  data-target="#collapse-staff"
+                                  aria-expanded="true">
+                                </span>
                             <question-dropdown
                                 :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
                         </div>
                     </div>
-                    <div class="form-control form-make pt-2">
-                        <label for="assign_to_all" class="mb-3" @click="assignTo($event, 'all')">
-                            <input class="panel-title block-title" checked type="checkbox" name="assign_to_all" id="assign_to_all">
-                            Make visible to all
+
+                    <div class="custom-checkbox">
+                        <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2" @click="assignTo($event, 'all')">
+                            <input checked type="checkbox" class="custom-control-input" name="assign_to_all" id="assign_to_all">
+                            <div class="stlchek  mb-1 mr-1"></div>
+                            Make visible to <b>all</b>
                         </label>
                     </div>
-
-                    <div class="panel-body collapse mt-3" id="collapse-staff">
-                        <div class="form-control form-make pt-2" v-for="(role, index) in usercompanyrolesArr">
-                            <label :for="'assign_to_' + role.name" class="mb-3" @click="assignTo($event, role.name)">
-                                <input class="panel-title block-title" checked type="checkbox" :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
+                   <div class="panel-body collapse mt-3" id="collapse-staff">
+                        <div class="custom-checkbox" v-for="(role, index) in usercompanyrolesArr">
+                            <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1" @click="assignTo($event, role.name)">
+                                <input class="panel-title block-title custom-control-input" checked type="checkbox"
+                                       :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
+                                <div class="stlchek mb-1 mr-1"></div>
                                 Make visible to all users with role <b>"{{role.name}}"</b>
                             </label>
                         </div>
-                        <div class="form-group">
-                            <table class="table">
+
+                        <div class="form-group mt-3">
+                            <table class="table mt-2">
                                 <thead>
                                 <tr>
-                                    <th class="col-md-4">Name</th>
-                                    <th class="col-md-4">E-Mail</th>
-                                    <th class="col-md-4">Assign</th>
+                                    <th>Name</th>
+                                    <th class="text-center">E-Mail</th>
+                                    <th class="text-right">Assign</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr v-for="(user, index) in usercompanyusersArr">
-                                    <td class="col-md-4">{{user.firstname}}</td>
-                                    <td class="col-md-4">{{user.email}}</td>
-                                    <td class="col-md-4">
-                                        <div class="btn-group1">
-                                            <label class="btn btn-sm btn-check panel">
+                                    <td>{{user.firstname}}</td>
+                                    <td class="text-center">{{user.email}}</td>
+                                    <td class="flex-column text-right">
+                                        <div class="custom-checkbox btn-group1">
+                                            <label class="btn btn-sm btn-check">
                                                 <input type="checkbox" checked :name="'assignee[' + user.id + ']'"
-                                                       class="user_assign_cb" :data-roles="companyrolesList(user.companyroles)">
+                                                       class="user_assign_cb custom-control-input"
+                                                       :data-roles="companyrolesList(user.companyroles)">
+                                                <div class="stlchek m-1"></div>
                                             </label>
                                         </div>
                                     </td>
@@ -592,8 +599,11 @@
     }
 
     .btn-check {
-        background: #eee;
-        border: 1px solid #ccc;
+        display: table;
+        margin: auto;
+        background-color: #fff;
+        border: 1px solid #ccc !important;
+        box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
     }
 
 
