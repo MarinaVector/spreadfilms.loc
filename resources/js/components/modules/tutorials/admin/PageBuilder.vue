@@ -302,14 +302,6 @@
                         }
                     });
                 }
-
-                if (event.target.checked){
-                    // assign roles
-                    console.log('assign to' + role);
-                } else {
-                    // unassign roles
-                    console.log('unassign to' + role);
-                }
             },
             companyrolesList(rolesArr){
                 let rolesList = [];
