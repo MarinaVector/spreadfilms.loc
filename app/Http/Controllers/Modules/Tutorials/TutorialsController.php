@@ -32,6 +32,12 @@ class TutorialsController extends Controller
     public function storeTutorial(Request $request) {
         dd($request->all());
     }
+
+    public function settingsTutorial() {
+        $user = Auth::user();
+
+        return view('modules.tutorials.settings_tutorials')->with('authUser', Auth::user());
+    }
 }
 
 

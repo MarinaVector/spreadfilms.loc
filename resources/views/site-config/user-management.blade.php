@@ -50,8 +50,30 @@
                                         <i class="fas fa-trash"></i> {{ __('messages.Delete') }}
                                         </button> -->
                                         <button type="button"
-                                                class="btn-men btn-men-danger btn-men-custom waves-effect waves-light m-b-5">
+                                                class="btn-men btn-men-danger btn-men-custom waves-effect waves-light m-b-5"
+                                                data-toggle="modal" data-target="#modal-info">
                                             <i class="fas fa-trash mx-4 my-2"></i></button>
+
+
+                                        <!--Info Modal Template-->
+                                        <div id="modal-info" class="modal modal-message modal-info fade" style="display: none;" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <i class="fas fa-trash-alt trash-user fa-3x mx-auto my-3"></i>
+                                                    </div>
+                                                    <div class="modal-title">Delete this User ?</div>
+
+                                                    <div class="modal-body">Are you sure ?</div>
+                                                    <div class="modal-footer mx-auto">
+                                                        <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Chancel</button>
+                                                        <button type="button" class="btn button-modal button-ok" data-dismiss="modal">OK</button>
+                                                    </div>
+                                                </div> <!-- / .modal-content -->
+                                            </div> <!-- / .modal-dialog -->
+                                        </div>
+                                        <!--End Info Modal Templates-->
+
                                     </form>
                                 </td>
                             </tr>
