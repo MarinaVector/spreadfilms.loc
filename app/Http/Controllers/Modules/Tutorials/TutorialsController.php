@@ -87,6 +87,12 @@ class TutorialsController extends Controller
 
         return true;
     }
+
+    public function settingsTutorial() {
+        $user = Auth::user();
+
+        return view('modules.tutorials.settings_tutorials')->with('authUser', Auth::user());
+    }
 }
 
 
