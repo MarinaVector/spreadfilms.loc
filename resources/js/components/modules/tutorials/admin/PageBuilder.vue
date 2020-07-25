@@ -22,8 +22,8 @@
                 <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still
                     without content, modules can be
                     selected above or a template can be loaded</h2>
-                <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
-                    <div v-for="(paragraph, index) in paragraphs" class=".paragraph">
+                <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
+                    <div v-for="(paragraph, index) in paragraphs" class=".paragraph" ref="paragraph">
                         <component
                             v-on:childToParent="deleteParagraph(index)"
                             v-on:duplicateParagraph="duplicateParagraph(index)"
@@ -66,9 +66,9 @@
             </div>
             <!-- Tutorial Background Image -->
 
-            <!-- Parent Topic, Categories and Visibility Blocks -->
+            <!-- Parent Tutorial, Categories and Visibility Blocks -->
             <div class="row mb-5 pb-5">
-                <!-- Parent Topic Column -->
+                <!-- Parent Tutorial Column -->
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading panel-list row mx-1">
@@ -84,7 +84,7 @@
 
                     <div class="panel-body block-title">
                         <div class="form-group">
-                            <select class="form-control select-tutorial" id="parent_topic" name="parent_topic">
+                            <select class="form-control select-tutorial" id="parent_tutorial_id" name="parent_tutorial_id">
                                 <option value="0">No Parent Tutorial</option>
                                 <option value="5">Welcome to Verovis!</option>
                                 <option value="10">What makes us successful</option>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Parent Topic Column -->
+                <!-- Parent Tutorial Column -->
 
                 <!-- Categories Column -->
                 <div class="col-lg-6">
@@ -228,6 +228,37 @@
         ],
         data() {
             return {
+                paragraphsStructure: {
+                    NormalText: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                    },
+                    TxtImg: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                        src: {
+                            searchBy: 'class',
+                            search: '.component_image',
+                            tagName: 'input'
+                        },
+                    },
+                },
                 paragraphs: [],
                 blocksCounterID: 0,
                 usercompanycategoriesObj: {},
@@ -313,25 +344,57 @@
                 return rolesList.join(", ");
             },
             submitForm(event) {
-
+                const data = {};
+                let paragraphs = {};
                 let myForm = document.getElementById('tutorial-builder-form');
                 let formData = new FormData(myForm);
-                const data = {};
 
                 // gather all form data
                 for (let [key, val] of formData.entries()) {
                     Object.assign(data, {[key]: val});
                 }
 
-                let paragraphs = [];
-                // now need to prepare the paragraphs array
+                let x = 0;
+                //looping through all paragraph blocks
+                if(this.$refs.paragraph) {
+                    this.$refs.paragraph.forEach(paragraphElement => {
+                        let paragraph = {};
+                        let ComponentType = $(paragraphElement).find('.component_type').val();
+                        paragraph['ComponentType'] = ComponentType;
 
-                Object.assign(data, {['paragraphs']: paragraphs})
-                console.log(data);
+                        for (let key in this.paragraphsStructure[ComponentType]) {
+                            let value = $(paragraphElement).find(this.paragraphsStructure[ComponentType][key]['search']).val();
+                            paragraph[key] = value;
+                        }
+                        //paragraphs.push(paragraph);
+                        Object.assign(paragraphs, {[x]: paragraph});
+                        x++;
+                    });
+                }
 
-                axios.post('https://spreadfilms.loc/module/tutorials/admin/add',{ params: data})
+                let paragraphsJSON = JSON.stringify(paragraphs);
+
+                Object.assign(data, {'paragraphsJSON': paragraphsJSON});
+
+                /*axios.post('https://spreadfilms.loc/module/tutorials/admin/add',{ params: data})
                     .then(response => this.responseData = response.data)
-                    .catch(error => {});
+                    .catch(error => {});*/
+
+                this.redirectToUrl('https://spreadfilms.loc/module/tutorials/admin/add', data, 'POST');
+            },
+            redirectToUrl(url, data, method){
+                let form = document.createElement('form');
+                document.body.appendChild(form);
+                form.method = method;
+                form.action = url;
+                for (let name in data) {
+                    let input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = name;
+                    input.value = data[name];
+                    form.appendChild(input);
+                }
+                form.submit();
             }
         },
         mounted() {

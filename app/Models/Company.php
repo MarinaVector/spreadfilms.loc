@@ -18,24 +18,28 @@ class Company extends Model
     /**
      * Get the users of this company
      */
-    public function users()
+    final public function users()
     {
         return $this->hasMany('App\User');
     }
 
-    public function companyroles() {
+    final public function companyroles() {
         return $this->belongsToMany('App\Models\Companyrole', 'company_companyrole', 'company_id', 'role_id');
     }
 
-    public function companycategories() {
+    final public function companycategories() {
         return $this->belongsToMany('App\Models\Companycategory', 'company_companycategory', 'company_id', 'category_id');
     }
 
-    public function addRoleByName($roleName) {
+    final public function addRoleByName(string $roleName): void {
         //create a role
         $companyRole = Companyrole::create(['name' => $roleName]);
 
         //assign this role to a company
         CompanyCompanyrolePivot::create(['company_id' => $this->id, 'role_id' => $companyRole->id]);
+    }
+
+    final public function tutorials() {
+        return $this->hasMany('App\Models\Tutorial');
     }
 }

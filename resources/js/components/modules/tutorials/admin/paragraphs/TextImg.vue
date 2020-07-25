@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <input type="hidden" name="component_type" value="TxtImg" class="component_type"/>
         <div class="row">
             <div class="col-lg-12 text-image">
                 <div class="row row-image">
@@ -12,7 +13,7 @@
                             </div>
                             <div class="col-lg-5 offset-lg-2 inner-trigger mt-5">
 
-                                <input :id="dataInputID" class="elfinder-idea" name="image" type="hidden"/>
+                                <input :id="dataInputID" class="elfinder-idea component_image" name="image" type="hidden"/>
                                  <button :data-inputid="dataInputID" class="popup_selector text-button ml-4 py-2 px-5 mt-5 slide-border" type="button">
                                      <i class="fas fa-image blueiconcolor fa-2x pt-1">
                                     </i>
@@ -25,6 +26,16 @@
                             <div class="level-text pt-5" @click="showTextModal()">
                                 <div class="row mt-4">
                                     <div class="inner-trigger col-lg-5 offset-lg-3">
+                                        <div class="text-output mx-n5">
+                                            <div class="text-header text-left mb-3" v-html="NormalTextHeader">
+
+                                            </div>
+                                            <div class="text-print text-justify" v-html="NormalTextBody">
+
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+                                        <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
                                         <button class="text-button py-2 px-5" type="button">
                                             <i class="fas fa-bars blueiconcolor fa-2x mt-1">
                                             </i>
@@ -56,7 +67,9 @@
             </div>
         </div>
 
-        <NormalTextModal ref="modal"></NormalTextModal>
+        <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+                         :header="NormalTextHeader"
+                         :body="NormalTextBody"></NormalTextModal>
     </div>
 </template>
 
@@ -74,7 +87,9 @@
         data() {
             return {
                 dataInputID: '',
-                dataInputPreviewID: ''
+                dataInputPreviewID: '',
+                NormalTextHeader: '',
+                NormalTextBody: ''
             };
         },
         created() {
@@ -90,6 +105,13 @@
             showTextModal: function () {
                 let element = this.$refs.modal.$el;
                 $(element).modal('show');
+            },
+            saveData: function (header, body) {
+                this.NormalTextHeader = header;
+                this.NormalTextBody = body;
+            },
+            getPreviousData: function () {
+                return [1, 2];
             }
         },
 
