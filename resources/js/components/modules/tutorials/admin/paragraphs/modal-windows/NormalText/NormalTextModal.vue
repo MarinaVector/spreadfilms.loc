@@ -1,5 +1,6 @@
 <template>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="NormalTextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true" @click="cancel">
         <div class="modal-dialog" role="document">
             <div class="modal-content py-5">
                 <div class="modal-header">
@@ -15,10 +16,15 @@
                     <ckeditor :editor="editor" v-model="NormalTextBody" :config="editorConfig"></ckeditor>
                 </div>
             </div>
-                <div class="modal-footer1 mt-3 ml-5">
-                    <button type="button" class="btn btn-primary btn-modal ml-5" data-dismiss="modal" @click="save()">Save changes</button>
-                    <button type="button" class="btn close-modal btn-modal" data-dismiss="modal">Close window</button>
-                </div>
+
+            <div class="modal-footer1 mt-3 ml-5">
+                <button type="button" class="btn btn-primary btn-modal ml-5" data-dismiss="modal" @click="save()">
+                    Save changes
+                </button>
+                <button type="button" class="btn close-modal btn-modal" data-dismiss="modal" id="CancelModal">
+                    Close window
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -27,6 +33,10 @@
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
     export default {
+        props: [
+            'header',
+            'body'
+        ],
         components: {
 
         },
@@ -43,6 +53,12 @@
         methods: {
             save: function () {
                 this.$emit('saveData', this.NormalTextHeader, this.NormalTextBody)
+            },
+            cancel: function (event) {
+                if(event.target.id === 'NormalTextModal' || event.target.id === 'CancelModal') {
+                    this.NormalTextHeader = this.$props.header;
+                    this.NormalTextBody = this.$props.body;
+                }
             }
         },
         created() {

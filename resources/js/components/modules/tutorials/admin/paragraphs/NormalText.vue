@@ -40,7 +40,11 @@
             </div>
         </div>
 
-        <NormalTextModal ref="modal" v-on:saveData="saveData"></NormalTextModal>
+        <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+                         :header="NormalTextHeader"
+                         :body="NormalTextBody">
+
+        </NormalTextModal>
     </div>
 </template>
 
@@ -75,10 +79,11 @@
                 $(element).modal('show');
             },
             saveData: function (header, body) {
-                /*console.log('save header: ' + header);
-                console.log('save body: ' + body);*/
                 this.NormalTextHeader = header;
                 this.NormalTextBody = body;
+            },
+            getPreviousData: function () {
+                return [1, 2];
             }
         },
         mounted() {

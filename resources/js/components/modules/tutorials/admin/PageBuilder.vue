@@ -1,205 +1,204 @@
 <template>
     <div class="container form-group paragraph-form-group">
+        <form class="no-bottom" method="POST" :action="action" @submit.prevent="submitForm" ref="form" id="tutorial-builder-form">
+            <input type="hidden" name="_token" :value="csrf" />
+            <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
+            <!-- Tutorial Name Block -->
+            <div class="container group mt-5">
 
-        <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
-        <!-- Tutorial Name Block -->
-        <div class="container group mt-5">
-
-            <div class="row mb-2">
-                <div class="col-lg-12 mt-5">
-                    <label class="tutorial-name" for="tutorial_name">Name</label>
-                    <input class="input-hidden form-control" type="text" required placeholder="New Tutorial"
-                           name="tutorial_name"
-                           id="tutorial_name">
-                </div>
-            </div>
-        </div>
-        <!-- Tutorial Name Block -->
-
-        <!-- Default Page Block with PageBuilderParagraphBlocks -->
-        <div class="container group py-5 mt-2">
-            <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still
-                without content, modules can be
-                selected above or a template can be loaded</h2>
-            <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
-                <div v-for="(paragraph, index) in paragraphs" class=".paragraph">
-                    <component
-                        v-on:childToParent="deleteParagraph(index)"
-                        v-on:duplicateParagraph="duplicateParagraph(index)"
-                        :index="index"
-                        :blocksCounterID="blocksCounterID"
-                        :key="index"
-                        :is=paragraph.component
-                    />
-                </div>
-            </draggable>
-        </div>
-        <!-- Default Page Block with PageBuilderParagraphBlocks -->
-
-        <!-- Tutorial Background Image -->
-        <div class="container group">
-            <div class="panel-heading row">
-                <div class="col-lg-11">
-                    <div class="panel-title block-title">Background image for Tutorial Overview</div>
-                </div>
-                <div class="col-lg-1 pl-5 pl-2">
-                    <div class="row">
-                        <div class="col-lg-6 offset-lg-6">
-                            <question-dropdown :answerdropdown="'Currently the Tutorial is still without content, modules can ' +
-                     'be selected above or a template\n'+
-'                            can be loaded'"></question-dropdown>
-                        </div>
+                <div class="row mb-2">
+                    <div class="col-lg-12 mt-5">
+                        <label class="tutorial-name" for="tutorial_name">Name</label>
+                        <input class="input-hidden form-control" type="text" required placeholder="New Tutorial"
+                               name="tutorial_name"
+                               id="tutorial_name">
                     </div>
                 </div>
             </div>
+            <!-- Tutorial Name Block -->
 
-            <div class="form-group">
-                <div class="elfinder-preview-image" id="background-tutorial-image-preview"></div>
-                <div class="elfinder-container">
-                    <input id="background-tutorial-image" class="elfinder-idea" name="image" type="hidden"/>
-                    <button data-inputid="background-tutorial-image" class="popup_selector btn btn-default">
-                        Select Wallpaper
-                    </button>
-                </div>
+            <!-- Default Page Block with PageBuilderParagraphBlocks -->
+            <div class="container group py-5 mt-2">
+                <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still
+                    without content, modules can be
+                    selected above or a template can be loaded</h2>
+                <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable">
+                    <div v-for="(paragraph, index) in paragraphs" class=".paragraph">
+                        <component
+                            v-on:childToParent="deleteParagraph(index)"
+                            v-on:duplicateParagraph="duplicateParagraph(index)"
+                            :index="index"
+                            :blocksCounterID="blocksCounterID"
+                            :key="index"
+                            :is=paragraph.component
+                        />
+                    </div>
+                </draggable>
             </div>
-        </div>
-        <!-- Tutorial Background Image -->
+            <!-- Default Page Block with PageBuilderParagraphBlocks -->
 
-        <!-- Parent Topic, Categories and Visibility Blocks -->
-        <div class="row mb-5 pb-5">
-            <!-- Parent Topic Column -->
-            <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading panel-list row mx-1">
-                        <div class="col-lg-11">
-                            <div class="panel-title block-title">Parent Topic</div>
-                        </div>
-                        <div class="col-lg-1">
-                            <question-dropdown
-                                :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
-                        </div>
+            <!-- Tutorial Background Image -->
+            <div class="container group">
+                <div class="panel-heading row">
+                    <div class="col-lg-11">
+                        <div class="panel-title block-title">Background image for Tutorial Overview</div>
                     </div>
-                </div>
-
-                <div class="panel-body block-title">
-                    <div class="form-group">
-                        <select class="form-control select-tutorial" id="parent_topic" name="parent_id">
-                            <option value="0">No Parent Tutorial</option>
-                            <option value="5">Welcome to Verovis!</option>
-                            <option value="10">What makes us successful</option>
-                            <option value="11">Our Vision</option>
-                            <option value="12">Onboarding for advisers</option>
-                            <option value="13">How was Verovis founded</option>
-                            <option value="14">Our Strategy</option>
-                            <option value="15">verovis DNA</option>
-                            <option value="16">Strategy, Values, #Project To A Successful Creators</option>
-                            <option value="17">Excellence Concept</option>
-                            <option value="22">New Tutorial</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <!-- Parent Topic Column -->
-
-            <!-- Categories Column -->
-            <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class=" panel-heading panel-list row mx-1">
-                        <div class="col-lg-11">
-                            <div class="panel-title block-title">Categories</div>
-                        </div>
-                        <div class="col-lg-1">
-                            <question-dropdown
-                                :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel-body">
-                    <div class="form-group">
-                        <select class="form-control block-title select-tutorial" id="hierarchy-select" name="parent_id">
-                            <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">
-                                {{category.name}}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <!-- Categories Column -->
-
-            <!-- Users Assign -->
-            <div class="col-lg-12 mt-2">
-                <div class="panel-default panel">
-                    <div class="panel-heading panel-list row mx-1">
-                        <div class="col-lg-11">
-                            <div class="panel-title block-title">
-                                <span data-toggle="collapse" data-target="#collapse-staff">
-                                    Users assign
-                                </span>
-
+                    <div class="col-lg-1 pl-5 pl-2">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-6">
+                                <question-dropdown :answerdropdown="'Currently the Tutorial is still without content, modules can ' +
+                         'be selected above or a template\n'+
+    '                            can be loaded'"></question-dropdown>
                             </div>
                         </div>
-                        <div class="col-lg-1">
-                              <span
-                                  data-toggle="collapse" class="mr-4 arrow-toggler"
-                                  data-target="#collapse-staff"
-                                  aria-expanded="true">
-                                </span>
-                            <question-dropdown
-                                :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="elfinder-preview-image" id="background-tutorial-image-preview"></div>
+                    <div class="elfinder-container">
+                        <input id="background-tutorial-image" class="elfinder-idea" name="tutorial_background" type="hidden"/>
+                        <button data-inputid="background-tutorial-image" class="popup_selector btn btn-default">
+                            Select Wallpaper
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Tutorial Background Image -->
+
+            <!-- Parent Topic, Categories and Visibility Blocks -->
+            <div class="row mb-5 pb-5">
+                <!-- Parent Topic Column -->
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panel-list row mx-1">
+                            <div class="col-lg-11">
+                                <div class="panel-title block-title">Parent Topic</div>
+                            </div>
+                            <div class="col-lg-1">
+                                <question-dropdown
+                                    :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="custom-checkbox">
-                        <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2" @click="assignTo($event, 'all')">
-                            <input checked type="checkbox" class="custom-control-input" name="assign_to_all" id="assign_to_all">
-                            <div class="stlchek  mb-1 mr-1"></div>
-                            Make visible to <b>all</b>
-                        </label>
+                    <div class="panel-body block-title">
+                        <div class="form-group">
+                            <select class="form-control select-tutorial" id="parent_topic" name="parent_topic">
+                                <option value="0">No Parent Tutorial</option>
+                                <option value="5">Welcome to Verovis!</option>
+                                <option value="10">What makes us successful</option>
+                                <option value="11">Our Vision</option>
+                                <option value="12">Onboarding for advisers</option>
+                                <option value="13">How was Verovis founded</option>
+                                <option value="14">Our Strategy</option>
+                                <option value="15">verovis DNA</option>
+                                <option value="16">Strategy, Values, #Project To A Successful Creators</option>
+                                <option value="17">Excellence Concept</option>
+                                <option value="22">New Tutorial</option>
+                            </select>
+                        </div>
                     </div>
-                   <div class="panel-body collapse mt-3" id="collapse-staff">
-                        <div class="custom-checkbox" v-for="(role, index) in usercompanyrolesArr">
-                            <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1" @click="assignTo($event, role.name)">
-                                <input class="panel-title block-title custom-control-input" checked type="checkbox"
-                                       :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
-                                <div class="stlchek mb-1 mr-1"></div>
-                                Make visible to all users with role <b>"{{role.name}}"</b>
+                </div>
+                <!-- Parent Topic Column -->
+
+                <!-- Categories Column -->
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class=" panel-heading panel-list row mx-1">
+                            <div class="col-lg-11">
+                                <div class="panel-title block-title">Categories</div>
+                            </div>
+                            <div class="col-lg-1">
+                                <question-dropdown
+                                    :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <select class="form-control block-title select-tutorial" id="hierarchy-select" name="category_id">
+                                <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">
+                                    {{category.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categories Column -->
+
+                <!-- Users Assign -->
+                <div class="col-lg-12 mt-2">
+                    <div class="panel-default panel">
+                        <div class="panel-heading panel-list row mx-1">
+                            <div class="col-lg-11">
+                                <div class="panel-title block-title">
+                                    <span data-toggle="collapse" data-target="#collapse-staff">
+                                        Users assign
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <span
+                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
+                                    data-target="#collapse-staff"
+                                    aria-expanded="true">
+                                </span>
+                                <question-dropdown
+                                    :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
+                            </div>
+                        </div>
+                        <div class="custom-checkbox">
+                            <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2" @click="assignTo($event, 'all')">
+                                <input class="custom-control-input" checked type="checkbox" name="assign_to_all" id="assign_to_all">
+                                <div class="stlchek  mb-1 mr-1"></div>
+                                Make visible to <b>all</b>
                             </label>
                         </div>
 
-                        <div class="form-group mt-3">
-                            <table class="table mt-2">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th class="text-center">E-Mail</th>
-                                    <th class="text-right">Assign</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="(user, index) in usercompanyusersArr">
-                                    <td>{{user.firstname}}</td>
-                                    <td class="text-center">{{user.email}}</td>
-                                    <td class="flex-column text-right">
-                                        <div class="custom-checkbox btn-group1">
-                                            <label class="btn btn-sm btn-check">
-                                                <input type="checkbox" checked :name="'assignee[' + user.id + ']'"
-                                                       class="user_assign_cb custom-control-input"
-                                                       :data-roles="companyrolesList(user.companyroles)">
-                                                <div class="stlchek m-1"></div>
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="panel-body collapse mt-3" id="collapse-staff">
+                            <div class="custom-checkbox" v-for="(role, index) in usercompanyrolesArr">
+                                <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1" @click="assignTo($event, role.name)">
+                                    <input class="panel-title block-title custom-control-input" checked type="checkbox" :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
+                                    <div class="stlchek mb-1 mr-1"></div>
+                                    Make visible to all users with role <b>"{{role.name}}"</b>
+                                </label>
+                            </div>
+                            <div class="form-group mt-3">
+                                <table class="table mt-2">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th class="text-center">E-Mail</th>
+                                        <th class="text-right">Assign</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="(user, index) in usercompanyusersArr">
+                                        <td>{{user.firstname}}</td>
+                                        <td class="text-center">{{user.email}}</td>
+                                        <td class="flex-column text-right">
+                                            <div class="custom-checkbox btn-group1">
+                                                <label class="btn btn-sm btn-check">
+                                                    <input type="checkbox" checked :name="'assignee[' + user.id + ']'"
+                                                           class="user_assign_cb custom-control-input"
+                                                           :data-roles="companyrolesList(user.companyroles)">
+                                                    <div class="stlchek m-1"></div>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Parent Topic and Categories Block -->
-        <save-cancel-block></save-cancel-block>
+            <!-- Parent Topic and Categories Block -->
+            <save-cancel-block></save-cancel-block>
+        </form>
     </div>
 
 </template>
@@ -224,7 +223,8 @@
         props: [
             'usercompanycategories',
             'usercompanyroles',
-            'usercompanyusers'
+            'usercompanyusers',
+            'action'
         ],
         data() {
             return {
@@ -232,7 +232,8 @@
                 blocksCounterID: 0,
                 usercompanycategoriesObj: {},
                 usercompanyrolesArr: [],
-                usercompanyusersArr: []
+                usercompanyusersArr: [],
+                csrf: document.head.querySelector('meta[name="csrf-token"]').content
             };
         },
         created() {
@@ -301,14 +302,6 @@
                         }
                     });
                 }
-
-                if (event.target.checked){
-                    // assign roles
-                    console.log('assign to' + role);
-                } else {
-                    // unassign roles
-                    console.log('unassign to' + role);
-                }
             },
             companyrolesList(rolesArr){
                 let rolesList = [];
@@ -318,6 +311,27 @@
                 });
 
                 return rolesList.join(", ");
+            },
+            submitForm(event) {
+
+                let myForm = document.getElementById('tutorial-builder-form');
+                let formData = new FormData(myForm);
+                const data = {};
+
+                // gather all form data
+                for (let [key, val] of formData.entries()) {
+                    Object.assign(data, {[key]: val});
+                }
+
+                let paragraphs = [];
+                // now need to prepare the paragraphs array
+
+                Object.assign(data, {['paragraphs']: paragraphs})
+                console.log(data);
+
+                axios.post('https://spreadfilms.loc/module/tutorials/admin/add',{ params: data})
+                    .then(response => this.responseData = response.data)
+                    .catch(error => {});
             }
         },
         mounted() {
@@ -329,8 +343,6 @@
 
             // converting usercompanyusers JSON prop into data object
             this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
-
-            console.log(this.usercompanyusersArr);
         },
         components: {
             NormalText,
