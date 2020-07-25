@@ -18,7 +18,7 @@
                             <th scope="col">{{ __('messages.Name') }}</th>
                             <th scope="col">{{ __('messages.Email') }}</th>
                             <th scope="col">{{ __('messages.Role') }}</th>
-                            <th scope="col">"{{ __('messages.Edit') }}</th>
+                            <th scope="col">{{ __('messages.Edit') }}</th>
                             <th scope="col">{{ __('messages.Delete') }}</th>
                         </tr>
                         </thead>

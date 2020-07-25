@@ -10,7 +10,7 @@
 
         <div class="btn-group group-actions mb-2" role="group">
             <a href="{{ route('module.tutorials.add') }}" class="btn btn-admin ">
-                <i class="fas fa-plus-circle fas-admin"></i>Add tutorial
+                <i class="fas fa-plus-circle fas-admin mr-2"></i>Add tutorial
             </a>
         </div>
     </div>
