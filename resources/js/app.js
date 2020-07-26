@@ -63,6 +63,10 @@ Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin
  */
 Vue.component('simple-video-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Video/VideoSimpleModal').default);
 Vue.component('img-simple', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Image/ImageSimpleModal').default);
+
+Vue.component('tutorials-topics', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsTopics').default);
+Vue.component('tutorials-categories', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsCategories').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

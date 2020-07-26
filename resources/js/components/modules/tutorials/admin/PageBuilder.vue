@@ -83,21 +83,7 @@
                     </div>
 
                     <div class="panel-body block-title">
-                        <div class="form-group">
-                            <select class="form-control select-tutorial" id="parent_tutorial_id" name="parent_tutorial_id">
-                                <option value="0">No Parent Tutorial</option>
-                                <option value="5">Welcome to Verovis!</option>
-                                <option value="10">What makes us successful</option>
-                                <option value="11">Our Vision</option>
-                                <option value="12">Onboarding for advisers</option>
-                                <option value="13">How was Verovis founded</option>
-                                <option value="14">Our Strategy</option>
-                                <option value="15">verovis DNA</option>
-                                <option value="16">Strategy, Values, #Project To A Successful Creators</option>
-                                <option value="17">Excellence Concept</option>
-                                <option value="22">New Tutorial</option>
-                            </select>
-                        </div>
+                       <tutorials-topics></tutorials-topics>
                     </div>
                 </div>
                 <!-- Parent Tutorial Column -->
@@ -117,13 +103,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <div class="form-group">
-                            <select class="form-control block-title select-tutorial" id="hierarchy-select" name="category_id">
-                                <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">
-                                    {{category.name}}
-                                </option>
-                            </select>
-                        </div>
+                       <tutorials-categories></tutorials-categories>
                     </div>
                 </div>
                 <!-- Categories Column -->
