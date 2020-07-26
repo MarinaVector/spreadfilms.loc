@@ -13,6 +13,8 @@
                 <i class="fas fa-plus-circle fas-admin mr-2"></i>Add tutorial
             </a>
         </div>
+
+        <tutorials-admin-list :tutorials="'{{ $companyTutorials->toJson() }}'"></tutorials-admin-list>
     </div>
 @endsection
 
