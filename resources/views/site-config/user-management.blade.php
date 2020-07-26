@@ -18,7 +18,7 @@
                             <th scope="col">{{ __('messages.Name') }}</th>
                             <th scope="col">{{ __('messages.Email') }}</th>
                             <th scope="col">{{ __('messages.Role') }}</th>
-                            <th scope="col">"{{ __('messages.Edit') }}</th>
+                            <th scope="col">{{ __('messages.Edit') }}</th>
                             <th scope="col">{{ __('messages.Delete') }}</th>
                         </tr>
                         </thead>
@@ -56,23 +56,32 @@
 
 
                                         <!--Info Modal Template-->
-                                        <div id="modal-info" class="modal modal-message modal-info fade" style="display: none;" aria-hidden="true">
-                                            <div class="modal-dialog">
+                                        <div id="modal-info" class="modal modal-message modal-info fade modal fade" style="display: none;" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <i class="fas fa-trash-alt trash-user fa-3x mx-auto my-3"></i>
+                                                        <i class="fas fa-user-times trash-user fa-3x mx-auto my-3"></i>
                                                     </div>
-                                                    <div class="modal-title">Delete this User ?</div>
-
+                                                    <div class="modal-title" id="exampleModalLongTitle">You want to delete user <b>{{ $user->firstname }}</b> ?</div>
                                                     <div class="modal-body">Are you sure ?</div>
+
                                                     <div class="modal-footer mx-auto">
-                                                        <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Chancel</button>
+                                                        <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Cancel</button>
                                                         <button type="button" class="btn button-modal button-ok" data-dismiss="modal">OK</button>
                                                     </div>
                                                 </div> <!-- / .modal-content -->
                                             </div> <!-- / .modal-dialog -->
                                         </div>
                                         <!--End Info Modal Templates-->
+
+
+                                        <!-- Button trigger modal -->
+
+
+
+
+
+
 
                                     </form>
                                 </td>

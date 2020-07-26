@@ -141,13 +141,15 @@
                             </div>
                             <div class="col-lg-1">
                                 <span
-                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
+                                    data-toggle="collapse" class="ml-2 pull-right"
                                     data-target="#collapse-staff"
                                     aria-expanded="true">
                                 </span>
+                                <div class="ml-5">
                                 <question-dropdown
                                     :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
                             </div>
+                        </div>
                         </div>
                         <div class="custom-checkbox">
                             <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2" @click="assignTo($event, 'all')">
@@ -505,9 +507,9 @@
     }
 
     .elfinder-preview-image {
-          background-size: cover;
-         background-position: center;
-       }
+        background-size: cover;
+        background-position: center;
+    }
 
     *, ::after, ::before {
         box-sizing: border-box;
@@ -610,11 +612,11 @@
     }
 
     .arrow-toggler.active::after {
-        content: "▲";
+        content: "в–І";
     }
 
     .arrow-toggler::after {
-        content: "▼";
+        content: "в–ј";
         position: absolute;
         left: 24px;
         top: 0px;
