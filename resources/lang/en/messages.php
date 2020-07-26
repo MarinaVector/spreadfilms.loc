@@ -46,5 +46,6 @@ return [
     'Role_edited' => 'Role edited',
     'Edit_user' => 'Edit user',
     'User_edited' => 'User edited',
-    'Tutorials' => 'Tutorials'
+    'Tutorials' => 'Tutorials',
+    'Tutorial_created' => 'Tutorial has been created'
 ];

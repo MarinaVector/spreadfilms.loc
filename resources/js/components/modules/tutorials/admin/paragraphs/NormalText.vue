@@ -1,5 +1,6 @@
 <template>
     <div class="container tutorial-text" id="tutorial-text">
+        <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type"/>
         <div class="row mt-2">
             <div class="col-lg-1 offset-lg-0 col-md-3 offset-md-1 col-7">
                 <button type="button" class="btn-icon ml-n2 draggable">
@@ -23,8 +24,8 @@
 
                     </div>
                 </div>
-                <input type="hidden" name="normal_text_header[]" v-model="NormalTextHeader">
-                <input type="hidden" name="normal_text_body[]" v-model="NormalTextBody">
+                <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+                <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
                 <button class="text-button position-button slide-border ml-4 py-2 px-5" type="button">
                     <i class="fas fa-bars blueiconcolor fa-2x">
                     </i>
