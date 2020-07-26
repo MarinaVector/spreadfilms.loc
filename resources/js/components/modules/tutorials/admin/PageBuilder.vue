@@ -1,8 +1,7 @@
 <template>
     <div class="container form-group paragraph-form-group">
-        <form class="no-bottom" method="POST" :action="action" @submit.prevent="submitForm" ref="form"
-              id="tutorial-builder-form">
-            <input type="hidden" name="_token" :value="csrf"/>
+        <form class="no-bottom" method="POST" :action="action" @submit.prevent="submitForm" ref="form" id="tutorial-builder-form">
+            <input type="hidden" name="_token" :value="csrf" />
             <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
             <!-- Tutorial Name Block -->
             <div class="container group mt-5">
@@ -58,8 +57,7 @@
                 <div class="form-group">
                     <div class="elfinder-preview-image" id="background-tutorial-image-preview"></div>
                     <div class="elfinder-container">
-                        <input id="background-tutorial-image" class="elfinder-idea" name="tutorial_background"
-                               type="hidden"/>
+                        <input id="background-tutorial-image" class="elfinder-idea" name="tutorial_background" type="hidden"/>
                         <button data-inputid="background-tutorial-image" class="popup_selector btn btn-default">
                             Select Wallpaper
                         </button>
@@ -84,92 +82,23 @@
                         </div>
                     </div>
 
-                    <!--   <div class="panel-body block-title">
-                           <div class="form-group">
-                               <select class="form-control select-tutorial" id="parent_topic" name="parent_topic">
-                                   <option value="0">No Parent Tutorial</option>
-                                   <option value="5">Welcome to Verovis!</option>
-                                   <option value="10">What makes us successful</option>
-                                   <option value="11">Our Vision</option>
-                                   <option value="12">Onboarding for advisers</option>
-                                   <option value="13">How was Verovis founded</option>
-                                   <option value="14">Our Strategy</option>
-                                   <option value="15">verovis DNA</option>
-                                   <option value="16">Strategy, Values, #Project To A Successful Creators</option>
-                                   <option value="17">Excellence Concept</option>
-                                   <option value="22">New Tutorial</option>
-                               </select>
-                           </div>
-                       </div>
-                       -->
-
                     <div class="panel-body block-title">
                         <div class="form-group">
-                            <select id="hierarchy-select" name="parent_id"
-                                    class="form-control select-tutorial"> >
-                                <option value="0">Kein Eltern-Tutorial</option>
-                                <option value="5">Willkommen bei Verovis!</option>
-                                <option value="10">Was macht uns erfolgreich</option>
-                                <option value="11">Unsere Vision</option>
-                                <option value="12">Onboarding für Berater</option>
-                                <option value="13">Wie wurde Verovis gegründet</option>
-                                <option value="14">Unsere Strategie</option>
+                            <select class="form-control select-tutorial" id="parent_topic" name="parent_topic">
+                                <option value="0">No Parent Tutorial</option>
+                                <option value="5">Welcome to Verovis!</option>
+                                <option value="10">What makes us successful</option>
+                                <option value="11">Our Vision</option>
+                                <option value="12">Onboarding for advisers</option>
+                                <option value="13">How was Verovis founded</option>
+                                <option value="14">Our Strategy</option>
                                 <option value="15">verovis DNA</option>
-                                <option value="16">Strategie, Werte, #Projekterfolgreichmacher</option>
-                                <option value="17">Excellence Konzept</option>
-                                <option value="36">eXCom test empty</option>
-                                <option value="37">eXCom test with text</option>
-                                <option value="38">eXCom test with video</option>
-                                <option value="39">eXCom test tutorial 1</option>
-                                <option value="40">eXCom test tutorial 2</option>
-                                <option value="42">text parent tutorial</option>
+                                <option value="16">Strategy, Values, #Project To A Successful Creators</option>
+                                <option value="17">Excellence Concept</option>
+                                <option value="22">New Tutorial</option>
                             </select>
-                            <ul id="hierarchy" class="selectCF onCF">
-                                <li><span class="titleCF">Kein übergeordnetes Thema</span>
-                                    <ul>
-                                        <li value=""><span class="element">Kein übergeordnetes Thema</span></li>
-                                        <li value="5" data-id="5"><span class="element">Willkommen bei Verovis!</span>
-                                            <ul>
-                                                <li value="10" data-id="10"><span class="element">Was macht uns erfolgreich</span>
-                                                </li>
-                                                <li value="11" data-id="11"><span class="element">Unsere Vision</span>
-                                                </li>
-                                                <li value="12" data-id="12"><span
-                                                    class="element">Onboarding für Berater</span></li>
-                                                <li value="13" data-id="13"><span class="element">Wie wurde Verovis gegründet</span>
-                                                </li>
-                                                <li value="14" data-id="14"><span
-                                                    class="element">Unsere Strategie</span></li>
-                                            </ul>
-                                        </li>
-                                        <li value="15" data-id="15"><span class="element">verovis DNA</span>
-                                            <ul>
-                                                <li value="16" data-id="16"><span class="element">Strategie, Werte, #Projekterfolgreichmacher</span>
-                                                </li>
-                                                <li value="17" data-id="17"><span
-                                                    class="element">Excellence Konzept</span></li>
-                                            </ul>
-                                        </li>
-                                        <li value="36" data-id="36"><span class="element">eXCom test empty</span></li>
-                                        <li value="37" data-id="37"><span class="element">eXCom test with text</span>
-                                        </li>
-                                        <li value="38" data-id="38"><span class="element">eXCom test with video</span>
-                                        </li>
-                                        <li value="39" data-id="39"><span class="element">eXCom test tutorial 1</span>
-                                        </li>
-                                        <li value="40" data-id="40"><span class="element">eXCom test tutorial 2</span>
-                                            <ul>
-                                                <li value="42" data-id="42"><span
-                                                    class="element">text parent tutorial</span></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                     </div>
-
-
                 </div>
                 <!-- Parent Topic Column -->
 
@@ -189,8 +118,7 @@
 
                     <div class="panel-body">
                         <div class="form-group">
-                            <select class="form-control block-title select-tutorial" id="hierarchy-select"
-                                    name="category_id">
+                            <select class="form-control block-title select-tutorial" id="hierarchy-select" name="category_id">
                                 <option v-for="(category, index) in usercompanycategoriesObj" :value="category.id">
                                     {{category.name}}
                                 </option>
@@ -213,19 +141,19 @@
                             </div>
                             <div class="col-lg-1">
                                 <span
-                                    data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
+                                    data-toggle="collapse" class="ml-2 pull-right"
                                     data-target="#collapse-staff"
                                     aria-expanded="true">
                                 </span>
+                                <div class="ml-5">
                                 <question-dropdown
                                     :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
                             </div>
                         </div>
+                        </div>
                         <div class="custom-checkbox">
-                            <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2"
-                                   @click="assignTo($event, 'all')">
-                                <input class="custom-control-input" checked type="checkbox" name="assign_to_all"
-                                       id="assign_to_all">
+                            <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2" @click="assignTo($event, 'all')">
+                                <input class="custom-control-input" checked type="checkbox" name="assign_to_all" id="assign_to_all">
                                 <div class="stlchek  mb-1 mr-1"></div>
                                 Make visible to <b>all</b>
                             </label>
@@ -233,10 +161,8 @@
 
                         <div class="panel-body collapse mt-3" id="collapse-staff">
                             <div class="custom-checkbox" v-for="(role, index) in usercompanyrolesArr">
-                                <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1"
-                                       @click="assignTo($event, role.name)">
-                                    <input class="panel-title block-title custom-control-input" checked type="checkbox"
-                                           :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
+                                <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1" @click="assignTo($event, role.name)">
+                                    <input class="panel-title block-title custom-control-input" checked type="checkbox" :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
                                     <div class="stlchek mb-1 mr-1"></div>
                                     Make visible to all users with role <b>"{{role.name}}"</b>
                                 </label>
@@ -280,45 +206,6 @@
 </template>
 
 <script>
-
-    let tutorials = {
-        "5": {
-            "name": "Willkommen bei Verovis!",
-            "id": 5,
-            "children": [{"name": "Was macht uns erfolgreich", "id": 10, "children": []}, {
-                "name": "Unsere Vision",
-                "id": 11,
-                "children": []
-            }, {
-                "name": "Onboarding f\u00fcr Berater",
-                "id": 12,
-                "children": []
-            }, {"name": "Wie wurde Verovis gegr\u00fcndet", "id": 13, "children": []}, {
-                "name": "Unsere Strategie",
-                "id": 14,
-                "children": []
-            }]
-        },
-        "15": {
-            "name": "verovis DNA",
-            "id": 15,
-            "children": [{
-                "name": "Strategie, Werte, #Projekterfolgreichmacher",
-                "id": 16,
-                "children": []
-            }, {"name": "Excellence Konzept", "id": 17, "children": []}]
-        },
-        "36": {"name": "eXCom test empty", "id": 36, "children": []},
-        "37": {"name": "eXCom test with text", "id": 37, "children": []},
-        "38": {"name": "eXCom test with video", "id": 38, "children": []},
-        "39": {"name": "eXCom test tutorial 1", "id": 39, "children": []},
-        "40": {
-            "name": "eXCom test tutorial 2",
-            "id": 40,
-            "children": [{"name": "text parent tutorial", "id": 42, "children": []}]
-        }
-    };
-
     import NormalText from './paragraphs/NormalText'
     import Video from './paragraphs/Video'
     import TextImg from './paragraphs/TextImg'
@@ -407,21 +294,21 @@
             duplicateParagraph(index) {
                 this.paragraphs.push(this.paragraphs[index]);
             },
-            assignTo(event, role) {
-                if (role === 'all') {
+            assignTo(event, role){
+                if(role === 'all') {
                     $('input:checkbox').not(this).prop('checked', event.target.checked);
                 } else {
-                    $('input:checkbox.user_assign_cb').not(this).each(function () {
-                        if ($(this).attr('data-roles').includes(role)) {
+                    $('input:checkbox.user_assign_cb').not(this).each(function() {
+                        if($(this).attr('data-roles').includes(role)){
                             $(this).prop('checked', event.target.checked)
                         }
                     });
                 }
             },
-            companyrolesList(rolesArr) {
+            companyrolesList(rolesArr){
                 let rolesList = [];
 
-                rolesArr.map(function (value, key) {
+                rolesArr.map(function(value, key) {
                     rolesList.push(value.name);
                 });
 
@@ -444,10 +331,9 @@
                 Object.assign(data, {['paragraphs']: paragraphs})
                 console.log(data);
 
-                axios.post('https://spreadfilms.loc/module/tutorials/admin/add', {params: data})
+                axios.post('https://spreadfilms.loc/module/tutorials/admin/add',{ params: data})
                     .then(response => this.responseData = response.data)
-                    .catch(error => {
-                    });
+                    .catch(error => {});
             }
         },
         mounted() {
@@ -663,11 +549,11 @@
     }
 
     .arrow-toggler.active::after {
-        content: "▲";
+        content: "в–І";
     }
 
     .arrow-toggler::after {
-        content: "▼";
+        content: "в–ј";
         position: absolute;
         left: 24px;
         top: 0px;
@@ -734,104 +620,5 @@
         box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
     }
 
-    .form-control, .form-control:focus {
-        font-size: 14px;
-        background: #fff;
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-        color: #777777;
-        border: 0;
-        padding: 0 15px;
-    }
-
-    l
-    .panel .form-control,
-    .panel .form-control:focus,
-    .card .form-control,
-    .card .form-control:focus,
-    .card .form-control[type="email"], .card
-    .form-control[readonly].flatpickr-input {
-        background: #f2f2f2;
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .onCF {
-        z-index: 9999;
-    }
-
-    .selectCF {
-        margin: 0;
-        padding: 0;
-        display: block;
-        position: relative;
-        font-size: 17px;
-        font-weight: bold;
-        min-width: 200px;
-        color: #333;
-        border: solid #ccc 1px;
-    }
-
-    .selectCF .titleCF {
-        font-size: 14px;
-        font-weight: 400;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        color: #333;
-    }
-
-    .selectCF span {
-        display: inline-block;
-        padding: 5px 10px;
-        z-index: 1;
-    }
-
-    .selectCF li ul li {
-        padding: 5px 10px;
-        font-weight: normal;
-        font-size: 14px;
-        transition: .2s;
-        -webkit-transition: .2s;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    .selectCF li {
-        list-style: none;
-        cursor: pointer;
-        perspective: 900px;
-        -webkit-perspective: 900px;
-        text-align: left;
-    }
-
-    .selectCF li ul li {
-        padding: 5px 10px;
-        font-weight: normal;
-        font-size: 14px;
-        transition: .2s;
-        -webkit-transition: .2s;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    .selectCF li {
-        list-style: none;
-        cursor: pointer;
-        perspective: 900px;
-        -webkit-perspective: 900px;
-        text-align: left;
-    }
-
-    .selectCF span {
-        display: inline-block;
-        padding: 5px 10px;
-        z-index: 1;
-    }
-
-    .selectCF li ul li:hover {
-        background: rgba(100, 100, 100, 0.5);
-        color: #FFF;
-    }
 
 </style>
