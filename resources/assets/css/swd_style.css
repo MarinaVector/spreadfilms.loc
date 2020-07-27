@@ -1132,4 +1132,7 @@ input:checked + .stlchek:before {
     color: #00bff9;
 }
 
+.modal-open {
+    overflow: inherit;
+}
 

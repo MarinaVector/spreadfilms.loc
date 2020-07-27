@@ -56,14 +56,14 @@
 
 
                                         <!--Info Modal Template-->
-                                        <div id="modal-info" class="modal modal-message modal-info fade modal fade" style="display: none;" aria-hidden="true">
+                                        <div id="modal-info" class="modal modal-message modal-info fade modal fade modal-open" style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <i class="fas fa-user-times trash-user fa-3x mx-auto my-3"></i>
                                                     </div>
-                                                    <div class="modal-title" id="exampleModalLongTitle">You want to delete user <b>{{ $user->firstname }}</b> ?</div>
-                                                    <div class="modal-body">Are you sure ?</div>
+                                                    <div class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete user <b>{{ $user->firstname }}</b> ?</div>
+
 
                                                     <div class="modal-footer mx-auto">
                                                         <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Cancel</button>
@@ -74,13 +74,7 @@
                                         </div>
                                         <!--End Info Modal Templates-->
 
-
                                         <!-- Button trigger modal -->
-
-
-
-
-
 
 
                                     </form>
