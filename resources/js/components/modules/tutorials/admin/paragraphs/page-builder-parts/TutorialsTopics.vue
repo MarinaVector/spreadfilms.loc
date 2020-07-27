@@ -2,10 +2,11 @@
     <div>
         <treeselect
             :options="options"
-            :disable-branch-nodes="true"
+            :load-options="loadOptions"
             placeholder="Select your tutorial(s)..."
             v-model="value"
         />
+           <treeselect-value :value="value" />
     </div>
 </template>
 
