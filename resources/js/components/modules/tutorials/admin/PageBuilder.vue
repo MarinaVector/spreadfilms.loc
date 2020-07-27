@@ -120,8 +120,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1">
-                                <span
-                                    data-toggle="collapse" class="ml-2 pull-right"
+                                <span  data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
                                     data-target="#collapse-staff"
                                     aria-expanded="true">
                                 </span>
@@ -592,21 +591,19 @@
     }
 
     .arrow-toggler.active::after {
-        content: "в–І";
+        content: "▲";
     }
 
     .arrow-toggler::after {
-        content: "в–ј";
+        content: "▼";
         position: absolute;
-        left: 24px;
+        left: 44px;
         top: 0px;
         font-weight: normal;
     }
 
     .arrow-toggler {
         cursor: pointer;
-        padding-right: 20px;
-        position: relative;
     }
 
     .panel-list {

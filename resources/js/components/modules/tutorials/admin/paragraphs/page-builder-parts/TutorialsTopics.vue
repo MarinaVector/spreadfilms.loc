@@ -1,12 +1,10 @@
 <template>
     <div>
         <treeselect
-
             :options="options"
             :disable-branch-nodes="true"
             placeholder="Select your tutorial(s)..."
             v-model="value"
-
         />
     </div>
 </template>
@@ -79,6 +77,9 @@
 
 </script>
 
-<style scoped>
+<style>
 
+   div .vue-treeselect__control {
+        border-radius: 0;
+    }
 </style>

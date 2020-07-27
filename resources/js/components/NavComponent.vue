@@ -1,7 +1,16 @@
 <template>
-    <sidebar-menu :menu="menu" :collapsed="collapsed" :width="width" :widthCollapsed="widthCollapsed"
-                  :showOneChild="showOneChild" :showChild="showChild" :rtl="rtl" :relative="relative"
-                  :hideToggle="hideToggle" :theme="theme" :disableHover="disableHover" @toggle-collapse="onToggleCollapse"
+    <sidebar-menu :menu="menu"
+                  :collapsed="collapsed"
+                  :width="width"
+                  :widthCollapsed="widthCollapsed"
+                  :showOneChild="showOneChild"
+                  :showChild="showChild"
+                  :rtl="rtl"
+                  :relative="relative"
+                  :hideToggle="hideToggle"
+                  :theme="theme"
+                  :disableHover="disableHover"
+                  @toggle-collapse="onToggleCollapse"
                   @item-click="onItemClick"/>
 </template>
 <!-- component documentation -->
@@ -48,7 +57,7 @@
 
         },
         methods: {
-            prepareNavMenu: function() {
+            prepareNavMenu: function () {
                 this.authuser = (this.authuser) ? this.authuser : JSON.stringify([]);
                 let userObj = JSON.parse(this.authuser);
 
@@ -168,16 +177,16 @@
 
                 return this.navMenu;
             },
-            onToggleCollapse (collapsed) {
+            onToggleCollapse(collapsed) {
                 console.log(collapsed)
                 //this.collapsed = collapsed
             },
-            onItemClick (event, item) {
+            onItemClick(event, item) {
                 console.log('onItemClick')
                 // console.log(event)
                 // console.log(item)
             },
-            onResize () {
+            onResize() {
                 /*if (window.innerWidth <= 767) {
                     this.isOnMobile = true
                     this.collapsed = true
@@ -605,7 +614,8 @@
         background-color: #4285f4
     }
 
-    .v-sidebar-menu.vsm_white-theme.vsm_rtl .vsm--link_level-1.vsm--link_active, .v-sidebar-menu.vsm_white-theme.vsm_rtl .vsm--link_level-1.vsm--link_exact-active {
+    .v-sidebar-menu.vsm_white-theme.vsm_rtl .vsm--link_level-1.vsm--link_active,
+    .v-sidebar-menu.vsm_white-theme.vsm_rtl .vsm--link_level-1.vsm--link_exact-active {
         -webkit-box-shadow: -3px 0px 0px 0px #4285f4 inset;
         box-shadow: -3px 0px 0px 0px #4285f4 inset
     }
