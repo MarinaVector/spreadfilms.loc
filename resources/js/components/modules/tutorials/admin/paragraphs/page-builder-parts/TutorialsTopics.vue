@@ -18,8 +18,12 @@
         name: "TutorialsTopics",
         components: { Treeselect },
         data: () => ({
-            value: null,
-            options: [ {
+            value: 0,
+                options: [{
+                    id: '0',
+                    label: 'No parent tutorial',
+                },
+                {
                 id: '35',
                 label: 'Tutorial1',
                 children: [ {
