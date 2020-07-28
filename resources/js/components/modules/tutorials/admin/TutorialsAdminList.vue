@@ -4,8 +4,23 @@
             <ul id="sortable">
                 <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
                     <div v-for="tutorial in tutorialsObj" class=".paragraph" ref="paragraph">
-                        <li class="ui-state-default draggable">
-                            <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{{tutorial.name}}
+                        <li class="card2 py-2 pl-3 pl-5 li-text ui-state-default draggable">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <i class="fas fa-arrows-alt-v mr-2"></i>
+                                    <span class="ui-icon ui-icon-arrow thick-2-n-s"></span>{{tutorial.name}}
+                                </div>
+                                <div class="col-lg-2 pl-5">
+                                    <a href="#" class="social-icon si-border si-edit mr-1">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-border si-delete">
+                                        <i class="fas fa-trash"></i>
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </li>
                     </div>
                 </draggable>
@@ -41,6 +56,163 @@
     }
 </script>
 
-<style scoped>
+<style>
+
+    . big-arrow {
+        display: inline-block;
+    }
+
+    .page-title {
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 1.2em;
+        font-weight: 700;
+        display: inline-block;
+        max-width: 35vw;
+    }
+
+    .btn-admin {
+        background: #fff !important;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
+        color: #777777 !important;
+        border-style: none;
+    }
+
+    .fas-admin {
+        color: #777777 !important;
+    }
+
+    .shadow {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #777777;
+
+    }
+
+    .categories {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #777777;
+    }
+
+    .card2::after {
+        display: block;
+        position: absolute;
+        bottom: -10px;
+        left: 20px;
+        width: calc(100% - 40px);
+        height: 35px;
+        background-color: #fff;
+        -webkit-box-shadow: 0 19px 28px 5px rgba(64, 64, 64, 0.09);
+        box-shadow: 0 19px 28px 5px rgba(64, 64, 64, 0.09);
+        content: '';
+        z-index: -1;
+    }
+
+    a.card2 {
+        text-decoration: none;
+    }
+
+    .card2 {
+        position: relative;
+        border: 0;
+        border-radius: 0;
+        background-color: #fff;
+        -webkit-box-shadow: 0 12px 20px 1px rgba(64, 64, 64, 0.09);
+        box-shadow: 0 12px 20px 1px rgba(64, 64, 64, 0.09);
+    }
+
+    .card2 {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        background-color: #fff;
+        background-clip: border-box;
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+
+    img, figure {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+
+
+    .card-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #424242;
+
+    }
+
+    .ul-pd {
+        padding-inline-start: 0 !important;
+    }
+
+
+    .social-icon {
+
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px !important;
+        color: #555;
+        text-shadow: none;
+        border-radius: 3px;
+        overflow: hidden;
+        display: block;
+        float: left;
+        text-align: center;
+        border: 1px solid #AAA;
+    }
+
+    .social-icon:hover {
+        border-color: transparent;
+    }
+
+    .social-icon i {
+        display: block;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        line-height: 40px;
+        position: relative;
+    }
+
+    .social-icon i:last-child {
+        color: #FFF !important;
+    }
+
+    .social-icon:hover i:first-child {
+        margin-top: -40px;
+    }
+
+    si-border {
+        border: 1px solid #AAA !important;
+    }
+
+    .si-edit:hover {
+        background-color: #008acb !important;
+    }
+
+    .si-delete:hover {
+        background-color: #636363 !important;
+    }
+
+
+    .li-text {
+        color: #424242;
+        font-size: 16px;
+    }
+
 
 </style>

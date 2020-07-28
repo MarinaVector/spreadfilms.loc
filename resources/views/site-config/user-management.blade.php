@@ -75,8 +75,6 @@
                                         <!--End Info Modal Templates-->
 
                                         <!-- Button trigger modal -->
-
-
                                     </form>
                                 </td>
                             </tr>
