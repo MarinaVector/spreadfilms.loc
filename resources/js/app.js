@@ -35,7 +35,7 @@ Vue.component('tutorials-admin-list', require('./components/modules/tutorials/ad
 
 
 /**
- * Paragrafs windows
+ * Paragraphs windows
  */
 
 Vue.component('normal-text', require('./components/modules/tutorials/admin/paragraphs/NormalText').default);

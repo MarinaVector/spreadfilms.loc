@@ -6,6 +6,7 @@ use App\Models\Paragraph;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
+use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,9 +25,16 @@ class TutorialsController extends Controller
 
     final public function addTutorial(): View {
         $user = Auth::user();
-        $usercompanyusers = $user->company()->users()->with('companyroles')->get();
+        $userCompany = $user->company();
+        $usercompanyusers = $userCompany->users()->with('companyroles')->get();
+        $companyCategoriesJSON = $userCompany->companycategories->toJson();
 
-        return view('modules.tutorials.add')->with(['authUser' => Auth::user(), 'userCompanyUsers' => $usercompanyusers]);
+        return view('modules.tutorials.add')->with(
+            [
+                'authUser' => Auth::user(),
+                'userCompanyUsers' => $usercompanyusers,
+                'companyCategoriesJSON' => $companyCategoriesJSON
+            ]);
     }
 
     final public function statisticsTutorial(): View {
@@ -43,7 +51,6 @@ class TutorialsController extends Controller
             'name' => $request->get('tutorial_name'),
             'tutorial_background' => $request->get('tutorial_background'),
             'parent_tutorial_id' => $request->get('parent_tutorial_id'),
-            'category_id' => $request->get('category_id'),
             'company_id' => $user->company()->id,
         ]);
 
@@ -54,13 +61,19 @@ class TutorialsController extends Controller
             $this->storeParagraphData($paragraph, $paragraphId);
         }
 
-        // 3. store tutorial assignees(who have permission to view it)
+        // 3. store all tutorial categories
+        $categoriesArr = explode(',', $request->get('categories'));
+        foreach($categoriesArr as $categoryId){
+            TutorialCompanycategoryPivot::create(['tutorial_id' => $tutorial->id, 'category_id' => $categoryId]);
+        }
+
+        // 4. store tutorial assignees(who have permission to view it)
         $tutorialAssignees = array_keys($request->get('assignee'));
         foreach ($tutorialAssignees as $tutorialAssignee) {
             TutorialAssigneePivot::create(['tutorial_id' => $tutorial->id, 'assignee_id' => $tutorialAssignee]);
         }
 
-        // 4. redirect to tutorials manage page
+        // 5. redirect to tutorials manage page
         return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_created'));
     }
 

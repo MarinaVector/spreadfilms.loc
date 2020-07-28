@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="panel-body">
-                       <tutorials-categories></tutorials-categories>
+                       <tutorials-categories :usercompanycategories="this.$props.usercompanycategories"></tutorials-categories>
                     </div>
                 </div>
                 <!-- Categories Column -->
@@ -379,9 +379,6 @@
             }
         },
         mounted() {
-            // converting usercompanycategories JSON prop into data object
-            this.usercompanycategoriesObj = JSON.parse(this.$props.usercompanycategories);
-
             // converting usercompanyroles JSON prop into data object
             this.usercompanyrolesArr = JSON.parse(this.$props.usercompanyroles);
 

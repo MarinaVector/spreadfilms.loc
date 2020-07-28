@@ -1,10 +1,9 @@
 <template>
 
     <div>
-        <treeselect :options="options" :value="value" :multiple="multiple">
+        <treeselect :options="options" :value="value" :multiple="multiple" :name="treename" :joinValues="true">
             <div slot="value-label" slot-scope="{ node }">{{ node.raw.customLabel }}</div>
         </treeselect>
-
     </div>
 
 </template>
@@ -17,15 +16,36 @@
 
     export default {
         components: { Treeselect },
+        props: [
+            'usercompanycategories',
+        ],
         data: () => ({
             multiple: true,
-            value: null,
-            options: [ 'ExCom', 'Marina', 'Denis' ].map(i => ({
-                id: i,
-                label: `Label ${i}`,
-                customLabel: `Tutorial ${i}`,
-            })),
+            value: [],
+            options: [],
+            treename: 'categories',
         }),
+        created() {
+
+        },
+        mounted() {
+            // converting usercompanycategories JSON prop into data object
+            let usercompanycategoriesObj = JSON.parse(this.$props.usercompanycategories);
+            let usercompanycategoriesArr = [];
+            usercompanycategoriesObj.forEach(usercompanycategoriesObjElement => {
+                usercompanycategoriesArr.push(
+                    {
+                        id: usercompanycategoriesObjElement.id,
+                        name: usercompanycategoriesObjElement.name,
+                    });
+            });
+
+            this.options = usercompanycategoriesArr.map(i => ({
+                id: `${i.id}`,
+                label: `${i.name}`,
+                customLabel: `${i.name}`,
+            }));
+        },
     }
 
 </script>

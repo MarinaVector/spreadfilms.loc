@@ -5,8 +5,8 @@
             :load-options="loadOptions"
             placeholder="Select your tutorial(s)..."
             v-model="value"
+            :name="treename"
         />
-           <treeselect-value :value="value" />
     </div>
 </template>
 
@@ -15,6 +15,7 @@
 
 
     export default {
+        name: "TutorialsTopics",
         components: { Treeselect },
         data: () => ({
             value: null,
@@ -73,6 +74,10 @@
                     label: 'ExCom King5',
                 } ],
             } ],
+            loadOptions: function(){
+
+            },
+            treename: 'parent_tutorial_id',
         }),
     }
 
