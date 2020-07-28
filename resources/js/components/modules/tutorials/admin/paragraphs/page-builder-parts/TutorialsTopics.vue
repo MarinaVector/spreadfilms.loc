@@ -17,67 +17,28 @@
     export default {
         name: "TutorialsTopics",
         components: { Treeselect },
+        props: [
+            'tutorials'
+        ],
+        mounted() {
+            // converting userCompanyTutorials JSON prop into data object
+            this.options = JSON.parse(this.$props.tutorials);
+            console.log(this.options);
+        },
+        methods: {
+            formTutorialChildren(element) {
+                return [element.map(i => ({
+                    id: `${i.id}`,
+                    label: `${i.name}`,
+                }))];
+            }
+        },
         data: () => ({
             value: 0,
                 options: [{
                     id: '0',
                     label: 'No parent tutorial',
-                },
-                {
-                id: '35',
-                label: 'Tutorial1',
-                children: [ {
-                    id: '1',
-                    label: 'ExCom test',
-                }, {
-                    id: '2',
-                    label: 'ExCom Game',
-                }, {
-                    id: '3',
-                    label: 'ExCom Cat',
-                }, {
-                    id: '4',
-                    label: 'ExCom New',
-                }, {
-                    id: '5',
-                    label: 'ExCom Chocolate',
-                } ],
-            }, {
-                id: '36',
-                label: 'Tutorial2',
-                children: [ {
-                    id: '6',
-                    label: 'ExCom test2',
-                }, {
-                    id: '7',
-                    label: 'ExCom Game2',
-                }, {
-                    id: '8',
-                    label: 'ExCom Game3',
-                }, {
-                    id: '9',
-                    label: 'ExCom Cola',
-                } ],
-            }, {
-                id: '37',
-                label: 'ExCom King',
-                children: [ {
-                    id: '10',
-                    label: 'ExCom King1',
-                }, {
-                    id: '11',
-                    label: 'ExCom King2',
-                }, {
-                    id: '12',
-                    label: 'ExCom King3',
-                }, {
-                    id: '13',
-                    label: 'ExCom King4',
-                }, {
-                    id: '15',
-                    label: 'ExCom King5',
-                } ],
-            } ],
+                }],
             loadOptions: function(){
 
             },

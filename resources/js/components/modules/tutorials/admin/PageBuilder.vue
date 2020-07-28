@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="panel-body block-title">
-                       <tutorials-topics></tutorials-topics>
+                       <tutorials-topics :tutorials="this.$props.tutorials"></tutorials-topics>
                     </div>
                 </div>
                 <!-- Parent Tutorial Column -->
@@ -205,7 +205,8 @@
             'usercompanycategories',
             'usercompanyroles',
             'usercompanyusers',
-            'action'
+            'action',
+            'tutorials'
         ],
         data() {
             return {

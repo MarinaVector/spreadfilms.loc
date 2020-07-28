@@ -27,12 +27,29 @@ class TutorialsController extends Controller
         $user = Auth::user();
         $userCompany = $user->company();
         $usercompanyusers = $userCompany->users()->with('companyroles')->get();
+        $userCompanyTutorials = $user->company()->tutorials;
+        $userCompanyTutorialsNested = [];
+        foreach($userCompanyTutorials->toArray() as $tutorial){
+            if($tutorial['parent_tutorial_id'] === 0){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                ];
+                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+                }
+                $userCompanyTutorialsNested[] = $resTutorial;
+            }
+        }
+        $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
         $companyCategoriesJSON = $userCompany->companycategories->toJson();
 
         return view('modules.tutorials.add')->with(
             [
                 'authUser' => Auth::user(),
                 'userCompanyUsers' => $usercompanyusers,
+                'companyTutorials' => $userCompanyTutorialsNestedJSON,
                 'companyCategoriesJSON' => $companyCategoriesJSON
             ]);
     }
@@ -50,7 +67,7 @@ class TutorialsController extends Controller
         $tutorial = Tutorial::create([
             'name' => $request->get('tutorial_name'),
             'tutorial_background' => $request->get('tutorial_background'),
-            'parent_tutorial_id' => $request->get('parent_tutorial_id'),
+            'parent_tutorial_id' => $request->get('parent_tutorial_id') ? $request->get('parent_tutorial_id') : 0,
             'company_id' => $user->company()->id,
         ]);
 
@@ -62,9 +79,11 @@ class TutorialsController extends Controller
         }
 
         // 3. store all tutorial categories
-        $categoriesArr = explode(',', $request->get('categories'));
-        foreach($categoriesArr as $categoryId){
-            TutorialCompanycategoryPivot::create(['tutorial_id' => $tutorial->id, 'category_id' => $categoryId]);
+        if(null !== $request->get('categories')) {
+            $categoriesArr = explode(',', $request->get('categories'));
+            foreach ($categoriesArr as $categoryId) {
+                TutorialCompanycategoryPivot::create(['tutorial_id' => $tutorial->id, 'category_id' => $categoryId]);
+            }
         }
 
         // 4. store tutorial assignees(who have permission to view it)
@@ -105,6 +124,27 @@ class TutorialsController extends Controller
         $user = Auth::user();
 
         return view('modules.tutorials.settings_tutorials')->with('authUser', Auth::user());
+    }
+
+    final public function getTutorialChildren($tutorials, $tutorialId){
+        $resTutorials = [];
+
+        foreach($tutorials as $tutorial){
+            if($tutorial['parent_tutorial_id'] === $tutorialId){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                ];
+                $resChildren = $this->getTutorialChildren($tutorials, $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+                }
+
+                $resTutorials[] = $resTutorial;
+            }
+        }
+
+        return $resTutorials;
     }
 }
 
