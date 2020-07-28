@@ -12,6 +12,7 @@
             :usercompanyroles="'{{ $authUser->company()->companyroles->toJson() }}'"
             :usercompanyusers="'{{ $userCompanyUsers->toJson() }}'"
             :action="'{{ route('module.tutorials.store') }}'"
+            :tutorials="'{{ $companyTutorials }}'"
         ></tutorial-page-builder>
     </div>
 @endsection
