@@ -23,7 +23,6 @@
         mounted() {
             // converting userCompanyTutorials JSON prop into data object
             this.options = JSON.parse(this.$props.tutorials);
-            console.log(this.options);
         },
         methods: {
             formTutorialChildren(element) {
