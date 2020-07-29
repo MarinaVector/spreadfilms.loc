@@ -164,9 +164,9 @@
         height: 40px;
         font-size: 20px;
         line-height: 40px !important;
-        color: #555;
+        color: #777777;
         text-shadow: none;
-        border-radius: 3px;
+        border-radius: 5px;
         overflow: hidden;
         display: block;
         float: left;
@@ -175,7 +175,7 @@
     }
 
     .social-icon:hover {
-        border-color: transparent;
+        border: none;
     }
 
     .social-icon i {
@@ -201,11 +201,11 @@
     }
 
     .si-edit:hover {
-        background-color: #008acb !important;
+        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
     }
 
     .si-delete:hover {
-        background-color: #636363 !important;
+        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
     }
 
 
