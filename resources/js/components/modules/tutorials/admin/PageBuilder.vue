@@ -329,6 +329,8 @@
                 const data = {};
                 let paragraphs = {};
                 let myForm = document.getElementById('tutorial-builder-form');
+                let action = $(myForm).attr('action');
+
                 let formData = new FormData(myForm);
 
                 // gather all form data
@@ -362,7 +364,7 @@
                     .then(response => this.responseData = response.data)
                     .catch(error => {});*/
 
-                this.redirectToUrl('https://spreadfilms.loc/module/tutorials/admin/add', data, 'POST');
+                this.redirectToUrl(action, data, 'POST');
             },
             redirectToUrl(url, data, method){
                 let form = document.createElement('form');
