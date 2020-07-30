@@ -58,7 +58,7 @@
             </nav>
             <tutorials-admin-list :tutorials="'{{ $companyTutorials->toJson() }}'"></tutorials-admin-list>
         </div>
-
+    </div>
 
         <!--for future -->
 
@@ -90,7 +90,22 @@
 
 
 
+@endsection
 
+
+
+@section('scripts')
+
+    <style>
+
+
+
+    </style>
+
+
+    <script>
+
+    </script>
 
 
 @endsection
