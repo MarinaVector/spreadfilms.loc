@@ -39,7 +39,7 @@
                                 <div class="custom-checkbox">
                                     <label for="remember">
                                         <input type="checkbox" class="custom-control-input" name="remember" id="remember">
-                                        <div class="stlchek mr-1"></div>
+                                        <span class="stlchek mr-1"></span>
                                         Keep me signed in
                                     </label>
                                 </div>
