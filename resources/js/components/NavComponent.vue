@@ -229,6 +229,12 @@
         transition: 0.3s max-width ease
     }
 
+    ::-webkit-scrollbar {
+
+        width: 0px;
+
+    }
+    
     .v-sidebar-menu * {
         -webkit-box-sizing: border-box;
         box-sizing: border-box

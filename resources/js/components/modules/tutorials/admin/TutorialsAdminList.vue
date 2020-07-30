@@ -11,6 +11,7 @@
                                     <span class="ui-icon ui-icon-arrow thick-2-n-s"></span>{{tutorial.name}}
                                 </div>
                                 <div class="col-lg-2 pl-5">
+                                    <input type="hidden" name="userId" value=""/>
                                     <a href="#" class="social-icon si-border si-edit mr-1">
                                         <i class="fas fa-edit"></i>
                                         <i class="fas fa-edit"></i>
@@ -28,7 +29,7 @@
                                                 <div class="modal-header">
                                                     <i class="fas fa-minus-circle fa-3x mx-auto my-3"></i>
                                                 </div>
-                                                <div class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete tutorial<b>{{tutorial.name}}</b> ?</div>
+                                                <div class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete tutorial <b>{{tutorial.name}}</b> ?</div>
                                                 <div class="modal-footer mx-auto">
                                                     <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Cancel</button>
                                                     <button type="button" class="btn button-modal button-ok" data-dismiss="modal">OK</button>
@@ -179,9 +180,7 @@
         padding-inline-start: 0 !important;
     }
 
-
     .social-icon {
-
         width: 40px;
         height: 40px;
         font-size: 20px;
