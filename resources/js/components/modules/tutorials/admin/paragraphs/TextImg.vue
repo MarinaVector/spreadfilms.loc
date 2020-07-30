@@ -5,7 +5,7 @@
             <div class="col-lg-12 text-image">
                 <div class="row row-image">
                     <div class="col-lg-9 module-text" :id="dataInputPreviewID">
-                        <div class="row module-text">
+                        <div class="row">
                             <div class="col-lg-1 mt-3 ml-2">
                                 <button type="button" class="btn-icon ml-n2 draggable">
                                     <i class="fa fa-arrows-v pt-2"></i>
@@ -13,11 +13,14 @@
                             </div>
                             <div class="col-lg-5 offset-lg-2 inner-trigger mt-5">
 
-                                <input :id="dataInputID" class="elfinder-idea component_image" name="image" type="hidden"/>
-                                 <button :data-inputid="dataInputID" class="popup_selector text-button ml-4 py-2 px-5 mt-5 slide-border" type="button">
-                                     <i class="fas fa-image blueiconcolor fa-2x pt-1">
+                                <input :id="dataInputID" class="elfinder-idea component_image" name="image"
+                                       type="hidden"/>
+                                <button :data-inputid="dataInputID"
+                                        class="popup_selector text-button ml-4 py-2 px-5 mt-5 slide-border"
+                                        type="button">
+                                    <i class="fas fa-image blueiconcolor fa-2x pt-1">
                                     </i>
-                                    <p class="mt-n1 mb-n1">Image</p>
+                                    <div class="mt-n1 mb-n1">Image</div>
                                 </button>
                             </div>
                         </div>
@@ -34,12 +37,14 @@
 
                                             </div>
                                         </div>
-                                        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
-                                        <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+                                        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader"
+                                               class="normal_text_header">
+                                        <input type="hidden" name="normal_text_body" v-model="NormalTextBody"
+                                               class="normal_text_body">
                                         <button class="text-button py-2 px-5" type="button">
                                             <i class="fas fa-bars blueiconcolor fa-2x mt-1">
                                             </i>
-                                            <p class="mt-n1 mb-n1">Text</p>
+                                            <div class="mt-n1 mb-n1">Text</div>
                                         </button>
                                     </div>
                                 </div>
@@ -153,7 +158,7 @@
         z-index: 2;
     }
 
-    .level-text:hover  {
+    .level-text:hover {
         pointer-events: all;
         position: absolute;
         top: 50%;
