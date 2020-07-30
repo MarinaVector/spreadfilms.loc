@@ -1,7 +1,8 @@
 <template>
     <div class="container form-group paragraph-form-group">
-        <form class="no-bottom" method="POST" :action="action" @submit.prevent="submitForm" ref="form" id="tutorial-builder-form">
-            <input type="hidden" name="_token" :value="csrf" />
+        <form class="no-bottom" method="POST" :action="action" @submit.prevent="submitForm" ref="form"
+              id="tutorial-builder-form">
+            <input type="hidden" name="_token" :value="csrf"/>
             <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
             <!-- Tutorial Name Block -->
             <div class="container group mt-5">
@@ -25,7 +26,8 @@
                 <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still
                     without content, modules can be
                     selected above or a template can be loaded</h2>
-                <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
+                <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable"
+                           ref="paragraphs">
                     <div v-for="(paragraph, index) in paragraphs" class=".paragraph" ref="paragraph">
                         <component
                             v-on:childToParent="deleteParagraph(index)"
@@ -127,19 +129,21 @@
                                 </div>
                             </div>
                             <div class="col-lg-1">
-                                <span  data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
-                                    data-target="#collapse-staff"
-                                    aria-expanded="true">
+                                <span data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
+                                      data-target="#collapse-staff"
+                                      aria-expanded="true">
                                 </span>
                                 <div class="ml-5">
-                                <question-dropdown
-                                    :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
+                                    <question-dropdown
+                                        :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
+                                </div>
                             </div>
                         </div>
-                        </div>
                         <div class="custom-checkbox">
-                            <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2" @click="assignTo($event, 'all')">
-                                <input class="custom-control-input" type="checkbox" name="assign_to_all" id="assign_to_all">
+                            <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2"
+                                   @click="assignTo($event, 'all')">
+                                <input class="custom-control-input" type="checkbox" name="assign_to_all"
+                                       id="assign_to_all">
                                 <div class="stlchek  mb-1 mr-1"></div>
                                 Make visible to <b>all</b>
                             </label>
@@ -147,8 +151,10 @@
 
                         <div class="panel-body collapse mt-3" id="collapse-staff">
                             <div class="custom-checkbox" v-for="(role, index) in usercompanyrolesArr">
-                                <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1" @click="assignTo($event, role.name)">
-                                    <input class="panel-title block-title custom-control-input" type="checkbox" :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
+                                <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1"
+                                       @click="assignTo($event, role.name)">
+                                    <input class="panel-title block-title custom-control-input" type="checkbox"
+                                           :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
                                     <div class="stlchek mb-1 mr-1"></div>
                                     Make visible to all users with role <b>"{{role.name}}"</b>
                                 </label>
@@ -341,21 +347,21 @@
             duplicateParagraph(index) {
                 this.paragraphs.push(this.paragraphs[index]);
             },
-            assignTo(event, role){
-                if(role === 'all') {
+            assignTo(event, role) {
+                if (role === 'all') {
                     $('input:checkbox').not(this).prop('checked', event.target.checked);
                 } else {
-                    $('input:checkbox.user_assign_cb').not(this).each(function() {
-                        if($(this).attr('data-roles').includes(role)){
+                    $('input:checkbox.user_assign_cb').not(this).each(function () {
+                        if ($(this).attr('data-roles').includes(role)) {
                             $(this).prop('checked', event.target.checked)
                         }
                     });
                 }
             },
-            companyrolesList(rolesArr){
+            companyrolesList(rolesArr) {
                 let rolesList = [];
 
-                rolesArr.map(function(value, key) {
+                rolesArr.map(function (value, key) {
                     rolesList.push(value.name);
                 });
 
@@ -376,7 +382,7 @@
 
                 let x = 0;
                 //looping through all paragraph blocks
-                if(this.$refs.paragraph) {
+                if (this.$refs.paragraph) {
                     this.$refs.paragraph.forEach(paragraphElement => {
                         let paragraph = {};
                         let ComponentType = $(paragraphElement).find('.component_type').val();
@@ -402,7 +408,7 @@
 
                 this.redirectToUrl(action, data, 'POST');
             },
-            redirectToUrl(url, data, method){
+            redirectToUrl(url, data, method) {
                 let form = document.createElement('form');
                 document.body.appendChild(form);
                 form.method = method;

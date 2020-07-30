@@ -55,9 +55,9 @@
 
 
         <div id="layoutsPanel" ref="layoutsPanel" :style="{ display: 'none' }">
-            <p class="head-group">Text</p>
-            <hr class="mr-5">
-            <div class="">
+            <p class="head-group font-weight-bold mb-0">Text</p>
+            <hr class="mr-5 mt-0">
+            <div class="mb-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Head" @click="callParentAddParagraphBlock('simpleHead')">
                     <i class="fa fa-header fa-3x pt-2"></i>
@@ -103,9 +103,9 @@
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
             </div>
-            <p class="head-group">Video</p>
-            <hr class="mr-5">
-            <div class="">
+            <p class="head-group font-weight-bold mb-0">Video</p>
+            <hr class="mr-5 mt-0">
+            <div class="mb-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video"><i
                     class="fa fa-file-video-o fa-3x pt-2"></i>
@@ -124,9 +124,9 @@
                 </button>
             </div>
 
-            <p class="head-group">Image</p>
-            <hr class="mr-5">
-            <div class="">
+            <p class="head-group font-weight-bold mb-0">Image</p>
+            <hr class="mr-5 mt-0">
+            <div class="mb-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Image"><i
                     class="fa fa-picture-o fa-3x pt-2"></i>
@@ -144,8 +144,8 @@
                 </button>
             </div>
 
-            <p class="head-group">Other</p>
-            <hr class="mr-5">
+            <p class="head-group font-weight-bold mb-0">Other</p>
+            <hr class="mr-5 mt-0">
             <div class="mb-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Distance"><i class="fa fa-arrows-v fa-3x pt-2"></i>
@@ -284,6 +284,8 @@
 
     .head-group {
         text-transform: uppercase;
+        color: #424242;
+        font-family: 'Didact Gothic', sans-serif;
     }
 
     [v-cloak] {

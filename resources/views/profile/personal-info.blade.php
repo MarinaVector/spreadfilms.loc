@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-2">
                                 <a href="{{ route('profile.personal-info.edit') }}">
-                                    <button class="btn btn-block btn-bg btn-sm" type="button"><i
+                                    <button class="btn btn-block btn-bg btn-sm btn-edit" type="button"><i
                                             class="fa fa-pencil fa-profile mr-2 btn-pncl"></i>EDIT
                                     </button>
                                 </a>
@@ -107,15 +107,14 @@
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
         }
 
-        .btn-bg:hover {
+        .btn-edit:hover {
             background: linear-gradient(to right, #008acb 0%, #00bff9 100%) !important;
             color: #fff !important;
         }
 
-        .btn-pncl:hover {
+        .btn-edit:hover .btn-pncl {
             color: #fff !important;
         }
-
 
         .fa-profile {
             color: #3A3A3A !important;
