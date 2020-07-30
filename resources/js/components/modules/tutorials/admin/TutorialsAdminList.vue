@@ -15,10 +15,32 @@
                                         <i class="fas fa-edit"></i>
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="#" class="social-icon si-border si-delete">
+                                    <a href="#" class="social-icon si-border si-delete"
+                                       data-toggle="modal" data-target="#modal-info">
                                         <i class="fas fa-trash"></i>
                                         <i class="fas fa-trash"></i>
                                     </a>
+
+                                    <!--Info Modal Template-->
+                                    <div id="modal-info" class="modal modal-message modal-info fade modal fade modal-open" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <i class="fas fa-minus-circle fa-3x mx-auto my-3"></i>
+                                                </div>
+                                                <div class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete tutorial<b>{{tutorial.name}}</b> ?</div>
+                                                <div class="modal-footer mx-auto">
+                                                    <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn button-modal button-ok" data-dismiss="modal">OK</button>
+                                                </div>
+                                            </div> <!-- / .modal-content -->
+                                        </div> <!-- / .modal-dialog -->
+                                    </div>
+                                    <!--End Info Modal Templates-->
+
+                                    <!-- Button trigger modal -->
+
+
                                 </div>
                             </div>
                         </li>
@@ -183,7 +205,7 @@
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
+        transition: all 1s ease;
         line-height: 40px;
         position: relative;
     }
@@ -194,6 +216,7 @@
 
     .social-icon:hover i:first-child {
         margin-top: -40px;
+        display: none;
     }
 
     si-border {
@@ -212,6 +235,10 @@
     .li-text {
         color: #424242;
         font-size: 16px;
+    }
+
+    .fa-minus-circle {
+        color: #00bff9;
     }
 
 
