@@ -9,9 +9,12 @@
                 <div class="row mb-2">
                     <div class="col-lg-12 mt-5">
                         <label class="tutorial-name" for="tutorial_name">Name</label>
-                        <input class="input-hidden form-control" type="text" required placeholder="New Tutorial"
+                        <input class="input-hidden form-control" type="text" required
+                               placeholder="New Tutorial"
                                name="tutorial_name"
-                               id="tutorial_name">
+                               id="tutorial_name"
+                               :value="tutorialObj.name"
+                        >
                     </div>
                 </div>
             </div>
@@ -57,7 +60,8 @@
                 <div class="form-group">
                     <div class="elfinder-preview-image" id="background-tutorial-image-preview"></div>
                     <div class="elfinder-container">
-                        <input id="background-tutorial-image" class="elfinder-idea" name="tutorial_background" type="hidden"/>
+                        <input id="background-tutorial-image" class="elfinder-idea" name="tutorial_background"
+                               type="hidden" :value="tutorialObj.tutorial_background"/>
                         <button data-inputid="background-tutorial-image" class="popup_selector btn btn-default">
                             Select Wallpaper
                         </button>
@@ -83,7 +87,8 @@
                     </div>
 
                     <div class="panel-body block-title">
-                       <tutorials-topics :tutorials="this.$props.tutorials"></tutorials-topics>
+                       <tutorials-topics :tutorials="this.$props.tutorials"
+                                         :parentTutorialId="tutorialObj.parent_tutorial_id"></tutorials-topics>
                     </div>
                 </div>
                 <!-- Parent Tutorial Column -->
@@ -103,7 +108,9 @@
                     </div>
 
                     <div class="panel-body">
-                       <tutorials-categories :usercompanycategories="this.$props.usercompanycategories"></tutorials-categories>
+                       <tutorials-categories :usercompanycategories="this.$props.usercompanycategories"
+                                             :categories="selectedCategories"
+                       ></tutorials-categories>
                     </div>
                 </div>
                 <!-- Categories Column -->
@@ -132,7 +139,7 @@
                         </div>
                         <div class="custom-checkbox">
                             <label for="assign_to_all" class="btn-check btn-block pl-2 py-2 mb-2" @click="assignTo($event, 'all')">
-                                <input class="custom-control-input" checked type="checkbox" name="assign_to_all" id="assign_to_all">
+                                <input class="custom-control-input" type="checkbox" name="assign_to_all" id="assign_to_all">
                                 <div class="stlchek  mb-1 mr-1"></div>
                                 Make visible to <b>all</b>
                             </label>
@@ -141,7 +148,7 @@
                         <div class="panel-body collapse mt-3" id="collapse-staff">
                             <div class="custom-checkbox" v-for="(role, index) in usercompanyrolesArr">
                                 <label :for="'assign_to_' + role.name" class="btn-check btn-block pl-2 py-2 mb-1" @click="assignTo($event, role.name)">
-                                    <input class="panel-title block-title custom-control-input" checked type="checkbox" :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
+                                    <input class="panel-title block-title custom-control-input" type="checkbox" :name="'assign_to_' + role.name" :id="'assign_to_' + role.name">
                                     <div class="stlchek mb-1 mr-1"></div>
                                     Make visible to all users with role <b>"{{role.name}}"</b>
                                 </label>
@@ -162,9 +169,11 @@
                                         <td class="flex-column text-right">
                                             <div class="custom-checkbox btn-group1">
                                                 <label class="btn btn-sm btn-check">
-                                                    <input type="checkbox" checked :name="'assignee[' + user.id + ']'"
+                                                    <input type="checkbox" :name="'assignee[' + user.id + ']'"
                                                            class="user_assign_cb custom-control-input"
-                                                           :data-roles="companyrolesList(user.companyroles)">
+                                                           :data-roles="companyrolesList(user.companyroles)"
+                                                           :checked="assigneesArr.includes(user.id) ? 'checked' : ''"
+                                                    >
                                                     <div class="stlchek m-1"></div>
                                                 </label>
                                             </div>
@@ -206,7 +215,8 @@
             'usercompanyroles',
             'usercompanyusers',
             'action',
-            'tutorials'
+            'tutorials',
+            'tutorial'
         ],
         data() {
             return {
@@ -246,11 +256,37 @@
                 usercompanycategoriesObj: {},
                 usercompanyrolesArr: [],
                 usercompanyusersArr: [],
-                csrf: document.head.querySelector('meta[name="csrf-token"]').content
+                csrf: document.head.querySelector('meta[name="csrf-token"]').content,
+                tutorialObj: {},
+                selectedCategories: '',
+                assigneesArr: [],
             };
         },
         created() {
 
+            if(undefined !== this.$props.tutorial){
+                this.tutorialObj = JSON.parse(this.$props.tutorial);
+            }
+
+            //forming selected categories string with comma separator
+            let categoriesArr = [];
+            if(undefined !== this.tutorialObj.categories){
+                this.tutorialObj.categories.forEach(function(category){
+                    categoriesArr.push(category['id']);
+                });
+                this.selectedCategories = categoriesArr.join(',')
+            }
+
+            //forming assignees array
+            let assigneesArray = [];
+            if(undefined !== this.tutorialObj.assignees){
+                this.tutorialObj.assignees.forEach(function(user){
+                    assigneesArray.push(user['id']);
+                });
+                this.assigneesArr = assigneesArray;
+            }
+
+            console.log(this.tutorialObj);
         },
         methods: {
             addParagraphBlock(paragraphName) {
@@ -387,6 +423,11 @@
 
             // converting usercompanyusers JSON prop into data object
             this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
+
+            if(undefined !== this.tutorialObj.tutorial_background){
+                $('#background-tutorial-image-preview').css("background-image", "url("+this.tutorialObj.tutorial_background+")");
+                $('.elfinder-preview-image').css('height', '100%');
+            }
         },
         components: {
             NormalText,

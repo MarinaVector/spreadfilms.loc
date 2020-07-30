@@ -18,6 +18,7 @@
         components: { Treeselect },
         props: [
             'usercompanycategories',
+            'categories'
         ],
         data: () => ({
             multiple: true,
@@ -45,6 +46,11 @@
                 label: `${i.name}`,
                 customLabel: `${i.name}`,
             }));
+
+            //setting tutorial selected categories
+            if('' !== this.$props.categories){
+                this.value = this.$props.categories.split(",");
+            }
         },
     }
 

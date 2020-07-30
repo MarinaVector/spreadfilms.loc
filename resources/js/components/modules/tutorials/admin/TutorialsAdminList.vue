@@ -11,7 +11,7 @@
                                     <span class="ui-icon ui-icon-arrow thick-2-n-s"></span>{{tutorial.name}}
                                 </div>
                                 <div class="col-lg-2 pl-5">
-                                    <a href="#" class="social-icon si-border si-edit mr-1">
+                                    <a :href="editLink + tutorial.id" class="social-icon si-border si-edit mr-1">
                                         <i class="fas fa-edit"></i>
                                         <i class="fas fa-edit"></i>
                                     </a>
@@ -68,12 +68,12 @@
         data() {
             return {
                 tutorialsObj: [],
+                editLink: '/module/tutorials/admin/edit/'
             }
         },
         mounted() {
             // converting tutorials JSON prop into data object
             this.tutorialsObj = JSON.parse(this.$props.tutorials);
-            console.log(this.tutorialsObj);
         },
     }
 </script>

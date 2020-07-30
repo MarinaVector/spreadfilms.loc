@@ -47,7 +47,7 @@ class TutorialsController extends Controller
 
         return view('modules.tutorials.add')->with(
             [
-                'authUser' => Auth::user(),
+                'authUser' => $user,
                 'userCompanyUsers' => $usercompanyusers,
                 'companyTutorials' => $userCompanyTutorialsNestedJSON,
                 'companyCategoriesJSON' => $companyCategoriesJSON
@@ -126,7 +126,7 @@ class TutorialsController extends Controller
         return view('modules.tutorials.settings_tutorials')->with('authUser', Auth::user());
     }
 
-    final public function getTutorialChildren($tutorials, $tutorialId){
+    final public function getTutorialChildren(array $tutorials, int $tutorialId):array {
         $resTutorials = [];
 
         foreach($tutorials as $tutorial){
@@ -145,6 +145,41 @@ class TutorialsController extends Controller
         }
 
         return $resTutorials;
+    }
+
+    final public function edit(int $tutorialId): View
+    {
+        $user = Auth::user();
+        $userCompany = $user->company();
+        $usercompanyusers = $userCompany->users()->with('companyroles')->get();
+        $userCompanyTutorials = $user->company()->tutorials;
+        $userCompanyTutorialsNested = [];
+        foreach($userCompanyTutorials->toArray() as $tutorial){
+            if($tutorial['parent_tutorial_id'] === 0){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                ];
+                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+                }
+                $userCompanyTutorialsNested[] = $resTutorial;
+            }
+        }
+        $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
+        $companyCategoriesJSON = $userCompany->companycategories->toJson();
+
+        $tutorial = Tutorial::find($tutorialId)->load(['categories', 'assignees']);
+
+        return view('modules.tutorials.edit')->with(
+            [
+                'authUser' => $user,
+                'userCompanyUsers' => $usercompanyusers,
+                'companyTutorials' => $userCompanyTutorialsNestedJSON,
+                'companyCategoriesJSON' => $companyCategoriesJSON,
+                'tutorial' => $tutorial
+            ]);
     }
 }
 

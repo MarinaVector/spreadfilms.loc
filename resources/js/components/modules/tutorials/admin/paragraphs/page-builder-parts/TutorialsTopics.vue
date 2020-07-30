@@ -18,11 +18,13 @@
         name: "TutorialsTopics",
         components: { Treeselect },
         props: [
-            'tutorials'
+            'tutorials',
+            'parentTutorialId'
         ],
         mounted() {
             // converting userCompanyTutorials JSON prop into data object
             this.options = JSON.parse(this.$props.tutorials);
+            this.value = this.$props.parentTutorialId ? this.$props.parentTutorialId : 0;
         },
         methods: {
             formTutorialChildren(element) {
@@ -34,10 +36,10 @@
         },
         data: () => ({
             value: 0,
-                options: [{
-                    id: '0',
-                    label: 'No parent tutorial',
-                }],
+            options: [{
+                id: '0',
+                label: 'No parent tutorial',
+            }],
             loadOptions: function(){
 
             },
