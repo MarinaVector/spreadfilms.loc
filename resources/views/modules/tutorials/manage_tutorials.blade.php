@@ -5,13 +5,15 @@
 @section('content')
 
     <div class="container-fluid admin-container">
+        <div class="row">
         @include('layouts.notifications')
-        <h1 class="page-title">{{ __('messages.Tutorials')}}</h1>
+        <h1 class="page-title col-md-12 col-6">{{ __('messages.Tutorials')}}</h1>
 
-        <div class="btn-group group-actions" role="group">
+        <div class="btn-group group-actions col-md-12 col-7" role="group">
             <a href="{{ route('module.tutorials.add') }}" class="btn btn-admin ">
                 <i class="fas fa-plus-circle fas-admin mr-2"></i>Add tutorial
             </a>
+        </div>
         </div>
 
         <div class="container">

@@ -2,21 +2,21 @@
     <div class="container">
         <input type="hidden" name="component_type" value="TxtImg" class="component_type"/>
         <div class="row">
-            <div class="col-lg-12 text-image">
+            <div class="col-md-12 col-12 text-image">
                 <div class="row row-image">
-                    <div class="col-lg-9 module-text" :id="dataInputPreviewID">
-                        <div class="row">
-                            <div class="col-lg-1 mt-3 ml-2">
+                    <div class="col-lg-9 col-8" :id="dataInputPreviewID">
+                        <div class="row module-text">
+                            <div class="col-2 col-md-1 mt-3 ml-2">
                                 <button type="button" class="btn-icon ml-n2 draggable">
                                     <i class="fa fa-arrows-v pt-2"></i>
                                 </button>
                             </div>
-                            <div class="col-lg-5 offset-lg-2 inner-trigger mt-5">
+                            <div class="col-5 col-md-5 offset-md-2 inner-trigger mt-md-5">
 
                                 <input :id="dataInputID" class="elfinder-idea component_image" name="image"
                                        type="hidden"/>
                                 <button :data-inputid="dataInputID"
-                                        class="popup_selector text-button ml-4 py-2 px-5 mt-5 slide-border"
+                                        class="popup_selector text-button ml-md-4 py-2 mb-md-0 mb-5 px-md-5 mt-md-5 slide-border"
                                         type="button">
                                     <i class="fas fa-image blueiconcolor fa-2x pt-1">
                                     </i>
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="level-text pt-5" @click="showTextModal()">
                                 <div class="row mt-4">
-                                    <div class="inner-trigger col-lg-5 offset-lg-3">
+                                    <div class="inner-trigger level-panel col-md-5 col-5 offset-md-3">
                                         <div class="text-output mx-n5">
                                             <div class="text-header text-left mb-3" v-html="NormalTextHeader">
 
@@ -41,7 +41,7 @@
                                                class="normal_text_header">
                                         <input type="hidden" name="normal_text_body" v-model="NormalTextBody"
                                                class="normal_text_body">
-                                        <button class="text-button py-2 px-5" type="button">
+                                        <button class="text-button py-2 px-md-5 px-2" type="button">
                                             <i class="fas fa-bars blueiconcolor fa-2x mt-1">
                                             </i>
                                             <div class="mt-n1 mb-n1">Text</div>
@@ -52,16 +52,16 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 mt-2 tutorial-right">
+                    <div class="col-md-3 col-4 mt-2 tutorial-right">
                         <div class="row tutorial-right">
-                            <div class="col-lg-3 offset-lg-9 mt-2 mb-5">
-                                <button type="button" class="btn-icon ml-4 mb-5"
+                            <div class="col-12 col-md-3 offset-md-9 mt-2 mb-5">
+                                <button type="button" class="btn-icon ml-3 mb-5"
                                         @click="callParentDeleteParagraphBlock()">
                                     <i class="fa fa-trash-o pt-2"></i>
                                 </button>
                             </div>
-                            <div class="col-lg-5 offset-lg-9 pt-3 mt-5">
-                                <button type="button" class="btn-icon ml-4"
+                            <div class="col-12 col-md-5 offset-md-9 pt-3 mt-5">
+                                <button type="button" class="btn-icon ml-3"
                                         @click="callParentDuplicateParagraphBlock()">
                                     <i class="fa fa-files-o pt-2"></i>
                                 </button>
@@ -148,28 +148,17 @@
         position: absolute;
         top: 50%;
         cursor: pointer;
-        left: 50%;
+        left: 100%;
         transform: translate3d(-50%, -50%, 0);
         transition: opacity .3s ease, background-color .5s ease;
         width: 36%;
         height: 80%;
-        margin-left: 50%;
         background-color: #d9d9d9;
         z-index: 2;
     }
 
-    .level-text:hover {
-        pointer-events: all;
-        position: absolute;
-        top: 50%;
-        cursor: pointer;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        transition: opacity .3s ease, background-color .5s ease;
-        width: 36%;
-        height: 80%;
+    .level-text:hover    {
         background-color: #6c6c6c;
-        z-index: 2;
     }
 
     .btn-icon {
@@ -196,6 +185,7 @@
         z-index: 1;
         background-size: cover;
         background-position: center;
+        cursor: pointer;
     }
 
     .tutorial-right {
@@ -204,10 +194,8 @@
 
     .module-text:hover {
         background-color: #7c7c7c;
-        pointer-events: all;
         cursor: pointer;
         transition: opacity .3s ease, background-color .5s ease;
-        width: 100%;
     }
 
     .text-image:hover .btn-icon,
