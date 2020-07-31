@@ -50,7 +50,8 @@ Vue.component('logo-text', require('./components/modules/tutorials/admin/paragra
 Vue.component('imghigh-text', require('./components/modules/tutorials/admin/paragraphs/TextImgHigh').default);
 Vue.component('contact-img', require('./components/modules/tutorials/admin/paragraphs/Contact').default);
 Vue.component('questions-answers', require('./components/modules/tutorials/admin/paragraphs/QuestionsAnswers').default);
-
+Vue.component('video-text', require('./components/modules/tutorials/admin/paragraphs/VideoText').default);
+Vue.component('img-textcenter', require('./components/modules/tutorials/admin/paragraphs/ImgTextCenter').default);
 
 /**
  * Small elements
