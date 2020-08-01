@@ -171,6 +171,19 @@ class TutorialsController extends Controller
         $companyCategoriesJSON = $userCompany->companycategories->toJson();
 
         $tutorial = Tutorial::find($tutorialId)->load(['categories', 'assignees']);
+        $paragraphComponents = $tutorial->paragraphs;
+        $paragraphs = [];
+        foreach($paragraphComponents as $component){
+            $paragraph = [];
+            $paragraph['paragraph_type'] = $component['paragraph_type'];
+            $paragraph['data'] = $this->getParagraphDetails($component['paragraph_type'], $component['id']);
+            $paragraphs[] = $paragraph;
+        }
+
+        //deleting general paragraphs info array to avoid confusion
+        unset($tutorial->paragraphs);
+
+        $tutorial->paragraphs = $paragraphs;
 
         return view('modules.tutorials.edit')->with(
             [
@@ -178,8 +191,24 @@ class TutorialsController extends Controller
                 'userCompanyUsers' => $usercompanyusers,
                 'companyTutorials' => $userCompanyTutorialsNestedJSON,
                 'companyCategoriesJSON' => $companyCategoriesJSON,
-                'tutorial' => $tutorial
+                'tutorial' => $tutorial,
             ]);
+    }
+
+    final private function getParagraphDetails($componentType, $componentId) {
+        switch ($componentType) {
+            case 'NormalText':
+                $component = NormalText::where('paragraph_id', $componentId)->first()->toArray();
+                break;
+            case 'TxtImg':
+                $component = TextImage::where('paragraph_id', $componentId);
+                break;
+            default:
+                $component = null;
+                break;
+        }
+
+        return $component;
     }
 }
 

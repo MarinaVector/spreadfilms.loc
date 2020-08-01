@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-lg-2 col-12 mb-3 btn-layout">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('video')">
+                        data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('Video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button"
@@ -24,14 +24,14 @@
                 </div>
                 <div class="col-lg-2 col-12 mb-3 btn-layout">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Normal Text" @click="callParentAddParagraphBlock('normalText')">
+                        data-placement="bottom" title="Normal Text" @click="callParentAddParagraphBlock('NormalText')">
                     <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
                 </button>
 
 
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Text and Picture"
-                        @click="callParentAddParagraphBlock('textImg')">
+                        @click="callParentAddParagraphBlock('TxtImg')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
                 </div>

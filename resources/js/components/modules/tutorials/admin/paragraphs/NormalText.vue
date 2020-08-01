@@ -57,7 +57,8 @@
             NormalTextModal
         },
         props: [
-            'index'
+            'index',
+            'mydata'
         ],
         data() {
             return {
@@ -66,7 +67,13 @@
             };
         },
         created() {
-
+            //console.log(this.$props);
+            //let data = this.$emit('getParagraphData', this.index);
+            //console.log(this.$props);
+        },
+        mounted() {
+            //console.log(this.$attrs.blocksCounterID);
+            //this.setParagraphData('hello header');
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
@@ -85,10 +92,14 @@
             },
             getPreviousData: function () {
                 return [1, 2];
-            }
-        },
-        mounted() {
-
+            },
+            setParagraphData: function (data) {
+                //console.log('calling component from child');
+                //this.data = data;
+                //console.log(this);
+                //this.NormalTextHeader = data; // это не работает, ошибка app.js:58667 [Vue warn]: Method "NormalTextHeader" has type "string" in the component definition. Did you reference the function correctly?
+                //this.NormalTextBody = 'My Text'; // та же ошибка
+            },
         },
         computed: {}
     };
