@@ -205,7 +205,7 @@
 
     .screenshot-wrapper .hotspot-live .remove-hotspot {
         right: 5px;
-        background: #FE2E2E
+        background: #00bff9
     }
 
     .screenshot-wrapper .hotspot-live .edit-hotspot {
