@@ -52,10 +52,12 @@ Vue.component('contact-img', require('./components/modules/tutorials/admin/parag
 Vue.component('questions-answers', require('./components/modules/tutorials/admin/paragraphs/QuestionsAnswers').default);
 Vue.component('video-text', require('./components/modules/tutorials/admin/paragraphs/VideoText').default);
 Vue.component('img-textcenter', require('./components/modules/tutorials/admin/paragraphs/ImgTextCenter').default);
+Vue.component('footer-component', require('./components/modules/tutorials/admin/paragraphs/FooterComponent').default);
 
 /**
  * Small elements
  */
+
 Vue.component('question-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/QuestionDropdown').default);
 Vue.component('dropdown-button', require('./components/modules/tutorials/admin/paragraphs/small-elements/DropdownButton').default);
 Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/Collapse').default);
