@@ -23,4 +23,11 @@ class Tutorial extends Model
     final public function assignees() {
         return $this->belongsToMany('App\User', 'tutorial_assignee', 'tutorial_id', 'assignee_id');
     }
+
+    /**
+     * Get the paragraphs of the tutorial
+     */
+    final public function paragraphs() {
+        return $this->hasMany('App\Models\Paragraph');
+    }
 }

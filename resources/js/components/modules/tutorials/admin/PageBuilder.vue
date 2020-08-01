@@ -28,14 +28,16 @@
                     selected above or a template can be loaded</h2>
                 <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable"
                            ref="paragraphs">
-                    <div v-for="(paragraph, index) in paragraphs" class=".paragraph" ref="paragraph">
+                    <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
                         <component
                             v-on:childToParent="deleteParagraph(index)"
                             v-on:duplicateParagraph="duplicateParagraph(index)"
+                            v-on:getParagraphData="getParagraphData(index)"
                             :index="index"
                             :blocksCounterID="blocksCounterID"
                             :key="index"
                             :is=paragraph.component
+                            :mydata="mydata"
                         />
                     </div>
                 </draggable>
@@ -222,7 +224,8 @@
             'usercompanyusers',
             'action',
             'tutorials',
-            'tutorial'
+            'tutorial',
+            'paragraphsJSONProp',
         ],
         data() {
             return {
@@ -266,10 +269,10 @@
                 tutorialObj: {},
                 selectedCategories: '',
                 assigneesArr: [],
+                ComponentData: null,
             };
         },
         created() {
-
             if(undefined !== this.$props.tutorial){
                 this.tutorialObj = JSON.parse(this.$props.tutorial);
             }
@@ -292,18 +295,52 @@
                 this.assigneesArr = assigneesArray;
             }
 
-            console.log(this.tutorialObj);
+
+        },
+        mounted() {
+            // converting usercompanyroles JSON prop into data object
+            this.usercompanyrolesArr = JSON.parse(this.$props.usercompanyroles);
+
+            // converting usercompanyusers JSON prop into data object
+            this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
+
+            if(undefined !== this.tutorialObj.tutorial_background){
+                $('#background-tutorial-image-preview').css("background-image", "url("+this.tutorialObj.tutorial_background+")");
+                $('.elfinder-preview-image').css('height', '100%');
+            }
+
+            this.tutorialObj.paragraphs.forEach(paragraphElement => {
+                this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
+            });
+
+            //console.log(this.tutorialObj.paragraphs);
         },
         methods: {
-            addParagraphBlock(paragraphName) {
+            addParagraphBlock(paragraphName, paragraphData = null) {
+                let Component = null;
                 switch (paragraphName) {
-                    case 'normalText':
-                        this.paragraphs.push({component: NormalText});
+                    case 'NormalText':
+                        Component = NormalText;
+                        if(null !== paragraphData){
+                            //console.log('calling component from parent');
+                            //Component.props.data = paragraphData;
+                            Component.mydata = 'test data';
+                            //console.log(Component);
+                            //Component.methods.setParagraphData(paragraphData);
+                            //console.log(Component);
+                            //Component.methods.setParagraphData(paragraphData);
+                            //Component.$props.data = paragraphData;
+                            //Component.$emit('customEventName', 'Hello vue')
+                            //Component.methods.setParagraphData(paragraphData);
+                        }
+                        this.paragraphs.push({component: Component});
+                        //console.log('all paragraphs:');
+                        //console.log(this.paragraphs);
                         break;
                     case 'video':
                         this.paragraphs.push({component: Video});
                         break;
-                    case 'textImg':
+                    case 'TxtImg':
                         this.paragraphs.push({component: TextImg});
                         break;
                     case 'slider':
@@ -339,6 +376,8 @@
                     default:
                         return;
                 }
+                Component = null;
+                this.ComponentData = null;
                 this.blocksCounterID += 1;
             },
             deleteParagraph(index) {
@@ -421,18 +460,9 @@
                     form.appendChild(input);
                 }
                 form.submit();
-            }
-        },
-        mounted() {
-            // converting usercompanyroles JSON prop into data object
-            this.usercompanyrolesArr = JSON.parse(this.$props.usercompanyroles);
-
-            // converting usercompanyusers JSON prop into data object
-            this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
-
-            if(undefined !== this.tutorialObj.tutorial_background){
-                $('#background-tutorial-image-preview').css("background-image", "url("+this.tutorialObj.tutorial_background+")");
-                $('.elfinder-preview-image').css('height', '100%');
+            },
+            getParagraphData(index) {
+                return 'hello nigga';
             }
         },
         components: {
