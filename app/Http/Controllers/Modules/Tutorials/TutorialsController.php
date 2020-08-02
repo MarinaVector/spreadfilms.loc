@@ -87,9 +87,11 @@ class TutorialsController extends Controller
         }
 
         // 4. store tutorial assignees(who have permission to view it)
-        $tutorialAssignees = array_keys($request->get('assignee'));
-        foreach ($tutorialAssignees as $tutorialAssignee) {
-            TutorialAssigneePivot::create(['tutorial_id' => $tutorial->id, 'assignee_id' => $tutorialAssignee]);
+        if(null !== $request->get('assignee')) {
+            $tutorialAssignees = array_keys($request->get('assignee'));
+            foreach ($tutorialAssignees as $tutorialAssignee) {
+                TutorialAssigneePivot::create(['tutorial_id' => $tutorial->id, 'assignee_id' => $tutorialAssignee]);
+            }
         }
 
         // 5. redirect to tutorials manage page
