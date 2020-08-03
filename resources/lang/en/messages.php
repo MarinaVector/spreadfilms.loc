@@ -47,5 +47,6 @@ return [
     'Edit_user' => 'Edit user',
     'User_edited' => 'User edited',
     'Tutorials' => 'Tutorials',
-    'Tutorial_created' => 'Tutorial has been created'
+    'Tutorial_created' => 'Tutorial has been created',
+    'Tutorial_updated' => 'Tutorial has been updated',
 ];
