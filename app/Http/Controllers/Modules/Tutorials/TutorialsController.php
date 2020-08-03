@@ -98,6 +98,46 @@ class TutorialsController extends Controller
         return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_created'));
     }
 
+    final public function update(Request $request) {
+        //dd($request->all());
+
+        // 1. update tutorial
+        $tutorial = Tutorial::find($request->get('tutorial_id'));
+        $tutorial->name = $request->get('tutorial_name');
+        $tutorial->tutorial_background = $request->get('tutorial_background');
+        $tutorial->parent_tutorial_id = $request->get('parent_tutorial_id');
+        $tutorial->save();
+
+        // 2. store all tutorial paragraph blocks
+        $tutorial->deleteAllParagraphs();
+        $paragraphsArr = json_decode($request->get('paragraphsJSON'), true);
+        foreach($paragraphsArr as $paragraph){
+            $paragraphId = Paragraph::create(['tutorial_id' => $tutorial->id, 'paragraph_type' => $paragraph['ComponentType']])->id;
+            $this->storeParagraphData($paragraph, $paragraphId);
+        }
+
+        // 3. store all tutorial categories
+        $tutorial->deleteAllCategories();
+        if(null !== $request->get('categories')) {
+            $categoriesArr = explode(',', $request->get('categories'));
+            foreach ($categoriesArr as $categoryId) {
+                TutorialCompanycategoryPivot::create(['tutorial_id' => $tutorial->id, 'category_id' => $categoryId]);
+            }
+        }
+
+        // 4. store tutorial assignees(who have permission to view it)
+        $tutorial->deleteAllAssignees();
+        if(null !== $request->get('assignee')) {
+            $tutorialAssignees = array_keys($request->get('assignee'));
+            foreach ($tutorialAssignees as $tutorialAssignee) {
+                TutorialAssigneePivot::create(['tutorial_id' => $tutorial->id, 'assignee_id' => $tutorialAssignee]);
+            }
+        }
+
+        // 5. redirect to tutorials manage page
+        return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_updated'));
+    }
+
     final public function storeParagraphData(array $paragraph, int $paragraphId): bool {
         switch ($paragraph['ComponentType']) {
             case 'NormalText':
@@ -203,7 +243,7 @@ class TutorialsController extends Controller
                 $component = NormalText::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'TxtImg':
-                $component = TextImage::where('paragraph_id', $componentId);
+                $component = TextImage::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             default:
                 $component = null;

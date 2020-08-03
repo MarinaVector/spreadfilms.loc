@@ -43,8 +43,8 @@
         data() {
             return {
                 editor: ClassicEditor,
-                NormalTextHeader: '<p></p>',
-                NormalTextBody: '<p></p>',
+                NormalTextHeader: this.$props.header ? this.$props.header : '<p></p>',
+                NormalTextBody: this.$props.body ? this.$props.body : '<p></p>',
                 editorConfig: {
                     // The configuration of the editor.
                 }

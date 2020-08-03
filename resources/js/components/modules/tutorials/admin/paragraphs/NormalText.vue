@@ -68,18 +68,15 @@
         },
         data() {
             return {
-                NormalTextHeader: this.mydata.header,
-                NormalTextBody: this.mydata.text,
+                NormalTextHeader: this.mydata ? this.$props.mydata.header : '',
+                NormalTextBody: this.mydata ? this.$props.mydata.text : '',
             };
         },
         created() {
-            //console.log(this.$props);
-            //let data = this.$emit('getParagraphData', this.index);
-            //console.log(this.$props);
+
         },
         mounted() {
-            //console.log(this.$attrs.blocksCounterID);
-            //this.setParagraphData('hello header');
+
         },
         methods: {
             callParentDeleteParagraphBlock: function () {

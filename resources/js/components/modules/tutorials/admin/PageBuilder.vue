@@ -3,6 +3,7 @@
         <form class="no-bottom" method="POST" :action="action" @submit.prevent="submitForm" ref="form"
               id="tutorial-builder-form">
             <input type="hidden" name="_token" :value="csrf"/>
+            <input type="hidden" name="tutorial_id" :value="tutorialObj.id"/>
             <layouts-panel v-on:addParagraphBlock="addParagraphBlock"></layouts-panel>
             <!-- Tutorial Name Block -->
             <div class="container group mt-5">
@@ -217,6 +218,7 @@
     import TextImgHigh from './paragraphs/TextImgHigh'
     import Contact from './paragraphs/Contact'
     import QuestionsAnswers from './paragraphs/QuestionsAnswers'
+    import cloneDepp from 'lodash/cloneDeep'
 
     export default {
         props: [
@@ -310,30 +312,32 @@
                 $('.elfinder-preview-image').css('height', '100%');
             }
 
-            this.tutorialObj.paragraphs.forEach(paragraphElement => {
-                this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
-            });
-
-            //console.log(this.tutorialObj.paragraphs);
+            if(this.tutorialObj.paragraphs){
+                this.tutorialObj.paragraphs.forEach(paragraphElement => {
+                    this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
+                });
+            }
         },
         methods: {
             addParagraphBlock(paragraphName, paragraphData = null) {
                 let Component = null;
                 switch (paragraphName) {
                     case 'NormalText':
-                        Component = NormalText;
+                        Component = cloneDepp(NormalText);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
                         this.paragraphs.push({component: Component});
-                        //console.log('all paragraphs:');
-                        //console.log(this.paragraphs);
                         break;
                     case 'video':
                         this.paragraphs.push({component: Video});
                         break;
                     case 'TxtImg':
-                        this.paragraphs.push({component: TextImg});
+                        Component = cloneDepp(TextImg);
+                        if(null !== paragraphData){
+                            Component.mydata = paragraphData;
+                        }
+                        this.paragraphs.push({component: Component});
                         break;
                     case 'slider':
                         this.paragraphs.push({component: SliderAdd});

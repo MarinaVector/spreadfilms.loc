@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-12 col-12 text-image">
                 <div class="row row-image">
-                    <div class="col-lg-9 col-8" :id="dataInputPreviewID">
-                        <div class="row module-text">
+                    <div class="col-lg-9 col-8">
+                        <div class="row module-text" :id="dataInputPreviewID" ref="preview">
                             <div class="col-2 col-md-1 mt-3 ml-2">
                                 <button type="button" class="btn-icon ml-n2 draggable">
                                     <i class="fa fa-arrows-v pt-2"></i>
@@ -14,7 +14,7 @@
                             <div class="col-5 col-md-5 offset-md-2 inner-trigger mt-md-5">
 
                                 <input :id="dataInputID" class="elfinder-idea component_image" name="image"
-                                       type="hidden"/>
+                                       :value="Src" type="hidden"/>
                                 <button :data-inputid="dataInputID"
                                         class="popup_selector text-button ml-md-4 py-2 mb-md-0 mb-5 px-md-5 mt-md-5 slide-border"
                                         type="button">
@@ -85,20 +85,36 @@
         components: {
             NormalTextModal
         },
-        props: [
-            'index',
-            'blocksCounterID'
-        ],
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
+            blocksCounterID: {
+                type: Number,
+                default: null
+            },
+        },
         data() {
             return {
                 dataInputID: '',
                 dataInputPreviewID: '',
-                NormalTextHeader: '',
-                NormalTextBody: ''
+                NormalTextHeader: this.mydata ? this.$props.mydata.header : '',
+                NormalTextBody: this.mydata ? this.$props.mydata.text : '',
+                Src: this.mydata ? this.$props.mydata.src : '',
             };
         },
         created() {
 
+        },
+        mounted() {
+            this.dataInputID = 'background-image-' + this.$props.blocksCounterID;
+            this.dataInputPreviewID = 'background-image-' + this.$props.blocksCounterID + '-preview';
+            $(this.$refs.preview).css("background-image", "url("+this.Src+")");
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
@@ -118,12 +134,6 @@
             getPreviousData: function () {
                 return [1, 2];
             }
-        },
-
-        mounted() {
-            //console.log(this.$props.blocksCounterID);
-            this.dataInputID = 'background-image-' + this.$props.blocksCounterID;
-            this.dataInputPreviewID = 'background-image-' + this.$props.blocksCounterID + '-preview';
         },
         computed: {}
     };
