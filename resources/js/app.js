@@ -62,7 +62,7 @@ Vue.component('question-dropdown', require('./components/modules/tutorials/admin
 Vue.component('dropdown-button', require('./components/modules/tutorials/admin/paragraphs/small-elements/DropdownButton').default);
 Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/Collapse').default);
 Vue.component('text-tip', require('./components/modules/tutorials/admin/paragraphs/small-elements/TextTip').default);
-
+Vue.component('slider-add', require('./components/modules/tutorials/admin/paragraphs/small-elements/SliderAdd').default);
 /**
  * Modals windows
  */
