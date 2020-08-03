@@ -37,7 +37,8 @@
                             :blocksCounterID="blocksCounterID"
                             :key="index"
                             :is=paragraph.component
-                            :mydata="mydata"
+                            :mydata="paragraph.component.mydata"
+                            someProps="testing props"
                         />
                     </div>
                 </draggable>
@@ -322,16 +323,7 @@
                     case 'NormalText':
                         Component = NormalText;
                         if(null !== paragraphData){
-                            //console.log('calling component from parent');
-                            //Component.props.data = paragraphData;
-                            Component.mydata = 'test data';
-                            //console.log(Component);
-                            //Component.methods.setParagraphData(paragraphData);
-                            //console.log(Component);
-                            //Component.methods.setParagraphData(paragraphData);
-                            //Component.$props.data = paragraphData;
-                            //Component.$emit('customEventName', 'Hello vue')
-                            //Component.methods.setParagraphData(paragraphData);
+                            Component.mydata = paragraphData;
                         }
                         this.paragraphs.push({component: Component});
                         //console.log('all paragraphs:');

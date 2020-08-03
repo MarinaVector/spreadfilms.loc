@@ -56,14 +56,20 @@
         components: {
             NormalTextModal
         },
-        props: [
-            'index',
-            'mydata'
-        ],
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            }
+        },
         data() {
             return {
-                NormalTextHeader: '',
-                NormalTextBody: '',
+                NormalTextHeader: this.mydata.header,
+                NormalTextBody: this.mydata.text,
             };
         },
         created() {
@@ -94,11 +100,12 @@
                 return [1, 2];
             },
             setParagraphData: function (data) {
-                //console.log('calling component from child');
+                console.log(data)
+                console.log('calling component from child');
                 //this.data = data;
                 //console.log(this);
-                //this.NormalTextHeader = data; // это не работает, ошибка app.js:58667 [Vue warn]: Method "NormalTextHeader" has type "string" in the component definition. Did you reference the function correctly?
-                //this.NormalTextBody = 'My Text'; // та же ошибка
+                this.NormalTextHeader = data; // это не работает, ошибка app.js:58667 [Vue warn]: Method "NormalTextHeader" has type "string" in the component definition. Did you reference the function correctly?
+                this.NormalTextBody = 'My Text'; // та же ошибка
             },
         },
         computed: {}
