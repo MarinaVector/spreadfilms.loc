@@ -138,6 +138,25 @@ class TutorialsController extends Controller
         return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_updated'));
     }
 
+    final public function delete(Request $request) {
+        $tutorial = Tutorial::find($request->get('tutorial_id'));
+
+        // 1. Delete tutorial assignees(who have permission to view it)
+        $tutorial->deleteAllAssignees();
+
+        // 2. Delete all tutorial categories
+        $tutorial->deleteAllCategories();
+
+        // 3. Delete all tutorial paragraph blocks
+        $tutorial->deleteAllParagraphs();
+
+        // 4. Delete tutorial
+        $tutorial->delete();
+
+        // 5. Redirect to tutorials manage page
+        return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_deleted'));
+    }
+
     final public function storeParagraphData(array $paragraph, int $paragraphId): bool {
         switch ($paragraph['ComponentType']) {
             case 'NormalText':

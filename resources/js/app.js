@@ -72,6 +72,8 @@ Vue.component('img-simple', require('./components/modules/tutorials/admin/paragr
 Vue.component('tutorials-topics', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsTopics').default);
 Vue.component('tutorials-categories', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsCategories').default);
 
+Vue.component('admin-list-delete-modal', require('./components/modules/tutorials/admin/AdminListDeleteModal').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
