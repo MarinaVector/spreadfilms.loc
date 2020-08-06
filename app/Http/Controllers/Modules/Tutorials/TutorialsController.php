@@ -237,6 +237,7 @@ class TutorialsController extends Controller
             ]);
     }
 
+
     final private function getParagraphDetails($componentType, $componentId) {
         switch ($componentType) {
             case 'NormalText':
@@ -252,6 +253,16 @@ class TutorialsController extends Controller
 
         return $component;
     }
+
+    final public function index(): View {
+        $user = Auth::user();
+        $userCompanyTutorials = $user->company()->tutorials;
+
+        return view('modules.tutorials.view_tutorials')->with(['authUser' => $user, 'companyTutorials' => $userCompanyTutorials]);
+    }
+
+
+
 }
 
 

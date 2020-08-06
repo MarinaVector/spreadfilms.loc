@@ -12,6 +12,13 @@ body {
     height: 100%;
 }
 
+.bg-standart {
+    background-color: #f1f1f1;
+    color: #424242;
+    height: 100%;
+    width: 100%;
+}
+
 button:active, .btn:active,
 button:focus, .btn:focus {
     outline: none;
