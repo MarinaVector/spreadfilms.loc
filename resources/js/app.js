@@ -87,6 +87,8 @@ Vue.component('img-simple', require('./components/modules/tutorials/admin/paragr
 Vue.component('tutorials-topics', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsTopics').default);
 Vue.component('tutorials-categories', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsCategories').default);
 
+Vue.component('admin-list-delete-modal', require('./components/modules/tutorials/admin/AdminListDeleteModal').default);
+
 /**
  * Tutorials view
  */

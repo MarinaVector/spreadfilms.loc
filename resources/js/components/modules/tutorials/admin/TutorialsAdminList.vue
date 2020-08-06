@@ -17,43 +17,24 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="#" class="social-icon si-border si-delete"
-                                       data-toggle="modal" data-target="#modal-info">
+                                       data-toggle="modal" data-target="#modal-info" @click="deleteComponent(tutorial)">
                                         <i class="fas fa-trash"></i>
                                         <i class="fas fa-trash"></i>
                                     </a>
-
-                                    <!--Info Modal Template-->
-                                    <div id="modal-info" class="modal modal-message modal-info fade modal fade modal-open" style="display: none;" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <i class="fas fa-minus-circle fa-3x mx-auto my-3"></i>
-                                                </div>
-                                                <div class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete tutorial <b>{{tutorial.name}}</b> ?</div>
-                                                <div class="modal-footer mx-auto">
-                                                    <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Cancel</button>
-                                                    <button type="button" class="btn button-modal button-ok" data-dismiss="modal">OK</button>
-                                                </div>
-                                            </div> <!-- / .modal-content -->
-                                        </div> <!-- / .modal-dialog -->
-                                    </div>
-                                    <!--End Info Modal Templates-->
-
-                                    <!-- Button trigger modal -->
-
-
                                 </div>
                             </div>
                         </li>
                     </div>
                 </draggable>
             </ul>
+            <AdminListDeleteModal ref="tutorialDeleteModal"></AdminListDeleteModal>
         </div>
     </div>
 </template>
 
 <script>
     import draggable from 'vuedraggable'
+    import AdminListDeleteModal from "./AdminListDeleteModal";
 
     export default {
         name: "TutorialsAdminList",
@@ -61,6 +42,7 @@
 
         },
         components: {
+            AdminListDeleteModal,
             draggable,
         },
         props: [
@@ -75,6 +57,11 @@
         mounted() {
             // converting tutorials JSON prop into data object
             this.tutorialsObj = JSON.parse(this.$props.tutorials);
+        },
+        methods: {
+            deleteComponent: function (tutorial) {
+                this.$refs.tutorialDeleteModal.setTutorial(tutorial);
+            },
         },
     }
 </script>

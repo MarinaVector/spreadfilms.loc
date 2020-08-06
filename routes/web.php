@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/module/tutorials/admin/add', 'Modules\Tutorials\TutorialsController@storeTutorial')->name('module.tutorials.store');
         Route::get('/module/tutorials/admin/edit/{tutorial_id}', 'Modules\Tutorials\TutorialsController@edit')->name('module.tutorials.edit');
         Route::post('/module/tutorials/admin/edit/{tutorial_id}', 'Modules\Tutorials\TutorialsController@update')->name('module.tutorials.update');
+        Route::post('/module/tutorials/admin/delete/{tutorial_id}', 'Modules\Tutorials\TutorialsController@delete')->name('module.tutorials.delete');
         Route::get('/module/tutorials/statistics', 'Modules\Tutorials\TutorialsController@statisticsTutorial')->name('module.tutorials.statistics');
         Route::get('/module/tutorials/settings', 'Modules\Tutorials\TutorialsController@settingsTutorial')->name('module.tutorials.settings');
         Route::resource('/modules/tutorials/editor', 'Modules\Tutorials\CKEditorController');
