@@ -17,6 +17,9 @@ class TutorialsController extends Controller
 {
     //Admin page where he can manage tutorials
     final public function manageTutorials(): View {
+        /*$tutorial = Tutorial::find(71);
+        dump($tutorial->deleteRecursively());
+        dd('end');*/
         $user = Auth::user();
         $userCompanyTutorials = $user->company()->tutorials;
         $userCompanyTutorialsNested = [];
@@ -173,20 +176,8 @@ class TutorialsController extends Controller
 
     final public function delete(Request $request) {
         $tutorial = Tutorial::find($request->get('tutorial_id'));
+        $tutorial->deleteRecursively();
 
-        // 1. Delete tutorial assignees(who have permission to view it)
-        $tutorial->deleteAllAssignees();
-
-        // 2. Delete all tutorial categories
-        $tutorial->deleteAllCategories();
-
-        // 3. Delete all tutorial paragraph blocks
-        $tutorial->deleteAllParagraphs();
-
-        // 4. Delete tutorial
-        $tutorial->delete();
-
-        // 5. Redirect to tutorials manage page
         return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_deleted'));
     }
 

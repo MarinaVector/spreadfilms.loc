@@ -104,4 +104,32 @@ class Tutorial extends Model
         $this->sortorder = $newIndex + 1;
         $this->save();
     }
+
+    /**
+     * Delete tutorial
+     */
+    final public function deleteTutorial():void {
+        // 1. Delete tutorial assignees(who have permission to view it)
+        $this->deleteAllAssignees();
+
+        // 2. Delete all tutorial categories
+        $this->deleteAllCategories();
+
+        // 3. Delete all tutorial paragraph blocks
+        $this->deleteAllParagraphs();
+
+        // 4. Delete tutorial
+        $this->delete();
+    }
+
+    /**
+     * Delete tutorial with all child tutorials
+     */
+    final public function deleteRecursively():void {
+        $childTutorials = $this::where('parent_tutorial_id', $this->id)->get();
+        foreach($childTutorials as $tutorial){
+            $tutorial->deleteRecursively();
+        }
+        $this->deleteTutorial();
+    }
 }
