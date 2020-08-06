@@ -19,6 +19,7 @@ class CreateTutorialsTable extends Migration
             $table->string('tutorial_background')->nullable();
             $table->integer('parent_tutorial_id');
             $table->integer('company_id');
+            $table->unsignedSmallInteger('sortorder');
             $table->timestamps();
         });
     }

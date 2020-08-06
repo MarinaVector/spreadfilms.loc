@@ -40,6 +40,6 @@ class Company extends Model
     }
 
     final public function tutorials() {
-        return $this->hasMany('App\Models\Tutorial');
+        return $this->hasMany('App\Models\Tutorial')->orderBy('sortorder');
     }
 }

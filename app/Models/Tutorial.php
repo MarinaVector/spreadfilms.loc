@@ -12,7 +12,7 @@ use App\Models\Paragraph;
 class Tutorial extends Model
 {
     protected $fillable = [
-        'name', 'tutorial_background', 'parent_tutorial_id', 'category_id', 'company_id'
+        'name', 'tutorial_background', 'parent_tutorial_id', 'category_id', 'company_id', 'sortorder'
     ];
 
     /**
@@ -45,25 +45,23 @@ class Tutorial extends Model
             TutorialCompanycategoryPivot::where('tutorial_id', $this->id)
                 ->where('category_id', $category['id'])->delete();
         }
-        return;
     }
 
     /**
      * Delete all tutorial assignees
      */
-    final public function deleteAllAssignees() {
+    final public function deleteAllAssignees():void {
         $assignees = $this->assignees()->get()->toArray();
         foreach($assignees as $assignee){
             TutorialAssigneePivot::where('tutorial_id', $this->id)
                 ->where('assignee_id', $assignee['id'])->delete();
         }
-        return;
     }
 
     /**
      * Delete all tutorial paragraphs
      */
-    final public function deleteAllParagraphs() {
+    final public function deleteAllParagraphs():void {
         $paragraphs = $this->paragraphs()->get()->toArray();
         foreach($paragraphs as $paragraph){
             // 1. Delete paragraph data
@@ -72,7 +70,6 @@ class Tutorial extends Model
             // 2. Delete paragraph relation to tutorial
             Paragraph::find($paragraph['id'])->delete();
         }
-        return;
     }
 
     /**
@@ -90,6 +87,21 @@ class Tutorial extends Model
             default:
                 break;
         }
-        return;
+    }
+
+    /**
+     * Update tutorials sortorder
+     * @param int $oldIndex
+     * @param int $newIndex
+     */
+    final public function updateTutorialsSortorder(int $oldIndex, int $newIndex):void {
+        $secondTutorial = $this::where('parent_tutorial_id', $this->parent_tutorial_id)
+            ->where('company_id', $this->company_id)
+            ->where('sortorder', $newIndex + 1)
+            ->first();
+        $secondTutorial->sortorder = $oldIndex + 1;
+        $secondTutorial->save();
+        $this->sortorder = $newIndex + 1;
+        $this->save();
     }
 }

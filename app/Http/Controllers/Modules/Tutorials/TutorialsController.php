@@ -82,22 +82,27 @@ class TutorialsController extends Controller
         //dd($request->all());
         $user = Auth::user();
 
-        // 1. store tutorial
+        // 1. Determining the sortorder of a new tutorial
+        $maxSortorder = Tutorial::where('parent_tutorial_id', $request->get('parent_tutorial_id'))
+            ->where('company_id', $user->company()->id)->max('sortorder');
+
+        // 2. store tutorial
         $tutorial = Tutorial::create([
             'name' => $request->get('tutorial_name'),
             'tutorial_background' => $request->get('tutorial_background'),
             'parent_tutorial_id' => $request->get('parent_tutorial_id') ? $request->get('parent_tutorial_id') : 0,
             'company_id' => $user->company()->id,
+            'sortorder' => $maxSortorder + 1
         ]);
 
-        // 2. store all tutorial paragraph blocks
+        // 3. store all tutorial paragraph blocks
         $paragraphsArr = json_decode($request->get('paragraphsJSON'), true);
         foreach($paragraphsArr as $paragraph){
             $paragraphId = Paragraph::create(['tutorial_id' => $tutorial->id, 'paragraph_type' => $paragraph['ComponentType']])->id;
             $this->storeParagraphData($paragraph, $paragraphId);
         }
 
-        // 3. store all tutorial categories
+        // 4. store all tutorial categories
         if(null !== $request->get('categories')) {
             $categoriesArr = explode(',', $request->get('categories'));
             foreach ($categoriesArr as $categoryId) {
@@ -105,7 +110,7 @@ class TutorialsController extends Controller
             }
         }
 
-        // 4. store tutorial assignees(who have permission to view it)
+        // 5. store tutorial assignees(who have permission to view it)
         if(null !== $request->get('assignee')) {
             $tutorialAssignees = array_keys($request->get('assignee'));
             foreach ($tutorialAssignees as $tutorialAssignee) {
@@ -113,17 +118,26 @@ class TutorialsController extends Controller
             }
         }
 
-        // 5. redirect to tutorials manage page
+        // 6. redirect to tutorials manage page
         return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_created'));
     }
 
     final public function update(Request $request) {
         //dd($request->all());
+        $user = Auth::user();
 
         // 1. update tutorial
         $tutorial = Tutorial::find($request->get('tutorial_id'));
         $tutorial->name = $request->get('tutorial_name');
         $tutorial->tutorial_background = $request->get('tutorial_background');
+        // updating sortorder(must be executed before assigning new parent_tutorial_id)
+        if($tutorial->parent_tutorial_id !== $request->get('parent_tutorial_id')){
+            $oldSortorder = $tutorial->sortorder;
+            $maxSortorder = Tutorial::where('parent_tutorial_id', $request->get('parent_tutorial_id'))
+                ->where('company_id', $user->company()->id)->max('sortorder');
+            //setting new sortorder to current tutorial
+            $tutorial->sortorder = $maxSortorder + 1;
+        }
         $tutorial->parent_tutorial_id = $request->get('parent_tutorial_id');
         $tutorial->save();
 
@@ -182,9 +196,9 @@ class TutorialsController extends Controller
         $oldIndex = $params['oldIndex'];
         $newIndex = $params['newIndex'];
         $tutorial = Tutorial::find($tutorialID);
+        $tutorial->updateTutorialsSortorder($oldIndex, $newIndex);
 
-
-        return json_encode(['tutorialID' => $tutorialID, 'oldIndex' => $oldIndex, 'newIndex' => $newIndex]);
+        return json_encode(['status' => 'ok']);
     }
 
     final public function storeParagraphData(array $paragraph, int $paragraphId): bool {
