@@ -58,7 +58,7 @@
                     </form>
                 </div>
             </nav>
-            <tutorials-admin-list :tutorials="'{{ $companyTutorials->toJson() }}'"></tutorials-admin-list>
+            <tutorials-admin-list :tutorials="'{{ $companyTutorials }}'"></tutorials-admin-list>
         </div>
     </div>
 

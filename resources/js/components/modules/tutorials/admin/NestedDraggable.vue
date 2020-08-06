@@ -1,9 +1,9 @@
 <template>
     <div class="row">
         <div class="col-lg-12">
-            <!--<ul id="sortable">
-                <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
-                    <div v-for="tutorial in tutorialsObj" class=".paragraph" ref="paragraph">
+            <ul id="sortable">
+                <draggable v-model="tutorialDraggable" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
+                    <div v-for="tutorial in tutorialDraggable" class=".paragraph" ref="paragraph">
                         <li class="card2 py-2 pl-3 pl-5 li-text ui-state-default draggable">
                             <div class="row">
                                 <div class="col-lg-10">
@@ -23,13 +23,12 @@
                                     </a>
                                 </div>
                             </div>
+                            <nested-draggable v-if="tutorial.children" :tutorials="tutorial.children" />
                         </li>
                     </div>
                 </draggable>
-            </ul>-->
-            <NestedDraggable :tutorials="this.tutorialsObj"></NestedDraggable>
-
-            <AdminListDeleteModal ref="tutorialDeleteModal" ></AdminListDeleteModal>
+            </ul>
+            <AdminListDeleteModal ref="tutorialDeleteModal"></AdminListDeleteModal>
         </div>
     </div>
 </template>
@@ -37,30 +36,34 @@
 <script>
     import draggable from 'vuedraggable'
     import AdminListDeleteModal from "./AdminListDeleteModal";
-    import NestedDraggable from "./NestedDraggable";
+    import cloneDeep from 'lodash/cloneDeep'
 
     export default {
-        name: "TutorialsAdminList",
+        name: "NestedDraggable",
         created() {
-            // converting tutorials JSON prop into data object
-            this.tutorialsObj = JSON.parse(this.$props.tutorials);
-            //console.log(this.tutorialsObj);
+
         },
         components: {
             AdminListDeleteModal,
-            NestedDraggable,
             draggable,
         },
-        props: [
-            'tutorials',
-        ],
+        props: {
+            tutorials: {
+                type: Array,
+                default: () => []
+            }
+        },
         data() {
             return {
-                tutorialsObj: {},
+                tutorialDraggable: [],
                 editLink: '/module/tutorials/admin/edit/'
             }
         },
         mounted() {
+            // converting tutorials JSON prop into data object
+            console.log(typeof this.tutorials);
+            console.log(this.tutorials);
+            this.tutorialDraggable = cloneDeep(this.tutorials)
 
         },
         methods: {

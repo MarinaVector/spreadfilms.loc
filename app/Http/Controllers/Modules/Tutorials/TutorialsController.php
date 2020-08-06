@@ -19,8 +19,27 @@ class TutorialsController extends Controller
     final public function manageTutorials(): View {
         $user = Auth::user();
         $userCompanyTutorials = $user->company()->tutorials;
+        $userCompanyTutorialsNested = [];
+        foreach($userCompanyTutorials->toArray() as $tutorial){
+            if($tutorial['parent_tutorial_id'] === 0){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                ];
+                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+                }
+                $userCompanyTutorialsNested[] = $resTutorial;
+            }
+        }
+        //dd($userCompanyTutorialsNested);
+        $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
 
-        return view('modules.tutorials.manage_tutorials')->with(['authUser' => $user, 'companyTutorials' => $userCompanyTutorials]);
+        return view('modules.tutorials.manage_tutorials')->with([
+            'authUser' => $user,
+            'companyTutorials' => $userCompanyTutorialsNestedJSON
+        ]);
     }
 
     final public function addTutorial(): View {
