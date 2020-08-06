@@ -176,6 +176,17 @@ class TutorialsController extends Controller
         return redirect()->route('module.tutorials.admin')->with('success', __('messages.Tutorial_deleted'));
     }
 
+    final public function changeOrder(Request $request):string{
+        $params = $request->get('params');
+        $tutorialID = $params['tutorialID'];
+        $oldIndex = $params['oldIndex'];
+        $newIndex = $params['newIndex'];
+        $tutorial = Tutorial::find($tutorialID);
+
+
+        return json_encode(['tutorialID' => $tutorialID, 'oldIndex' => $oldIndex, 'newIndex' => $newIndex]);
+    }
+
     final public function storeParagraphData(array $paragraph, int $paragraphId): bool {
         switch ($paragraph['ComponentType']) {
             case 'NormalText':

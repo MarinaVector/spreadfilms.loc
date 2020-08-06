@@ -1,35 +1,8 @@
 <template>
     <div class="row">
         <div class="col-lg-12">
-            <!--<ul id="sortable">
-                <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
-                    <div v-for="tutorial in tutorialsObj" class=".paragraph" ref="paragraph">
-                        <li class="card2 py-2 pl-3 pl-5 li-text ui-state-default draggable">
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <i class="fas fa-arrows-alt-v mr-2"></i>
-                                    <span class="ui-icon ui-icon-arrow thick-2-n-s"></span>{{tutorial.label}}
-                                </div>
-                                <div class="col-lg-2 pl-5">
-                                    <input type="hidden" name="userId" value=""/>
-                                    <a :href="editLink + tutorial.id" class="social-icon si-border si-edit mr-1">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-border si-delete"
-                                       data-toggle="modal" data-target="#modal-info" @click="deleteComponent(tutorial)">
-                                        <i class="fas fa-trash"></i>
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                    </div>
-                </draggable>
-            </ul>-->
-            <NestedDraggable :tutorials="this.tutorialsObj"></NestedDraggable>
-
-            <AdminListDeleteModal ref="tutorialDeleteModal" ></AdminListDeleteModal>
+            <NestedDraggable :tutorials="this.tutorialsObj" v-on:deleteComponent="deleteComponent"></NestedDraggable>
+            <AdminListDeleteModal ref="tutorialDeleteModal"></AdminListDeleteModal>
         </div>
     </div>
 </template>
@@ -44,7 +17,6 @@
         created() {
             // converting tutorials JSON prop into data object
             this.tutorialsObj = JSON.parse(this.$props.tutorials);
-            //console.log(this.tutorialsObj);
         },
         components: {
             AdminListDeleteModal,

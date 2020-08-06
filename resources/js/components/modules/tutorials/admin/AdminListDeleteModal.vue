@@ -5,7 +5,7 @@
                 <div class="modal-header">
                     <i class="fas fa-minus-circle fa-3x mx-auto my-3"></i>
                 </div>
-                <div class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete tutorial <b>{{tutorial.name}}</b> ?</div>
+                <div class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete tutorial <b>{{tutorial.label}}</b> ?</div>
                 <div class="modal-footer mx-auto">
                     <button type="button" class="btn button-modal button-chancel" data-dismiss="modal">Cancel</button>
                     <button @click="save(tutorial.id)" type="button" class="btn button-modal button-ok" data-dismiss="modal">OK</button>
@@ -18,6 +18,9 @@
 <script>
     export default {
         components: {
+
+        },
+        props: {
 
         },
         data() {

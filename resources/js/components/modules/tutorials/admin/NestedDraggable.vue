@@ -2,8 +2,9 @@
     <div class="row">
         <div class="col-lg-12">
             <ul id="sortable">
-                <draggable v-model="tutorialDraggable" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
-                    <div v-for="tutorial in tutorialDraggable" class=".paragraph" ref="paragraph">
+                <draggable v-model="tutorialDraggable" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs"
+                           @update="update">
+                    <div v-for="tutorial in tutorialDraggable" class=".paragraph" ref="paragraph" :id="tutorial.id">
                         <li class="card2 py-2 pl-3 pl-5 li-text ui-state-default draggable">
                             <div class="row">
                                 <div class="col-lg-10">
@@ -23,12 +24,11 @@
                                     </a>
                                 </div>
                             </div>
-                            <nested-draggable v-if="tutorial.children" :tutorials="tutorial.children" />
+                            <nested-draggable v-if="tutorial.children" :tutorials="tutorial.children" v-on:deleteComponent="deleteComponent"/>
                         </li>
                     </div>
                 </draggable>
             </ul>
-            <AdminListDeleteModal ref="tutorialDeleteModal"></AdminListDeleteModal>
         </div>
     </div>
 </template>
@@ -61,14 +61,33 @@
         },
         mounted() {
             // converting tutorials JSON prop into data object
-            console.log(typeof this.tutorials);
-            console.log(this.tutorials);
             this.tutorialDraggable = cloneDeep(this.tutorials)
 
         },
         methods: {
             deleteComponent: function (tutorial) {
-                this.$refs.tutorialDeleteModal.setTutorial(tutorial);
+                console.log(tutorial);
+                this.$emit('deleteComponent', tutorial);
+            },
+            update(evt){
+                let tutorialID = evt.clone.id; // dragged tutorial ID
+                let oldIndex = evt.oldIndex;  // element's old index within old parent
+                let newIndex = evt.newIndex;  // element's new index within new parent
+
+                let data = {
+                    tutorialID: tutorialID,
+                    oldIndex: oldIndex,
+                    newIndex: newIndex
+                };
+
+                axios.post('/module/tutorials/admin/change-order',{ params: data})
+                    .then((response) => {
+                        this.orderSaved();
+                    })
+                    .catch(error => {});
+            },
+            orderSaved(){
+                console.log('New tutorials order saved');
             },
         },
     }
