@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ul id="sortable">
-                <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
+                <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false, showBottom = !showBottom"  handle=".draggable" ref="paragraphs">
                     <div v-for="tutorial in tutorialsObj" class=".paragraph" ref="paragraph">
                         <li class="card2 py-2 pl-3 pl-5 li-text ui-state-default draggable">
                             <div class="row">
@@ -29,6 +29,15 @@
             </ul>
             <AdminListDeleteModal ref="tutorialDeleteModal"></AdminListDeleteModal>
         </div>
+        <b-alert
+            v-model="showBottom"
+            class="position-fixed fixed-bottom m-0 rounded-0 py-3"
+            style="z-index: 2000; background-color: #57bf57; color:white; text-align: center;
+            text-align: -webkit-center; font-size: 24px;"
+
+        >
+            Stored
+        </b-alert>
     </div>
 </template>
 
@@ -51,7 +60,8 @@
         data() {
             return {
                 tutorialsObj: [],
-                editLink: '/module/tutorials/admin/edit/'
+                editLink: '/module/tutorials/admin/edit/',
+                showBottom: false
             }
         },
         mounted() {
@@ -62,8 +72,14 @@
             deleteComponent: function (tutorial) {
                 this.$refs.tutorialDeleteModal.setTutorial(tutorial);
             },
+
+
         },
     }
+
+
+
+
 </script>
 
 <style>
