@@ -24,7 +24,10 @@
                                     </a>
                                 </div>
                             </div>
-                            <nested-draggable v-if="tutorial.children" :tutorials="tutorial.children" v-on:deleteComponent="deleteComponent"/>
+                            <nested-draggable v-if="tutorial.children" :tutorials="tutorial.children"
+                                              v-on:deleteComponent="deleteComponent"
+                                              v-on:displaySavedPanel="displaySavedPanel"
+                                              />
                         </li>
                     </div>
                 </draggable>
@@ -66,7 +69,6 @@
         },
         methods: {
             deleteComponent: function (tutorial) {
-                console.log(tutorial);
                 this.$emit('deleteComponent', tutorial);
             },
             update(evt){
@@ -82,12 +84,12 @@
 
                 axios.post('/module/tutorials/admin/change-order',{ params: data})
                     .then((response) => {
-                        this.orderSaved();
+                        this.displaySavedPanel();
                     })
                     .catch(error => {});
             },
-            orderSaved(){
-                console.log('New tutorials order saved');
+            displaySavedPanel(){
+                this.$emit('displaySavedPanel');
             },
         },
     }

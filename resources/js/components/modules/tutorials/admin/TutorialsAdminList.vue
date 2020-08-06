@@ -1,7 +1,10 @@
 <template>
     <div class="row">
         <div class="col-lg-12">
-            <NestedDraggable :tutorials="this.tutorialsObj" v-on:deleteComponent="deleteComponent"></NestedDraggable>
+            <NestedDraggable :tutorials="this.tutorialsObj"
+                             v-on:deleteComponent="deleteComponent"
+                             v-on:displaySavedPanel="displaySavedPanel"
+            ></NestedDraggable>
             <AdminListDeleteModal ref="tutorialDeleteModal"></AdminListDeleteModal>
         </div>
         <b-alert
@@ -11,7 +14,7 @@
             text-align: -webkit-center; font-size: 24px;"
 
         >
-            Stored
+            Saved
         </b-alert>
     </div>
 </template>
@@ -48,6 +51,10 @@
         methods: {
             deleteComponent: function (tutorial) {
                 this.$refs.tutorialDeleteModal.setTutorial(tutorial);
+            },
+            displaySavedPanel: function () {
+                this.showBottom = true;
+                setTimeout(() => this.showBottom = false, 3000);
             },
         },
     }
