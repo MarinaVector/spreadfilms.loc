@@ -4,6 +4,15 @@
             <NestedDraggable :tutorials="this.tutorialsObj" v-on:deleteComponent="deleteComponent"></NestedDraggable>
             <AdminListDeleteModal ref="tutorialDeleteModal"></AdminListDeleteModal>
         </div>
+        <b-alert
+            v-model="showBottom"
+            class="position-fixed fixed-bottom m-0 rounded-0 py-3"
+            style="z-index: 2000; background-color: #57bf57; color:white; text-align: center;
+            text-align: -webkit-center; font-size: 24px;"
+
+        >
+            Stored
+        </b-alert>
     </div>
 </template>
 
@@ -29,7 +38,8 @@
         data() {
             return {
                 tutorialsObj: {},
-                editLink: '/module/tutorials/admin/edit/'
+                editLink: '/module/tutorials/admin/edit/',
+                showBottom: false
             }
         },
         mounted() {

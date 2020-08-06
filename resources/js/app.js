@@ -12,6 +12,21 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 
 Vue.use( CKEditor );
 
+import PortalVue from 'portal-vue';
+
+Vue.use(PortalVue);
+
+import Vue from 'vue';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+
+
+Vue.use(BootstrapVue);
+
+import Donut from 'vue-css-donut-chart';
+import 'vue-css-donut-chart/dist/vcdonut.css';
+
+Vue.use(Donut);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -74,6 +89,12 @@ Vue.component('tutorials-topics', require('./components/modules/tutorials/admin/
 Vue.component('tutorials-categories', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsCategories').default);
 
 Vue.component('admin-list-delete-modal', require('./components/modules/tutorials/admin/AdminListDeleteModal').default);
+
+/**
+ * Tutorials view
+ */
+Vue.component('nav-acc', require('./components/modules/tutorials/tutorials-view-page/NavAccordion').default);
+Vue.component('chart-circle', require('./components/modules/tutorials/tutorials-view-page/ChartCircle').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
