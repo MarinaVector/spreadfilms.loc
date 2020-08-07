@@ -5,6 +5,10 @@
 @section('content')
 <div class="container-fluid bg-standart">
     <div class="row h-100">
+        <div class="col-md-1">
+            <nav-small></nav-small>
+        </div>
+
         <div class="col-md-2 offset-md-1 h-100">
         <div class="bg-light tutorial-navigation h-100">
         <nav-acc></nav-acc>
