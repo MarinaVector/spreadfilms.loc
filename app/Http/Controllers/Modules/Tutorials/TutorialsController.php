@@ -310,20 +310,25 @@ class TutorialsController extends Controller
 
     final public function index(): View {
         $user = Auth::user();
-       // $userCompanyTutorials = $user->company()->tutorials;
-        //dd($userCompanyTutorials);
-       // $id=$userCompanyTutorials->id;
-        //$tutorials = Tutorial::select(['name'])->where($user->company()->tutorials);
+        $userCompanyTutorials = $user->company()->tutorials;
+        $userCompanyTutorialsNested = [];
+        foreach($userCompanyTutorials->toArray() as $tutorial){
+            if($tutorial['parent_tutorial_id'] === 0){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                ];
+                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+                }
+                $userCompanyTutorialsNested[] = $resTutorial;
+            }
+        }
+        //dd($userCompanyTutorialsNested);
+        $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
 
-      $tutorials = [ ['id' =>  $user->company()->tutorials],];
-      //  $tutorials = [ ['id' => 1, 'name' => 'mmmmmm'],
-        //    ['id' 2, 'name' => 'nnnn'],
-       //     ['id' => 3, 'name' => 'mmmhhhhmmm'],];
-
-       // $companyTutorials = [ ['id' => $userCompanyTutorials['id'],
-          //  'label' => $userCompanyTutorials['name'],]];
-
-        return view('modules.tutorials.view_tutorials')->with(['authUser' => $user, 'tutorials' => $tutorials]);
+        return view('modules.tutorials.view_tutorials')->with(['authUser' => $user, 'tutorials' => $userCompanyTutorialsNestedJSON]);
     }
 
 

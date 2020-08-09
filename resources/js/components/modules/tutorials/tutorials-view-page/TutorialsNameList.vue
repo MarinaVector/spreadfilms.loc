@@ -1,21 +1,30 @@
 <template>
     <div>
         <ul class="list-group">
-            <li class="list-group-item" v-for="item in tutorials">
-                <span class="badge badge-primary">#{{ item.id }}</span> {{ item.name }}
+            <li class="list-group-item" v-for="tutorial in tutorialsObj">
+                {{tutorial.label}}
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-
+//let data11 = @json($companyTutorials);
 export default {
     name: 'TutorialsNameList',
     props: ['tutorials'],
     mounted () {
 
-        console.log(this.tutorials)
-    }
+    },
+    created() {
+        // converting tutorials JSON prop into data object
+        this.tutorialsObj = JSON.parse(this.$props.tutorials);
+        console.log(this.tutorialsObj)
+    },
+    data() {
+        return {
+            tutorialsObj: {},
+        }
+    },
 }
 </script>
