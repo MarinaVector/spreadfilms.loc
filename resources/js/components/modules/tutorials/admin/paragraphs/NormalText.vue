@@ -101,8 +101,8 @@
                 console.log('calling component from child');
                 //this.data = data;
                 //console.log(this);
-                this.NormalTextHeader = data; // это не работает, ошибка app.js:58667 [Vue warn]: Method "NormalTextHeader" has type "string" in the component definition. Did you reference the function correctly?
-                this.NormalTextBody = 'My Text'; // та же ошибка
+                this.NormalTextHeader = data; // mistake: app.js:58667 [Vue warn]: Method "NormalTextHeader" has type "string" in the component definition. Did you reference the function correctly?
+                this.NormalTextBody = 'My Text'; // mistake: app.js:58667 ...
             },
         },
         computed: {}

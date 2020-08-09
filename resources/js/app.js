@@ -96,6 +96,7 @@ Vue.component('admin-list-delete-modal', require('./components/modules/tutorials
 Vue.component('nav-acc', require('./components/modules/tutorials/tutorials-view-page/NavAccordion').default);
 Vue.component('chart-circle', require('./components/modules/tutorials/tutorials-view-page/ChartCircle').default);
 Vue.component('nav-small', require('./components/modules/tutorials/tutorials-view-page/NavComponentSmall').default);
+Vue.component('tutorial-list', require('./components/modules/tutorials/tutorials-view-page/TutorialsNameList').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -310,9 +310,20 @@ class TutorialsController extends Controller
 
     final public function index(): View {
         $user = Auth::user();
-        $userCompanyTutorials = $user->company()->tutorials;
+       // $userCompanyTutorials = $user->company()->tutorials;
+        //dd($userCompanyTutorials);
+       // $id=$userCompanyTutorials->id;
+        $tutorials = Tutorial::select(['name'])->where($user->company()->tutorials);
 
-        return view('modules.tutorials.view_tutorials')->with(['authUser' => $user, 'companyTutorials' => $userCompanyTutorials]);
+      //$tutorials = [ ['id' =>  $user->company()->tutorials],];
+      //  $tutorials = [ ['id' => 1, 'name' => 'mmmmmm'],
+        //    ['id' 2, 'name' => 'nnnn'],
+       //     ['id' => 3, 'name' => 'mmmhhhhmmm'],];
+
+       // $companyTutorials = [ ['id' => $userCompanyTutorials['id'],
+          //  'label' => $userCompanyTutorials['name'],]];
+
+        return view('modules.tutorials.view_tutorials')->with(['authUser' => $user, 'tutorials' => $tutorials]);
     }
 
 

@@ -51,7 +51,9 @@
 
             <b-collapse id="collapse-1" v-model="visible1" class="">
                 <div class="">
-                    <ul class="timeline tutorial-collapse mb-0">
+                   <!-- <tutorial-list :data='@json($userCompanyTutorials)'></tutorial-list> -->
+
+                   <!-- <ul class="timeline tutorial-collapse mb-0">
                         <li class="timeline-list py-3">
                             <div class="timeline-badge up ml-3 mt-1">
                                 <i class="fas fa-minus fa-white fa-xs"></i></div>
@@ -85,6 +87,7 @@
                             </div>
                         </li>
                     </ul>
+                    -->
                 </div>
             </b-collapse>
         </div>

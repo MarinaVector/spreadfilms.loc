@@ -12,9 +12,13 @@
         <div class="col-md-2 offset-md-1 h-100">
         <div class="bg-light tutorial-navigation h-100">
         <nav-acc></nav-acc>
+
             <div class="mt-5 mx-auto">
                 <chart-circle></chart-circle>
             </div>
+            <tutorial-list
+                :tutorials='{!! json_encode($tutorials) !!}'
+ ></tutorial-list>
         </div>
         </div>
 
