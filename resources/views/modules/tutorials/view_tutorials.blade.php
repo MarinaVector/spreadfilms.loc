@@ -16,9 +16,7 @@
             <div class="mt-5 mx-auto">
                 <chart-circle></chart-circle>
             </div>
-            <tutorial-list
-                :tutorials='{!! json_encode($tutorials) !!}'
- ></tutorial-list>
+            <tutorial-list :tutorials='@json($tutorials)' />
         </div>
         </div>
 

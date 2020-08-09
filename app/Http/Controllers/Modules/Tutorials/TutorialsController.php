@@ -313,9 +313,9 @@ class TutorialsController extends Controller
        // $userCompanyTutorials = $user->company()->tutorials;
         //dd($userCompanyTutorials);
        // $id=$userCompanyTutorials->id;
-        $tutorials = Tutorial::select(['name'])->where($user->company()->tutorials);
+        //$tutorials = Tutorial::select(['name'])->where($user->company()->tutorials);
 
-      //$tutorials = [ ['id' =>  $user->company()->tutorials],];
+      $tutorials = [ ['id' =>  $user->company()->tutorials],];
       //  $tutorials = [ ['id' => 1, 'name' => 'mmmmmm'],
         //    ['id' 2, 'name' => 'nnnn'],
        //     ['id' => 3, 'name' => 'mmmhhhhmmm'],];
