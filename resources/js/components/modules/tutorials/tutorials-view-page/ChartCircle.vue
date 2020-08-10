@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             sections: [
-                {  value: 79, color: 'red' },
+                {  value: 79, color: "#d32f2f" },
             ]
         };
     },

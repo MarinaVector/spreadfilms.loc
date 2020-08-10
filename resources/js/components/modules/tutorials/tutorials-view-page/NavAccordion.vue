@@ -18,7 +18,7 @@
                       :class="visible1 ? null : 'collapsed'"
                       :aria-expanded="visible1 ? 'true' : 'false'"
                       aria-controls="collapse-1"
-                      @click="visible1 = !visible1"
+                      @click.self.prevent="visible1 = !visible1"
             >
                 <div class="inner">
 
@@ -98,7 +98,7 @@
                       :class="visible2 ? null : 'collapsed'"
                       :aria-expanded="visible2 ? 'true' : 'false'"
                       aria-controls="collapse-2"
-                      @click="visible2 = !visible2"
+                      @click.self.prevent="visible2 = !visible2"
             >
                 Verovis DNA
 
@@ -187,7 +187,7 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    background: linear-gradient(-45deg, #bee789, #1aa69d 50%);
+    background: linear-gradient(40deg,#2096ff,#05ffa3) !important;
     color: #fff;
     border: none;
     width: 210px;
@@ -210,8 +210,8 @@ export default {
 .tutorial-phrase {
     border-radius: 3px;
     background: #fff;
-    color: #D60E2A;
-    border: solid #D60E2A 1px;
+    color: #d32f2f;
+    border: solid #d32f2f 1px;
 }
 
 button .tutorial-player:active,
@@ -426,7 +426,7 @@ button .tutorial-player::-moz-focus-inner {
 }
 
 .timeline-badge.down {
-    background-color: #CC3333 !important;
+    background-color: #d32f2f!important;
 }
 
 .timeline-badge.neutral {
