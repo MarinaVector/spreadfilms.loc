@@ -1,11 +1,20 @@
 <template>
     <div>
+
         <ul class="list-group">
             <li class="list-group-item" v-for="tutorial in tutorialsObj">
-                {{tutorial.label}}
+                <div> {{tutorial.label}}
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="tutorial in  tutorialsObj">
+                        <div> {{tutorial.label}}
+                        </div>
+                    </li>
+                </ul>
             </li>
         </ul>
-    </div>
+        </div>
+
 </template>
 
 <script>
@@ -19,11 +28,12 @@ export default {
     created() {
         // converting tutorials JSON prop into data object
         this.tutorialsObj = JSON.parse(this.$props.tutorials);
+
         console.log(this.tutorialsObj)
     },
     data() {
         return {
-            tutorialsObj: {},
+            tutorialsObj: {}
         }
     },
 }
