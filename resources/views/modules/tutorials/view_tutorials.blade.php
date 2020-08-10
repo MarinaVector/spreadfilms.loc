@@ -16,7 +16,7 @@
             <div class="mt-5 mx-auto">
                 <chart-circle></chart-circle>
             </div>
-            <tutorial-list :tutorials='@json($tutorials)' />
+            <tutorial-list :tutorials="'{{ $tutorials }}'" />
         </div>
         </div>
 
