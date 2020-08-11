@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Tutorials module
         Route::get('/module/tutorials', 'Modules\Tutorials\TutorialsController@index')->name('module.tutorials.index');
+        Route::get('/module/tutorials/view/{tutorial_id}', 'Modules\Tutorials\TutorialsController@view')->name('module.tutorials.view');
         Route::get('/module/tutorials/admin', 'Modules\Tutorials\TutorialsController@manageTutorials')->name('module.tutorials.admin');
         Route::get('/module/tutorials/admin/add', 'Modules\Tutorials\TutorialsController@addTutorial')->name('module.tutorials.add');
         Route::post('/module/tutorials/admin/add', 'Modules\Tutorials\TutorialsController@storeTutorial')->name('module.tutorials.store');

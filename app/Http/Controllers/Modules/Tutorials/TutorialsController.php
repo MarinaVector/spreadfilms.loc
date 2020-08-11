@@ -337,7 +337,9 @@ class TutorialsController extends Controller
         return view('modules.tutorials.view_tutorials')->with(['authUser' => $user, 'tutorials' => $userCompanyTutorialsNestedJSON]);
     }
 
-
+    final public function view($tutorial_id){
+        dd($tutorial_id);
+    }
 
 }
 
