@@ -3,16 +3,14 @@
 @section('title', 'Manage tutorials')
 
 @section('content')
-
-    <div class="container-fluid bg-profile admin-container">
+    <div class="container-fluid h-100">
+    <div class="container-fluid">
         @include('layouts.notifications')
         <div>
-            <div class="container-fluid">
-                <div class="row">
+                            <div class="row h-100">
                     <div class="col-xl-10 offset-xl-1">
 
                         <h1 class="page-title">TUTORIAL SETTINGS</h1>
-
 
 
                         <div class="vue-container">
@@ -70,7 +68,7 @@
                                                             :answerdropdown="'This is the title for the home page of the Tutorials. Example:\n'+
 '                                                    Welcome'"></question-dropdown>
                                                     </div>
-                                                    ЗАГОЛОВОК
+                                                    header
                                                 </div>
                                             </div>
 
@@ -84,7 +82,7 @@
                                                             :answerdropdown="'This is the Button on the home page of the Tutorials. Example: Get\n'+
 '                                                started Now'"></question-dropdown>
                                                     </div>
-                                                    ИНПУТ
+                                                    input
                                                 </div>
                                             </div>
 
@@ -139,7 +137,7 @@
                                                         <question-dropdown
                                                             :answerdropdown="'Select the color scheme of the tutorial overview here'"></question-dropdown>
                                                     </div>
-                                                    текст
+                                                    text
                                                 </div>
                                             </div>
 
@@ -152,7 +150,7 @@
                                                         <question-dropdown
                                                             :answerdropdown="'Select the color scheme of the tutorial overview here'"></question-dropdown>
                                                     </div>
-                                                    текст
+                                                    text
                                                 </div>
                                             </div>
 
@@ -161,7 +159,6 @@
                                 </div>
                             </form>
                         </div>
-
 
                         <div class="vue-container">
 
@@ -181,7 +178,6 @@
                                                     :answerdropdown="'Here you can create '"></question-dropdown>
                                             </div>
 
-
                                             <div class="col-md-12 mb-1"><img src="">
                                                 <div class="elfinder-container">
                                                     <input name="logo" id="meta-logo-image" type="hidden"
@@ -191,11 +187,17 @@
                                                             class="popup_selector btn btn-default">Select Screenshot
                                                     </button>
                                                 </div>
+                                                <div class="modal-footer1 mt-3">
+                                                    <button type="button" class="btn btn-primary btn-modal my-4 px-5">
+                                                        Save
+                                                    </button>
+                                                    <button type="button" class="btn close-modal btn-modal my-4 px-4">
+                                                        Chancel
+                                                    </button>
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
