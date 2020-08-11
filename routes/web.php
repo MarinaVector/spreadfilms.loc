@@ -55,7 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/module/tutorials/admin/delete/{tutorial_id}', 'Modules\Tutorials\TutorialsController@delete')->name('module.tutorials.delete');
         Route::post('/module/tutorials/admin/change-order', 'Modules\Tutorials\TutorialsController@changeOrder')->name('module.tutorials.change-order');
         Route::get('/module/tutorials/statistics', 'Modules\Tutorials\TutorialsController@statisticsTutorial')->name('module.tutorials.statistics');
-        Route::get('/module/tutorials/settings', 'Modules\Tutorials\TutorialsController@settingsTutorial')->name('module.tutorials.settings');
+        Route::get('/module/tutorials/settings', 'Modules\Tutorials\TutorialsController@editTutorialSettings')->name('module.tutorials.settings.edit');
+        Route::post('/module/tutorials/settings', 'Modules\Tutorials\TutorialsController@updateTutorialSettings')->name('module.tutorials.settings.update');
         Route::resource('/modules/tutorials/editor', 'Modules\Tutorials\CKEditorController');
         Route::post('/module/tutorials/editor/image_upload', 'Modules\Tutorials\CKEditorController@upload')->name('module.tutorials.editor.upload');
 

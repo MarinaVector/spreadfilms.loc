@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\Companycategory;
 use App\Models\Companyrole;
 use App\Models\CompanyrolePermission;
+use App\Models\CompanyTutorialsSettings;
 use App\Models\DefaultCompanycategory;
 use App\Models\Pivots\CompanyCompanyrole as CompanyCompanyrolePivot;
 use App\Models\Pivots\CompanyCompanycategory as CompanyCompanycategoryPivot;
@@ -84,6 +85,12 @@ class CompanyController extends Controller
             // tie this companycategory to a company
             CompanyCompanycategoryPivot::create(['company_id' => $company->id, 'category_id' => $companyCategory->id]);
         }
+
+        // 9. Create user company tutorials module settings
+        CompanyTutorialsSettings::create([
+            'company_id' => $company->id,
+            'email_notifications_to' => $user->email
+        ]);
 
         return redirect()->route('profile.personal-info');
     }

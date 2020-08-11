@@ -9,8 +9,6 @@
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Save">
                     <a href="/module/tutorials/admin" class="btn btn-default ml-1">Cancel</a>
-                    <input type="hidden" name="saveAsDraft" value="false">
-                    <input type="hidden" name="openPreview" value="false">
                     <div class="pull-right">
                     </div>
                 </div>

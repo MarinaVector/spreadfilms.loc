@@ -216,10 +216,28 @@ class TutorialsController extends Controller
         return true;
     }
 
-    public function settingsTutorial() {
+    final public function editTutorialSettings():view {
         $user = Auth::user();
+        $userCompany = $user->company();
+        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings->toJSON();
 
-        return view('modules.tutorials.settings_tutorials')->with('authUser', Auth::user());
+        return view('modules.tutorials.settings_tutorials')->with([
+            'authUser' => $user,
+            'userCompanyTutorialsSettings' => $userCompanyTutorialsSettings]);
+    }
+
+    final public function updateTutorialSettings(Request $request) {
+        $user = Auth::user();
+        $userCompany = $user->company();
+        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings;
+        $userCompanyTutorialsSettings->logo = $request->get('logo');
+        $userCompanyTutorialsSettings->startscreen_title = $request->get('startscreen_title');
+        $userCompanyTutorialsSettings->startscreen_button_text = $request->get('startscreen_button_text');
+        $userCompanyTutorialsSettings->main_page_background = $request->get('main_page_background');
+        $userCompanyTutorialsSettings->chapter_complete = $request->get('chapter_complete');
+        $userCompanyTutorialsSettings->save();
+
+        return redirect()->route('module.tutorials.settings.edit')->with('success', __('messages.Settings_saved'));
     }
 
     final public function getTutorialChildren(array $tutorials, int $tutorialId):array {

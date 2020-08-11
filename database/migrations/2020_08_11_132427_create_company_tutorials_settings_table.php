@@ -17,7 +17,8 @@ class CreateCompanyTutorialsSettingsTable extends Migration
             $table->id();
             $table->string('theme')->nullable();
             $table->string('logo')->nullable();
-            $table->string('main_page_title')->nullable();
+            $table->string('startscreen_title')->nullable();
+            $table->string('startscreen_button_text')->nullable();
             $table->string('main_page_background')->nullable();
             $table->string('chapter_complete')->nullable();
             $table->string('email_notifications_to');

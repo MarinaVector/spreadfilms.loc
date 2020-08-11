@@ -42,4 +42,8 @@ class Company extends Model
     final public function tutorials() {
         return $this->hasMany('App\Models\Tutorial')->orderBy('sortorder');
     }
+
+    final public function tutorialsSettings(){
+        return $this->hasOne('App\Models\CompanyTutorialsSettings');
+    }
 }
