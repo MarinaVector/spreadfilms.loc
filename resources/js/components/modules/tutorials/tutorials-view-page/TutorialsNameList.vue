@@ -1,54 +1,27 @@
 <template>
-
-        <ul class=" " >
-            <li v-for="tutorial in tutorialsObj" class=" "
-
-
-
-
-                          @click.prevent="tutorial.show = !tutorial.show"
-                   >
-
-
-                <div class="tutorial-player">
-                    {{tutorial.label}}
-                    <span class="number">2</span>
-                    <span @click="arrowEl" data-toggle="collapse" data-target="#sub-list-15"
-                          class="collapser collapsed mr-3" aria-expanded="false">
-
-                            <i  v-if="arrVisible" class="fas fa-angle-up arr-down"></i>
-                            <i  v-else class="fas fa-angle-down arr-up"></i>
-
+    <ul class=" ">
+        <li v-for="(tutorial, index) in tutorialsObj" class=" " :key="index">
+            <div class="tutorial-player">
+                {{ tutorial.label }}
+                <span class="number">{{ tutorial.count }}</span>
+                <span @click.prevent="toggleTutorial(index)"
+                      class="collapser collapsed mr-3" >
+                            <i
+                                class="fas fa-angle-up arr-down"
+                                :class="[`fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
+                            />
                 </span>
-                </div>
+            </div>
+            <div>
+                <ul class="timeline tutorial-collapse" v-show="tutorial.active">
+                    <view-nested-menu
+                        :tutorials="tutorial.children">
+                    </view-nested-menu>
+                </ul>
+            </div>
 
-
-
-
-                    <div
-                         :class="{ 'strike': tutorial.show }">
-
-                            <ul class="timeline tutorial-collapse">
-
-                                            <view-nested-menu
-
-
-                                                :tutorials="tutorial.children">
-
-
-                                            </view-nested-menu>
-
-
-                            </ul>
-
-                    </div>
-
-
-
-
-
-            </li>
-        </ul>
+        </li>
+    </ul>
 
 </template>
 
@@ -57,25 +30,24 @@
 export default {
     name: 'TutorialsNameList',
     props: ['tutorials'],
-    mounted () {
-
-    },
-    created() {
-        // converting tutorials JSON prop into data object
-        this.tutorialsObj = JSON.parse(this.$props.tutorials);
-    },
     data() {
-
         return {
-            tutorialsObj: {show:false},
+            tutorialsObj: [],
             arrVisible: false
         }
     },
-
+    created() {
+        // converting tutorials JSON prop into data object
+        let newTutorialObj = JSON.parse(this.tutorials);
+        this.tutorialsObj = newTutorialObj.map(item => {
+            item.active = false
+            return item
+        })
+    },
     methods: {
-        arrowEl(submitprevent) {
-            this.arrVisible  = !this.arrVisible
-        }
+        toggleTutorial(index) {
+            this.tutorialsObj[index].active = !this.tutorialsObj[index].active
+        },
     }
 }
 
@@ -99,31 +71,10 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    background: linear-gradient(40deg,#2096ff,#05ffa3) !important;
+    background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
     color: #fff;
     border: none;
     width: 210px;
-}
-
-.input-form {
-    display: flex;
-    width: 210px;
-}
-
-.tutorial-link {
-    cursor: pointer;
-}
-.tutorial-phrase {
-    padding: 10px;
-    width: 210px;
-    display: block;
-}
-
-.tutorial-phrase {
-    border-radius: 3px;
-    background: #fff;
-    color: #d32f2f;
-    border: solid #d32f2f 1px;
 }
 
 button .tutorial-player:active,
@@ -141,34 +92,6 @@ button .tutorial-player::-moz-focus-inner {
     transform: translateY(-50%);
     right: 15px;
     cursor: pointer;
-}
-
-.pl-holder {
-    border: solid 1px #aaa;
-}
-
-.search-icon {
-    text-align: center;
-    background: #ccc;
-    border: solid 1px #aaa;
-    right: 20px;
-    border-radius: 0 4px 4px 0;
-    border-left: none;
-}
-
-
-.search-icon i {
-    color: #fff;
-    font-size: 1.3em;
-}
-
-
-.search-input {
-    border: solid 1px #aaa;
-    border-radius: 4px 0 0 4px;
-    padding: 7px 50px 7px 20px;
-    display: block;
-    width: 100%;
 }
 
 .tutorial-collapse {
@@ -244,7 +167,6 @@ button .tutorial-player::-moz-focus-inner {
 
 .timeline {
     list-style: none;
-    padding: 20px 0 20px;
     position: relative;
 }
 
@@ -338,7 +260,7 @@ button .tutorial-player::-moz-focus-inner {
 }
 
 .timeline-badge.down {
-    background-color: #d32f2f!important;
+    background-color: #d32f2f !important;
 }
 
 .timeline-badge.neutral {
@@ -359,7 +281,7 @@ button .tutorial-player::-moz-focus-inner {
     margin-top: 5px;
 }
 
-.timeline-list:hover {
+.timeline-body:hover {
     background-color: #aaa;
 }
 
@@ -370,6 +292,7 @@ button .tutorial-player::-moz-focus-inner {
 li {
     list-style-type: none;
 }
+
 ul {
     margin-left: 0;
     padding-left: 0;

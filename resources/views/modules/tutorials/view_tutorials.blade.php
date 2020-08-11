@@ -11,12 +11,19 @@
 
         <div class="col-md-2 offset-md-1 h-100">
         <div class="bg-light tutorial-navigation h-100">
-        <nav-acc></nav-acc>
 
             <div class="mt-5 mx-auto">
+                <nav-acc></nav-acc>
+                <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
+                <div class="mt-5">
                 <chart-circle></chart-circle>
+                </div>
             </div>
-            <tutorial-list :tutorials="'{{ $tutorials }}'" />
+
+
+
+
+
         </div>
         </div>
 

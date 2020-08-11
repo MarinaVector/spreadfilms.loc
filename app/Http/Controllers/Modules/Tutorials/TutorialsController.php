@@ -317,10 +317,16 @@ class TutorialsController extends Controller
                 $resTutorial = [
                     'id' => $tutorial['id'],
                     'label' => $tutorial['name'],
+                    'count' => count($userCompanyTutorialsNested),
+
+
                 ];
+
                 $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
                 if($resChildren){
                     $resTutorial['children'] = $resChildren;
+
+
                 }
                 $userCompanyTutorialsNested[] = $resTutorial;
             }
