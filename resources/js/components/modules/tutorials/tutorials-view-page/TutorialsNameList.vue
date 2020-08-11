@@ -5,7 +5,7 @@
                 {{ tutorial.label }}
                 <span class="number">{{ tutorial.count }}</span>
                 <span @click.prevent="toggleTutorial(index)"
-                      class="collapser collapsed mr-3" >
+                      class="collapser collapsed mr-3">
                             <i
                                 class="fas fa-angle-up arr-down"
                                 :class="[`fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
@@ -19,7 +19,6 @@
                     </view-nested-menu>
                 </ul>
             </div>
-
         </li>
     </ul>
 
@@ -177,7 +176,7 @@ button .tutorial-player::-moz-focus-inner {
     content: " ";
     width: 1px;
     background-color: #CCCCCC;
-    left: 22px;
+    left: 21px;
 }
 
 .timeline > li {
@@ -224,8 +223,8 @@ button .tutorial-player::-moz-focus-inner {
 
 .timeline > li > .timeline-badge {
 
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
     line-height: 8px;
     font-size: 1em;
     position: absolute;
