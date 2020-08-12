@@ -31,4 +31,12 @@ function processSelectedFile(filePath, requestingField) {
     if (requestingField == 'background-tutorial-image') {
         $('.elfinder-preview-image').css('height', '100%');
     }
+
+    if (requestingField == 'logo-image') {
+        $('#logo-image-preview').css('height', '100%');
+    }
+
+    if (requestingField == 'background-image') {
+        $('#background-image-preview').css('height', '100%');
+    }
 }

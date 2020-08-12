@@ -50,4 +50,5 @@ return [
     'Tutorial_created' => 'Tutorial has been created',
     'Tutorial_updated' => 'Tutorial has been updated',
     'Tutorial_deleted' => 'Tutorial has been deleted',
+    'Settings_saved' => 'Settings saved',
 ];
