@@ -1,6 +1,6 @@
 <template>
     <ul class="timeline tutorial-collapse">
-        <li class="" v-for="(tutorial, index) in tutorialsObj">
+        <li class="" v-for="(tutorial, index) in tutorialsObj" :key="tutorial.id">
             <div class="timeline-list pt-2">
                 <div class="timeline-badge up ml-3 mt-2">
                     <i class="fas fa-minus fa-white fa-xs"></i>
@@ -8,8 +8,9 @@
 
                 <div class="timeline-panel">
                     <div class="timeline-body py-2">
-                        {{ tutorial.label }}
-                        <!-- <span class="number"></span> -->
+                        <a :href="'/module/tutorials/' + tutorial.id" target="_blank">
+                            {{ tutorial.label }}
+                        </a>
                         <span v-if="tutorial.children" @click.prevent="toggleTutorial(index)"
                               class="collapser-nested mr-1">
                             <i
@@ -28,28 +29,29 @@
 </template>
 
 <script>
+    import cloneDeep from 'lodash/cloneDeep'
 export default {
-    name: 'TutorialsNameList',
+    name: 'ViewNestedMenu',
     props: ['tutorials'],
-    mounted() {
-
+    data() {
+        return {
+            tutorialsObj: []
+        }
     },
     created() {
-        if(undefined !== this.$props.tutorials){
-            this.tutorialsObj = this.$props.tutorials.map(item => {
+
+    },
+    mounted() {
+        if(undefined !== this.tutorials){
+            this.tutorialsObj = cloneDeep(this.tutorials).map(item => {
                 item.active = false
                 return item
             });
         }
     },
-    data() {
-        return {
-            tutorialsObj: {}
-        }
-    },
     methods: {
         toggleTutorial(index) {
-            this.tutorialsObj[index].active = !this.tutorialsObj[index].active
+            this.tutorialsObj[index].active = !this.tutorialsObj[index].active;
         },
     }
 }
@@ -59,7 +61,7 @@ export default {
 
 .collapser-nested {
     position: absolute;
-    top: 40%;
+    top: 30%;
     transform: translateY(-50%);
     right: 15px;
     cursor: pointer;

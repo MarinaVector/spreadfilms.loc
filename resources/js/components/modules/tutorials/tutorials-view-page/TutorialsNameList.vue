@@ -2,7 +2,9 @@
     <ul class=" ">
         <li v-for="(tutorial, index) in tutorialsObj" class=" " :key="index">
             <div class="tutorial-player">
-                {{ tutorial.label }}
+                <a :href="'/module/tutorials/' + tutorial.id" target="_blank">
+                    {{ tutorial.label }}
+                </a>
                 <span class="number">{{ tutorial.childrenCount }}</span>
                 <span v-if="tutorial.children" @click.prevent="toggleTutorial(index)"
                       class="collapser collapsed mr-3">
@@ -12,12 +14,10 @@
                             />
                 </span>
             </div>
-            <div>
-                <div v-show="tutorial.active">
-                    <view-nested-menu
-                        :tutorials="tutorial.children">
-                    </view-nested-menu>
-                </div>
+            <div v-show="tutorial.active">
+                <view-nested-menu
+                    :tutorials="tutorial.children">
+                </view-nested-menu>
             </div>
         </li>
     </ul>
@@ -32,7 +32,6 @@ export default {
     data() {
         return {
             tutorialsObj: [],
-            arrVisible: false
         }
     },
     created() {
