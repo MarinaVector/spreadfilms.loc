@@ -2,23 +2,23 @@
     <ul class="timeline tutorial-collapse">
         <li class="" v-for="(tutorial, index) in tutorialsObj" :key="tutorial.id">
             <div class="timeline-list pt-2">
-                <div class="timeline-badge up mt-3 ml-3">
+                <div class="timeline-badge up mt-4 ml-3">
                     <i class="fas fa-minus fa-white fa-xs"></i>
                 </div>
 
                 <div class="timeline-panel">
                     <div class="timeline-body py-2 container">
                         <div class="row">
-                            <div class="col-md-9 ml-3 mt-1">
+                            <div class="col-md-9 ml-3 mt-2">
                                 <a :href="'/module/tutorials/' + tutorial.id" target="_blank" class="ml-1 mr-5 tutorial-lb">
                                     {{ tutorial.label }}
                                 </a>
                             </div>
-                            <div class="col-md-1 ml-n1 p-2">
+                            <div class="col-md-1 ml-n3 px-2">
                                 <div v-if="tutorial.children" @click.prevent="toggleTutorial(index)"
                                      class="collapser-nested">
                                     <i
-                                        class="fas arr-down fa-angle-up p-1 fa-sm"
+                                        class="fas arr-down fa-angle-up m-3 fa-sm"
                                         :class="[ `fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
                                     />
                                 </div>
@@ -76,8 +76,8 @@ export default {
 }
 
 .timeline-badge {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     line-height: 8px;
     font-size: 1em;
     position: absolute;
@@ -86,8 +86,10 @@ export default {
 }
 
 .timeline-panel:hover {
-    background-color: #dddddd;
-}
+    background-color: #fcf9f9;
+    border-left: 7px solid #F0F0F0;
+    white-space: normal;
+    }
 
 .strike {
     display: none;
@@ -351,5 +353,10 @@ div .timeline-body:hover {
     box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
 }
 
+.nested-down:after {
+    content: "";
+    display: block;
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
+}
 
 </style>
