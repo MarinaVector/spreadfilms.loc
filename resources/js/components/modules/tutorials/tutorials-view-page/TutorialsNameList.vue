@@ -10,7 +10,7 @@
                       class="collapser collapsed">
                             <i
                                 class="fas arr-down fa-angle-up m-3 fa-sm"
-                                :class="[ `fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
+                                :class="[`fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
                             />
 
                     <!-- <i class="fas fa-angle-down arr m-3 fa-sm"
@@ -300,10 +300,6 @@ button .tutorial-player::-moz-focus-inner {
     margin-top: 5px;
 }
 
-.timeline-body:hover {
-    background-color: #aaa;
-}
-
 .fa-white {
     color: #ffffff !important;
 }
@@ -320,5 +316,6 @@ ul {
 .menu-header {
     color: #fff;
 }
+
 
 </style>

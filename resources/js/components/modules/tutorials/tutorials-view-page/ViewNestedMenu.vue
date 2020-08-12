@@ -10,7 +10,7 @@
                     <div class="timeline-body py-2 container">
                         <div class="row">
                             <div class="col-md-9 ml-3 mt-1">
-                                <a :href="'/module/tutorials/' + tutorial.id" target="_blank" class="ml-1 mr-5">
+                                <a :href="'/module/tutorials/' + tutorial.id" target="_blank" class="ml-1 mr-5 tutorial-lb">
                                     {{ tutorial.label }}
                                 </a>
                             </div>
@@ -27,12 +27,13 @@
                     </div>
                 </div>
 
-                <div v-show="tutorial.active">
+                <div v-show="tutorial.active" class="nested-down">
                     <view-nested-menu v-if="tutorial.children" :tutorials="tutorial.children"></view-nested-menu>
                 </div>
             </div>
         </li>
     </ul>
+
 </template>
 
 <script>
@@ -330,5 +331,25 @@ ul {
     margin-left: 0;
     padding-left: 0;
 }
+
+div .timeline-body:active {
+    color: #D60E2A;
+}
+
+div .timeline-body:hover {
+    background-color: #aaa !important;
+    color: #424242 !important;
+}
+
+.tutorial-lb:hover {
+    color: #424242 !important;
+}
+
+.nested-down:before {
+    content: "";
+    display: block;
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
+}
+
 
 </style>
