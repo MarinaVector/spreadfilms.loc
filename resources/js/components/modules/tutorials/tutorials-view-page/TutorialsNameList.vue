@@ -2,23 +2,29 @@
     <ul class=" ">
         <li v-for="(tutorial, index) in tutorialsObj" class=" " :key="index">
             <div class="tutorial-player">
-                <a :href="'/module/tutorials/' + tutorial.id" target="_blank">
+                <a :href="'/module/tutorials/' + tutorial.id" target="_blank" class="menu-header mr-1">
                     {{ tutorial.label }}
                 </a>
-                <span class="number">{{ tutorial.childrenCount }}</span>
+                <span class="number mr-3">{{ tutorial.childrenCount }}</span>
                 <span v-if="tutorial.children" @click.prevent="toggleTutorial(index)"
-                      class="collapser collapsed mr-3">
+                      class="collapser collapsed">
                             <i
-                                class="fas fa-angle-up arr-down"
-                                :class="[`fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
+                                class="fas arr-down fa-angle-up m-3 fa-sm"
+                                :class="[ `fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
                             />
-                </span>
+
+                    <!-- <i class="fas fa-angle-down arr m-3 fa-sm"
+                        v-bind:class="{ 'fa-rotate-180': returnArr }"
+                        v-on:click="returnArr = !returnArr"></i> -->
+               </span>
             </div>
-            <div v-show="tutorial.active">
-                <view-nested-menu
-                    :tutorials="tutorial.children">
-                </view-nested-menu>
-            </div>
+            <transition name="fade">
+                <div v-show="tutorial.active">
+                    <view-nested-menu
+                        :tutorials="tutorial.children">
+                    </view-nested-menu>
+                </div>
+            </transition>
         </li>
     </ul>
 
@@ -32,6 +38,7 @@ export default {
     data() {
         return {
             tutorialsObj: [],
+            returnArr: false
         }
     },
     created() {
@@ -39,7 +46,7 @@ export default {
         let newTutorialObj = JSON.parse(this.tutorials);
         this.tutorialsObj = newTutorialObj.map(item => {
             item.active = false;
-            if(item.children){
+            if (item.children) {
                 item.childrenCount = item.children.length;
             } else {
                 item.childrenCount = 0;
@@ -57,6 +64,15 @@ export default {
 </script>
 
 <style>
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .1s;
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
 
 .strike {
     display: none;
@@ -299,6 +315,10 @@ li {
 ul {
     margin-left: 0;
     padding-left: 0;
+}
+
+.menu-header {
+    color: #fff;
 }
 
 </style>

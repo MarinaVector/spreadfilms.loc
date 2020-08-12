@@ -2,24 +2,31 @@
     <ul class="timeline tutorial-collapse">
         <li class="" v-for="(tutorial, index) in tutorialsObj" :key="tutorial.id">
             <div class="timeline-list pt-2">
-                <div class="timeline-badge up ml-3 mt-2">
+                <div class="timeline-badge up mt-3 ml-3">
                     <i class="fas fa-minus fa-white fa-xs"></i>
                 </div>
 
                 <div class="timeline-panel">
-                    <div class="timeline-body py-2">
-                        <a :href="'/module/tutorials/' + tutorial.id" target="_blank">
-                            {{ tutorial.label }}
-                        </a>
-                        <span v-if="tutorial.children" @click.prevent="toggleTutorial(index)"
-                              class="collapser-nested mr-1">
-                            <i
-                                class="fas fa-angle-up arr-down"
-                                :class="[`fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
-                            />
-                        </span>
+                    <div class="timeline-body py-2 container">
+                        <div class="row">
+                            <div class="col-md-9 ml-3 mt-1">
+                                <a :href="'/module/tutorials/' + tutorial.id" target="_blank" class="ml-1 mr-5">
+                                    {{ tutorial.label }}
+                                </a>
+                            </div>
+                            <div class="col-md-1 ml-n1 p-2">
+                                <div v-if="tutorial.children" @click.prevent="toggleTutorial(index)"
+                                     class="collapser-nested">
+                                    <i
+                                        class="fas arr-down fa-angle-up p-1 fa-sm"
+                                        :class="[ `fa-angle-${tutorial.active ? 'down' : 'up'}`, `arr-${tutorial.active ? 'up' : 'down'}`]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div v-show="tutorial.active">
                     <view-nested-menu v-if="tutorial.children" :tutorials="tutorial.children"></view-nested-menu>
                 </div>
@@ -29,20 +36,23 @@
 </template>
 
 <script>
-    import cloneDeep from 'lodash/cloneDeep'
+import cloneDeep from 'lodash/cloneDeep'
+
 export default {
     name: 'ViewNestedMenu',
     props: ['tutorials'],
     data() {
         return {
-            tutorialsObj: []
+            tutorialsObj: [],
+            returnArr: false
         }
+
     },
     created() {
 
     },
     mounted() {
-        if(undefined !== this.tutorials){
+        if (undefined !== this.tutorials) {
             this.tutorialsObj = cloneDeep(this.tutorials).map(item => {
                 item.active = false
                 return item
@@ -60,10 +70,7 @@ export default {
 <style>
 
 .collapser-nested {
-    position: absolute;
-    top: 30%;
-    transform: translateY(-50%);
-    right: 15px;
+    display: inline;
     cursor: pointer;
 }
 
