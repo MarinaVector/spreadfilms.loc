@@ -3,8 +3,8 @@
         <li v-for="(tutorial, index) in tutorialsObj" class=" " :key="index">
             <div class="tutorial-player">
                 {{ tutorial.label }}
-                <span class="number">{{ tutorial.count }}</span>
-                <span @click.prevent="toggleTutorial(index)"
+                <span class="number">{{ tutorial.childrenCount }}</span>
+                <span v-if="tutorial.children" @click.prevent="toggleTutorial(index)"
                       class="collapser collapsed mr-3">
                             <i
                                 class="fas fa-angle-up arr-down"
@@ -13,11 +13,11 @@
                 </span>
             </div>
             <div>
-                <ul class="timeline tutorial-collapse" v-show="tutorial.active">
+                <div v-show="tutorial.active">
                     <view-nested-menu
                         :tutorials="tutorial.children">
                     </view-nested-menu>
-                </ul>
+                </div>
             </div>
         </li>
     </ul>
@@ -39,7 +39,12 @@ export default {
         // converting tutorials JSON prop into data object
         let newTutorialObj = JSON.parse(this.tutorials);
         this.tutorialsObj = newTutorialObj.map(item => {
-            item.active = false
+            item.active = false;
+            if(item.children){
+                item.childrenCount = item.children.length;
+            } else {
+                item.childrenCount = 0;
+            }
             return item
         })
     },
