@@ -1143,3 +1143,13 @@ input:checked + .stlchek:before {
     overflow: inherit;
 }
 
+.fa {
+    color: white;
+    position: relative;
+    display: table-cell;
+    width: 95px;
+    height: 36px;
+    text-align: center;
+    top: 12px;
+    font-size: 20px;
+}

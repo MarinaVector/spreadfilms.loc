@@ -11,7 +11,7 @@
             <div class="col-md-2 offset-md-1 h-100">
                 <div class="bg-light tutorial-navigation h-100">
 
-                    <div class="mt-5 mx-auto">
+                    <div class="mt-4 mx-auto">
                         <nav-acc></nav-acc>
                         <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
                         <div class="mt-5">
@@ -20,10 +20,13 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-9">
+
+            </div>
         </div>
     </div>
 
-@endsection
+    @endsection
 
 @section('scripts')
 

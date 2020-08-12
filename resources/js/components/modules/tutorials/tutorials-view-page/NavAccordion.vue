@@ -1,6 +1,9 @@
 <template>
     <div>
-        <div class="input-form mb-4 pt-5">
+        <div class="logo-80px mx-auto">
+            <img src="/public/img/logo_white.png">
+        </div>
+        <div class="input-form mb-4 pt-4">
             <input placeholder="Search for..." type="text" class="form-control search-input pl-holder">
             <span class="search-icon px-2"><i class="fas fa-search mt-2"></i></span>
         </div>
@@ -11,17 +14,8 @@
                     <span class="tutorial-phrase">Continue <strong>"What makes us successful"</strong>go</span>
                 </div>
             </div>
-
-
-
-
-
         </div>
         <div>
-
-
-
-
         </div>
     </div>
 </template>
@@ -29,10 +23,7 @@
 <script>
 export default {
     data() {
-        return {
-
-
-        }
+        return {}
     },
     methods: {
         arrowEl() {
@@ -49,7 +40,7 @@ export default {
     width: 210px;
 }
 
- .tutorial-phrase {
+.tutorial-phrase {
     padding: 10px;
     width: 210px;
     display: block;
@@ -89,6 +80,13 @@ export default {
     padding: 7px 50px 7px 20px;
     display: block;
     width: 100%;
+}
+
+div .logo-80px {
+    margin-left: 50%;
+    width: 90px;
+    height: 90px;
+    background-color: #424242;
 }
 
 

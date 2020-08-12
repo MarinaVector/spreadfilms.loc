@@ -38,7 +38,7 @@ Vue.use(Donut);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
 Vue.component('nav-component', require('./components/NavComponent.vue').default);
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
 Vue.component('layouts-panel', require('./components/modules/tutorials/admin/LayoutsPanel.vue').default);
@@ -91,13 +91,15 @@ Vue.component('tutorials-categories', require('./components/modules/tutorials/ad
 Vue.component('admin-list-delete-modal', require('./components/modules/tutorials/admin/AdminListDeleteModal').default);
 
 /**
- * Tutorials view
+ * Tutorials view page
  */
 Vue.component('nav-acc', require('./components/modules/tutorials/tutorials-view-page/NavAccordion').default);
 Vue.component('chart-circle', require('./components/modules/tutorials/tutorials-view-page/ChartCircle').default);
 Vue.component('nav-small', require('./components/modules/tutorials/tutorials-view-page/NavComponentSmall').default);
 Vue.component('tutorial-list', require('./components/modules/tutorials/tutorials-view-page/TutorialsNameList').default);
 Vue.component('view-nested-menu', require('./components/modules/tutorials/tutorials-view-page/ViewNestedMenu').default);
+Vue.component('main-carousel', require('./components/modules/tutorials/tutorials-view-page/MainCarousel').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
