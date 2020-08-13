@@ -33,7 +33,6 @@ function processSelectedFile(filePath, requestingField) {
     }
 
     if (requestingField == 'logo-image') {
-        //$('#logo-image-preview').css('height', '100%');
         $('#logo-image-preview').attr("src", path);
     }
 
