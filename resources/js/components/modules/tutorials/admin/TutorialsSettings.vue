@@ -15,8 +15,10 @@
                                     <question-dropdown
                                         :answerdropdown="'Select the Logo to be displayed in the Tutorial overview'"></question-dropdown>
                                 </div>
-                                <div class="col-md-12 mb-1">
-                                    <div id="logo-image-preview" class="elfinder-preview-image" ref="logopreview"></div>
+                                <div class="col-md-12">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <img class="image-preview" id="logo-image-preview" :src="tutorialsSettingsObj.logo"/>
+                                    </div>
                                     <div class="elfinder-container">
                                         <input name="logo" id="logo-image" type="hidden"
                                                data-type="bild" data-value="image"
@@ -78,7 +80,9 @@
                                         :answerdropdown="'This is the full screen wallpaper on the home page of Tutorials'"></question-dropdown>
                                 </div>
                                 <div class="col-md-12 mb-1">
-                                    <div id="background-image-preview" class="elfinder-preview-image" ref="backgroundpreview"></div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <img class="image-preview" id="background-image-preview" :src="tutorialsSettingsObj.main_page_background"/>
+                                    </div>
                                     <div class="elfinder-container">
                                         <input name="main_page_background" id="background-image" type="hidden"
                                                data-type="bild" data-value="image"
@@ -236,5 +240,10 @@
 
     .ck-editor__editable {
         min-height: 200px;
+    }
+
+    .image-preview{
+        max-height: 200px;
+        max-width: 200px;
     }
 </style>

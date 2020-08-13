@@ -33,10 +33,11 @@ function processSelectedFile(filePath, requestingField) {
     }
 
     if (requestingField == 'logo-image') {
-        $('#logo-image-preview').css('height', '100%');
+        //$('#logo-image-preview').css('height', '100%');
+        $('#logo-image-preview').attr("src", path);
     }
 
     if (requestingField == 'background-image') {
-        $('#background-image-preview').css('height', '100%');
+        $('#background-image-preview').attr("src", path);
     }
 }
