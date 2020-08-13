@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tutorial;
 use Illuminate\View\View;
+use App\Models\CompanyTutorialsSettings;
 
 class TutorialsController extends Controller
 {
@@ -350,15 +351,23 @@ class TutorialsController extends Controller
                 $userCompanyTutorialsNested[] = $resTutorial;
             }
         }
-        //dd($userCompanyTutorialsNested);
+        //dd($userCompanyTutorialsNested     'company_id',  $userCompany ->id);
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
-        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings->toJSON();
+       // $userCompanyTutorialsSettings = $userCompany->tutorialsSettings->toJSON();
 
-        return view('modules.tutorials.view_tutorials')->with([
+        $settings =  CompanyTutorialsSettings::first();
+
+
+        return view('modules.tutorials.view_tutorials', compact('settings'))->with([
             'authUser' => $user,
             'tutorials' => $userCompanyTutorialsNestedJSON,
-            'settings' => $userCompanyTutorialsSettings]);
+            'settings' => $settings]);
     }
+
+
+
+
+
 
     final public function view($tutorial_id){
         dd($tutorial_id);
