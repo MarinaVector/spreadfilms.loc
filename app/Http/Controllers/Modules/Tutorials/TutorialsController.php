@@ -328,7 +328,8 @@ class TutorialsController extends Controller
 
     final public function index(): View {
         $user = Auth::user();
-        $userCompanyTutorials = $user->company()->tutorials;
+        $userCompany = $user->company();
+        $userCompanyTutorials = $userCompany->tutorials;
         $userCompanyTutorialsNested = [];
         foreach($userCompanyTutorials->toArray() as $tutorial){
             if($tutorial['parent_tutorial_id'] === 0){
@@ -351,8 +352,12 @@ class TutorialsController extends Controller
         }
         //dd($userCompanyTutorialsNested);
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
+        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings->toJSON();
 
-        return view('modules.tutorials.view_tutorials')->with(['authUser' => $user, 'tutorials' => $userCompanyTutorialsNestedJSON]);
+        return view('modules.tutorials.view_tutorials')->with([
+            'authUser' => $user,
+            'tutorials' => $userCompanyTutorialsNestedJSON,
+            'settings' => $userCompanyTutorialsSettings]);
     }
 
     final public function view($tutorial_id){
