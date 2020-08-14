@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="logo-80px mx-auto">
-            <img src="/public/img/logo_white.png">
+            <img :src="logoVal">
         </div>
         <div class="input-form mb-4 pt-4">
             <input placeholder="Search for..." type="text" class="form-control search-input pl-holder">
@@ -22,14 +22,22 @@
 
 <script>
 export default {
-    data() {
-        return {}
-    },
     methods: {
         arrowEl() {
 
         }
-    }
+    },
+    props: {
+        logo: {
+            type: String,
+            default: null
+        },
+    },
+    data() {
+        return {
+            logoVal: this.logo ? this.logo : '/public/img/logo_white.png',
+        };
+    },
 }
 </script>
 
@@ -84,8 +92,8 @@ export default {
 
 div .logo-80px {
     margin-left: 50%;
-    width: 90px;
-    height: 90px;
+    width: 210px;
+    height: auto;
     background-color: #424242;
 }
 

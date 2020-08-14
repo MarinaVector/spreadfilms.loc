@@ -22,7 +22,7 @@
                 <div class="bg-light tutorial-navigation h-100 menu-column">
 
                     <div class="mt-4 mx-auto nav-fill">
-                        <nav-acc></nav-acc>
+                        <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
                         <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
                         <div class="mt-5">
                             <chart-circle></chart-circle>
