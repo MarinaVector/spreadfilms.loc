@@ -7,7 +7,7 @@
         <div class="col-ttr">
             <nav-small></nav-small>
         </div>
-        <div class="col-ttr h-100 bg-light">
+        <div class="col-ttr h-100 bg-light menu-column">
             <!-- <div class="background">
                  <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="Responsive image">
              </div> -->
@@ -77,8 +77,8 @@
 
         .tutorial-navigation::-webkit-scrollbar {
             -webkit-appearance: none;
-            width: 5px;
-            color: #424242;
+            width: 7px;
+            color: black;
         }
 
         .tutorial-navigation::-webkit-scrollbar-thumb {
