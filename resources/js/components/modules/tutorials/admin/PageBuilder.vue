@@ -321,7 +321,6 @@
         methods: {
             addParagraphBlock(paragraphName, paragraphData = null) {
                 let Component = null;
-                console.log(paragraphName);
                 switch (paragraphName) {
                     case 'NormalText':
                         Component = cloneDepp(NormalText);

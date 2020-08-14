@@ -103,8 +103,8 @@
             return {
                 dataInputID: '',
                 dataInputPreviewID: '',
-                NormalTextHeader: this.mydata ? this.$props.mydata.header : '',
-                NormalTextBody: this.mydata ? this.$props.mydata.text : '',
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+                NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 Src: this.mydata ? this.$props.mydata.src : '',
             };
         },
@@ -133,7 +133,10 @@
             },
             getPreviousData: function () {
                 return [1, 2];
-            }
+            },
+            escapeHtml: function (value) {
+                return $('<div/>').html(value).text();
+            },
         },
         computed: {}
     };

@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+        <NormalTextModal ref="modal"
                          :header="NormalTextHeader"
                          :body="NormalTextBody">
 
@@ -68,41 +68,19 @@
         },
         data() {
             return {
-                NormalTextHeader: this.mydata ? this.$props.mydata.header : '',
-                NormalTextBody: this.mydata ? this.$props.mydata.text : '',
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+                NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
             };
         },
         created() {
-
+            console.log(this.escapeHtml('&lt;h3&gt;here&#039;s some text&lt;/h3&gt;'));
         },
         mounted() {
 
         },
         methods: {
-            callParentDeleteParagraphBlock: function () {
-                this.$emit('childToParent');
-            },
-            callParentDuplicateParagraphBlock: function () {
-                this.$emit('duplicateParagraph');
-            },
-            showTextModal: function () {
-                let element = this.$refs.modal.$el;
-                $(element).modal('show');
-            },
-            saveData: function (header, body) {
-                this.NormalTextHeader = header;
-                this.NormalTextBody = body;
-            },
-            getPreviousData: function () {
-                return [1, 2];
-            },
-            setParagraphData: function (data) {
-                console.log(data)
-                console.log('calling component from child');
-                //this.data = data;
-                //console.log(this);
-                this.NormalTextHeader = data; // mistake: app.js:58667 [Vue warn]: Method "NormalTextHeader" has type "string" in the component definition. Did you reference the function correctly?
-                this.NormalTextBody = 'My Text'; // mistake: app.js:58667 ...
+            escapeHtml: function (value) {
+                return $('<div/>').html(value).text();
             },
         },
         computed: {}

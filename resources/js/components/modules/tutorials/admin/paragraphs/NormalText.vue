@@ -68,8 +68,8 @@
         },
         data() {
             return {
-                NormalTextHeader: this.mydata ? this.$props.mydata.header : '',
-                NormalTextBody: this.mydata ? this.$props.mydata.text : '',
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+                NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
             };
         },
         created() {
@@ -96,13 +96,8 @@
             getPreviousData: function () {
                 return [1, 2];
             },
-            setParagraphData: function (data) {
-                console.log(data)
-                console.log('calling component from child');
-                //this.data = data;
-                //console.log(this);
-                this.NormalTextHeader = data; // mistake: app.js:58667 [Vue warn]: Method "NormalTextHeader" has type "string" in the component definition. Did you reference the function correctly?
-                this.NormalTextBody = 'My Text'; // mistake: app.js:58667 ...
+            escapeHtml: function (value) {
+                return $('<div/>').html(value).text();
             },
         },
         computed: {}
