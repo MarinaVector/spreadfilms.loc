@@ -19,7 +19,7 @@
                                     <div class="d-flex justify-content-center align-items-center">
                                         <img class="image-preview" id="logo-image-preview" :src="tutorialsSettingsObj.logo"/>
                                     </div>
-                                    <div class="elfinder-container">
+                                    <div class="elfinder-container my-2">
                                         <input name="logo" id="logo-image" type="hidden"
                                                data-type="bild" data-value="image"
                                                class="elfinder-idea"
@@ -35,7 +35,7 @@
                         <!-- Logo -->
 
                         <!-- Title -->
-                        <div class="col-md-12 vue-container mt-3">
+                        <div class="col-md-12 vue-container mt-3 pb-2">
                             <div class="row">
                                 <div class="col-md-11">
                                     <p class="head-inline">Main Page Title</p>
@@ -46,7 +46,7 @@
     '                                                    Welcome'"></question-dropdown>
                                 </div>
                             </div>
-                            <input type="hidden" name="startscreen_title" v-model="tutorialsSettingsObj.startscreen_title">
+                            <input type="hidden" name="startscreen_title" v-model="tutorialsSettingsObj.startscreen_title" class="my-2">
                             <ckeditor :editor="editor" v-model="tutorialsSettingsObj.startscreen_title" :config="editorConfig"></ckeditor>
                         </div>
                         <!-- Title -->
@@ -83,7 +83,7 @@
                                     <div class="d-flex justify-content-center align-items-center">
                                         <img class="image-preview" id="background-image-preview" :src="tutorialsSettingsObj.main_page_background"/>
                                     </div>
-                                    <div class="elfinder-container">
+                                    <div class="elfinder-container my-2">
                                         <input name="main_page_background" id="background-image" type="hidden"
                                                data-type="bild" data-value="image"
                                                class="elfinder-idea"
@@ -117,7 +117,7 @@
 
                         <!-- Chapter Done -->
                         <div class="col-md-12 vue-container mt-3">
-                            <div class="row">
+                            <div class="row pb-2">
                                 <div class="col-md-11">
                                     <p class="head-inline">Chapter Done</p>
                                 </div>

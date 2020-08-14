@@ -8,10 +8,20 @@
             <div class="col-md-1">
                 <nav-small></nav-small>
             </div>
-            <div class="col-md-2 offset-md-1 h-100">
-                <div class="bg-light tutorial-navigation h-100">
+            <div class="col-md-2 offset-md-1 h-100 menu-column">
+                <!-- <div class="background">
+                     <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="Responsive image">
+                 </div> -->
+                <div class="background">
+                    @if ($settings->main_page_background===null)
+                        <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="">
+                    @else
+                        <img src="{{$settings->main_page_background}}" class="mr-3 mr-sm-4 back mr-5" alt="">
+                    @endif
+                </div>
+                <div class="bg-light tutorial-navigation h-100 menu-column">
 
-                    <div class="mt-4 mx-auto">
+                    <div class="mt-4 mx-auto nav-fill">
                         <nav-acc></nav-acc>
                         <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
                         <div class="mt-5">
@@ -26,17 +36,21 @@
                     <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"></display-tutorial>
                 </div>
             @else
-                <div class="col-md-8">
-                    <div class="teaser-head p-3"><p>Start <br> Headline</p></div>
-                    <button class="btn theme-background-horizontal teaser-button tutorial-link">
-                        Get start
-                    </button>
+                <div class="col-md-8 user-column">
+                    <div class="row mb-5 teaser">
+                        <div class="col-md-4 offset-md-6 mt-5">
+                            <div class="teaser-head p-3 mb-2"><p>{!! $settings->startscreen_title !!}</p></div>
+                            <button class="btn btn-secondary teaser-button tutorial-link">
+                                {{$settings->startscreen_button_text}}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             @endif
         </div>
     </div>
 
-    @endsection
+@endsection
 
 @section('scripts')
 
@@ -50,6 +64,7 @@
             width: 250px;
             padding-left: 20px;
             padding-right: 20px;
+
         }
 
         .tutorial-navigation {
@@ -103,16 +118,51 @@
             z-index: 2;
         }
 
-       .teaser-head {
+        .nav-fill {
+            opacity: 1 !important;
+        }
+
+        .teaser-head {
             text-transform: uppercase;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
             font-size: 2.5em;
             line-height: 1em;
             color: #fff;
-           background:  #05ffa3;
-           opacity: 0.5;
-           display: inline-block;
+            background: #05ffa3;
+            opacity: 0.5;
+            display: inline-block;
         }
+
+        div.background {
+            position: fixed;
+        }
+
+        img .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            min-width: 100%;
+            height: auto;
+            z-index: 1000;
+        }
+
+        .menu-column {
+            position: relative;
+            z-index: 2;
+        }
+
+        .user-column {
+
+        }
+
+        .teaser {
+            z-index: 5;
+            position: relative;
+        }
+
 
     </style>
 
