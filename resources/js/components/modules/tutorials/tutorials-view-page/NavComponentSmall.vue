@@ -1,5 +1,5 @@
 <template>
-    <div class="tutorials-admin-menu open ml-n3">
+    <div class="tutorials-admin-menu open">
         <div class="trigger" @click="showNav"></div>
         <ul v-show="navVisible" class="nav-sm-text">
             <li><a href='/module/tutorials/admin'><i class="fas fa-pen mr-2"></i><span>Manage tutorials</span></a>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
@@ -28,6 +29,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style scoped>

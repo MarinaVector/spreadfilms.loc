@@ -3,43 +3,49 @@
 @section('title', 'Personal Info')
 
 @section('content')
-    <div class="container-fluid bg-standart">
-        <div class="row h-100">
-            <div class="col-md-1">
-                <nav-small></nav-small>
-            </div>
-            <div class="col-md-2 offset-md-1 h-100 menu-column">
-                <!-- <div class="background">
-                     <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="Responsive image">
-                 </div> -->
-                <div class="background">
-                    @if ($settings->main_page_background===null)
-                        <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="">
-                    @else
-                        <img src="{{$settings->main_page_background}}" class="mr-3 mr-sm-4 back mr-5" alt="">
-                    @endif
-                </div>
-                <div class="bg-light tutorial-navigation h-100 menu-column">
-                    <div class="mt-4 mx-auto nav-fill">
-                        <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
-                        <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
-                        <div class="mt-5">
-                            <chart-circle></chart-circle>
-                        </div>
+    <div class="container-grid bg-standart h-100">
+        <div class="col-ttr">
+            <nav-small></nav-small>
+        </div>
+        <div class="col-ttr h-100 bg-light">
+            <!-- <div class="background">
+                 <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="Responsive image">
+             </div> -->
+            <div class="tutorial-navigation menu-column">
+                <div class="mt-4 mx-auto nav-fill">
+                    <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
+                    <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
+                    <div class="mt-5">
+                        <chart-circle></chart-circle>
                     </div>
                 </div>
             </div>
-
-            @if($tutorial === '')
-                <div class="col-md-8 user-column">
-                    <display-tutorials-main-page :settings="'{{ json_encode($settings) }}'"></display-tutorials-main-page>
-                </div>
-            @else
-                <div class="col-md-8 user-column">
-                    <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"></display-tutorial>
-                </div>
-            @endif
         </div>
+
+        <div class="col-ttr h-100 w-100 col-picture">
+            @if($tutorial === '')
+                <div class="col-ttr h-100 w-100">
+                    <div id="background-im">
+                        @if ($settings->main_page_background===null)
+                            <img id="back-default" src="/public/img/auth/bg-auth.jpg" alt="">
+                        @else
+                            <img src="{{$settings->main_page_background}}" id="back" alt="">
+                        @endif
+                        <div class="help-trigger">
+                            <i class="fal fa-question-circle">
+                            </i></div>
+                    </div>
+                    <display-tutorials-main-page
+                        :settings="'{{ json_encode($settings) }}'"></display-tutorials-main-page>
+
+                    @else
+                        <div class="user-column">
+                            <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"></display-tutorial>
+                        </div>
+                    @endif
+                </div>
+        </div>
+
     </div>
 
 @endsection
@@ -54,8 +60,8 @@
 
         .tutorial-navigation {
             width: 250px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 25px;
+            padding-right: 25px;
 
         }
 
@@ -71,7 +77,8 @@
 
         .tutorial-navigation::-webkit-scrollbar {
             -webkit-appearance: none;
-            width: 7px;
+            width: 5px;
+            color: #424242;
         }
 
         .tutorial-navigation::-webkit-scrollbar-thumb {
@@ -88,26 +95,20 @@
         }
 
         .teaser-button {
-            padding: 5px 10px;
+            padding: 3px;
             display: inline-block !important;
             cursor: pointer;
             position: relative;
-            margin-top: 10px;
             background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
             color: #fff;
+            border: 0;
+            border-radius: 0;
+
         }
 
-        .teaser-button:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: #000;
-            opacity: 0;
-            transition: opacity .15s ease-in-out;
-            z-index: 2;
+        .teaser-button:hover {
+            color: #fff;
+
         }
 
         .nav-fill {
@@ -120,26 +121,53 @@
             font-size: 2.5em;
             line-height: 1em;
             color: #fff;
-            background: #05ffa3;
-            opacity: 0.5;
             display: inline-block;
+
         }
 
-        div.background {
+        #background-im {
             position: fixed;
+            width: inherit;
+            height: inherit;
+            max-width: 77%;
+            object-fit: cover;
+            margin-top: -48px;
+            padding-right: 77px;
         }
 
-        img .back {
+        #back, #back-default {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             margin: auto;
-            min-width: 100%;
-            height: auto;
-            z-index: 1000;
+            width: inherit;
+            height: inherit;
+            z-index: 100;
+            background-repeat: no-repeat;
+            object-fit: cover;
         }
+
+        .help-trigger {
+            z-index: 123;
+            border-radius: 3px;
+            background-color: #212529;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .help-trigger {
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.5em;
+            display: inline-block;
+            line-height: 1em;
+            vertical-align: middle;
+            padding: 10px;
+        }
+
 
         .menu-column {
             position: relative;
@@ -150,11 +178,16 @@
 
         }
 
-        .teaser {
-            z-index: 5;
-            position: relative;
+        .container-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 16fr;
+            grid-template-rows: 100% 100% 100%;
+            justify-items: start;
         }
 
+        .col-picture {
+
+        }
 
     </style>
 

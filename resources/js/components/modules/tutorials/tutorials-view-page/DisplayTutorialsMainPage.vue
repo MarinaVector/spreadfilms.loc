@@ -1,8 +1,11 @@
 <template>
-    <div class="row mb-5 teaser">
-        <div class="col-md-4 offset-md-6 mt-5">
-            <div class="teaser-head p-3 mb-2"><p>{{ settingsObj.startscreen_title }}</p></div>
-            <button class="btn btn-secondary teaser-button tutorial-link">
+    <div class="teaser">
+        <div class="mt-5">
+            <div class="teaser-head p-3">
+                <p v-html="settingsObj.startscreen_title"></p>
+            </div>
+            <br>
+            <button class="teaser-button ml-3 px-3 py-1">
                 {{ settingsObj.startscreen_button_text }}
             </button>
         </div>
@@ -34,8 +37,6 @@
                     return item
                 });*/
             }
-
-
         },
         mounted() {
 
@@ -47,5 +48,12 @@
 </script>
 
 <style>
+
+.teaser {
+    z-index: 5;
+    position: relative;
+    left: 40%;
+    top: 16%;
+}
 
 </style>
