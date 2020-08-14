@@ -324,6 +324,13 @@ class TutorialsController extends Controller
                 $component = null;
                 break;
         }
+        if($component['header']){
+            $component['header'] = htmlspecialchars($component['header'], ENT_QUOTES);
+        }
+
+        if($component['text']){
+            $component['text'] = htmlspecialchars($component['text'], ENT_QUOTES);
+        }
 
         return $component;
     }
