@@ -354,15 +354,14 @@ class TutorialsController extends Controller
         }
         //dd($userCompanyTutorialsNested     'company_id',  $userCompany ->id);
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
-       // $userCompanyTutorialsSettings = $userCompany->tutorialsSettings->toJSON();
+        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings;
 
-        $settings =  CompanyTutorialsSettings::first();
-
-
-        return view('modules.tutorials.view_tutorials', compact('settings'))->with([
+        return view('modules.tutorials.view_tutorials')->with([
             'authUser' => $user,
             'tutorials' => $userCompanyTutorialsNestedJSON,
-            'settings' => $settings]);
+            'settings' => $userCompanyTutorialsSettings,
+            'tutorial' => '',
+            ]);
     }
 
 
@@ -396,7 +395,7 @@ class TutorialsController extends Controller
         }
         //dd($userCompanyTutorialsNested);
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
-        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings->toJSON();
+        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings;
         $tutorial = Tutorial::find($tutorial_id)->load(['categories', 'assignees']);
         $paragraphComponents = $tutorial->paragraphs;
         $paragraphs = [];
@@ -411,8 +410,6 @@ class TutorialsController extends Controller
         unset($tutorial->paragraphs);
 
         $tutorial->paragraphs = $paragraphs;
-        //unset($tutorial->paragraphs);
-        //dd($tutorial->toArray());
 
         return view('modules.tutorials.view_tutorials')->with([
             'authUser' => $user,

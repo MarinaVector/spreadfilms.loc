@@ -20,7 +20,6 @@
                     @endif
                 </div>
                 <div class="bg-light tutorial-navigation h-100 menu-column">
-
                     <div class="mt-4 mx-auto nav-fill">
                         <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
                         <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
@@ -31,20 +30,13 @@
                 </div>
             </div>
 
-            @if(isset($tutorial))
-                <div class="col-md-2 offset-md-1 h-100">
-                    <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"></display-tutorial>
+            @if($tutorial === '')
+                <div class="col-md-8 user-column">
+                    <display-tutorials-main-page :settings="'{{ json_encode($settings) }}'"></display-tutorials-main-page>
                 </div>
             @else
                 <div class="col-md-8 user-column">
-                    <div class="row mb-5 teaser">
-                        <div class="col-md-4 offset-md-6 mt-5">
-                            <div class="teaser-head p-3 mb-2"><p>{!! $settings->startscreen_title !!}</p></div>
-                            <button class="btn btn-secondary teaser-button tutorial-link">
-                                {{$settings->startscreen_button_text}}
-                            </button>
-                        </div>
-                    </div>
+                    <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"></display-tutorial>
                 </div>
             @endif
         </div>

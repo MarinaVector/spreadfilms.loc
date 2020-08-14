@@ -96,6 +96,7 @@ Vue.component('nav-small', require('./components/modules/tutorials/tutorials-vie
 Vue.component('tutorial-list', require('./components/modules/tutorials/tutorials-view-page/TutorialsNameList').default);
 Vue.component('view-nested-menu', require('./components/modules/tutorials/tutorials-view-page/ViewNestedMenu').default);
 Vue.component('display-tutorial', require('./components/modules/tutorials/tutorials-view-page/DisplayTutorial').default);
+Vue.component('display-tutorials-main-page', require('./components/modules/tutorials/tutorials-view-page/DisplayTutorialsMainPage').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
