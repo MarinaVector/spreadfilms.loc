@@ -2,7 +2,7 @@
     <ul class=" ">
         <li v-for="(tutorial, index) in tutorialsObj" class=" " :key="index">
             <div class="tutorial-player">
-                <a :href="'/module/tutorials/' + tutorial.id" target="_blank" class="menu-header mr-1">
+                <a :href="'/module/tutorials/view/' + tutorial.id" class="menu-header mr-1">
                     {{ tutorial.label }}
                 </a>
                 <span class="number mr-3">{{ tutorial.childrenCount }}</span>

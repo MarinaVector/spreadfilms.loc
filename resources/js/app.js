@@ -95,6 +95,7 @@ Vue.component('chart-circle', require('./components/modules/tutorials/tutorials-
 Vue.component('nav-small', require('./components/modules/tutorials/tutorials-view-page/NavComponentSmall').default);
 Vue.component('tutorial-list', require('./components/modules/tutorials/tutorials-view-page/TutorialsNameList').default);
 Vue.component('view-nested-menu', require('./components/modules/tutorials/tutorials-view-page/ViewNestedMenu').default);
+Vue.component('display-tutorial', require('./components/modules/tutorials/tutorials-view-page/DisplayTutorial').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

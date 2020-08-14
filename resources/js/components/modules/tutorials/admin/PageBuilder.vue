@@ -321,6 +321,7 @@
         methods: {
             addParagraphBlock(paragraphName, paragraphData = null) {
                 let Component = null;
+                console.log(paragraphName);
                 switch (paragraphName) {
                     case 'NormalText':
                         Component = cloneDepp(NormalText);
@@ -329,7 +330,7 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'video':
+                    case 'Video':
                         this.paragraphs.push({component: Video});
                         break;
                     case 'TxtImg':

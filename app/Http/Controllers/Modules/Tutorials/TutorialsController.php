@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Modules\Tutorials;
 
 use App\Http\Controllers\Controller;
+use App\Models\Companycategory;
 use App\Models\Paragraph;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
@@ -361,7 +362,55 @@ class TutorialsController extends Controller
     }
 
     final public function view($tutorial_id){
-        dd($tutorial_id);
+        $user = Auth::user();
+        $userCompany = $user->company();
+        $userCompanyTutorials = $userCompany->tutorials;
+        $userCompanyTutorialsNested = [];
+        foreach($userCompanyTutorials->toArray() as $tutorial){
+            if($tutorial['parent_tutorial_id'] === 0){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                    'count' => count($userCompanyTutorialsNested),
+
+
+                ];
+
+                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+
+
+                }
+                $userCompanyTutorialsNested[] = $resTutorial;
+            }
+        }
+        //dd($userCompanyTutorialsNested);
+        $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
+        $userCompanyTutorialsSettings = $userCompany->tutorialsSettings->toJSON();
+        $tutorial = Tutorial::find($tutorial_id)->load(['categories', 'assignees']);
+        $paragraphComponents = $tutorial->paragraphs;
+        $paragraphs = [];
+        foreach($paragraphComponents as $component){
+            $paragraph = [];
+            $paragraph['paragraph_type'] = $component['paragraph_type'];
+            $paragraph['data'] = $this->getParagraphDetails($component['paragraph_type'], $component['id']);
+            $paragraphs[] = $paragraph;
+        }
+
+        //deleting general paragraphs info array to avoid confusion
+        unset($tutorial->paragraphs);
+
+        $tutorial->paragraphs = $paragraphs;
+        //unset($tutorial->paragraphs);
+        //dd($tutorial->toArray());
+
+        return view('modules.tutorials.view_tutorials')->with([
+            'authUser' => $user,
+            'tutorials' => $userCompanyTutorialsNestedJSON,
+            'settings' => $userCompanyTutorialsSettings,
+            'tutorial' => $tutorial->toArray(),
+        ]);
     }
 
 }

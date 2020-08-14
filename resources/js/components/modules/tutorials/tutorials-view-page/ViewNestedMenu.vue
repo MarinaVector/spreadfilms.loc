@@ -10,7 +10,7 @@
                     <div class="timeline-body py-2 container">
                         <div class="row">
                             <div class="col-md-9 ml-3 mt-2">
-                                <a :href="'/module/tutorials/' + tutorial.id" target="_blank" class="ml-1 mr-5 tutorial-lb">
+                                <a :href="'/module/tutorials/view/' + tutorial.id" class="ml-1 mr-5 tutorial-lb">
                                     {{ tutorial.label }}
                                 </a>
                             </div>

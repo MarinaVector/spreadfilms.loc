@@ -21,12 +21,18 @@
                 </div>
             </div>
 
-            <div class="col-md-8">
-                <div class="teaser-head p-3"><p>Start <br> Headline</p></div>
-                <button class="btn theme-background-horizontal teaser-button tutorial-link">
-                    Get start
-                </button>
-            </div>
+            @if(isset($tutorial))
+                <div class="col-md-2 offset-md-1 h-100">
+                    <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"></display-tutorial>
+                </div>
+            @else
+                <div class="col-md-8">
+                    <div class="teaser-head p-3"><p>Start <br> Headline</p></div>
+                    <button class="btn theme-background-horizontal teaser-button tutorial-link">
+                        Get start
+                    </button>
+                </div>
+            @endif
         </div>
     </div>
 
