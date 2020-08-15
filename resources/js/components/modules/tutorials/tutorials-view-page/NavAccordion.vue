@@ -49,8 +49,6 @@ export default {
 }
 
 .tutorial-phrase {
-    padding: 10px;
-    width: 210px;
     display: block;
 }
 
@@ -60,7 +58,6 @@ export default {
     color: #d32f2f;
     border: solid #d32f2f 1px;
 }
-
 
 .pl-holder {
     border: solid 1px #aaa;
@@ -75,12 +72,10 @@ export default {
     border-left: none;
 }
 
-
 .search-icon i {
     color: #fff;
     font-size: 1.3em;
 }
-
 
 .search-input {
     border: solid 1px #aaa;

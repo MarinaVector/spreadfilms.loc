@@ -1,5 +1,14 @@
 <template>
-    <div class="tutorial-wrapper">
+    <div class="wiev-wrapper">
+        <div class="navigation">
+            <div class="navigation-inner"><span class="breadcrumbs"><span class="tutorial-link">Tutorial 4 filled</span></span>
+                <span class="button-navigation"><button class="prev nav-button tutorial-link"><span
+                    class="button-inner"><i class="fas fa-angle-left"></i></span></button></span>
+                <button class="btn btn-primary note-trigger"><span class="button-inner">Notizen &nbsp;<i
+                    class="far fa-edit"></i></span></button>
+            </div>
+        </div>
+
         <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
             <component
                 :index="index"
@@ -9,132 +18,134 @@
                 someProps="testing props"
             />
         </div>
+
+
     </div>
 </template>
 
 <script>
-    import NormalText from './paragraphs/NormalText'
-    import Video from './paragraphs/Video'
-    import TextImg from './paragraphs/TextImg'
-    import SliderAdd from './paragraphs/SliderAdd'
-    import BackgroundVideo from './paragraphs/BackgroundVideo'
-    import SimpleHead from './paragraphs/SimpleHead'
-    import draggable from 'vuedraggable'
-    import Quote from './paragraphs/Quote'
-    import ImgHeadText from './paragraphs/ImgHeadText'
-    import LgHeadText from './paragraphs/LgHeadText'
-    import TextLogo from './paragraphs/TextLogo'
-    import TextImgHigh from './paragraphs/TextImgHigh'
-    import Contact from './paragraphs/Contact'
-    import QuestionsAnswers from './paragraphs/QuestionsAnswers'
-    import cloneDepp from 'lodash/cloneDeep'
+import NormalText from './paragraphs/NormalText'
+import Video from './paragraphs/Video'
+import TextImg from './paragraphs/TextImg'
+import SliderAdd from './paragraphs/SliderAdd'
+import BackgroundVideo from './paragraphs/BackgroundVideo'
+import SimpleHead from './paragraphs/SimpleHead'
+import draggable from 'vuedraggable'
+import Quote from './paragraphs/Quote'
+import ImgHeadText from './paragraphs/ImgHeadText'
+import LgHeadText from './paragraphs/LgHeadText'
+import TextLogo from './paragraphs/TextLogo'
+import TextImgHigh from './paragraphs/TextImgHigh'
+import Contact from './paragraphs/Contact'
+import QuestionsAnswers from './paragraphs/QuestionsAnswers'
+import cloneDepp from 'lodash/cloneDeep'
 
-    export default {
-        components: {
-            NormalText,
-            Video,
-            TextImg,
-            SliderAdd,
-            draggable,
-            BackgroundVideo,
-            SimpleHead,
-            Quote,
-            ImgHeadText,
-            LgHeadText,
-            TextLogo,
-            TextImgHigh,
-            Contact,
-            QuestionsAnswers
-        },
-        name: 'DisplayTutorial',
-        props: ['tutorial'],
-        data() {
-            return {
-                tutorialObj: {},
-                paragraphs: [],
-            }
-
-        },
-        created() {
-            if (undefined !== this.tutorial) {
-                this.tutorialObj = JSON.parse(this.$props.tutorial)
-                /*this.tutorialObj = this.tutorial.map(item => {
-                    //item.active = false
-                    return item
-                });*/
-            }
-
-
-        },
-        mounted() {
-            if(this.tutorialObj.paragraphs){
-                this.tutorialObj.paragraphs.forEach((paragraph) => {
-                    this.addParagraphBlock(paragraph.paragraph_type, paragraph.data);
-                });
-            }
-        },
-        methods: {
-            completeTutorial(index) {
-                console.log('Congratulations, you did it!');
-            },
-            addParagraphBlock(paragraphName, paragraphData = null) {
-                let Component = null;
-                switch (paragraphName) {
-                    case 'NormalText':
-                        Component = cloneDepp(NormalText);
-                        if(null !== paragraphData){
-                            Component.mydata = paragraphData;
-                        }
-                        this.paragraphs.push({component: Component});
-                        break;
-                    case 'video':
-                        this.paragraphs.push({component: Video});
-                        break;
-                    case 'TxtImg':
-                        Component = cloneDepp(TextImg);
-                        if(null !== paragraphData){
-                            Component.mydata = paragraphData;
-                        }
-                        this.paragraphs.push({component: Component});
-                        break;
-                    case 'slider':
-                        this.paragraphs.push({component: SliderAdd});
-                        break;
-                    case 'bgVideo':
-                        this.paragraphs.push({component: BackgroundVideo});
-                        break;
-                    case 'simpleHead':
-                        this.paragraphs.push({component: SimpleHead});
-                        break;
-                    case 'quote':
-                        this.paragraphs.push({component: Quote});
-                        break;
-                    case 'spImgText':
-                        this.paragraphs.push({component: ImgHeadText});
-                        break;
-                    case 'lgHeadText':
-                        this.paragraphs.push({component: LgHeadText});
-                        break;
-                    case 'logoText':
-                        this.paragraphs.push({component: TextLogo});
-                        break;
-                    case 'highText':
-                        this.paragraphs.push({component: TextImgHigh});
-                        break;
-                    case 'contact':
-                        this.paragraphs.push({component: Contact});
-                        break;
-                    case 'question':
-                        this.paragraphs.push({component: QuestionsAnswers});
-                        break;
-                    default:
-                        return;
-                }
-                Component = null;
-                this.ComponentData = null;
-            },
+export default {
+    components: {
+        NormalText,
+        Video,
+        TextImg,
+        SliderAdd,
+        draggable,
+        BackgroundVideo,
+        SimpleHead,
+        Quote,
+        ImgHeadText,
+        LgHeadText,
+        TextLogo,
+        TextImgHigh,
+        Contact,
+        QuestionsAnswers
+    },
+    name: 'DisplayTutorial',
+    props: ['tutorial'],
+    data() {
+        return {
+            tutorialObj: {},
+            paragraphs: [],
         }
+
+    },
+    created() {
+        if (undefined !== this.tutorial) {
+            this.tutorialObj = JSON.parse(this.$props.tutorial)
+            /*this.tutorialObj = this.tutorial.map(item => {
+                //item.active = false
+                return item
+            });*/
+        }
+
+
+    },
+    mounted() {
+        if (this.tutorialObj.paragraphs) {
+            this.tutorialObj.paragraphs.forEach((paragraph) => {
+                this.addParagraphBlock(paragraph.paragraph_type, paragraph.data);
+            });
+        }
+    },
+    methods: {
+        completeTutorial(index) {
+            console.log('Congratulations, you did it!');
+        },
+        addParagraphBlock(paragraphName, paragraphData = null) {
+            let Component = null;
+            switch (paragraphName) {
+                case 'NormalText':
+                    Component = cloneDepp(NormalText);
+                    if (null !== paragraphData) {
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'video':
+                    this.paragraphs.push({component: Video});
+                    break;
+                case 'TxtImg':
+                    Component = cloneDepp(TextImg);
+                    if (null !== paragraphData) {
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'slider':
+                    this.paragraphs.push({component: SliderAdd});
+                    break;
+                case 'bgVideo':
+                    this.paragraphs.push({component: BackgroundVideo});
+                    break;
+                case 'simpleHead':
+                    this.paragraphs.push({component: SimpleHead});
+                    break;
+                case 'quote':
+                    this.paragraphs.push({component: Quote});
+                    break;
+                case 'spImgText':
+                    this.paragraphs.push({component: ImgHeadText});
+                    break;
+                case 'lgHeadText':
+                    this.paragraphs.push({component: LgHeadText});
+                    break;
+                case 'logoText':
+                    this.paragraphs.push({component: TextLogo});
+                    break;
+                case 'highText':
+                    this.paragraphs.push({component: TextImgHigh});
+                    break;
+                case 'contact':
+                    this.paragraphs.push({component: Contact});
+                    break;
+                case 'question':
+                    this.paragraphs.push({component: QuestionsAnswers});
+                    break;
+                default:
+                    return;
+            }
+            Component = null;
+            this.ComponentData = null;
+        },
     }
+}
 </script>
 
 <style>
@@ -158,7 +169,7 @@
     background-color: #fcf9f9;
     border-left: 7px solid #F0F0F0;
     white-space: normal;
-    }
+}
 
 .strike {
     display: none;
@@ -428,9 +439,76 @@ div .timeline-body:hover {
     box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
 }
 
-.tutorial-wrapper{
+.tutorial-wrapper {
     padding: 60px 15%;
     height: auto;
 }
+
+.navigation {
+    padding-left: 20px;
+    height: 70px;
+    width: 100%;
+    padding-top: 30px;
+    background: #f1f1f1;
+    position: absolute;
+    top: -120px;
+    right: 0;
+    z-index: 1234;
+}
+
+.navigation-inner {
+    width: calc(100% - 20px);
+    margin-left: 20px;
+}
+
+ .navigation-inner {
+    height: 60px;
+    float: left;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    border: solid 1px #dcdcdc;
+}
+
+.breadcrumbs {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button-navigation {
+    right: 110px;
+}
+
+.button-navigation {
+    position: absolute;
+    right: 130px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-button {
+    display: inline-block;
+    margin: 0 10px;
+    background: #ddd;
+    border-radius: 100%;
+    padding: 10px 14px;
+    text-align: center;
+    border: none;
+    color: #fff;
+    vertical-align: middle;
+    outline: none;
+}
+
+.tutorial-link {
+    cursor: pointer;
+}
+
+.view-wrapper {
+    padding: 30px 10%;
+    height: auto;
+}
+
 
 </style>
