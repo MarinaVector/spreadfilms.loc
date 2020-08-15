@@ -19,6 +19,12 @@
             />
         </div>
 
+        <div class="navigation-inner"><span class="button-navigation"><button
+            class="prev nav-button">
+            <span class="button-inner"><i class="fas fa-angle-left"></i></span>
+        </button> <button class="btn btn-primary close-tutorial">
+            <span class="button-inner">Complete this tutorial</span></button></span>
+        </div>
 
     </div>
 </template>
@@ -451,7 +457,6 @@ div .timeline-body:hover {
     padding-top: 30px;
     background: #f1f1f1;
     position: absolute;
-    top: -120px;
     right: 0;
     z-index: 1234;
 }
