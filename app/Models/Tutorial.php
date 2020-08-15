@@ -95,13 +95,47 @@ class Tutorial extends Model
      * @param int $newIndex
      */
     final public function updateTutorialsSortorder(int $oldIndex, int $newIndex):void {
-        $secondTutorial = $this::where('parent_tutorial_id', $this->parent_tutorial_id)
+        // 1. Searching for a tutorial into which place we are moving current tutorial
+        $targetTutorial = self::where('parent_tutorial_id', $this->parent_tutorial_id)
             ->where('company_id', $this->company_id)
-            ->where('sortorder', $newIndex + 1)
-            ->first();
-        $secondTutorial->sortorder = $oldIndex + 1;
-        $secondTutorial->save();
-        $this->sortorder = $newIndex + 1;
+            ->orderBy('sortorder')
+            ->get()[$newIndex];
+
+        // 2. Saving sortorder value of target tutorial for future for our current tutorial, because it will be changed
+        // when tutorials sortorders will be updated
+        $currentTutorialNewSortorder = $targetTutorial->sortorder;
+
+        // 3. We are searching all tutorials between to update their sortorders(they have to be moved up or down)
+        if($oldIndex > $newIndex){
+            $tutorialsInRange = self::where('parent_tutorial_id', $this->parent_tutorial_id)
+                ->where('company_id', $this->company_id)
+                ->where('sortorder', '>=', $targetTutorial->sortorder)
+                ->where('sortorder', '<', $this->sortorder)
+                ->orderBy('sortorder')
+                ->get();
+
+            // 4. increasing sortorder of each tutorial up by 1
+            foreach($tutorialsInRange as $tutorial){
+                $tutorial->sortorder++;
+                $tutorial->save();
+            }
+        } else {
+            $tutorialsInRange = self::where('parent_tutorial_id', $this->parent_tutorial_id)
+                ->where('company_id', $this->company_id)
+                ->where('sortorder', '<=', $targetTutorial->sortorder)
+                ->where('sortorder', '>', $this->sortorder)
+                ->orderBy('sortorder')
+                ->get();
+
+            // 4. decreasing sortorder of each tutorial down by 1
+            foreach($tutorialsInRange as $tutorial){
+                $tutorial->sortorder--;
+                $tutorial->save();
+            }
+        }
+
+        // 5. Setting current tutorial our previous saved sortorder value of target tutorial
+        $this->sortorder = $currentTutorialNewSortorder;
         $this->save();
     }
 

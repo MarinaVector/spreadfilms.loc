@@ -19,9 +19,6 @@ class TutorialsController extends Controller
 {
     //Admin page where he can manage tutorials
     final public function manageTutorials(): View {
-        /*$tutorial = Tutorial::find(71);
-        dump($tutorial->deleteRecursively());
-        dd('end');*/
         $user = Auth::user();
         $userCompanyTutorials = $user->company()->tutorials;
         $userCompanyTutorialsNested = [];
@@ -38,7 +35,7 @@ class TutorialsController extends Controller
                 $userCompanyTutorialsNested[] = $resTutorial;
             }
         }
-        //dd($userCompanyTutorialsNested);
+
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
 
         return view('modules.tutorials.manage_tutorials')->with([
@@ -191,7 +188,7 @@ class TutorialsController extends Controller
         $tutorial = Tutorial::find($tutorialID);
         $tutorial->updateTutorialsSortorder($oldIndex, $newIndex);
 
-        return json_encode(['status' => 'ok']);
+        return json_encode(['status' => 'ok', 'oldIndex' => $oldIndex, 'newIndex' => $newIndex]);
     }
 
     final public function storeParagraphData(array $paragraph, int $paragraphId): bool {
@@ -359,7 +356,7 @@ class TutorialsController extends Controller
                 $userCompanyTutorialsNested[] = $resTutorial;
             }
         }
-        //dd($userCompanyTutorialsNested     'company_id',  $userCompany ->id);
+
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
         $userCompanyTutorialsSettings = $userCompany->tutorialsSettings;
 
@@ -370,11 +367,6 @@ class TutorialsController extends Controller
             'tutorial' => '',
             ]);
     }
-
-
-
-
-
 
     final public function view($tutorial_id){
         $user = Auth::user();
@@ -387,8 +379,6 @@ class TutorialsController extends Controller
                     'id' => $tutorial['id'],
                     'label' => $tutorial['name'],
                     'count' => count($userCompanyTutorialsNested),
-
-
                 ];
 
                 $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
@@ -400,7 +390,7 @@ class TutorialsController extends Controller
                 $userCompanyTutorialsNested[] = $resTutorial;
             }
         }
-        //dd($userCompanyTutorialsNested);
+
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
         $userCompanyTutorialsSettings = $userCompany->tutorialsSettings;
         $tutorial = Tutorial::find($tutorial_id)->load(['categories', 'assignees']);
@@ -425,7 +415,6 @@ class TutorialsController extends Controller
             'tutorial' => $tutorial->toArray(),
         ]);
     }
-
 }
 
 
