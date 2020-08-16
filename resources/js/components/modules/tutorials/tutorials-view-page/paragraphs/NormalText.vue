@@ -3,7 +3,7 @@
         <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type"/>
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
 
             <div class="headline h2 text-left mb-2 mt-2 final-header" v-html="NormalTextHeader">
 

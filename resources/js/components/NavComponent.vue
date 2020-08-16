@@ -231,10 +231,9 @@
 
     ::-webkit-scrollbar {
 
-        width: 0px;
 
     }
-    
+
     .v-sidebar-menu * {
         -webkit-box-sizing: border-box;
         box-sizing: border-box

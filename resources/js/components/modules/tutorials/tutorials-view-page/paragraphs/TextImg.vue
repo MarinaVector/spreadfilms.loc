@@ -10,7 +10,7 @@
                         <div class="text-final">
 
                             <div class="text-out">
-                                <div class="text-header text-left mb-3" v-html="NormalTextHeader">
+                                <div class="text-header headline h2 text-left mb-3" v-html="NormalTextHeader">
 
                                 </div>
                                 <div class="text-justify" v-html="NormalTextBody">

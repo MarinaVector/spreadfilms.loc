@@ -1,33 +1,103 @@
 <template>
-    <div class="wiev-wrapper">
-        <div class="navigation">
-            <div class="navigation-inner"><span class="breadcrumbs"><span class="tutorial-link">Tutorial 4 filled</span></span>
-                <span class="button-navigation"><button class="prev nav-button tutorial-link"><span
-                    class="button-inner"><i class="fas fa-angle-left"></i></span></button></span>
-                <button class="btn btn-primary note-trigger"><span class="button-inner">Notizen &nbsp;<i
-                    class="far fa-edit"></i></span></button>
+    <div class="pt-5" id="display-container">
+
+        <!-- <div class="container navigation">
+             <div class="navigation-inner"><span class="breadcrumbs"><span class="">Welcome!</span>
+        <span class="">1</span></span> <span class="button-navigation">
+                 <button class="prev nav-round-button"><span class="button-inner">
+                     <i class="fas fa-angle-left"></i></span></button>
+                 <button class="next nav-round-button"><span class="button-inner">
+                     <i class="fas fa-angle-right"></i></span></button></span>
+                 <button class="btn btn-primary note-trigger">
+                     <span class="button-inner">Notice &nbsp;<i class="far fa-edit"></i></span></button></div>
+         </div>
+
+
+        <nav class="navbar navbar-light bg-light navigation-inner mb-5">
+            <span class="breadcrumbs"><span class="">Welcome!</span>/
+<span class="">1</span></span>
+
+            <form class="form-inline">
+                <span class="button-navigation">
+                 <button class="prev nav-round-button"><span class="button-inner">
+                     <i class="fas fa-angle-left"></i></span></button>
+                 <button class="next nav-round-button"><span class="button-inner">
+                     <i class="fas fa-angle-right"></i></span></button></span>
+                <button class="btn btn-primary note-trigger">
+                    <span class="button-inner">Notice &nbsp;<i class="far fa-edit"></i></span></button>
+            </form>
+        </nav>
+        -->
+        <div id="header">
+            <div class="navigation-inner mb-5">
+            <span class="breadcrumbs">
+                <span class="navbar-text">Welcome</span>
+ /
+
+<span class="">Magik</span>
+            </span>
+                <span class="nav-round-button">
+            <button class="prev nav-button">
+                <span class="button-inner">
+                <i class="fas fa-angle-left"></i>
+                </span>
+            </button>
+                <button class="next nav-button">
+            <span class="button-inner"><i class="fas fa-angle-right"></i></span>
+                </button>
+                 <button class="btn btn-primary note-trigger">
+                <span class="button-inner">Notice &nbsp;
+                    <i class="far fa-edit"></i>
+                </span>
+            </button>
+            </span>
             </div>
         </div>
 
-        <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
-            <component
-                :index="index"
-                :key="index"
-                :is=paragraph.component
-                :mydata="paragraph.component.mydata"
-                someProps="testing props"
-            />
+
+
+
+
+
+
+
+<div class="h-100">
+        <div class="h-100 layer mb-0">
+            <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
+                <component
+                    :index="index"
+                    :key="index"
+                    :is=paragraph.component
+                    :mydata="paragraph.component.mydata"
+                    someProps="testing props"
+                />
+            </div>
+        </div>
+</div>
+<!--
+        <div id="footer">
+            <div class="navigation-inner">
+            <span class="nav-round-button">
+            <button class="prev nav-button">
+            <span class="button-inner">
+                <i class="fas fa-angle-left">
+                </i>
+            </span>
+        </button>
+                <button class="btn btn-primary close-tutorial">
+            <span class="button-inner">Complete this tutorial</span>
+            </button>
+            </span>
+            </div>
         </div>
 
-        <div class="navigation-inner"><span class="button-navigation"><button
-            class="prev nav-button">
-            <span class="button-inner"><i class="fas fa-angle-left"></i></span>
-        </button> <button class="btn btn-primary close-tutorial">
-            <span class="button-inner">Complete this tutorial</span></button></span>
-        </div>
+-->
+
 
     </div>
 </template>
+
+
 
 <script>
 import NormalText from './paragraphs/NormalText'
@@ -148,6 +218,9 @@ export default {
                     return;
             }
             Component = null;
+
+
+
             this.ComponentData = null;
         },
     }
@@ -156,318 +229,13 @@ export default {
 
 <style>
 
-.collapser-nested {
-    display: inline;
-    cursor: pointer;
-}
-
-.timeline-badge {
-    width: 10px;
-    height: 10px;
-    line-height: 8px;
-    font-size: 1em;
-    position: absolute;
-    background-color: #666666;
-    border-radius: 50%;
-}
-
-.timeline-panel:hover {
-    background-color: #fcf9f9;
-    border-left: 7px solid #F0F0F0;
-    white-space: normal;
-}
-
-.strike {
-    display: none;
-}
-
-.tutorial-player {
-    padding-top: 14px;
-    padding-bottom: 20px;
-    padding-right: 40px;
-    padding-left: 20px;
-    text-transform: uppercase;
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
-    color: #fff;
-    border: none;
-    width: 210px;
-}
-
-button .tutorial-player:active,
-button .tutorial-player:focus {
-    outline: none !important;
-}
-
-button .tutorial-player::-moz-focus-inner {
-    border: 0 !important;
-}
-
-.collapser {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 15px;
-    cursor: pointer;
-}
-
-.tutorial-collapse {
-    background: #F0F0F0;
-    text-align: center;
-    border: 0;
-    color: #424242;
-    vertical-align: middle;
-    outline: none;
-    font-size: 0.75rem;
-    border-radius: 0 0 3px 3px;
-}
-
-.tutorial-link {
-    padding: 10px;
-    width: 100%;
-    display: block;
-}
-
-.progress-wrapper.children {
-    background: #333;
-    bottom: 0;
-}
-
-.progress-wrapper {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    height: 3px;
-}
-
-.progress-wrapper.self.double {
-    bottom: 5px;
-}
-
-.progress-wrapper.self.double {
-    display: none;
-}
-
-.progress-wrapper.self {
-    background: #333;
-    bottom: 0;
-    overflow: hidden;
-}
-
-.progress-wrapper {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    height: 3px;
-}
-
-.progress {
-    margin: 5px 0 0 0;
-    background: #e8e8e8;
-    overflow: visible;
-    border-color: #989898;
-    border-style: solid;
-    border-width: 1px 1px 1px 1px;
-    height: 2em;
-}
-
-.number {
-    font-weight: normal;
-    padding: 1px 8px;
-    border-radius: 10px;
-    border: solid 1px;
-    line-height: 1em;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0.75em;
-}
-
-.timeline {
-    list-style: none;
-    position: relative;
-}
-
-.timeline:before {
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 1px;
-    background-color: #CCCCCC;
-    left: 21px;
-}
-
-.timeline > li {
-    position: relative;
-}
-
-.timeline > li:before,
-.timeline > li:after {
-    content: " ";
-    display: table;
-}
-
-.timeline > li:after {
-    clear: both;
-}
-
-.timeline > li:before,
-.timeline > li:after {
-    content: " ";
-    display: table;
-}
-
-.timeline > li:after {
-    clear: both;
-}
-
-.timeline > li > .timeline-panel {
-    width: 190px;
-}
-
-.timeline > li > .timeline-panel:before {
-    position: absolute;
-    top: 26px;
-    left: -15px;
-    display: inline-block;
-}
-
-.timeline > li > .timeline-panel:after {
-    position: absolute;
-    top: 27px;
-    left: -14px;
-    display: inline-block;
-}
-
-.timeline > li > .timeline-badge {
-
-    width: 11px;
-    height: 11px;
-    line-height: 8px;
-    font-size: 1em;
-    position: absolute;
-    background-color: #666666;
-    border-radius: 50%;
-}
-
-.timeline > li.timeline-inverted > .timeline-panel {
-    float: left;
-}
-
-.timeline > li.timeline-inverted > .timeline-panel:before {
-    border-left-width: 0;
-    border-right-width: 15px;
-    right: -15px;
-    right: auto;
-}
-
-.timeline > li.timeline-inverted > .timeline-panel:after {
-    border-left-width: 0;
-    border-right-width: 14px;
-    left: -14px;
-    right: auto;
-}
-
-.timeline-badge.primary {
-    background-color: black !important;
-}
-
-.timeline-badge.up {
-    background-color: #525252 !important;
-}
-
-.timeline-badge.down {
-    background-color: #d32f2f !important;
-}
-
-.timeline-badge.neutral {
-    background-color: #999999 !important;
-}
-
-.timeline-title {
-    margin-top: 0;
-    color: inherit;
-}
-
-.timeline-body > p,
-.timeline-body > ul {
-    margin-bottom: 0;
-}
-
-.timeline-body > p + p {
-    margin-top: 5px;
-}
-
-.timeline-body:hover {
-    background-color: #aaa;
-}
-
-.fa-white {
-    color: #ffffff !important;
-}
-
-li {
-    list-style-type: none;
-}
-
-ul {
-    margin-left: 0;
-    padding-left: 0;
-}
-
-div .timeline-body:active {
-    color: #D60E2A;
-}
-
-div .timeline-body:hover {
-    background-color: #aaa !important;
-    color: #424242 !important;
-}
-
-.tutorial-lb:hover {
-    color: #424242 !important;
-}
-
-.nested-down:before {
-    content: "";
-    display: block;
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
-}
-
-.nested-down:after {
-    content: "";
-    display: block;
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
-}
-
-.tutorial-wrapper {
-    padding: 60px 15%;
-    height: auto;
-}
-
-.navigation {
-    padding-left: 20px;
-    height: 70px;
-    width: 100%;
-    padding-top: 30px;
-    background: #f1f1f1;
-    position: absolute;
-    right: 0;
-    z-index: 1234;
-}
-
 .navigation-inner {
     width: calc(100% - 20px);
     margin-left: 20px;
 }
 
- .navigation-inner {
-    height: 60px;
+.navigation-inner {
+    height: 70px;
     float: left;
     width: 100%;
     background: #fff;
@@ -476,17 +244,18 @@ div .timeline-body:hover {
 }
 
 .breadcrumbs {
-    position: absolute;
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
+    position: absolute;
+    font-size: 16px;
 }
 
-.button-navigation {
+.nav-round-button {
     right: 110px;
 }
 
-.button-navigation {
+.nav-round-button {
     position: absolute;
     right: 130px;
     top: 50%;
@@ -514,6 +283,76 @@ div .timeline-body:hover {
     padding: 30px 10%;
     height: auto;
 }
+
+.breadcrumbs span:last-child {
+    color: #2096ff;
+    font-weight: bold;
+
+}
+
+#header {
+
+}
+
+
+#body {
+
+}
+
+#footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:70px;
+}
+
+#display-container {
+    height:100%;
+    position:relative;
+    width: 90%;
+}
+
+.doc-container {
+    margin-top: 120px !important;
+    overflow-y: scroll;
+}
+
+.scrollbar
+{
+    float: left;
+    overflow-y: scroll;
+}
+
+.force-overflow
+{
+    height: 100%;
+}
+
+
+
+#style::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    background-color: #F5F5F5;
+}
+
+#style::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#style::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
+}
+.layer {
+    overflow: scroll;
+      padding: 5px;
+    }
+
+
 
 
 </style>

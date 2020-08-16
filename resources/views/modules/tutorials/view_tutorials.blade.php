@@ -7,11 +7,11 @@
         <div class="col-ttr">
             <nav-small></nav-small>
         </div>
-        <div class="col-ttr h-100 bg-light menu-column">
+        <div class="col-ttr h-100 bg-light menu-column tutorial-navigation">
             <!-- <div class="background">
                  <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="Responsive image">
              </div> -->
-            <div class="tutorial-navigation menu-column">
+            <div class="menu-column">
                 <div class="mt-4 mx-auto nav-fill">
                     <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
                     <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
@@ -62,6 +62,7 @@
             width: 250px;
             padding-left: 25px;
             padding-right: 25px;
+            position: sticky;
 
         }
 
@@ -77,8 +78,9 @@
 
         .tutorial-navigation::-webkit-scrollbar {
             -webkit-appearance: none;
-            width: 7px;
-            color: black;
+            width: 5px;
+            color: #424242;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
         }
 
         .tutorial-navigation::-webkit-scrollbar-thumb {
@@ -86,12 +88,12 @@
             background-color: #000000e6;
             margin: 0 3px;
             width: 2px !important;
-            position: absolute;
             min-height: 30px;
-            height: 313px;
+            height: 120px;
             top: 0px;
             display: block;
-            max-height: 506px;
+            max-height: 120px;
+            position: absolute;
         }
 
         .teaser-button {

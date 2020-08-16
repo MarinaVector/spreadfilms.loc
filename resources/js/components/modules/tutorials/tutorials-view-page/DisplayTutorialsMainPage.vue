@@ -1,7 +1,7 @@
 <template>
-    <div class="teaser">
-        <div class="mt-5">
-            <div class="teaser-head p-3">
+    <div class="mt-5 teaser offset-md-6">
+    <div class="teaser-info">
+                    <div class="teaser-head p-3">
                 <p v-html="settingsObj.startscreen_title"></p>
             </div>
             <br>
@@ -50,10 +50,13 @@
 <style>
 
 .teaser {
-    z-index: 5;
-    position: relative;
     left: 40%;
     top: 16%;
+}
+
+.teaser-info {
+    position: sticky;
+    z-index: 5;
 }
 
 </style>
