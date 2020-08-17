@@ -15,7 +15,7 @@
                                placeholder="New Tutorial"
                                name="tutorial_name"
                                id="tutorial_name"
-                               :value="tutorialObj.name"
+                               v-model="tutorialObj.name"
                         >
                     </div>
                 </div>
