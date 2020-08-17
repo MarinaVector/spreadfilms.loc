@@ -1,16 +1,13 @@
 @extends('layouts.profile')
 
-@section('title', 'Personal Info')
+@section('title', 'Tutorials Info')
 
 @section('content')
-    <div class="container-grid bg-standart h-100">
-        <div class="col-ttr">
+    <div class="container-grid bg-standart h-100 m-0">
+        <div class="col-ttr1">
             <nav-small></nav-small>
         </div>
-        <div class="col-ttr h-100 bg-light menu-column tutorial-navigation">
-            <!-- <div class="background">
-                 <img class="mr-3 mr-sm-4 back mr-5" src="/public/img/auth/bg-auth.jpg" alt="Responsive image">
-             </div> -->
+        <div class="col-ttr h-100 bg-light menu-column tutorial-field tutorial-navigation">
             <div class="menu-column">
                 <div class="mt-4 mx-auto nav-fill">
                     <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
@@ -25,16 +22,20 @@
         <div class="col-ttr h-100 w-100 col-picture">
             @if($tutorial === '')
                 <div class="col-ttr h-100 w-100">
-                    <div id="background-im">
+
                         @if ($settings->main_page_background===null)
+                        <div id="background-im">
                             <img id="back-default" src="/public/img/auth/bg-auth.jpg" alt="">
+                        </div>
                         @else
+                        <div id="background-im">
                             <img src="{{$settings->main_page_background}}" id="back" alt="">
+                        </div>
                         @endif
                         <div class="help-trigger">
                             <i class="fal fa-question-circle">
                             </i></div>
-                    </div>
+
                     <display-tutorials-main-page
                         :settings="'{{ json_encode($settings) }}'"></display-tutorials-main-page>
 
@@ -58,7 +59,7 @@
             visibility: hidden;
         }
 
-        .tutorial-navigation {
+        .tutorial-field {
             width: 250px;
             padding-left: 25px;
             padding-right: 25px;
@@ -187,7 +188,7 @@
             justify-items: start;
         }
 
-        .col-picture {
+        .col-ttr {
 
         }
 

@@ -1,102 +1,107 @@
 <template>
-    <div class="pt-5" id="display-container">
+    <div class="container-fluid" id="display-container">
 
-        <!-- <div class="container navigation">
-             <div class="navigation-inner"><span class="breadcrumbs"><span class="">Welcome!</span>
-        <span class="">1</span></span> <span class="button-navigation">
-                 <button class="prev nav-round-button"><span class="button-inner">
-                     <i class="fas fa-angle-left"></i></span></button>
-                 <button class="next nav-round-button"><span class="button-inner">
-                     <i class="fas fa-angle-right"></i></span></button></span>
-                 <button class="btn btn-primary note-trigger">
-                     <span class="button-inner">Notice &nbsp;<i class="far fa-edit"></i></span></button></div>
-         </div>
-
-
-        <nav class="navbar navbar-light bg-light navigation-inner mb-5">
-            <span class="breadcrumbs"><span class="">Welcome!</span>/
-<span class="">1</span></span>
-
-            <form class="form-inline">
-                <span class="button-navigation">
-                 <button class="prev nav-round-button"><span class="button-inner">
-                     <i class="fas fa-angle-left"></i></span></button>
-                 <button class="next nav-round-button"><span class="button-inner">
-                     <i class="fas fa-angle-right"></i></span></button></span>
-                <button class="btn btn-primary note-trigger">
-                    <span class="button-inner">Notice &nbsp;<i class="far fa-edit"></i></span></button>
-            </form>
-        </nav>
-        -->
-        <div id="header">
-            <div class="navigation-inner mb-5">
-            <span class="breadcrumbs">
-                <span class="navbar-text">Welcome</span>
- /
+        <div class="up-read py-3 px-5">
+            <div id="header">
+                <div class="navigation-inner mb-5">
+<span class="breadcrumbs">
+<span class="navbar-text">Welcome</span>
+/
 
 <span class="">Magik</span>
-            </span>
-                <span class="nav-round-button">
-            <button class="prev nav-button">
-                <span class="button-inner">
-                <i class="fas fa-angle-left"></i>
-                </span>
-            </button>
-                <button class="next nav-button">
-            <span class="button-inner"><i class="fas fa-angle-right"></i></span>
-                </button>
-                 <button class="btn btn-primary note-trigger">
-                <span class="button-inner">Notice &nbsp;
-                    <i class="far fa-edit"></i>
-                </span>
-            </button>
-            </span>
+</span>
+                    <span class="nav-round-button ml-5">
+<button class="prev nav-button">
+<span class="button-inner">
+<i class="fas fa-angle-left"></i>
+</span>
+</button>
+<button class="next nav-button">
+<span class="button-inner"><i class="fas fa-angle-right"></i></span>
+</button>
+<button class="btn btn-primary note-trigger">
+<span class="button-inner">Notice &nbsp;
+<i class="far fa-edit"></i>
+</span>
+</button>
+</span>
+                </div>
+            </div>
+        </div>
+
+        <!--   <div class="tutorial-navigation  tutorial-read">
+             <div class="middle-read bg-light container">
+                 <div class="mb-0">
+                         <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
+                             <component
+                                 :index="index"
+                                 :key="index"
+                                 :is=paragraph.component
+                                 :mydata="paragraph.component.mydata"
+                                 someProps="testing props"
+                             />
+                         </div>
+                 </div>
+             </div>
+             </div>
+             -->
+
+
+        <!--  *TEST BOOTSTRAP*
+               <div data-spy="scroll" data-target="" data-offset="0" class="test-1">
+                   <h4 id="fat">@fat</h4>
+                   <p>...</p>
+                   <h4 id="mdo">@mdo</h4>
+                   <p>...</p>
+                   <h4 id="one">one</h4>
+                   <p>...</p>
+                   <h4 id="two">two</h4>
+                   <p>...</p>
+                   <h4 id="three">three</h4>
+                   <p>...</p>
+               </div>
+       -->
+
+        <div class="col-ttr menu-column py-3 px-5 mt-3 container">
+            <div class="menu-column">
+                <div class="tutorial-read tutorial-navigation">
+                    <div class="mt-4 bg-light p-5 mx-auto nav-fill">
+                        <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
+                            <component
+                                :index="index"
+                                :key="index"
+                                :is=paragraph.component
+                                :mydata="paragraph.component.mydata"
+                                someProps="testing props"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
 
-
-
-
-
-
-
-<div class="h-100">
-        <div class="h-100 layer mb-0">
-            <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
-                <component
-                    :index="index"
-                    :key="index"
-                    :is=paragraph.component
-                    :mydata="paragraph.component.mydata"
-                    someProps="testing props"
-                />
+        <footer class="up-read py-3 px-5 mb-n3">
+            <div id="footer">
+                <div class="navigation-inner">
+       <span class="nav-round-button">
+       <button class="prev nav-button">
+       <span class="button-inner">
+       <i class="fas fa-angle-left">
+       </i>
+       </span>
+       </button>
+       <button class="btn btn-primary close-tutorial">
+       <span class="button-inner">Complete this tutorial</span>
+       </button>
+       </span>
+                </div>
             </div>
-        </div>
-</div>
-<!--
-        <div id="footer">
-            <div class="navigation-inner">
-            <span class="nav-round-button">
-            <button class="prev nav-button">
-            <span class="button-inner">
-                <i class="fas fa-angle-left">
-                </i>
-            </span>
-        </button>
-                <button class="btn btn-primary close-tutorial">
-            <span class="button-inner">Complete this tutorial</span>
-            </button>
-            </span>
-            </div>
-        </div>
-
--->
+        </footer>
 
 
     </div>
 </template>
-
 
 
 <script>
@@ -220,7 +225,6 @@ export default {
             Component = null;
 
 
-
             this.ComponentData = null;
         },
     }
@@ -231,7 +235,6 @@ export default {
 
 .navigation-inner {
     width: calc(100% - 20px);
-    margin-left: 20px;
 }
 
 .navigation-inner {
@@ -275,84 +278,34 @@ export default {
     outline: none;
 }
 
-.tutorial-link {
-    cursor: pointer;
-}
-
-.view-wrapper {
-    padding: 30px 10%;
-    height: auto;
-}
-
 .breadcrumbs span:last-child {
     color: #2096ff;
     font-weight: bold;
-
-}
-
-#header {
-
-}
-
-
-#body {
-
 }
 
 #footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:70px;
+    bottom: 0;
+    width: 100%;
 }
 
 #display-container {
-    height:100%;
-    position:relative;
-    width: 90%;
+    display: grid;
+    grid-template-rows: 80px 1fr 80px;
+    gap: 10px;
+    margin: 0;
 }
 
-.doc-container {
-    margin-top: 120px !important;
-    overflow-y: scroll;
+.tutorial-read {
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+    overflow: auto;
+    height: calc(100vh - 250px);
+
 }
 
-.scrollbar
-{
-    float: left;
-    overflow-y: scroll;
+div .up-read {
+    height: 100px;
 }
-
-.force-overflow
-{
-    height: 100%;
-}
-
-
-
-#style::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
-    border-radius: 3px;
-    background-color: #F5F5F5;
-}
-
-#style::-webkit-scrollbar
-{
-    width: 6px;
-    background-color: #F5F5F5;
-}
-
-#style::-webkit-scrollbar-thumb
-{
-    background-color: #000000;
-}
-.layer {
-    overflow: scroll;
-      padding: 5px;
-    }
-
-
-
 
 </style>
