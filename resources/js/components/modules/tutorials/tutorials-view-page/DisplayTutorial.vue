@@ -1,30 +1,30 @@
 <template>
     <div class="container-fluid" id="display-container">
-
         <div class="up-read py-3 px-5">
             <div id="header">
                 <div class="navigation-inner mb-5">
-<span class="breadcrumbs">
-<span class="navbar-text">Welcome</span>
-/
-
-<span class="">Magik</span>
-</span>
+                    <span class="breadcrumbs">
+                        <span class="navbar-text">Welcome</span>
+                        /
+                        <span class="">Magik</span>
+                    </span>
                     <span class="nav-round-button ml-5">
-<button class="prev nav-button">
-<span class="button-inner">
-<i class="fas fa-angle-left"></i>
-</span>
-</button>
-<button class="next nav-button">
-<span class="button-inner"><i class="fas fa-angle-right"></i></span>
-</button>
-<button class="btn btn-primary note-trigger">
-<span class="button-inner">Notice &nbsp;
-<i class="far fa-edit"></i>
-</span>
-</button>
-</span>
+                        <button class="prev nav-button">
+                            <span class="button-inner">
+                                <i class="fas fa-angle-left"></i>
+                            </span>
+                        </button>
+                        <button class="next nav-button">
+                            <span class="button-inner">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </button>
+                        <button class="btn btn-primary note-trigger">
+                            <span class="button-inner">Notice &nbsp;
+                                <i class="far fa-edit"></i>
+                            </span>
+                        </button>
+                    </span>
                 </div>
             </div>
         </div>
@@ -50,41 +50,21 @@
         <footer class="up-read py-3 px-5 mb-n3">
             <div id="footer">
                 <div class="navigation-inner nav justify-content-end">
-       <span class="nav-round-button">
-       <button class="prev nav-button">
-       <span class="button-inner">
-       <i class="fas fa-angle-left">
-       </i>
-       </span>
-       </button>
+                    <span class="nav-round-button">
+                        <button class="prev nav-button">
+                            <span class="button-inner">
+                                <i class="fas fa-angle-left"></i>
+                            </span>
+                        </button>
 
-           <button class="btn btn-primary close-tutorial"  @click="toggleModal">
-               <span class="button-inner">Complete this tutorial</span></button>
-                </span>
+                        <button class="btn btn-primary close-tutorial" @click="completeTutorial(tutorialObj.id)">
+                            <span class="button-inner">Complete this tutorial</span>
+                        </button>
+                    </span>
                 </div>
             </div>
-<!--Modal-->
-            <div class="success popup-custom theme-4" tabindex="-1" :class="{show: isOpen}" :style="{display: displayMode}">
-                <div class="mx-auto logo-80px">
-                    <img :src="logoVal" class="tutorial-logo"></div>
-                <div  class="popup-content theme-background-horizontal">
-                    <div class="popup-text-content">
-                        <p>Super <strong>Andreas</strong></p>
-                        <br>
-                        <div class="small">
-                            <p>Congratulations! You've done a great job!</p>
-                            <p>Continue with the next lesson!</p>
-                        </div>
-                    </div>
-                    <div><button  @click="toggleModal" class="btn btn-def close-finished-popup popup-inner">Close </button>
-                        You've done it !
-                    </div>
-                </div>
-            </div>
-
-            <div  @click="$emit('close')" v-show="isOpen" class="modal-backdrop fade show"></div>
         </footer>
-
+        <CompleteTutorialModal :logoSrc="logoVal" ref="CompleteTutorialModalRef"></CompleteTutorialModal>
     </div>
 </template>
 
@@ -104,6 +84,7 @@ import TextLogo from './paragraphs/TextLogo'
 import TextImgHigh from './paragraphs/TextImgHigh'
 import Contact from './paragraphs/Contact'
 import QuestionsAnswers from './paragraphs/QuestionsAnswers'
+import CompleteTutorialModal from './modal-windows/CompleteTutorialModal'
 import cloneDepp from 'lodash/cloneDeep'
 
 export default {
@@ -121,7 +102,8 @@ export default {
         TextLogo,
         TextImgHigh,
         Contact,
-        QuestionsAnswers
+        QuestionsAnswers,
+        CompleteTutorialModal,
     },
     name: 'DisplayTutorial',
     props: ['tutorial'],
@@ -143,8 +125,6 @@ export default {
                 return item
             });*/
         }
-
-
     },
     mounted() {
         if (this.tutorialObj.paragraphs) {
@@ -154,15 +134,23 @@ export default {
         }
     },
     methods: {
+        toggleModal: function () {
+            this.isOpen = !this.isOpen;
+            this.displayMode = this.isOpen ? 'block' : 'none';
+        },
+        completeTutorial(tutorialId) {
+            let data = {
+                tutorialId: tutorialId,
+            };
 
-
-    toggleModal: function () {
-        this.isOpen = !this.isOpen;
-        this.displayMode = this.isOpen ? 'block' : 'none';
-    },
-
-        completeTutorial(index) {
-            console.log('Congratulations, you did it!');
+            axios.post('/module/tutorials/complete',{ params: data})
+                .then((response) => {
+                    let element = this.$refs.CompleteTutorialModalRef.$el;
+                    this.$refs.CompleteTutorialModalRef.nextTutorialLink += response.data.nextTutorialId;
+                    this.$refs.CompleteTutorialModalRef.username = response.data.userName;
+                    $(element).modal('show');
+                })
+                .catch(error => {});
         },
         addParagraphBlock(paragraphName, paragraphData = null) {
             let Component = null;

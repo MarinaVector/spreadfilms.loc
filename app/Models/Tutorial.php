@@ -8,6 +8,7 @@ use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Paragraph;
+use Illuminate\Support\Facades\Auth;
 
 class Tutorial extends Model
 {
@@ -165,5 +166,93 @@ class Tutorial extends Model
             $tutorial->deleteRecursively();
         }
         $this->deleteTutorial();
+    }
+
+    final public function userCompletedTutorial(int $tutorialId, int $userId):bool {
+        $tutorialUserCompletion = TutorialUserCompletion::where('user_id', $userId)
+            ->where('tutorial_id', $tutorialId)
+            ->get()
+            ->count();
+
+        if($tutorialUserCompletion === 0){
+            TutorialUserCompletion::create([
+                'user_id' => $userId,
+                'tutorial_id' => $tutorialId,
+                'completion' => 'completed',
+            ]);
+        }
+
+        return true;
+    }
+
+    final public function getNextCompanyTutorialId($currentTutorialId){
+        $user = Auth::user();
+        $userCompany = $user->company();
+        $userCompanyTutorials = $userCompany->tutorials;
+        $userCompanyTutorialsNested = [];
+        foreach($userCompanyTutorials->toArray() as $tutorial){
+            if($tutorial['parent_tutorial_id'] === 0){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                    'count' => count($userCompanyTutorialsNested),
+
+
+                ];
+
+                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+
+
+                }
+                $userCompanyTutorialsNested[] = $resTutorial;
+            }
+        }
+
+        return $this->searchNextTutorialIdRecursively($userCompanyTutorialsNested, $currentTutorialId);
+    }
+
+    final public function getTutorialChildren(array $tutorials, int $tutorialId):array {
+        $resTutorials = [];
+
+        foreach($tutorials as $tutorial){
+            if($tutorial['parent_tutorial_id'] === $tutorialId){
+                $resTutorial = [
+                    'id' => $tutorial['id'],
+                    'label' => $tutorial['name'],
+                ];
+                $resChildren = $this->getTutorialChildren($tutorials, $tutorial['id']);
+                if($resChildren){
+                    $resTutorial['children'] = $resChildren;
+                }
+
+                $resTutorials[] = $resTutorial;
+            }
+        }
+
+        return $resTutorials;
+    }
+
+    final public function searchNextTutorialIdRecursively(array $tutorials, int $currentTutorialId, bool $returnId = false){
+        foreach($tutorials as $tutorial){
+            //dump($tutorial['id']);
+            //dump($returnId);
+
+            if($returnId){
+                return $tutorial['id'];
+            }
+
+            if($tutorial['id'] === $currentTutorialId){
+                $returnId = true;
+            }
+
+            if(isset($tutorial['children'])){
+                $res = $this->searchNextTutorialIdRecursively($tutorial['children'], $currentTutorialId, $returnId);
+                if($res){
+                    return $res;
+                }
+            }
+        }
     }
 }
