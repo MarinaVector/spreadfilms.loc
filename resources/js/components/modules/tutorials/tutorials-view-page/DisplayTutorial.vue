@@ -64,7 +64,7 @@
                 </div>
             </div>
 <!--Modal-->
-            <div class="success popup-custom theme-4" :class="{show: isOpen}" :style="{display: displayMode}">
+            <div class="success popup-custom theme-4" tabindex="-1" :class="{show: isOpen}" :style="{display: displayMode}">
                 <div class="mx-auto logo-80px">
                     <img :src="logoVal" class="tutorial-logo"></div>
                 <div  class="popup-content theme-background-horizontal">
@@ -82,6 +82,7 @@
                 </div>
             </div>
 
+            <div  @click="$emit('close')" v-show="isOpen" class="modal-backdrop fade show"></div>
         </footer>
 
     </div>
