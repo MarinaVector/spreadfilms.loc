@@ -29,41 +29,8 @@
             </div>
         </div>
 
-        <!--   <div class="tutorial-navigation  tutorial-read">
-             <div class="middle-read bg-light container">
-                 <div class="mb-0">
-                         <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
-                             <component
-                                 :index="index"
-                                 :key="index"
-                                 :is=paragraph.component
-                                 :mydata="paragraph.component.mydata"
-                                 someProps="testing props"
-                             />
-                         </div>
-                 </div>
-             </div>
-             </div>
-             -->
-
-
-        <!--  *TEST BOOTSTRAP*
-               <div data-spy="scroll" data-target="" data-offset="0" class="test-1">
-                   <h4 id="fat">@fat</h4>
-                   <p>...</p>
-                   <h4 id="mdo">@mdo</h4>
-                   <p>...</p>
-                   <h4 id="one">one</h4>
-                   <p>...</p>
-                   <h4 id="two">two</h4>
-                   <p>...</p>
-                   <h4 id="three">three</h4>
-                   <p>...</p>
-               </div>
-       -->
-
-        <div class="col-ttr menu-column py-3 px-5 mt-3 container">
-            <div class="menu-column">
+        <div class="col-ttr menucolumn py-3 px-5 mt-3 container">
+            <div class="">
                 <div class="tutorial-read tutorial-navigation">
                     <div class="mt-4 bg-light p-5 mx-auto nav-fill">
                         <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
@@ -80,10 +47,9 @@
             </div>
         </div>
 
-
         <footer class="up-read py-3 px-5 mb-n3">
             <div id="footer">
-                <div class="navigation-inner">
+                <div class="navigation-inner nav justify-content-end">
        <span class="nav-round-button">
        <button class="prev nav-button">
        <span class="button-inner">
@@ -91,14 +57,32 @@
        </i>
        </span>
        </button>
-       <button class="btn btn-primary close-tutorial">
-       <span class="button-inner">Complete this tutorial</span>
-       </button>
-       </span>
+
+           <button class="btn btn-primary close-tutorial"  @click="toggleModal">
+               <span class="button-inner">Complete this tutorial</span></button>
+                </span>
                 </div>
             </div>
-        </footer>
+<!--Modal-->
+            <div class="success popup-custom theme-4" :class="{show: isOpen}" :style="{display: displayMode}">
+                <div class="mx-auto logo-80px">
+                    <img :src="logoVal" class="tutorial-logo"></div>
+                <div  class="popup-content theme-background-horizontal">
+                    <div class="popup-text-content">
+                        <p>Super <strong>Andreas</strong></p>
+                        <br>
+                        <div class="small">
+                            <p>Congratulations! You've done a great job!</p>
+                            <p>Continue with the next lesson!</p>
+                        </div>
+                    </div>
+                    <div><button  @click="toggleModal" class="btn btn-def close-finished-popup popup-inner">Close </button>
+                        You've done it !
+                    </div>
+                </div>
+            </div>
 
+        </footer>
 
     </div>
 </template>
@@ -144,6 +128,9 @@ export default {
         return {
             tutorialObj: {},
             paragraphs: [],
+            logoVal: this.logo ? this.logo : '/public/img/logo_white.png',
+            isOpen: false,
+            displayMode: 'none'
         }
 
     },
@@ -166,6 +153,13 @@ export default {
         }
     },
     methods: {
+
+
+    toggleModal: function () {
+        this.isOpen = !this.isOpen;
+        this.displayMode = this.isOpen ? 'block' : 'none';
+    },
+
         completeTutorial(index) {
             console.log('Congratulations, you did it!');
         },
@@ -307,5 +301,76 @@ export default {
 div .up-read {
     height: 100px;
 }
+
+.popup-custom {
+    opacity: 1;
+    z-index: 123345;
+}
+
+.popup-custom {
+    border-radius: 10px;
+    position:relative;
+    z-index: 99999;
+    width: 400px;
+    background: #fff;
+    overflow: hidden;
+    transform: translate3d(85%, -150%, 0);
+}
+
+.popup-custom {
+    transition: opacity .15s ease-in-out;
+}
+
+.popup-content {
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.theme-background-horizontal {
+    background: linear-gradient( -45deg,#05ffa3,#2096ff 50%);
+    color: #fff;
+}
+
+.popup-text-content {
+    font-size: 2em;
+    text-transform: uppercase;
+    padding: 20px 0 30px;
+    font-weight: 100;
+    line-height: 1em;
+}
+
+.popup-content {
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.small {
+    font-weight: inherit;
+    font-size: 0.8rem;
+    line-height: 1.5em;
+    text-transform: none;
+}
+
+.btn-def {
+    background: transparent;
+    border: 1px solid;
+    color: #fff;
+    margin-right: 25px;
+    font-size: .8em;
+    text-transform: none;
+    min-width: 130px;
+    cursor: pointer;
+}
+
+.btn-def:hover {
+    background: #fff;
+    color: #333;
+    border-color: #fff;
+}
+
 
 </style>

@@ -7,8 +7,8 @@
         <div class="col-ttr1">
             <nav-small></nav-small>
         </div>
-        <div class="col-ttr h-100 bg-light menu-column tutorial-field tutorial-navigation">
-            <div class="menu-column">
+        <div class="col-ttr h-100 bg-light menucolumn tutorial-field tutorial-navigation">
+            <div class="menucolumn">
                 <div class="mt-4 mx-auto nav-fill">
                     <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
                     <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>

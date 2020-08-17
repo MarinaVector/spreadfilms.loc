@@ -16,6 +16,7 @@ import PortalVue from 'portal-vue';
 
 Vue.use(PortalVue);
 
+
 import Vue from 'vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
