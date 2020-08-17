@@ -14,7 +14,7 @@
                             <div class="col-5 col-md-5 offset-md-2 inner-trigger mt-md-5">
 
                                 <input :id="dataInputID" class="elfinder-idea component_image" name="image"
-                                       :value="Src" type="hidden"/>
+                                       v-model="Src" type="hidden" ref="Src"/>
                                 <button :data-inputid="dataInputID"
                                         class="popup_selector text-button ml-md-4 py-2 mb-md-0 mb-5 px-md-5 mt-md-5 slide-border"
                                         type="button">
@@ -128,6 +128,7 @@
                 $(element).modal('show');
             },
             saveData: function (header, body) {
+                this.Src = this.$refs.Src.value;
                 this.NormalTextHeader = header;
                 this.NormalTextBody = body;
             },
