@@ -3,11 +3,20 @@
         <div class="up-read py-3 px-5">
             <div id="header">
                 <div class="navigation-inner mb-5">
-                    <span class="breadcrumbs">
-                        <span class="navbar-text">Welcome</span>
-                        /
-                        <span class="">Magik</span>
-                    </span>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <template v-for="(breadcrumb, index) in breadcrumbObj">
+                                <template v-if="index != breadcrumbObj.length - 1">
+                                    <a :href="'/module/tutorials/view/' + breadcrumb.id">{{breadcrumb.name}}</a>
+                                </template>
+
+                                <template v-else>
+                                    <li class="breadcrumb-item active" aria-current="page">{{breadcrumb.name}}</li>
+                                </template>
+                            </template>
+                            <!--<li class="breadcrumb-item active" aria-current="page">Data</li>-->
+                        </ol>
+                    </nav>
                     <span class="nav-round-button ml-5">
                         <button class="prev nav-button">
                             <span class="button-inner">
@@ -106,10 +115,14 @@ export default {
         CompleteTutorialModal,
     },
     name: 'DisplayTutorial',
-    props: ['tutorial'],
+    props: [
+        'tutorial',
+        'breadcrumb',
+    ],
     data() {
         return {
             tutorialObj: {},
+            breadcrumbObj: {},
             paragraphs: [],
             logoVal: this.logo ? this.logo : '/public/img/logo_white.png',
             isOpen: false,
@@ -124,6 +137,11 @@ export default {
                 //item.active = false
                 return item
             });*/
+        }
+
+        if (undefined !== this.breadcrumb) {
+            this.breadcrumbObj = JSON.parse(this.$props.breadcrumb)
+            console.log(this.breadcrumbObj);
         }
     },
     mounted() {
