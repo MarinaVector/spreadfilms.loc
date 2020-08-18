@@ -415,6 +415,22 @@ class TutorialsController extends Controller
             'tutorial' => $tutorial->toArray(),
         ]);
     }
+
+    final public function completeTutorial(Request $request):String{
+        $user = Auth::user();
+        $params = $request->get('params');
+        $tutorialId = $params['tutorialId'];
+        $tutorial = Tutorial::find($tutorialId);
+        $status = $tutorial->userCompletedTutorial($tutorialId, $user->id);
+
+        $nextTutorialId = $tutorial->getNextCompanyTutorialId($tutorialId);
+
+        return json_encode([
+            'status' => $status,
+            'nextTutorialId' => $nextTutorialId,
+            'userName' => $user->firstname,
+        ]);
+    }
 }
 
 
