@@ -17,10 +17,10 @@
         <div class="row" @click="showTextModal()">
             <div class="col-md-8 offset-md-1 inner-trigger col-12 mx-sm-auto">
                 <div class="text-output mx-n5">
-                    <div class="text-header text-left mb-3" v-html="NormalTextHeader">
+                    <div class="text-header h2 text-left mb-2 mt-2 headline" v-html="NormalTextHeader">
 
                     </div>
-                    <div class="text-print text-justify" v-html="NormalTextBody">
+                    <div class="final-text text-print text-justify" v-html="NormalTextBody">
 
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                 return [1, 2];
             },
             escapeHtml: function (value) {
-                return $('<div/>').html(value).text();
+                return $('<div class="normal_text"/>').html(value).text();
             },
         },
         computed: {}
@@ -163,12 +163,28 @@
 
     .text-print {
 
-        column-count: 2;
+        column-count: 1;
         margin-bottom: 20px;
     }
 
     .text-output {
         position: absolute;
+    }
+
+    .normal_text:before {
+
+        background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
+        content: "";
+        width: 60px;
+        height: 4px;
+        background: #333;
+        top: -10px;
+        position: absolute;
+        left: 0;
+    }
+
+    .normal_text {
+        color:green;
     }
 
 
