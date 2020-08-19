@@ -41,7 +41,10 @@
 
                     @else
                         <div class="user-column">
-                            <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"></display-tutorial>
+                            <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"
+                                              :breadcrumb="'{{ json_encode($breadcrumb) }}'"
+                            >
+                            </display-tutorial>
                         </div>
                     @endif
                 </div>

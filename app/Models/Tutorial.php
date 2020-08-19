@@ -255,4 +255,20 @@ class Tutorial extends Model
             }
         }
     }
+
+    final public function getTutorialBreadcrumb(){
+        return $this->getTutorialBreadcrumbRecursive([], $this);
+    }
+
+    final public function getTutorialBreadcrumbRecursive(array $breadcrumb, $tutorial): array{
+        $breadcrumb[] = ['name' => $tutorial->name, 'id' => $tutorial->id];
+
+        if($tutorial->parent_tutorial_id === 0){
+            return array_reverse($breadcrumb);
+        }
+
+        $parentTutorial = self::find($tutorial->parent_tutorial_id);
+
+        return $this->getTutorialBreadcrumbRecursive($breadcrumb, $parentTutorial);
+    }
 }

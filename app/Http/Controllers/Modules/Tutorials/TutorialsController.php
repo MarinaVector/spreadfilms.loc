@@ -407,12 +407,14 @@ class TutorialsController extends Controller
         unset($tutorial->paragraphs);
 
         $tutorial->paragraphs = $paragraphs;
+        $breadcrumb = $tutorial->getTutorialBreadcrumb();
 
         return view('modules.tutorials.view_tutorials')->with([
             'authUser' => $user,
             'tutorials' => $userCompanyTutorialsNestedJSON,
             'settings' => $userCompanyTutorialsSettings,
             'tutorial' => $tutorial->toArray(),
+            'breadcrumb' => $breadcrumb,
         ]);
     }
 
