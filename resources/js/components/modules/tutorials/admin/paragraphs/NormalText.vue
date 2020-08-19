@@ -1,36 +1,37 @@
 <template>
-    <div class="container tutorial-text" id="tutorial-text">
-        <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type"/>
-        <div class="row mt-2">
+    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text"
+         id="tutorial-text">
+        <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type" />
+        <div class="row">
             <div class="col-lg-1 offset-lg-0 col-md-3 offset-md-1 col-7">
-                <button type="button" class="btn-icon ml-n2 draggable">
+                <button type="button" class="btn-icon mt-2 draggable">
                     <i class="fa fa-arrows-v pt-2"></i>
                 </button>
             </div>
             <div class="col-lg-1 offset-lg-10 col-md-3 offset-md-5 col-5">
                 <input type="hidden" name="normal_text[]" value="">
-                <button type="button" class="btn-icon ml-4" @click="callParentDeleteParagraphBlock()">
+                <button type="button" class="btn-icon mt-2 ml-4" @click="callParentDeleteParagraphBlock()">
                     <i class="fa fa-trash-o pt-2"></i>
                 </button>
             </div>
         </div>
         <div class="row" @click="showTextModal()">
-            <div class="col-md-8 offset-md-1 inner-trigger col-12 mx-sm-auto">
-                <div class="text-output mx-n5">
-                    <div class="text-header h2 text-left mb-2 mt-2 headline" v-html="NormalTextHeader">
-
-                    </div>
-                    <div class="final-text text-print text-justify" v-html="NormalTextBody">
-
-                    </div>
-                </div>
-                <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
-                <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
-                <button class="text-button position-button slide-border ml-4 py-2 px-5" type="button">
+            <div class="col-md-8 mx-auto col-12 mx-sm-auto" id="butTxt">
+                <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button slide-border py-2
+                 px-5" type="button">
                     <i class="fas fa-bars blueiconcolor fa-2x">
                     </i>
                     <div class="mt-n1 mb-n1">Text</div>
                 </button>
+                <div class="">
+                    <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left mb-2 headline normal_text"
+                         v-html="NormalTextHeader">
+                    </div>
+
+                    <div class="final-text text-justify" v-html="NormalTextBody"></div>
+                    <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+                    <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+                </div>
             </div>
         </div>
         <div class="row">
@@ -42,11 +43,10 @@
         </div>
 
         <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
-                         :header="NormalTextHeader"
-                         :body="NormalTextBody">
-
+                         :header="NormalTextHeader" :body="NormalTextBody">
         </NormalTextModal>
     </div>
+
 </template>
 
 <script>
@@ -70,6 +70,11 @@
             return {
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
+                normalBefore:true,
+                normalAfter: false,
+                btnBefore: true,
+                btnAfter: false,
+                headerText: false
             };
         },
         created() {
@@ -92,15 +97,29 @@
             saveData: function (header, body) {
                 this.NormalTextHeader = header;
                 this.NormalTextBody = body;
+                this.normalAfter = true;
+                this.normalBefore = false;
+                this.btnAfter = true;
+                this.btnBefore = false;
+                this.headerText = true;
             },
             getPreviousData: function () {
-                return [1, 2];
+                return  [1,2,
+                    this.normalAfter = true,
+                    this.normalBefore = false,
+                    this.btnAfter = true,
+                    this.btnBefore = false,
+                    this.headerText = true, ]
+
             },
             escapeHtml: function (value) {
-                return $('<div class="normal_text"/>').html(value).text();
+                return $('<div :class=" { normalafter:true} " class="normal_text"/>').html(value).text();
             },
         },
-        computed: {}
+        computed: {
+
+
+        }
     };
 </script>
 
@@ -123,12 +142,34 @@
     .tutorial-text {
         width: 100%;
         border: dotted 1px #333;
-        overflow: auto;
     }
 
     .tutorial-text:hover {
         background-color: rgba(0, 0, 0, 0.5);
         transition: 3s;
+    }
+
+    .tutorial-normal-text {
+        width: 100%;
+        transition: opacity .3s ease, background-color .5s ease;
+        background-color: white;
+    }
+
+    .tutorial-normal-text:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 3s;
+    }
+
+    .normalbefore {
+        border: dotted 1px #333;
+    }
+
+    .normalafter {
+        width: 100%;
+        height: auto;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-bottom-color: lightgray;
     }
 
     .btn-icon {
@@ -171,7 +212,7 @@
         position: absolute;
     }
 
-    .normal_text:before {
+    .headertext:before {
 
         background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
         content: "";
@@ -183,9 +224,29 @@
         left: 0;
     }
 
-    .normal_text {
-        color:green;
+    #butTxt {
+        position: relative;
+        top: 0;
+        left: 0;
     }
 
+    #butTxt button {
+        position: absolute;
+        left: 42%;
+        top: 45%;
+        cursor: pointer;
+    }
+
+    .btnafter {
+        display:none;
+    }
+
+    .tutorial-normal-text:hover .btnafter{
+        display:block;
+    }
+
+    .btnbefore {
+        visibility: visible;
+    }
 
 </style>
