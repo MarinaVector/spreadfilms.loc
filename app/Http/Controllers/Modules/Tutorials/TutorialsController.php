@@ -8,6 +8,7 @@ use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
+use App\Models\TutorialUserCompletion;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -76,8 +77,45 @@ class TutorialsController extends Controller
     }
 
     final public function statisticsTutorial(): View {
+        $authUser = Auth::user();
+        $userCompany = $authUser->company();
+        $userCompanyUsers = $userCompany->users()->get(['id', 'firstname']);
+        $userCompanyTutorials = $authUser->company()->tutorials;
 
-        return view('modules.tutorials.statistics')->with('authUser', Auth::user());
+        foreach($userCompanyUsers as $userKey=>$user){
+            $user->tutorials = $userCompanyTutorials;
+            //dd($user->tutorials);
+            foreach($user->tutorials as $tutorialKey=>$tutorial){
+                $progressObj = TutorialUserCompletion::where([
+                    'user_id' => $user->id,
+                    'tutorial_id' => $tutorial->id,
+                ])->get('completion')->first();
+
+                //dump($progressObj);
+
+                if($progressObj){
+                    $userCompanyUsers[$userKey]->tutorials[$tutorialKey]->progress = $progressObj->completion;
+                    //dump($userCompanyUsers[$userKey]->tutorials[$tutorialKey]->progress);
+                    //dump($tutorialKey);
+                    //dd($user->tutorials[$key]);
+                    //dump($tutorial->progress);
+                    //dump($tutorial);
+                } else {
+                    $tutorial->progress = null;
+                }
+                //$tutorial->progress = $progressObj ? $progressObj->completion : null;
+                //$tutorial->progress = "completed";
+                //dump($tutorial->progress);
+            }
+        }
+
+        dd($userCompanyUsers);
+
+        return view('modules.tutorials.statistics')->with([
+            'authUser' => Auth::user(),
+            'companyTutorials' => $userCompanyTutorials->toJson(),
+            'companyUsers' => $userCompanyUsers,
+        ]);
     }
 
     final public function storeTutorial(Request $request): RedirectResponse {

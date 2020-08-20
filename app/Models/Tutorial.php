@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class Tutorial extends Model
 {
     protected $fillable = [
-        'name', 'tutorial_background', 'parent_tutorial_id', 'category_id', 'company_id', 'sortorder'
+        'name', 'tutorial_background', 'parent_tutorial_id', 'category_id', 'company_id', 'sortorder', 'progress'
     ];
 
     /**
