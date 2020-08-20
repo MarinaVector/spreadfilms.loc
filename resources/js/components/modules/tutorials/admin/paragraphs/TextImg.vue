@@ -1,21 +1,22 @@
 <template>
-    <div class="container">
+    <div class="container content-height">
         <input type="hidden" name="component_type" value="TxtImg" class="component_type"/>
         <div class="row">
             <div class="col-md-12 col-12 text-image">
                 <div class="row row-image">
                     <div class="col-lg-9 col-8">
-                        <div class="row module-text" :id="dataInputPreviewID" ref="preview">
+                        <div class="row module-img" :id="dataInputPreviewID" ref="preview">
                             <div class="col-2 col-md-1 mt-3 ml-2">
                                 <button type="button" class="btn-icon ml-n2 draggable">
                                     <i class="fa fa-arrows-v pt-2"></i>
                                 </button>
                             </div>
-                            <div class="col-5 col-md-5 offset-md-2 inner-trigger mt-md-5">
+                            <div class="col-5 col-md-5 offset-md-2 inner-trigger display-img mt-md-5">
 
                                 <input :id="dataInputID" class="elfinder-idea component_image" name="image"
                                        v-model="Src" type="hidden" ref="Src"/>
                                 <button :data-inputid="dataInputID"
+                                        v-bind:class=" {btnbefore:btnBeforeSrc, btnafter:btnAfterSrc} "
                                         class="popup_selector text-button ml-md-4 py-2 mb-md-0 mb-5 px-md-5 mt-md-5 slide-border"
                                         type="button">
                                     <i class="fas fa-image blueiconcolor fa-2x pt-1">
@@ -26,14 +27,14 @@
                         </div>
 
                         <div class="row">
-                            <div class="level-text pt-5" @click="showTextModal()">
-                                <div class="row mt-4">
-                                    <div class="inner-trigger level-panel col-md-5 col-5 offset-md-3">
-                                        <div class="text-output mx-n5">
-                                            <div class="text-header text-left mb-3" v-html="NormalTextHeader">
+                            <div v-bind:class=" { textafter : textAfter, leveltext : levelText} " class="" @click="showTextModal()">
+                                <div class="row">
+                                    <div class="col-md-12 p-4">
+                                        <div class="text-content">
+                                            <div class="text-header text-left h2 headline" v-html="NormalTextHeader">
 
                                             </div>
-                                            <div class="text-print text-justify" v-html="NormalTextBody">
+                                            <div class="text-justify" v-html="NormalTextBody">
 
                                             </div>
                                         </div>
@@ -41,7 +42,8 @@
                                                class="normal_text_header">
                                         <input type="hidden" name="normal_text_body" v-model="NormalTextBody"
                                                class="normal_text_body">
-                                        <button class="text-button py-2 px-md-5 px-2" type="button">
+                                        <button v-bind:class=" {btnbefore:btnBeforeText, btnafter:btnAfterText} "
+                                                class="text-button py-2 px-md-5 px-2" type="button">
                                             <i class="fas fa-bars blueiconcolor fa-2x mt-1">
                                             </i>
                                             <div class="mt-n1 mb-n1">Text</div>
@@ -106,9 +108,22 @@
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 Src: this.mydata ? this.$props.mydata.src : '',
+                btnBeforeSrc: true,
+                btnBeforeText: true,
+                btnAfterSrc: false,
+                btnAfterText: false,
+                textAfter: false,
+                levelText: true,
             };
         },
         created() {
+            if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
+                this.btnAfterText = true;
+                this.textAfter = true;
+            }
+            if(this.Src !== "" ){
+                this.btnAfterSrc = true;
+            }
 
         },
         mounted() {
@@ -131,6 +146,9 @@
                 this.Src = this.$refs.Src.value;
                 this.NormalTextHeader = header;
                 this.NormalTextBody = body;
+                this.btnAfterText = true;
+                this.btnAfterSrc = true;
+                this.textAfter = true;
             },
             getPreviousData: function () {
                 return [1, 2];
@@ -143,7 +161,7 @@
     };
 </script>
 
-<style>
+<style lang="scss">
     .inner-trigger {
         transition: background-color .3s ease;
         background-color: transparent;
@@ -155,24 +173,6 @@
     .text-button {
         background-color: white;
         border: none;
-    }
-
-    .level-text {
-        pointer-events: all;
-        position: absolute;
-        top: 50%;
-        cursor: pointer;
-        left: 100%;
-        transform: translate3d(-50%, -50%, 0);
-        transition: opacity .3s ease, background-color .5s ease;
-        width: 36%;
-        height: 80%;
-        background-color: #d9d9d9;
-        z-index: 2;
-    }
-
-    .level-text:hover    {
-        background-color: #6c6c6c;
     }
 
     .btn-icon {
@@ -235,5 +235,78 @@
     .row-image {
         height: inherit;
     }
+
+    .btnafter {
+        display:none;
+    }
+
+    .leveltext:hover .btnafter{
+        display:block;
+    }
+
+    .display-img:hover .btnafter{
+        display:block;
+    }
+
+    .btnbefore {
+        visibility: visible;
+    }
+
+    .leveltext {
+        pointer-events: all;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        left: 100%;
+        transform: translate3d(-50%, -50%, 0);
+        transition: opacity .3s ease, background-color .5s ease;
+        width: 36%;
+        height: 80%;
+        background-color: #d9d9d9;
+        z-index: 2;
+    }
+
+    .leveltext:hover    {
+        background-color: #6c6c6c;
+    }
+
+        .text-content {
+        box-sizing: border-box;
+    }
+
+    .content-height {
+        height: auto;
+    }
+
+$height1:100%;
+$height2:auto;
+
+.module-img {
+
+    height: ($height2+10%) !important;
+
+}
+
+.module-img {
+    height: $height1;
+    border: dotted 1px #333;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.textafter {
+    color: #fff;
+    height: $height2;
+    background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
+    top: 50%;
+    cursor: pointer;
+    word-wrap: break-word;
+    left: 100%;
+    transform: translate3d(-50%, -50%, 0);
+    border: none;
+    width: 46%;
+}
 
 </style>

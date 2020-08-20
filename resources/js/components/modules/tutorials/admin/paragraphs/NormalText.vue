@@ -78,7 +78,11 @@
             };
         },
         created() {
-
+            if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
+                this.normalAfter = true;
+                this.btnAfter = true;
+                this.headerText = true;
+            }
         },
         mounted() {
 
@@ -98,19 +102,11 @@
                 this.NormalTextHeader = header;
                 this.NormalTextBody = body;
                 this.normalAfter = true;
-                this.normalBefore = false;
                 this.btnAfter = true;
-                this.btnBefore = false;
                 this.headerText = true;
             },
             getPreviousData: function () {
-                return  [1,2,
-                    this.normalAfter = true,
-                    this.normalBefore = false,
-                    this.btnAfter = true,
-                    this.btnBefore = false,
-                    this.headerText = true, ]
-
+                return  [1,2,3,4 ]
             },
             escapeHtml: function (value) {
                 return $('<div :class=" { normalafter:true} " class="normal_text"/>').html(value).text();
