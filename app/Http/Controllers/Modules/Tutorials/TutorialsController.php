@@ -79,42 +79,43 @@ class TutorialsController extends Controller
     final public function statisticsTutorial(): View {
         $authUser = Auth::user();
         $userCompany = $authUser->company();
-        $userCompanyUsers = $userCompany->users()->get(['id', 'firstname']);
+        $userCompanyUsers = $userCompany->users()->get(['id', 'firstname'])->toArray();
         $userCompanyTutorials = $authUser->company()->tutorials;
 
         foreach($userCompanyUsers as $userKey=>$user){
-            $user->tutorials = $userCompanyTutorials;
-            //dd($user->tutorials);
-            foreach($user->tutorials as $tutorialKey=>$tutorial){
+            $tutorialsClone = clone $userCompanyTutorials;
+            $userCompanyUsers[$userKey]['tutorials'] = $tutorialsClone->toArray();
+
+            foreach($userCompanyUsers[$userKey]['tutorials'] as $tutorialKey=>$tutorial){
                 $progressObj = TutorialUserCompletion::where([
-                    'user_id' => $user->id,
-                    'tutorial_id' => $tutorial->id,
+                    'user_id' => $user['id'],
+                    'tutorial_id' => $tutorial['id'],
                 ])->get('completion')->first();
 
-                //dump($progressObj);
-
-                if($progressObj){
-                    $userCompanyUsers[$userKey]->tutorials[$tutorialKey]->progress = $progressObj->completion;
-                    //dump($userCompanyUsers[$userKey]->tutorials[$tutorialKey]->progress);
-                    //dump($tutorialKey);
-                    //dd($user->tutorials[$key]);
-                    //dump($tutorial->progress);
-                    //dump($tutorial);
+                if(isset($progressObj->completion)){
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progress'] = $progressObj->completion;
+                    switch ($progressObj->completion) {
+                        case 'completed':
+                            $progressIconClass = "fa-times";
+                            $progressColorClass = "si-dark";
+                            break;
+                        default:
+                            break;
+                    }
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressIconClass'] = $progressIconClass;
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressColorClass'] = $progressColorClass;
                 } else {
-                    $tutorial->progress = null;
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progress'] = null;
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressIconClass'] = 'fa-times';
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressColorClass'] = 'si-times';
                 }
-                //$tutorial->progress = $progressObj ? $progressObj->completion : null;
-                //$tutorial->progress = "completed";
-                //dump($tutorial->progress);
             }
         }
-
-        dd($userCompanyUsers);
 
         return view('modules.tutorials.statistics')->with([
             'authUser' => Auth::user(),
             'companyTutorials' => $userCompanyTutorials->toJson(),
-            'companyUsers' => $userCompanyUsers,
+            'companyUsers' => json_encode($userCompanyUsers),
         ]);
     }
 

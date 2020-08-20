@@ -30,11 +30,11 @@
                         <td>
                             <a href="#">{{ user.firstname }}</a>
                         </td>
-                        <td class="">
-                            <a href="#" class="social-icon si-dark-round si-facebook si-minus">
-                                <i class="fas fa-minus icon-img"></i>
+                        <td class="" v-for="(tutorial, index) in user.tutorials">
+                            <a href="#" :class="'social-icon si-dark-round si-facebook ' + tutorial.progressColorClass + ' mr-3'">
+                                <i :class="'fas ' + tutorial.progressIconClass + ' icon-img'"></i>
                             </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-minus">
+                            <!--<a href="#" class="social-icon si-dark-round si-facebook si-minus">
                                 <i class="fas fa-minus icon-img"></i>
                             </a>
                             <a href="#" class="social-icon si-dark-round si-facebook si-minus">
@@ -57,7 +57,7 @@
                             </a>
                             <a href="#" class="social-icon si-dark-round si-facebook si-lock">
                                 <i class="fas fa-lock icon-img"></i>
-                            </a>
+                            </a>-->
                         </td>
                     </tr>
                     </tbody>

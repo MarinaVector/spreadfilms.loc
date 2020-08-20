@@ -14,7 +14,7 @@
             <signs-statistics></signs-statistics>
             <tutorials-statistics
                 :tutorials="'{{ $companyTutorials }}'"
-                :users="'{{ json_encode($companyUsers) }}'"
+                :users="'{{ $companyUsers }}'"
             ></tutorials-statistics>
 
         </div>
