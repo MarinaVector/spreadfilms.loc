@@ -16,12 +16,10 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>
-                            <template v-for="(tutorial, index) in this.tutorialsObj">
-                                <a href="#" class="p-vertical">
-                                    {{ tutorial.name }}
-                                </a>
-                            </template>
+                        <th v-for="(tutorial, index) in this.tutorialsObj">
+                            <a href="#" class="p-vertical">
+                                {{ tutorial.name }}
+                            </a>
                         </th>
                     </tr>
                     </thead>
