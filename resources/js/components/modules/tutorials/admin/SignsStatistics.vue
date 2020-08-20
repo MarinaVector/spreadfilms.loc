@@ -5,35 +5,35 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-2">
-                                <a href="#" class="social-icon si-dark-round si-facebook si-dark mr-3">
+                            <div class="col-4">
+                                <a href="#" class="stat-icon si-dark-round si-facebook si-dark mr-3">
                                     <i class="fas fa-times icon-img"></i>
                                 </a>
-                                <p class="font-size-20 mt-2 ml-4">Done</p>
+                                <p class="font-size-20 mt-3 ml-4">Done</p>
                             </div>
-                            <div class="col-2">
-                                <a href="#" class="social-icon si-dark-round si-facebook si-minus mr-3">
+                            <div class="col-4">
+                                <a href="#" class="stat-icon si-dark-round si-facebook si-minus mr-3">
                                     <i class="fas fa-minus icon-img"></i>
                                 </a>
                                 <p class="font-size-20 mt-2 pl-4">In progress</p>
                             </div>
-                            <div class="col-2">
-                                <a href="#" class="social-icon si-dark-round si-facebook si-plus mr-3">
+                            <div class="col-4">
+                                <a href="#" class="stat-icon si-dark-round si-facebook si-plus mr-3">
                                     <i class="fas fa-plus icon-img"></i>
                                 </a>
-                                <p class="font-size-20 mt-2 pl-4">Invited</p>
+                                <p class="font-size-20 mt-3 pl-4">Invited</p>
                             </div>
-                            <div class="col-2">
-                                <a href="#" class="social-icon si-dark-round si-facebook si-times mr-3">
+                            <div class="col-4">
+                                <a href="#" class="stat-icon si-dark-round si-facebook si-times mr-3">
                                     <i class="fas fa-times icon-img"></i>
                                 </a>
-                                <p class="font-size-20 mt-2 pl-4">Not assigned</p>
+                                <p class="font-size-20 mt-3 pl-4">Not assigned</p>
                             </div>
-                            <div class="col-2">
-                                <a href="#" class="social-icon si-dark-round si-facebook si-lock mr-3">
+                            <div class="col-4">
+                                <a href="#" class="stat-icon si-dark-round si-facebook si-lock mr-3">
                                     <i class="fas fa-lock icon-img"></i>
                                 </a>
-                                <p class="font-size-20 mt-2 pl-4">Not assigned</p>
+                                <p class="font-size-20 mt-3 pl-4">Not assigned</p>
                             </div>
                         </div>
                     </div>
@@ -50,29 +50,30 @@
     }
 </script>
 
-<style scoped>
+<style>
 
     th {
         border: none !important;
     }
 
-    .social-icon {
+    .stat-icon {
         box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset, 1px 1px 1px #CCC;
-        margin: 0 5px 5px 0;
+        /* margin: 0 5px 5px 0; */
         width: 40px;
         height: 40px;
         font-size: 20px;
-        line-height: 40px !important;
-        color: #555;
+        /* line-height: 40px !important; */
+        /* color: #555; */
         text-shadow: none;
         border-radius: 3px;
         overflow: hidden;
         display: block;
         float: left;
         text-align: center;
+        border: none;
     }
 
-    .social-icon i {
+    .stat-icon i {
         display: block;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
@@ -82,11 +83,11 @@
         position: relative;
     }
 
-    .social-icon i:last-child {
+    .stat-icon i:last-child {
         color: #FFF !important;
     }
 
-    .social-icon:hover i:first-child {
+    .stat-icon:hover i:first-child {
         margin-top: -40px;
     }
 
@@ -94,7 +95,7 @@
         color: white !important;
     }
 
-    .social-icon-lg i {
+    .stat-icon-lg i {
         display: block;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
@@ -104,11 +105,11 @@
         position: relative;
     }
 
-    .social-icon-lg i:last-child {
+    .stat-icon-lg i:last-child {
         color: #FFF !important;
     }
 
-    .social-icon-lg:hover i:first-child {
+    .stat-icon-lg:hover i:first-child {
         margin-top: -60px;
     }
 
@@ -128,7 +129,7 @@
     }
 
     .si-times {
-        background-color: #ee2a7b;
+        background-color: #ff48a4;
     }
 
     .si-plus {
@@ -136,7 +137,7 @@
     }
 
     .si-minus {
-        background-color: #f7941e;
+        background-color: #ff5722;
     }
 
     .si-lock {
@@ -144,7 +145,7 @@
     }
 
     .si-dark {
-        background-color: #1c75bc;
+        background-color: #02c2c7;
     }
 
     ul.online-users li {
