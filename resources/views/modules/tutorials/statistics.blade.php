@@ -12,7 +12,10 @@
             </div>
 
             <signs-statistics></signs-statistics>
-            <tutorials-statistics></tutorials-statistics>
+            <tutorials-statistics
+                :tutorials="'{{ $companyTutorials }}'"
+                :users="'{{ $companyUsers }}'"
+            ></tutorials-statistics>
 
         </div>
     </div>

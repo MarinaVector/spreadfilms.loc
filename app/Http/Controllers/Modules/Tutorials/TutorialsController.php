@@ -8,6 +8,7 @@ use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
+use App\Models\TutorialUserCompletion;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -76,8 +77,46 @@ class TutorialsController extends Controller
     }
 
     final public function statisticsTutorial(): View {
+        $authUser = Auth::user();
+        $userCompany = $authUser->company();
+        $userCompanyUsers = $userCompany->users()->get(['id', 'firstname'])->toArray();
+        $userCompanyTutorials = $authUser->company()->tutorials;
 
-        return view('modules.tutorials.statistics')->with('authUser', Auth::user());
+        foreach($userCompanyUsers as $userKey=>$user){
+            $tutorialsClone = clone $userCompanyTutorials;
+            $userCompanyUsers[$userKey]['tutorials'] = $tutorialsClone->toArray();
+
+            foreach($userCompanyUsers[$userKey]['tutorials'] as $tutorialKey=>$tutorial){
+                $progressObj = TutorialUserCompletion::where([
+                    'user_id' => $user['id'],
+                    'tutorial_id' => $tutorial['id'],
+                ])->get('completion')->first();
+
+                if(isset($progressObj->completion)){
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progress'] = $progressObj->completion;
+                    switch ($progressObj->completion) {
+                        case 'completed':
+                            $progressIconClass = "fa-times";
+                            $progressColorClass = "si-dark";
+                            break;
+                        default:
+                            break;
+                    }
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressIconClass'] = $progressIconClass;
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressColorClass'] = $progressColorClass;
+                } else {
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progress'] = null;
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressIconClass'] = 'fa-times';
+                    $userCompanyUsers[$userKey]['tutorials'][$tutorialKey]['progressColorClass'] = 'si-times';
+                }
+            }
+        }
+
+        return view('modules.tutorials.statistics')->with([
+            'authUser' => Auth::user(),
+            'companyTutorials' => $userCompanyTutorials->toJson(),
+            'companyUsers' => json_encode($userCompanyUsers),
+        ]);
     }
 
     final public function storeTutorial(Request $request): RedirectResponse {

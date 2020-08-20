@@ -16,51 +16,23 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>
-                            <div>
-                                <a href="#" class="p-vertical">
-                                    Unit 1
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 2
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 3
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 4
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 5
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 6
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 7
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 8
-                                </a>
-                                <a href="#" class="p-vertical">
-                                    Unit 9
-                                </a>
-                            </div>
+                        <th v-for="(tutorial, index) in this.tutorialsObj">
+                            <a href="#" class="p-vertical">
+                                {{ tutorial.name }}
+                            </a>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td class="">
-                            <a href="#">Andreas Ramelsberger</a>
-                            <br>
-                            <small>From 27.06.2020</small>
+                    <tr class="" v-for="(user, index) in this.usersObj">
+                        <td>
+                            <a href="#">{{ user.firstname }}</a>
                         </td>
-                        <td class="">
-                            <a href="#" class="social-icon si-dark-round si-facebook si-minus">
-                                <i class="fas fa-minus icon-img"></i>
+                        <td class="" v-for="(tutorial, index) in user.tutorials">
+                            <a href="#" :class="'social-icon si-dark-round si-facebook ' + tutorial.progressColorClass + ' mr-3'">
+                                <i :class="'fas ' + tutorial.progressIconClass + ' icon-img'"></i>
                             </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-minus">
+                            <!--<a href="#" class="social-icon si-dark-round si-facebook si-minus">
                                 <i class="fas fa-minus icon-img"></i>
                             </a>
                             <a href="#" class="social-icon si-dark-round si-facebook si-minus">
@@ -83,7 +55,7 @@
                             </a>
                             <a href="#" class="social-icon si-dark-round si-facebook si-lock">
                                 <i class="fas fa-lock icon-img"></i>
-                            </a>
+                            </a>-->
                         </td>
                     </tr>
                     </tbody>
@@ -96,7 +68,39 @@
 
 <script>
     export default {
-        name: "TutorialsStatistics"
+        name: "TutorialsStatistics",
+        props: {
+            tutorials: {
+                type: String,
+                default: null
+            },
+            users: {
+                type: String,
+                default: null
+            },
+        },
+        data() {
+            return {
+                tutorialsObj: {},
+                usersObj: {},
+            };
+        },
+        methods: {
+
+        },
+        created() {
+            if(undefined !== this.$props.tutorials){
+                this.tutorialsObj = JSON.parse(this.$props.tutorials);
+            }
+
+            if(undefined !== this.$props.users){
+                this.usersObj = JSON.parse(this.$props.users);
+            }
+            console.log(this.usersObj);
+        },
+        mounted(){
+
+        },
     }
 </script>
 
