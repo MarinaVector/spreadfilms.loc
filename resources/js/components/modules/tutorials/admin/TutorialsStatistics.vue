@@ -4,65 +4,58 @@
             <section class="panel">
                 <div class="panel-body p-4">
                     <div class="row">
-                        <div class="col-md-12 mb-5">
+                        <div class="col-md-12 my-4">
                             <div class="input-group"><input type="text" placeholder="Search Here"
-                                                            class="input-sm form-control"> <span
-                                class="input-group-btn">
-                              <button type="button" class="btn">Go!</button> </span></div>
+                                                            class="input-sm form-control">
+                                <span class="ml-2 mt-1 bg-yellow padding-5px-tb padding-15px-lr border-radius-5
+                                margin-10px-bottom
+                                 text-white font-size16 text-bold xs-font-size13 font-weight-bold">GO !</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <table class="table table-hover p-table">
+            </section>
+        </div>
+
+        <div class="container skrolling">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
                     <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th v-for="(tutorial, index) in this.tutorialsObj">
-                            <a href="#" class="p-vertical">
-                                {{ tutorial.name }}
-                            </a>
+
+                    <tr class="bg-light-gray">
+                        <th class="text-uppercase name-col">
+                            <div class="name-col">Name</div>
+                        </th>
+                        <th v-for="(tutorial, index) in this.tutorialsObj" align="left" id="rotate" data-toggle="tooltip"
+                            data-placement="bottom"
+                            title="" data-original-title="">
+                            <!--<div id="points">...</div> -->
+                            <div class="outer mb-5 ml-4">
+                                <span id="inner"> {{ tutorial.name }}</span></div>
                         </th>
                     </tr>
                     </thead>
+
                     <tbody>
-                    <tr class="" v-for="(user, index) in this.usersObj">
-                        <td>
-                            <a href="#">{{ user.firstname }}</a>
+                    <tr class="table-light table-hover" v-for="(user, index) in this.usersObj">
+                        <td class="name-col text-wrap font-size-20">
+                            <div class="name-col">
+                                <a href="#">{{ user.firstname }}</a>
+                            </div>
                         </td>
-                        <td class="" v-for="(tutorial, index) in user.tutorials">
-                            <a href="#" :class="'social-icon si-dark-round si-facebook ' + tutorial.progressColorClass + ' mr-3'">
-                                <i :class="'fas ' + tutorial.progressIconClass + ' icon-img'"></i>
-                            </a>
-                            <!--<a href="#" class="social-icon si-dark-round si-facebook si-minus">
-                                <i class="fas fa-minus icon-img"></i>
-                            </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-minus">
-                                <i class="fas fa-minus icon-img"></i>
-                            </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-plus">
-                                <i class="fas fa-plus icon-img"></i>
-                            </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-dark">
-                                <i class="fas fa-check icon-img"></i>
-                            </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-plus">
-                                <i class="fas fa-plus icon-img"></i>
-                            </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-times">
-                                <i class="fas fa-times icon-img"></i>
-                            </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-lock">
-                                <i class="fas fa-lock icon-img"></i>
-                            </a>
-                            <a href="#" class="social-icon si-dark-round si-facebook si-lock">
-                                <i class="fas fa-lock icon-img"></i>
-                            </a>-->
+                        <td class="tut-col" v-for="(tutorial, index) in user.tutorials">
+                            <div class="tut-col mx-auto">
+                                <a href="#" :class="'stat-icon tb-icon si-dark-round si-facebook ' + tutorial.progressColorClass ">
+                                    <i :class="'fas ' + tutorial.progressIconClass + ' icon-img'"></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-            </section>
+            </div>
         </div>
-        </div>
+    </div>
 
 </template>
 
@@ -104,7 +97,7 @@
     }
 </script>
 
-<style scoped>
+<style>
 
     th {
         border: none !important;
@@ -126,23 +119,7 @@
         float: left;
     }
 
-    .social-icon {
-        box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset, 1px 1px 1px #CCC;
-        margin: 0 5px 5px 0;
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-        line-height: 40px !important;
-        color: #555;
-        text-shadow: none;
-        border-radius: 3px;
-        overflow: hidden;
-        display: block;
-        float: left;
-        text-align: center;
-    }
-
-    .social-icon i {
+    .stat-icon i {
         display: block;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
@@ -152,11 +129,11 @@
         position: relative;
     }
 
-    .social-icon i:last-child {
+    .stat-icon i:last-child {
         color: #FFF !important;
     }
 
-    .social-icon:hover i:first-child {
+    .stat-icon:hover i:first-child {
         margin-top: -40px;
     }
 
@@ -164,7 +141,7 @@
         color: white !important;
     }
 
-    .social-icon-lg i {
+    .stat-icon-lg i {
         display: block;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
@@ -174,11 +151,11 @@
         position: relative;
     }
 
-    .social-icon-lg i:last-child {
+    .stat-icon-lg i:last-child {
         color: #FFF !important;
     }
 
-    .social-icon-lg:hover i:first-child {
+    .stat-icon-lg:hover i:first-child {
         margin-top: -60px;
     }
 
@@ -198,28 +175,7 @@
         font-size: 12px;
     }
 
-
-    .si-times {
-        background-color: #ee2a7b;
-    }
-
-    .si-plus {
-        background-color: #8dc63f;
-    }
-
-    .si-minus {
-        background-color: #f7941e;
-    }
-
-    .si-lock {
-        background-color: #662d91;
-    }
-
-    .si-dark {
-        background-color: #1c75bc;
-    }
-
-    ul.online-users li {
+      ul.online-users li {
         list-style: none;
         position: relative;
         margin: 3px auto !important;
@@ -282,4 +238,95 @@
         font-size: 12px;
     }
 
-    </style>
+    .txt-wrap {
+        word-wrap: break-word;
+        color:#424242;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+   th .name-col {
+        width: 250px;
+   }
+
+    td .name-col {
+        width: 250px;
+    }
+
+    td.tut-col {
+        width: 150px;
+    }
+
+    th .tut-col {
+        width: 50px;
+    }
+
+    .skrolling {
+        overflow-x: auto;
+    }
+
+    .tb-icon {
+        margin-left: 7px;
+    }
+
+    .font-size-20 {
+        font-size:18px;
+    }
+
+    th {
+        height: auto;
+    }
+
+    .verticaltext-content {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        left: -20px;
+        top: 35px;
+    }
+
+    .tutorial-col {
+        height: auto;
+    }
+
+    .p-vertical {
+        white-space:nowrap;
+    }
+
+   a .vertical {
+        webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        white-space:nowrap;
+    }
+
+   #rotate {
+       text-align: left;
+       height: 200px;
+       white-space: nowrap;
+       overflow: hidden;
+       position: relative;
+   }
+
+    #points {
+        position: absolute;
+        margin-left: -6px;
+        z-index: 12;
+        transform: rotate(-90deg);
+    }
+
+    .outer {
+        transform: translateY(50px) translateX(-10px) rotate(-90deg);
+        width: 30px;
+    }
+
+    #inner {
+        display: inline-block;
+    }
+
+</style>
