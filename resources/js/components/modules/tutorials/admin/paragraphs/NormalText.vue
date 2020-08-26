@@ -185,11 +185,7 @@
         -webkit-transition: opacity .25s ease-in-out !important;
     }
 
-    .tutorial-text:hover .btn-icon {
-        opacity: 1 !important;
-    }
-
-    .blueiconcolor {
+      .blueiconcolor {
         color: #00bff9 !important;
     }
 
@@ -240,6 +236,7 @@
     .tutorial-normal-text:hover .btnafter{
         display:block;
     }
+
 
     .btnbefore {
         visibility: visible;
