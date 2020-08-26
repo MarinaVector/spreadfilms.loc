@@ -1,82 +1,69 @@
 <template>
-    <div class="container content-height">
-        <input type="hidden" name="component_type" value="TxtImg" class="component_type"/>
-        <div class="row">
-            <div class="col-md-12 col-12 text-image">
-                <div class="row row-image">
-                    <div class="col-lg-9 col-8">
-                        <div class="row module-img" :id="dataInputPreviewID" ref="preview">
-                            <div class="col-2 col-md-1 mt-3 ml-2">
-                                <button type="button" class="btn-icon ml-n2 draggable">
-                                    <i class="fa fa-arrows-v pt-2"></i>
-                                </button>
-                            </div>
-                            <div class="col-5 col-md-5 offset-md-2 inner-trigger display-img mt-md-5">
+    <!DOCTYPE html>
+    <div>
+        <div class="container txt-img">
+            <input type="hidden" name="component_type" value="TxtImg" class="component_type" />
+            <div class="row cont-elements">
 
-                                <input :id="dataInputID" class="elfinder-idea component_image" name="image"
-                                       v-model="Src" type="hidden" ref="Src"/>
-                                <button :data-inputid="dataInputID"
-                                        v-bind:class=" {btnbefore:btnBeforeSrc, btnafter:btnAfterSrc} "
-                                        class="popup_selector text-button ml-md-4 py-2 mb-md-0 mb-5 px-md-5 mt-md-5 slide-border"
-                                        type="button">
-                                    <i class="fas fa-image blueiconcolor fa-2x pt-1">
-                                    </i>
-                                    <div class="mt-n1 mb-n1">Image</div>
-                                </button>
-                            </div>
-                        </div>
+                <div class="col-md-9 px-0 img-hover module-img" id="">
 
-                        <div class="row">
-                            <div v-bind:class=" { textafter : textAfter, leveltext : levelText} " class="" @click="showTextModal()">
-                                <div class="row">
-                                    <div class="col-md-12 p-4">
-                                        <div class="text-content">
-                                            <div class="text-header text-left h2 headline" v-html="NormalTextHeader">
+                    <div v-bind:class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
+                         class="h-100" :id="dataInputPreviewID" ref="preview">
 
-                                            </div>
-                                            <div class="text-justify" v-html="NormalTextBody">
+                        <button type="button" class="btn-icon draggable mt-3 ml-3">
+                            <i class="fa fa-arrows-v pt-2"></i>
+                        </button>
 
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader"
-                                               class="normal_text_header">
-                                        <input type="hidden" name="normal_text_body" v-model="NormalTextBody"
-                                               class="normal_text_body">
-                                        <button v-bind:class=" {btnbefore:btnBeforeText, btnafter:btnAfterText} "
-                                                class="text-button py-2 px-md-5 px-2" type="button">
-                                            <i class="fas fa-bars blueiconcolor fa-2x mt-1">
-                                            </i>
-                                            <div class="mt-n1 mb-n1">Text</div>
-                                        </button>
+                        <input :id="dataInputID" class="elfinder-idea component_image" name="image"
+                               v-model="Src" type="hidden" ref="Src" />
+
+                        <button v-bind:class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
+                                :data-inputid="dataInputID"
+                                class="popup_selector py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
+                                type="button">
+                            <i class="fas fa-image blueiconcolor fa-2x pt-1">
+                            </i>
+                            <div class="mt-n1 mb-n1">Image</div>
+                        </button>
+
+                        <div class="row h-100 text-level">
+                            <div v-bind:class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
+                                 class="clas col-4 offset-md-8 col-md-4 py-5">
+                                <div class="" @click="showTextModal()">
+                                    <div class="h2 headtext" v-html="NormalTextHeader">
                                     </div>
+                                    <div class="text-justify" v-html="NormalTextBody"> </div>
+
+                                    <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+                                    <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+
+                                    <button v-bind:class=" {txt_img_btn_txt_before:btnBeforeText, txt_img_btn_txt_after:btnAfterText} "
+                                            class="txt-btn px-md-5 px-2 btn-right" type="button">
+                                        <i class="fas fa-bars blueiconcolor fa-2x mt-1">
+                                        </i>
+                                        <div class="">Text</div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-3 col-4 mt-2 tutorial-right">
-                        <div class="row tutorial-right">
-                            <div class="col-12 col-md-3 offset-md-9 mt-2 mb-5">
-                                <button type="button" class="btn-icon ml-3 mb-5"
-                                        @click="callParentDeleteParagraphBlock()">
-                                    <i class="fa fa-trash-o pt-2"></i>
-                                </button>
-                            </div>
-                            <div class="col-12 col-md-5 offset-md-9 pt-3 mt-5">
-                                <button type="button" class="btn-icon ml-3"
-                                        @click="callParentDuplicateParagraphBlock()">
-                                    <i class="fa fa-files-o pt-2"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div class="col-md-3 container-right" id="right">
+                    <div></div>
+                    <div><button type="button" class="btn-icon mt-2 ml-3" @click="callParentDeleteParagraphBlock()">
+                        <i class="fa fa-trash-o pt-2"></i>
+                    </button></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div><button type="button" class="btn-icon ml-3" @click="callParentDuplicateParagraphBlock()">
+                        <i class="fa fa-files-o pt-2"></i>
+                    </button></div>
                 </div>
             </div>
+            <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+                             :header="NormalTextHeader" :body="NormalTextBody"></NormalTextModal>
         </div>
-
-        <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
-                         :header="NormalTextHeader"
-                         :body="NormalTextBody"></NormalTextModal>
     </div>
 </template>
 
@@ -110,10 +97,14 @@
                 Src: this.mydata ? this.$props.mydata.src : '',
                 btnBeforeSrc: true,
                 btnBeforeText: true,
+                btnBeforeImg: true,
+                btnAfterImg: false,
                 btnAfterSrc: false,
                 btnAfterText: false,
                 textAfter: false,
-                levelText: true,
+                textBefore: true,
+                imgAfter: false,
+                imgBefore: true,
             };
         },
         created() {
@@ -122,7 +113,7 @@
                 this.textAfter = true;
             }
             if(this.Src !== "" ){
-                this.btnAfterSrc = true;
+                this.btnAfterImg = true;
             }
 
         },
@@ -157,9 +148,10 @@
                 this.btnAfterText = true;
                 this.btnAfterSrc = true;
                 this.textAfter = true;
+                this.btnAfterImg = true;
             },
             getPreviousData: function () {
-                return [1, 2];
+                return [1, 2, 3, 4];
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
@@ -170,6 +162,10 @@
 </script>
 
 <style lang="scss">
+
+$height1:100%;
+$height2:95%;
+
     .inner-trigger {
         transition: background-color .3s ease;
         background-color: transparent;
@@ -179,7 +175,6 @@
     }
 
     .text-button {
-        background-color: white;
         border: none;
     }
 
@@ -214,15 +209,10 @@
         width: 100%;
     }
 
-    .module-text:hover {
-        background-color: #7c7c7c;
-        cursor: pointer;
-        transition: opacity .3s ease, background-color .5s ease;
-    }
-
     .text-image:hover .btn-icon,
     .tutorial-right:hover .btn-icon {
         opacity: 1 !important;
+        transition: opacity .3s ease, background-color .5s ease;
     }
 
     .blueiconcolor {
@@ -230,55 +220,45 @@
     }
 
     .text-image {
-        border-bottom: 1px solid #d9d9d9;
         background-color: #f9f9f9;
         top: 0px;
         left: 0px;
         width: 100%;
+    }
+
+    .txt_img_img_before {
         height: 274px;
-        max-height: 1000px;
         min-height: 239px;
+    }
+
+    .txt_img_img_after {
+        border: none;
+        height: $height1;
     }
 
     .row-image {
         height: inherit;
     }
 
-    .btnafter {
-        display:none;
-    }
-
-    .leveltext:hover .btnafter{
-        display:block;
-    }
-
-    .display-img:hover .btnafter{
-        display:block;
-    }
-
-    .btnbefore {
+    .txt_img_btn_img_before,
+    .txt_img_btn_txt_before {
         visibility: visible;
     }
 
-    .leveltext {
-        pointer-events: all;
-        position: absolute;
-        top: 50%;
-        cursor: pointer;
-        left: 100%;
-        transform: translate3d(-50%, -50%, 0);
-        transition: opacity .3s ease, background-color .5s ease;
-        width: 36%;
-        height: 80%;
-        background-color: #d9d9d9;
-        z-index: 2;
+    .txt_img_btn_img_after,
+    .txt_img_btn_txt_after {
+        display: none;
     }
 
-    .leveltext:hover    {
-        background-color: #6c6c6c;
+    .txt_img_txt_after:hover .txt_img_btn_txt_after {
+        display: block;
     }
 
-        .text-content {
+    .img-hover:hover .txt_img_btn_img_after {
+        display: block;
+    }
+
+    .text-content {
         box-sizing: border-box;
     }
 
@@ -286,35 +266,116 @@
         height: auto;
     }
 
-$height1:100%;
-$height2:auto;
-
-.module-img {
-
-    height: ($height2+10%) !important;
-
+    .module-img {
+    height: ($height2) !important;
 }
 
-.module-img {
-    height: $height1;
+   .module-img {
+    /*min-height: 300px;*/
     border: dotted 1px #333;
-    z-index: 1;
     background-size: cover;
     background-position: center;
     cursor: pointer;
+    background: no-repeat !important;
 }
 
-.textafter {
+  .module-img:hover  {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    cursor: pointer;
+    transition: opacity .3s ease, background-color .5s ease;
+ }
+
+    .txt_img_txt_before {
+        pointer-events: all;
+        cursor: pointer;
+        left: 100%;
+        transition: opacity 0.3s ease, background-color 0.5s ease;
+        width: 36%;
+        height: 80%;
+        background-color: #d9d9d9;
+        border: dotted 1px #333;
+         position: relative;
+        z-index: 8;
+
+        &:hover {
+            background: gray;
+
+            }
+
+        }
+
+    .txt_img_txt_before:hover .txt-btn,
+    .module-img:hover .txt-btn {
+        background-color: white;
+        border-radius: 3px;
+    }
+
+    .txt_img_txt_after {
     color: #fff;
-    height: $height2;
     background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
-    top: 50%;
     cursor: pointer;
     word-wrap: break-word;
     left: 100%;
-    transform: translate3d(-50%, -50%, 0);
     border: none;
     width: 46%;
+    pointer-events: all;
+    transition: opacity 0.3s ease, background-color 0.5s ease;
+    position: relative;
+    z-index: 8;
+    height: $height2;
 }
+
+    .clas {
+        margin-left: 90%;
+        left: 0;
+    }
+
+    .displaynone {
+        visibility: hidden;
+    }
+
+    .img-btn {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+    }
+
+    .txt-btn {
+        border: none;
+        position: absolute;
+        z-index: 20;
+        top: 40%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+    }
+
+    #right {
+        border-bottom: 1px solid #d9d9d9;
+        background-color: #f1f1f1;
+    }
+
+    #background-image-2-preview {
+        min-height: 300px;
+    }
+
+    .container-right {
+        display: grid;
+        grid-template-columns: auto 50px;
+        grid-template-rows: 50px auto 50px;
+        justify-items: start;
+    }
+
+    .txt-img:hover .btn-icon {
+        opacity: 1 !important;
+    }
+
+    .headtext {
+        margin: 0;
+        padding-bottom: 35%;
+        font-size: 3.1em;
+        line-height: 1em;
+    }
 
 </style>
