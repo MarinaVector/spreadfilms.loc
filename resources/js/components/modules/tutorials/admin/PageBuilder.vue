@@ -34,6 +34,7 @@
                             v-on:childToParent="deleteParagraph(index)"
                             v-on:duplicateParagraph="duplicateParagraph(index)"
                             v-on:getParagraphData="getParagraphData(index)"
+                            v-on:saveParagraphData="saveParagraphData"
                             :index="index"
                             :blocksCounterID="blocksCounterID"
                             :key="index"
@@ -319,7 +320,7 @@
             }
         },
         methods: {
-            addParagraphBlock(paragraphName, paragraphData = null) {
+            addParagraphBlock(paragraphName, paragraphData = {}) {
                 let Component = null;
                 switch (paragraphName) {
                     case 'NormalText':
@@ -375,6 +376,9 @@
                 Component = null;
                 this.ComponentData = null;
                 this.blocksCounterID += 1;
+
+                this.$store.commit('updateParagraphs', {paragraphs: this.paragraphs});
+                //console.log(this.$store.state.paragraphs);
             },
             deleteParagraph(index) {
                 this.paragraphs.splice(index, 1);
@@ -459,7 +463,11 @@
             },
             getParagraphData(index) {
                 return 'hello nigga';
-            }
+            },
+            saveParagraphData(mydata){
+                //console.log(this.paragraphs[mydata.index]);
+                this.paragraphs[mydata.index].component.mydata = mydata.myData;
+            },
         },
         components: {
             NormalText,
@@ -476,7 +484,7 @@
             TextImgHigh,
             Contact,
             QuestionsAnswers
-        }
+        },
     };
 
 </script>

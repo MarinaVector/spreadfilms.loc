@@ -17,9 +17,9 @@ import PortalVue from 'portal-vue';
 Vue.use(PortalVue);
 
 
-import Vue from 'vue';
+import store from './store';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-
+import Vue from 'vue';
 
 Vue.use(BootstrapVue);
 
@@ -107,6 +107,6 @@ Vue.component('display-tutorials-main-page', require('./components/modules/tutor
 
 const app = new Vue({
     el: '#app',
-
+    store,
 });
 

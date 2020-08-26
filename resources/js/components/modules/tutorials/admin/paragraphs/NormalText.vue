@@ -99,6 +99,13 @@
                 $(element).modal('show');
             },
             saveData: function (header, body) {
+                this.$emit('saveParagraphData', {
+                    index: this.index,
+                    myData: {
+                        header: header,
+                        text: body
+                    }
+                });
                 this.NormalTextHeader = header;
                 this.NormalTextBody = body;
                 this.normalAfter = true;
