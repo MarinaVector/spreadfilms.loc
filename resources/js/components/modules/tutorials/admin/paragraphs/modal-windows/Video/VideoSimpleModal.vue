@@ -90,27 +90,12 @@
                                     </tr>
                                     </tbody>
                                     <tfoot>
-                                    <tr>
-                                        <td><input type="hidden" value=""> <span
-                                            class="time-picker"><input type="text" readonly="readonly"
-                                                                       class="display-time"> <span
-                                            class="clear-btn"
-                                            style="">×</span>
-                                            <!----> <div class="dropdown" style="display: none;"><div
-                                                class="select-list"><ul class="hours"><li
-                                                class="hint">HH</li> <li
-                                                class="">00</li><li class="">01</li><li
-                                                class="">02</li><li
-                                                class="">03</li><li class="">04</li><li
-                                                class="">05</li><li
-
-
-                                                class="">56</li><li class="">57</li><li
-                                                class="">58</li><li
-                                                class="">59</li></ul>
-                                                <!----></div></div></span></td>
-                                        <td><input type="text" class="form-control"></td>
-                                        <td><span title="" class="save-note-button"
+                                    <tr class="mt-2">
+                                        <td><input type="hidden" value="">
+                                            <vue-timepicker format="mm:ss"></vue-timepicker>
+                                        </td>
+                                        <td><input type="text" class="form-txt ml-5"></td>
+                                        <td><span title="" class="save-note-button ml-1"
                                                   data-original-title="Save note"><i
                                             class="fas fa-save"></i></span></td>
                                     </tr>
@@ -136,6 +121,8 @@
 
 <script>
     import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+    import 'vue2-timepicker/dist/VueTimepicker.css';
+    import VueTimepicker from 'vue2-timepicker/src/vue-timepicker.vue';
 
     export default {
         name: "VideoSimple",
@@ -144,7 +131,7 @@
             'body',
         ],
         components: {
-
+            VueTimepicker
         },
         data() {
             return {
@@ -171,6 +158,7 @@
 </script>
 
 <style>
+
     #modals-container
     .edit-view
     .edit-inner
@@ -297,6 +285,10 @@
 
     input:checked + .roundchek:before {
         opacity: 1;
+    }
+
+    .form-txt {
+        border: 1px solid #ced4da;
     }
 
 
