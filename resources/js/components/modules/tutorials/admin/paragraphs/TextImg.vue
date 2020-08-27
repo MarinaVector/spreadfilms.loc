@@ -1,6 +1,5 @@
 <template>
-    <!DOCTYPE html>
-    <div>
+       <div>
         <div class="container txt-img">
             <input type="hidden" name="component_type" value="TxtImg" class="component_type" />
             <div class="row cont-elements">

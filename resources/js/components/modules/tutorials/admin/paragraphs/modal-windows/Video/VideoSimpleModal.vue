@@ -1,8 +1,12 @@
 <template>
-    <div class="modal fade container fade-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade container video-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content py-5">
+            <div class="modal-content py-3 px-4">
                 <div class="part">
+                    <div class="pull-right">
+                        <question-dropdown :answerdropdown="'The Video Banner is created automatically. ' +
+                         'Please not that no Banner can be created for a password-protected Video.'"></question-dropdown>
+                    </div>
                     <label class="input-title"><i class="fas fa-image mr-2"></i>Banner</label>
 
                     <div class="elfinder-container"><input id="neu-1" type="hidden" data-type="bild"
@@ -176,9 +180,11 @@
         color: #424242;
     }
 
-    .fade-modal {
-        top: 20%;
-        left: 30%;
+    .video-modal {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
     }
 
     .edit-view
