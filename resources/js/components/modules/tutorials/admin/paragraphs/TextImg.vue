@@ -28,7 +28,7 @@
 
                         <div class="row h-100 text-level">
                             <div v-bind:class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
-                                 class="clas col-4 offset-md-8 col-md-4 py-5">
+                                 class="clas col-4 offset-md-8 col-md-4 py-5 mb-5">
                                 <div class="" @click="showTextModal()">
                                     <div class="h2 headtext" v-html="NormalTextHeader">
                                     </div>

@@ -18,7 +18,7 @@
         <div class="row" @click="showTextModal()">
             <div class="col-md-8 mx-auto col-12 mx-sm-auto" id="butTxt">
                 <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button slide-border py-2
-                 px-5" type="button">
+                 px-5 mx-auto" type="button">
                     <i class="fas fa-bars blueiconcolor fa-2x">
                     </i>
                     <div class="mt-n1 mb-n1">Text</div>
@@ -232,12 +232,12 @@
     #butTxt button {
         position: absolute;
         left: 42%;
-        top: 45%;
         cursor: pointer;
     }
 
     .btnafter {
         display:none;
+        top: 45%;
     }
 
     .tutorial-normal-text:hover .btnafter{
