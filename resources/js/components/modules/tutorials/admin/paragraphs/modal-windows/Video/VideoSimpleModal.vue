@@ -1,5 +1,6 @@
 <template>
-    <div class="modal fade container video-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade container video-modal" id="VideoSimpleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true" @click="cancel">
         <div class="modal-dialog" role="document">
             <div class="modal-content py-3 px-4">
                 <div class="part">
@@ -16,34 +17,16 @@
                     </div>
                     <hr>
                     <label class="input-title"><i class="fas fa-film mr-2"></i>Video</label>
-                    <div class="elfinder-container"><input type="text" placeholder="Video-URL"
-                                                           class="videourl">
+                    <div class="elfinder-container">
+                        <input type="text" v-model="VideoUrl" placeholder="Video-URL" class="videourl">
                     </div>
                     <hr>
-                    <label class="input-title"><i data-fa-transform="rotate-45"
-                                                  class="fas fa-arrows-alt-h mr-2"></i>Dimension</label>
+                    <label class="input-title">
+                        <i data-fa-transform="rotate-45" class="fas fa-arrows-alt-h mr-2"></i>Dimension
+                    </label>
 
-                    <div class="stay-logged-in">
-                        <div class="pretty p-default p-round">
-                            <div class="custom-checkbox pretty p-default p-round">
-                                <label for="remember1">
-                                    <input type="checkbox" class="custom-control-input" name="remember" id="remember1">
-                                    <div class="roundchek mr-1"></div>
-                                    16:9
-                                </label>
-                            </div>
-                            <div class="pretty p-default p-round p-curve">
-                            <div class="custom-checkbox">
-                                <label for="remember2">
-                                    <input type="checkbox" class="custom-control-input" name="remember" id="remember2">
-                                    <div class="roundchek mr-1"></div>
-                                    4:3
-                                </label>
-                            </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <p-radio name="dimension" v-model="Dimension" :value="'16:9'">16:9</p-radio>
+                    <p-radio name="dimension" v-model="Dimension" :value="'4:3'">4:3</p-radio>
 
                     <hr>
                     <label class="input-title"><i class="far fa-sticky-note mr-2"></i>Notice</label>
@@ -122,36 +105,51 @@
 <script>
     import 'vue2-timepicker/dist/VueTimepicker.css';
     import VueTimepicker from 'vue2-timepicker/src/vue-timepicker.vue';
+    import PrettyCheckbox from 'pretty-checkbox-vue';
 
     export default {
         name: "VideoSimple",
         props: [
-            'VideoUrl',
-            'Banner',
-            'Dimension',
-            'Notices',
+            'videoUrl',
+            'banner',
+            'dimension',
+            'notices',
         ],
         components: {
             VueTimepicker
         },
         data() {
             return {
-                VideoUrl: this.mydata ? this.$props.mydata.VideoUrl : '',
-                Banner: this.mydata ? this.$props.mydata.Banner : '',
-                Dimension: this.mydata ? this.$props.mydata.Dimension : '',
-                Notices: this.mydata ? this.$props.mydata.Notices : '',
+                VideoUrl: this.$props.videoUrl ? this.$props.videoUrl : '',
+                Banner: this.$props.banner ? this.$props.banner : '',
+                Dimension: this.$props.dimension ? this.$props.dimension : '',
+                Notices: this.$props.notices ? this.$props.notices : '',
             };
+        },
+        created() {
+            this.Dimension = this.Dimension;
+        },
+        mounted(){
+
         },
         methods: {
             save: function () {
-                this.$emit('saveData', this.NormalTextHeader, this.NormalTextBody)
+                this.Banner = "https://i.ytimg.com/vi/" + this.getBannerUrl(this.VideoUrl) + "/hqdefault.jpg";
+                this.$emit('saveData', this.VideoUrl, this.Banner, this.Dimension, this.Notices)
             },
             cancel: function (event) {
-                if(event.target.id === 'NormalTextModal' || event.target.id === 'CancelModal') {
-                    this.NormalTextHeader = this.$props.header;
-                    this.NormalTextBody = this.$props.body;
+                if(event.target.id === 'VideoSimpleModal' || event.target.id === 'CancelModal') {
+                    this.VideoUrl = this.$props.videoUrl;
+                    this.Banner = this.$props.banner;
+                    this.Dimension = this.$props.dimension;
+                    this.Notices = this.$props.notices;
                 }
-            }
+            },
+            getBannerUrl: function (VideoUrl) {
+                let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+                let match = VideoUrl.match(regExp);
+                return (match&&match[7].length==11)? match[7] : false;
+            },
         },
     }
 </script>

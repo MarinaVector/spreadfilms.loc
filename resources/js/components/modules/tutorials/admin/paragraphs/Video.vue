@@ -1,5 +1,5 @@
 <template>
-    <div class="container tutorial-video">
+    <div class="container tutorial-video" v-bind:style="{ backgroundImage: 'url(' + Banner + ')' }">
         <input type="hidden" name="component_type" value="Video" class="component_type" ref="component_type" />
         <div class="row mt-2">
             <div class="col-lg-1">
@@ -33,8 +33,12 @@
         </div>
         <VideoSimpleModal ref="modal"
                      v-on:saveData="saveData"
-                     v-on:getPreviousData="getPreviousData">
-
+                     v-on:getPreviousData="getPreviousData"
+                     :videoUrl="VideoUrl"
+                     :banner="Banner"
+                     :dimension="Dimension"
+                     :notices="Notices"
+        >
         </VideoSimpleModal>
     </div>
 </template>
@@ -58,10 +62,10 @@
         },
         data() {
             return {
-                VideoUrl: this.mydata ? this.$props.mydata.VideoUrl : '',
-                Banner: this.mydata ? this.$props.mydata.Banner : '',
-                Dimension: this.mydata ? this.$props.mydata.Dimension : '',
-                Notices: this.mydata ? this.$props.mydata.Notices : '',
+                VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
+                Banner: this.mydata ? this.$props.mydata.banner : '',
+                Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
+                Notices: this.mydata ? this.$props.mydata.notices : '',
             };
         },
         created() {
@@ -82,14 +86,16 @@
                 this.$emit('saveParagraphData', {
                     index: this.index,
                     myData: {
-                        VideoUrl: VideoUrl,
-                        Banner: Banner,
-                        Dimension: Dimension,
-                        Notices: Notices,
+                        videoUrl: VideoUrl,
+                        banner: Banner,
+                        dimension: Dimension,
+                        notices: Notices,
                     }
                 });
-                this.NormalTextHeader = header;
-                this.NormalTextBody = body;
+                this.VideoUrl = VideoUrl;
+                this.Banner = Banner;
+                this.Dimension = Dimension;
+                this.Notices = Notices;
                 this.btnAfterText = true;
                 this.btnAfterSrc = true;
                 this.textAfter = true;
@@ -125,6 +131,8 @@
     .tutorial-video {
         width: 100%;
         border: dotted 1px #333;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .tutorial-video:hover {
