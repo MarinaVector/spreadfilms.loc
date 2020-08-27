@@ -15,7 +15,7 @@
         <div class="row my-5 pt-5">
             <div class="col-lg-1 offset-lg-5 inner-trigger my-5">
                 <div class="my-5">
-                    <button @click=showVideoSimpleModule() class="text-button ml-4 py-3 px-5 mt-2" type="button">
+                    <button @click=showTextModal() class="text-button ml-4 py-3 px-5 mt-2" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
                         <p class="mt-n1 mb-n1">Video</p>
@@ -23,8 +23,6 @@
                 </div>
             </div>
         </div>
-        <VideoSimple ref="modal"></VideoSimple>
-
         <div class="row">
             <div class="col-lg-1 offset-lg-11">
 
@@ -33,6 +31,11 @@
                 </button>
             </div>
         </div>
+        <VideoSimple ref="modal"
+                     v-on:saveData="saveData"
+                     v-on:getPreviousData="getPreviousData">
+
+        </VideoSimple>
     </div>
 </template>
 
@@ -59,10 +62,30 @@
             callParentDuplicateParagraphBlock: function() {
                 this.$emit('duplicateParagraph');
             },
-            showVideoSimpleModule: function () {
+            showTextModal: function () {
                 let element = this.$refs.modal.$el;
                 $(element).modal('show');
-            }
+            },
+            saveData: function (header, body) {
+                this.$emit('saveParagraphData', {
+                    index: this.index,
+                    myData: {
+                        header: header,
+                        text: body,
+                        Src: this.$refs.Src.value,
+                    }
+                });
+                this.Src = this.$refs.Src.value;
+                this.NormalTextHeader = header;
+                this.NormalTextBody = body;
+                this.btnAfterText = true;
+                this.btnAfterSrc = true;
+                this.textAfter = true;
+                this.btnAfterImg = true;
+            },
+            getPreviousData: function () {
+                return [1, 2, 3, 4];
+            },
         },
         mounted() {
 
