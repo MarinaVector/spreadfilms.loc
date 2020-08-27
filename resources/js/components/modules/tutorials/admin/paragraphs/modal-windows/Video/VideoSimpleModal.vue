@@ -135,25 +135,23 @@
 </template>
 
 <script>
-    import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
     export default {
         name: "VideoSimple",
         props: [
-            'header',
-            'body',
+            'VideoUrl',
+            'Banner',
+            'Dimension',
+            'Notices',
         ],
         components: {
 
         },
         data() {
             return {
-                editor: ClassicEditor,
-                NormalTextHeader: this.$props.header ? this.$props.header : '<p></p>',
-                NormalTextBody: this.$props.body ? this.$props.body : '<p></p>',
-                editorConfig: {
-                    // The configuration of the editor.
-                }
+                VideoUrl: this.mydata ? this.$props.mydata.VideoUrl : '',
+                Banner: this.mydata ? this.$props.mydata.Banner : '',
+                Dimension: this.mydata ? this.$props.mydata.Dimension : '',
+                Notices: this.mydata ? this.$props.mydata.Notices : '',
             };
         },
         methods: {

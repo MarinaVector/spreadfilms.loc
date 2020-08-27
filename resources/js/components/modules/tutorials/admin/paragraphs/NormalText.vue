@@ -64,7 +64,7 @@
             mydata: {
                 type: Object,
                 default: () => {}
-            }
+            },
         },
         data() {
             return {
@@ -89,7 +89,7 @@
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
-                this.$emit('childToParent');
+                this.$emit('deleteParagraph');
             },
             callParentDuplicateParagraphBlock: function () {
                 this.$emit('duplicateParagraph');

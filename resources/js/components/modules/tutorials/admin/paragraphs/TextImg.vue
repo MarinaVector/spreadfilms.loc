@@ -1,68 +1,64 @@
 <template>
-       <div>
-        <div class="container txt-img">
-            <input type="hidden" name="component_type" value="TxtImg" class="component_type" />
-            <div class="row cont-elements">
+    <div class="container txt-img">
+        <input type="hidden" name="component_type" value="TxtImg" class="component_type" />
+        <div class="row cont-elements">
+            <div class="col-md-9 px-0 img-hover module-img" id="">
+                <div v-bind:class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
+                     class="h-100" :id="dataInputPreviewID" ref="preview">
 
-                <div class="col-md-9 px-0 img-hover module-img" id="">
+                    <button type="button" class="btn-icon draggable mt-3 ml-3">
+                        <i class="fa fa-arrows-v pt-2"></i>
+                    </button>
 
-                    <div v-bind:class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
-                         class="h-100" :id="dataInputPreviewID" ref="preview">
+                    <input :id="dataInputID" class="elfinder-idea component_image" name="image"
+                           v-model="Src" type="hidden" ref="Src" />
 
-                        <button type="button" class="btn-icon draggable mt-3 ml-3">
-                            <i class="fa fa-arrows-v pt-2"></i>
-                        </button>
+                    <button v-bind:class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
+                            :data-inputid="dataInputID"
+                            class="popup_selector py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
+                            type="button">
+                        <i class="fas fa-image blueiconcolor fa-2x pt-1">
+                        </i>
+                        <div class="mt-n1 mb-n1">Image</div>
+                    </button>
 
-                        <input :id="dataInputID" class="elfinder-idea component_image" name="image"
-                               v-model="Src" type="hidden" ref="Src" />
-
-                        <button v-bind:class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
-                                :data-inputid="dataInputID"
-                                class="popup_selector py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
-                                type="button">
-                            <i class="fas fa-image blueiconcolor fa-2x pt-1">
-                            </i>
-                            <div class="mt-n1 mb-n1">Image</div>
-                        </button>
-
-                        <div class="row h-100 text-level">
-                            <div v-bind:class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
-                                 class="clas col-4 offset-md-8 col-md-4 py-5 mb-5">
-                                <div class="" @click="showTextModal()">
-                                    <div class="h2 headtext" v-html="NormalTextHeader">
-                                    </div>
-                                    <div class="text-justify" v-html="NormalTextBody"> </div>
-
-                                    <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
-                                    <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
-
-                                    <button v-bind:class=" {txt_img_btn_txt_before:btnBeforeText, txt_img_btn_txt_after:btnAfterText} "
-                                            class="txt-btn px-md-5 px-2 btn-right" type="button">
-                                        <i class="fas fa-bars blueiconcolor fa-2x mt-1">
-                                        </i>
-                                        <div class="">Text</div>
-                                    </button>
+                    <div class="row h-100 text-level">
+                        <div v-bind:class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
+                             class="clas col-4 offset-md-8 col-md-4 py-5 mb-5">
+                            <div class="" @click="showTextModal()">
+                                <div class="h2 headtext" v-html="NormalTextHeader">
                                 </div>
+                                <div class="text-justify" v-html="NormalTextBody"> </div>
+
+                                <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+                                <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+
+                                <button v-bind:class=" {txt_img_btn_txt_before:btnBeforeText, txt_img_btn_txt_after:btnAfterText} "
+                                        class="txt-btn px-md-5 px-2 btn-right" type="button">
+                                    <i class="fas fa-bars blueiconcolor fa-2x mt-1">
+                                    </i>
+                                    <div class="">Text</div>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 container-right" id="right">
-                    <div></div>
-                    <div><button type="button" class="btn-icon mt-2 ml-3" @click="callParentDeleteParagraphBlock()">
-                        <i class="fa fa-trash-o pt-2"></i>
-                    </button></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div><button type="button" class="btn-icon ml-3" @click="callParentDuplicateParagraphBlock()">
-                        <i class="fa fa-files-o pt-2"></i>
-                    </button></div>
-                </div>
             </div>
-            <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
-                             :header="NormalTextHeader" :body="NormalTextBody"></NormalTextModal>
+            <div class="col-md-3 container-right" id="right">
+                <div></div>
+                <div><button type="button" class="btn-icon mt-2 ml-3" @click="callParentDeleteParagraphBlock()">
+                    <i class="fa fa-trash-o pt-2"></i>
+                </button></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div><button type="button" class="btn-icon ml-3" @click="callParentDuplicateParagraphBlock()">
+                    <i class="fa fa-files-o pt-2"></i>
+                </button></div>
+            </div>
         </div>
+        <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+                         :header="NormalTextHeader" :body="NormalTextBody"></NormalTextModal>
     </div>
 </template>
 
@@ -123,7 +119,7 @@
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
-                this.$emit('childToParent');
+                this.$emit('deleteParagraph');
             },
             callParentDuplicateParagraphBlock: function () {
                 this.$emit('duplicateParagraph');
