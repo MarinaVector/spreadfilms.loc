@@ -1,5 +1,6 @@
 <template>
-    <div class="container tutorial-video">
+    <div class="container tutorial-video" v-bind:style="{ backgroundImage: 'url(' + Banner + ')' }">
+        <input type="hidden" name="component_type" value="Video" class="component_type" ref="component_type" />
         <div class="row mt-2">
             <div class="col-lg-1">
                 <button type="button" class="btn-icon ml-n2 draggable">
@@ -25,39 +26,54 @@
         </div>
         <div class="row">
             <div class="col-lg-1 offset-lg-11">
-
                 <button type="button" class="btn-icon mt-5 ml-4 mb-2" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>
         </div>
-        <VideoSimple ref="modal"
+        <VideoSimpleModal ref="modal"
                      v-on:saveData="saveData"
-                     v-on:getPreviousData="getPreviousData">
-
-        </VideoSimple>
+                     v-on:getPreviousData="getPreviousData"
+                     :videoUrl="VideoUrl"
+                     :banner="Banner"
+                     :dimension="Dimension"
+                     :notices="Notices"
+        >
+        </VideoSimpleModal>
     </div>
 </template>
 
 <script>
-    import VideoSimple from './modal-windows/Video/VideoSimpleModal'
+    import VideoSimpleModal from './modal-windows/Video/VideoSimpleModal'
 
     export default {
         components: {
-            VideoSimple
+            VideoSimpleModal
         },
-        props: [
-            'index'
-        ],
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
+        },
         data() {
-            return {};
+            return {
+                VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
+                Banner: this.mydata ? this.$props.mydata.banner : '',
+                Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
+                Notices: this.mydata ? this.$props.mydata.notices : '',
+            };
         },
         created() {
 
         },
         methods: {
             callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
+                this.$emit('deleteParagraph');
             },
             callParentDuplicateParagraphBlock: function() {
                 this.$emit('duplicateParagraph');
@@ -66,18 +82,20 @@
                 let element = this.$refs.modal.$el;
                 $(element).modal('show');
             },
-            saveData: function (header, body) {
+            saveData: function (VideoUrl, Banner, Dimension, Notices) {
                 this.$emit('saveParagraphData', {
                     index: this.index,
                     myData: {
-                        header: header,
-                        text: body,
-                        Src: this.$refs.Src.value,
+                        videoUrl: VideoUrl,
+                        banner: Banner,
+                        dimension: Dimension,
+                        notices: Notices,
                     }
                 });
-                this.Src = this.$refs.Src.value;
-                this.NormalTextHeader = header;
-                this.NormalTextBody = body;
+                this.VideoUrl = VideoUrl;
+                this.Banner = Banner;
+                this.Dimension = Dimension;
+                this.Notices = Notices;
                 this.btnAfterText = true;
                 this.btnAfterSrc = true;
                 this.textAfter = true;
@@ -113,6 +131,8 @@
     .tutorial-video {
         width: 100%;
         border: dotted 1px #333;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .tutorial-video:hover {

@@ -16,6 +16,8 @@ import PortalVue from 'portal-vue';
 
 Vue.use(PortalVue);
 
+import PrettyCheckbox from 'pretty-checkbox-vue';
+Vue.use(PrettyCheckbox);
 
 import store from './store';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';

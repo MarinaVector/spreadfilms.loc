@@ -31,7 +31,7 @@
                            ref="paragraphs">
                     <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
                         <component
-                            v-on:childToParent="deleteParagraph(index)"
+                            v-on:deleteParagraph="deleteParagraph(index)"
                             v-on:duplicateParagraph="duplicateParagraph(index)"
                             v-on:getParagraphData="getParagraphData(index)"
                             v-on:saveParagraphData="saveParagraphData"
