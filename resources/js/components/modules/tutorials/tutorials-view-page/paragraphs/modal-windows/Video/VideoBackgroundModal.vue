@@ -44,27 +44,8 @@
                                 <label class="input-title"><i data-fa-transform="rotate-45"
                                                               class="fas fa-arrows-alt-h mr-2"></i>Dimension</label>
 
-                                <div class="stay-logged-in">
-                                    <div class="pretty p-default p-round">
-                                        <div class="custom-checkbox pretty p-default p-round">
-                                            <label for="remember1">
-                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember1">
-                                                <div class="roundchek mr-1"></div>
-                                                16:9
-                                            </label>
-                                        </div>
-                                        <div class="pretty p-default p-round p-curve">
-                                            <div class="custom-checkbox">
-                                                <label for="remember2">
-                                                    <input type="checkbox" class="custom-control-input" name="remember" id="remember2">
-                                                    <div class="roundchek mr-1"></div>
-                                                    4:3
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
+                                <p-radio name="dimension" v-model="Dimension" :value="'16:9'">16:9</p-radio>
+                                <p-radio name="dimension" v-model="Dimension" :value="'4:3'">4:3</p-radio>
 
                                 <hr>
                                 <label class="input-title"><i class="far fa-sticky-note mr-2"></i>Notice</label>
