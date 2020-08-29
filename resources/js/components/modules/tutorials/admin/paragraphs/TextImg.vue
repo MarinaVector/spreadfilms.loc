@@ -3,7 +3,7 @@
         <input type="hidden" name="component_type" value="TxtImg" class="component_type" />
         <div class="row cont-elements">
             <div class="col-md-9 px-0 img-hover module-img" id="">
-                <div v-bind:class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
+                <div :class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
                      class="h-100" :id="dataInputPreviewID" ref="preview">
 
                     <button type="button" class="btn-icon draggable mt-2 ml-2">
@@ -13,7 +13,7 @@
                     <input :id="dataInputID" class="elfinder-idea component_image" name="image"
                            v-model="Src" type="hidden" ref="Src" />
 
-                    <button v-bind:class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
+                    <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                             :data-inputid="dataInputID"
                             class="popup_selector py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
                             type="button">
@@ -23,7 +23,7 @@
                     </button>
 
                     <div class="row h-100 text-level">
-                        <div v-bind:class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
+                        <div :class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
                              class="clas col-4 offset-md-8 col-md-4 py-5 mb-5">
                             <div class="" @click="showTextModal()">
                                 <div class="h2 headtext" v-html="NormalTextHeader">
@@ -33,7 +33,7 @@
                                 <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
                                 <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
 
-                                <button v-bind:class=" {txt_img_btn_txt_before:btnBeforeText, txt_img_btn_txt_after:btnAfterText} "
+                                <button :class=" {txt_img_btn_txt_before:btnBeforeText, txt_img_btn_txt_after:btnAfterText} "
                                         class="txt-btn px-md-5 px-2 btn-right" type="button">
                                     <i class="fas fa-bars blueiconcolor fa-2x mt-1">
                                     </i>
@@ -88,11 +88,9 @@
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 Src: this.mydata ? this.$props.mydata.src : '',
-                btnBeforeSrc: true,
                 btnBeforeText: true,
                 btnBeforeImg: true,
                 btnAfterImg: false,
-                btnAfterSrc: false,
                 btnAfterText: false,
                 textAfter: false,
                 textBefore: true,
@@ -139,7 +137,6 @@
                 this.NormalTextHeader = header;
                 this.NormalTextBody = body;
                 this.btnAfterText = true;
-                this.btnAfterSrc = true;
                 this.textAfter = true;
                 this.btnAfterImg = true;
             },
