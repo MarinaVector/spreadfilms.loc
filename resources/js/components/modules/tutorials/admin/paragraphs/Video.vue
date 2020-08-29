@@ -33,11 +33,11 @@
         </div>
         <VideoSimpleModal ref="modal"
                      v-on:saveData="saveData"
-                     v-on:getPreviousData="getPreviousData"
+                     v-on:resetNoticesProp="resetNoticesProp"
                      :videoUrl="VideoUrl"
                      :banner="Banner"
                      :dimension="Dimension"
-                     :notices="Notices"
+                     :noticesProp="Notices"
         >
         </VideoSimpleModal>
     </div>
@@ -57,7 +57,12 @@
             },
             mydata: {
                 type: Object,
-                default: () => {}
+                default: () => ({
+                    videoUrl: '',
+                    banner: '',
+                    dimension: '16:9',
+                    notices: [],
+                }),
             },
         },
         data() {
@@ -65,7 +70,7 @@
                 VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
                 Banner: this.mydata ? this.$props.mydata.banner : '',
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
-                Notices: this.mydata ? this.$props.mydata.notices : '',
+                Notices: this.mydata ? this.$props.mydata.notices : [],
             };
         },
         created() {
@@ -101,8 +106,8 @@
                 this.textAfter = true;
                 this.btnAfterImg = true;
             },
-            getPreviousData: function () {
-                return [1, 2, 3, 4];
+            resetNoticesProp: function () {
+                this.$refs.modal.$props.noticesProp = this.Notices ? this.Notices : [];
             },
         },
         mounted() {
