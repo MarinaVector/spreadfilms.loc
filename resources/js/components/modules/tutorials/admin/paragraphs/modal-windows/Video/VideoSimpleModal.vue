@@ -41,46 +41,39 @@
                                     </tr>
                                     </thead>
                                     <tbody class="list">
-                                    <tr>
-                                        <td class="time">00:00</td>
-                                        <td class="message"></td>
-                                        <td class="remove"><span title="" class="edit-note-button"
-                                                                 data-original-title="Notiz bearbeiten"><i
-                                            class="fas fa-pen mr-2"></i></span><span title=""
-                                                                                     class="remove-note-button"
-                                                                                     data-original-title=""><i
-                                            class="fas fa-trash-alt"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="time">00:00</td>
-                                        <td class="message"></td>
-                                        <td class="remove"><span title="" class="edit-note-button"
-                                                                 data-original-title="Edit note"><i
-                                            class="fas fa-pen mr-2"></i></span><span title=""
-                                                                                     class="remove-note-button"
-                                                                                     data-original-title="Remove note"><i
-                                            class="fas fa-trash-alt"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="time">00:00</td>
-                                        <td class="message"></td>
-                                        <td class="remove"><span title="" class="edit-note-button"
-                                                                 data-original-title="Edit note"><i
-                                            class="fas fa-pen mr-2"></i></span><span title=""
-                                                                                     class="remove-note-button"
-                                                                                     data-original-title="Remove note"><i
-                                            class="fas fa-trash-alt"></i></span></td>
+                                    <tr v-for="(notice, index) in Notices">
+                                        <td class="time">{{notice.noticeTime}}</td>
+                                        <td class="message">{{notice.noticeText}}</td>
+                                        <td class="remove">
+                                            <span title="" class="edit-note-button"
+                                                  data-original-title="Notiz bearbeiten"
+                                                  @click="editTimeNotice(index)">
+                                                <i class="fas fa-pen mr-2"></i>
+                                            </span>
+                                            <span title="" class="remove-note-button"
+                                                    data-original-title=""
+                                                    @click="deleteTimeNotice(index)">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                        </td>
                                     </tr>
                                     </tbody>
                                     <tfoot>
                                     <tr class="mt-2">
-                                        <td><input type="hidden" value="">
-                                            <vue-timepicker format="mm:ss"></vue-timepicker>
+                                        <td>
+                                            <input type="hidden" value="" ref="noticeIndex">
+                                            <vue-timepicker v-model="editTime" format="mm:ss" ref="noticeTime"></vue-timepicker>
                                         </td>
-                                        <td><input type="text" class="form-txt ml-5"></td>
-                                        <td><span title="" class="save-note-button ml-1"
-                                                  data-original-title="Save note"><i
-                                            class="fas fa-save"></i></span></td>
+                                        <td>
+                                            <input type="text" name="noticeText" class="form-txt ml-5" ref="noticeText">
+                                        </td>
+                                        <td>
+                                            <span title="" class="save-note-button ml-1"
+                                                    data-original-title="Save note"
+                                                    @click="saveTimeNotice">
+                                                <i class="fas fa-save"></i>
+                                            </span>
+                                        </td>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -109,12 +102,24 @@
 
     export default {
         name: "VideoSimple",
-        props: [
-            'videoUrl',
-            'banner',
-            'dimension',
-            'notices',
-        ],
+        props: {
+            videoUrl: {
+                type: String,
+                default: () => ""
+            },
+            banner: {
+                type: String,
+                default: () => ""
+            },
+            dimension: {
+                type: String,
+                default: () => ""
+            },
+            noticesProp: {
+                type: Array,
+                default: () => []
+            },
+        },
         components: {
             VueTimepicker
         },
@@ -123,7 +128,8 @@
                 VideoUrl: this.$props.videoUrl ? this.$props.videoUrl : '',
                 Banner: this.$props.banner ? this.$props.banner : '',
                 Dimension: this.$props.dimension ? this.$props.dimension : '',
-                Notices: this.$props.notices ? this.$props.notices : '',
+                Notices: this.$props.noticesProp ? this.$props.noticesProp : [],
+                editTime: null,
             };
         },
         created() {
@@ -138,11 +144,15 @@
                 this.$emit('saveData', this.VideoUrl, this.Banner, this.Dimension, this.Notices)
             },
             cancel: function (event) {
+                this.$emit('resetNoticesProp');
                 if(event.target.id === 'VideoSimpleModal' || event.target.id === 'CancelModal') {
+                    console.log(this.Notices);
+                    console.log(this.$props.noticesProp);
                     this.VideoUrl = this.$props.videoUrl;
                     this.Banner = this.$props.banner;
                     this.Dimension = this.$props.dimension;
-                    this.Notices = this.$props.notices;
+                    this.Notices = this.$props.noticesProp;
+                    console.log(this.Notices);
                 }
             },
             getBannerUrl: function (VideoUrl) {
@@ -150,11 +160,54 @@
                 let match = VideoUrl.match(regExp);
                 return (match&&match[7].length==11)? match[7] : false;
             },
+            saveTimeNotice: function () {
+                //console.log(this.$refs.noticeIndex.value);
+                let noticeIndex = this.$refs.noticeIndex.value;
+                let editingNotice = (noticeIndex !== "") ? true : false;
+                //console.log('editingNotice: ' + editingNotice);
+                let noticeTime = this.$refs.noticeTime.displayTime;
+                let noticeText = this.$refs.noticeText.value;
+
+                if(editingNotice){
+                    //editing notice
+                    this.Notices[noticeIndex] = {noticeTime: noticeTime, noticeText: noticeText};
+                }else {
+                    //adding notice
+                    this.Notices.push({noticeTime: noticeTime, noticeText: noticeText});
+                }
+
+                this.$refs.noticeTime.clearTime();
+                this.$refs.noticeText.value = null;
+                this.$refs.noticeIndex.value = "";
+            },
+            editTimeNotice: function (index) {
+                //console.log('Index: ' + index);
+                this.$refs.noticeIndex.value = index;
+                let noticeTime = this.Notices[index].noticeTime;
+                let noticeText = this.Notices[index].noticeText;
+
+                this.$refs.noticeText.value = noticeText;
+                this.editTime = noticeTime;
+            },
+            deleteTimeNotice: function (index) {
+                this.Notices.splice(index, 1);
+            },
         },
     }
 </script>
 
 <style>
+    .save-note-button{
+        cursor: pointer;
+    }
+
+    .remove-note-button{
+        cursor: pointer;
+    }
+
+    .edit-note-button{
+        cursor: pointer;
+    }
 
     #modals-container
     .edit-view

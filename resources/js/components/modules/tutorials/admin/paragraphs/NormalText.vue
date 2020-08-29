@@ -42,7 +42,8 @@
             </div>
         </div>
 
-        <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+        <NormalTextModal ref="modal" v-on:saveData="saveData"
+                         v-on:getPreviousData="getPreviousData"
                          :header="NormalTextHeader" :body="NormalTextBody">
         </NormalTextModal>
     </div>
