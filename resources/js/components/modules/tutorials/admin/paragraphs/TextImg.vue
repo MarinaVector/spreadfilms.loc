@@ -6,7 +6,7 @@
                 <div v-bind:class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
                      class="h-100" :id="dataInputPreviewID" ref="preview">
 
-                    <button type="button" class="btn-icon draggable mt-3 ml-3">
+                    <button type="button" class="btn-icon draggable mt-2 ml-2">
                         <i class="fa fa-arrows-v pt-2"></i>
                     </button>
 
@@ -45,16 +45,14 @@
                 </div>
             </div>
             <div class="col-md-3 container-right" id="right">
-                <div></div>
-                <div><button type="button" class="btn-icon mt-2 ml-3" @click="callParentDeleteParagraphBlock()">
+                <div class="del-btn"><button type="button" class="btn-icon mt-2 ml-2 pull-right" @click="callParentDeleteParagraphBlock()">
                     <i class="fa fa-trash-o pt-2"></i>
-                </button></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div><button type="button" class="btn-icon ml-3" @click="callParentDuplicateParagraphBlock()">
+                </button>
+                </div>
+                <div class="file-btn"><button type="button" class="btn-icon ml-2 mb-2 pull-right" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
-                </button></div>
+                </button>
+                </div>
             </div>
         </div>
         <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
@@ -237,7 +235,7 @@ $height2:95%;
 
     .txt_img_btn_img_before,
     .txt_img_btn_txt_before {
-        visibility: visible;
+        display: block;
     }
 
     .txt_img_btn_img_after,
@@ -357,9 +355,19 @@ $height2:95%;
 
     .container-right {
         display: grid;
-        grid-template-columns: auto 50px;
-        grid-template-rows: 50px auto 50px;
-        justify-items: start;
+        grid-template-columns: repeat( 50px);
+         gap: auto;
+
+    }
+
+    .del-btn {
+        align-self: start;
+        align-items: end;
+    }
+
+    .file-btn {
+        align-self: end;
+        align-items: end;
     }
 
     .txt-img:hover .btn-icon {
