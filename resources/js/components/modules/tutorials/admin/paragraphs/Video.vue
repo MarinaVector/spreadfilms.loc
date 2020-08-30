@@ -1,6 +1,10 @@
 <template>
     <div class="container tutorial-video" v-bind:style="{ backgroundImage: 'url(' + Banner + ')' }">
         <input type="hidden" name="component_type" value="Video" class="component_type" ref="component_type" />
+        <input type="hidden" name="video_url" v-model="VideoUrl" class="video_url"/>
+        <input type="hidden" name="video_banner" v-model="Banner" class="video_banner"/>
+        <input type="hidden" name="video_dimension" v-model="Dimension" class="video_dimension"/>
+        <input type="hidden" name="video_notices" v-model="NoticesJSONString" class="video_notices"/>
         <div class="row mt-2">
             <div class="col-lg-1">
                 <button type="button" class="btn-icon ml-n2 draggable">
@@ -71,10 +75,14 @@
                 Banner: this.mydata ? this.$props.mydata.banner : '',
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
                 Notices: this.mydata ? this.$props.mydata.notices : [],
+                //Notices: this.mydata ? this.escapeHtml(this.$props.mydata.notices) : [],
             };
         },
         created() {
-
+            if(!Array.isArray(this.Notices)){
+                this.Notices = JSON.parse(this.escapeHtml(this.Notices));
+            }
+            console.log(this.Notices);
         },
         methods: {
             callParentDeleteParagraphBlock: function() {
@@ -107,13 +115,21 @@
                 this.btnAfterImg = true;
             },
             resetNoticesProp: function () {
-                this.$refs.modal.$props.noticesProp = this.Notices ? this.Notices : [];
+                this.$refs.modal.Notices = this.Notices ? this.Notices : [];
+            },
+            escapeHtml: function (value) {
+                return $('<div :class=" { normalafter:true} " class="normal_text"/>').html(value).text();
             },
         },
         mounted() {
 
         },
-        computed: {}
+        computed: {
+            // a computed getter
+            NoticesJSONString: function () {
+                return JSON.stringify(this.Notices);
+            }
+        },
     };
 </script>
 

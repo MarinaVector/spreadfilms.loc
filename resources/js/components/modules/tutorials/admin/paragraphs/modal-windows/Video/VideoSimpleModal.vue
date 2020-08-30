@@ -144,15 +144,15 @@
                 this.$emit('saveData', this.VideoUrl, this.Banner, this.Dimension, this.Notices)
             },
             cancel: function (event) {
-                this.$emit('resetNoticesProp');
+
                 if(event.target.id === 'VideoSimpleModal' || event.target.id === 'CancelModal') {
+                    this.$emit('resetNoticesProp');
                     console.log(this.Notices);
                     console.log(this.$props.noticesProp);
                     this.VideoUrl = this.$props.videoUrl;
                     this.Banner = this.$props.banner;
                     this.Dimension = this.$props.dimension;
                     this.Notices = this.$props.noticesProp;
-                    console.log(this.Notices);
                 }
             },
             getBannerUrl: function (VideoUrl) {
@@ -161,10 +161,8 @@
                 return (match&&match[7].length==11)? match[7] : false;
             },
             saveTimeNotice: function () {
-                //console.log(this.$refs.noticeIndex.value);
                 let noticeIndex = this.$refs.noticeIndex.value;
                 let editingNotice = (noticeIndex !== "") ? true : false;
-                //console.log('editingNotice: ' + editingNotice);
                 let noticeTime = this.$refs.noticeTime.displayTime;
                 let noticeText = this.$refs.noticeText.value;
 

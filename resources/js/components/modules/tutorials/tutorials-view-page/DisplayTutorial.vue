@@ -183,7 +183,7 @@ export default {
                 case 'video':
                     this.paragraphs.push({component: Video});
                     break;
-                case 'TxtImg':
+                case 'TextImg':
                     Component = cloneDepp(TextImg);
                     if (null !== paragraphData) {
                         Component.mydata = paragraphData;
