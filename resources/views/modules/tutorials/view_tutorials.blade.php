@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="col-ttr h-100 w-100 col-picture">
+        <div class="col-ttr w-100 col-picture">
             @if($tutorial === '')
                 <div class="col-ttr h-100 w-100">
 
@@ -189,6 +189,39 @@
             grid-template-columns: 1fr 2fr 16fr;
             grid-template-rows: 100% 100% 100%;
             justify-items: start;
+        }
+
+        @media only screen and (max-width: 450px) {
+            .container-grid {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: 100% 100%;
+                justify-items: start;
+            }
+
+            .col-picture {
+                 align-items: stretch;
+            }
+
+            .menucolumn {
+                  grid-column: 1/4;
+                   overflow: hidden;
+                grid-row: 1/auto;
+                align-items: stretch;
+            }
+
+            .tutorial-field {
+                width: auto;
+                padding-left: 25px;
+                /* padding-right: 25px; */
+                /* position: sticky; */
+            }
+
+            .tutorial-field {
+                width: auto;
+                padding-left: 25px;
+            }
+
         }
 
         .col-ttr {
