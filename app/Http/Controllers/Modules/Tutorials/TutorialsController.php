@@ -6,6 +6,7 @@ use App\Models\Companycategory;
 use App\Models\Paragraph;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
+use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use App\Models\TutorialUserCompletion;
@@ -232,6 +233,9 @@ class TutorialsController extends Controller
 
     final public function storeParagraphData(array $paragraph, int $paragraphId): bool {
         switch ($paragraph['ComponentType']) {
+            //Text Layouts
+            case 'Headline':
+                break;
             case 'NormalText':
                 NormalText::create([
                     'paragraph_id' => $paragraphId,
@@ -239,7 +243,13 @@ class TutorialsController extends Controller
                     'text' => $paragraph['text']
                 ]);
                 break;
-            case 'TxtImg':
+            case 'CenterText':
+                break;
+            case 'TextWithBigFont':
+                break;
+            case 'TextWithLogo':
+                break;
+            case 'TextImg':
                 TextImage::create([
                     'paragraph_id' => $paragraphId,
                     'header' => $paragraph['header'],
@@ -247,6 +257,57 @@ class TutorialsController extends Controller
                     'src' => $paragraph['src']
                 ]);
                 break;
+            case 'TxtSpecialImg':
+                break;
+            case 'TextWithHighImage':
+                break;
+            //Text Layouts
+
+            //Video Layouts
+            case 'Video':
+                Video::create([
+                    'paragraph_id' => $paragraphId,
+                    'banner' => $paragraph['banner'],
+                    'videoUrl' => $paragraph['videoUrl'],
+                    'dimension' => $paragraph['dimension'],
+                    'notices' => $paragraph['notices'],
+                ]);
+                break;
+            case 'bgVideo':
+                break;
+            case 'VideoWithText':
+                break;
+            case 'VideoSlider':
+                break;
+            //Video Layouts
+
+            //Image Layouts
+            case 'Image':
+                break;
+            case 'ImageSlider':
+                break;
+            case 'ImageSwitch':
+                break;
+            case 'Icons':
+                break;
+            //Image Layouts
+
+            //Other Layouts
+            case 'SeparatorLine':
+                break;
+            case 'ContactPerson':
+                break;
+            case 'MultipleChoice':
+                break;
+            case 'FAQs':
+                break;
+            case 'Quote':
+                break;
+            case 'Header':
+                break;
+            case 'Footer':
+                break;
+            //Other Layouts
             default:
                 break;
         }
@@ -350,22 +411,83 @@ class TutorialsController extends Controller
 
     final private function getParagraphDetails($componentType, $componentId) {
         switch ($componentType) {
+            //Text Layouts
+            case 'Headline':
+                break;
             case 'NormalText':
                 $component = NormalText::where('paragraph_id', $componentId)->first()->toArray();
                 break;
-            case 'TxtImg':
+            case 'CenterText':
+                break;
+            case 'TextWithBigFont':
+                break;
+            case 'TextWithLogo':
+                break;
+            case 'TextImg':
                 $component = TextImage::where('paragraph_id', $componentId)->first()->toArray();
                 break;
+            case 'TxtSpecialImg':
+                break;
+            case 'TextWithHighImage':
+                break;
+            //Text Layouts
+
+            //Video Layouts
+            case 'Video':
+                $component = Video::where('paragraph_id', $componentId)->first()->toArray();
+                break;
+            case 'bgVideo':
+                break;
+            case 'VideoWithText':
+                break;
+            case 'VideoSlider':
+                break;
+            //Video Layouts
+
+            //Image Layouts
+            case 'Image':
+                break;
+            case 'ImageSlider':
+                break;
+            case 'ImageSwitch':
+                break;
+            case 'Icons':
+                break;
+            //Image Layouts
+
+            //Other Layouts
+            case 'SeparatorLine':
+                break;
+            case 'ContactPerson':
+                break;
+            case 'MultipleChoice':
+                break;
+            case 'FAQs':
+                break;
+            case 'Quote':
+                break;
+            case 'Header':
+                break;
+            case 'Footer':
+                break;
+            //Other Layouts
             default:
                 $component = null;
                 break;
         }
-        if($component['header']){
-            $component['header'] = htmlspecialchars($component['header'], ENT_QUOTES);
-        }
 
-        if($component['text']){
-            $component['text'] = htmlspecialchars($component['text'], ENT_QUOTES);
+        if($component){
+            if(isset($component['header'])){
+                $component['header'] = htmlspecialchars($component['header'], ENT_QUOTES);
+            }
+
+            if(isset($component['text'])){
+                $component['text'] = htmlspecialchars($component['text'], ENT_QUOTES);
+            }
+
+            if(isset($component['notices'])){
+                $component['notices'] = htmlspecialchars($component['notices'], ENT_QUOTES);
+            }
         }
 
         return $component;

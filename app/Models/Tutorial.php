@@ -82,7 +82,7 @@ class Tutorial extends Model
             case 'NormalText':
                 NormalText::where('paragraph_id', $paragraph['id'])->delete();
                 break;
-            case 'TxtImg':
+            case 'TextImg':
                 TextImage::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             default:

@@ -234,6 +234,14 @@
         data() {
             return {
                 paragraphsStructure: {
+                    //Text Layouts
+                    Headline: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.headline',
+                            tagName: 'input'
+                        },
+                    },
                     NormalText: {
                         header: {
                             searchBy: 'class',
@@ -246,7 +254,43 @@
                             tagName: 'input'
                         },
                     },
-                    TxtImg: {
+                    CenterText: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                    },
+                    TextWithBigFont: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                    },
+                    TextWithLogo: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                    },
+                    TextImg: {
                         header: {
                             searchBy: 'class',
                             search: '.normal_text_header',
@@ -263,6 +307,183 @@
                             tagName: 'input'
                         },
                     },
+                    TxtSpecialImg: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                    },
+                    TextWithHighImage: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                    },
+                    //Text Layouts
+
+                    //Video Layouts
+                    Video: {
+                        banner: {
+                            searchBy: 'class',
+                            search: '.video_banner',
+                            tagName: 'input'
+                        },
+                        videoUrl: {
+                            searchBy: 'class',
+                            search: '.video_url',
+                            tagName: 'input'
+                        },
+                        dimension: {
+                            searchBy: 'class',
+                            search: '.video_dimension',
+                            tagName: 'input'
+                        },
+                        notices: {
+                            searchBy: 'class',
+                            search: '.video_notices',
+                            tagName: 'input'
+                        },
+                    },
+                    bgVideo: {
+                        background: {
+                            searchBy: 'class',
+                            search: '.video_background',
+                            tagName: 'input'
+                        },
+                        banner: {
+                            searchBy: 'class',
+                            search: '.video_banner',
+                            tagName: 'input'
+                        },
+                        videoUrl: {
+                            searchBy: 'class',
+                            search: '.video_url',
+                            tagName: 'input'
+                        },
+                        dimension: {
+                            searchBy: 'class',
+                            search: '.video_dimension',
+                            tagName: 'input'
+                        },
+                        notices: {
+                            searchBy: 'class',
+                            search: '.video_notices',
+                            tagName: 'input'
+                        },
+                    },
+                    VideoWithText: {
+                        banner: {
+                            searchBy: 'class',
+                            search: '.video_banner',
+                            tagName: 'input'
+                        },
+                        videoUrl: {
+                            searchBy: 'class',
+                            search: '.video_url',
+                            tagName: 'input'
+                        },
+                        dimension: {
+                            searchBy: 'class',
+                            search: '.video_dimension',
+                            tagName: 'input'
+                        },
+                        notices: {
+                            searchBy: 'class',
+                            search: '.video_notices',
+                            tagName: 'input'
+                        },
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                    },
+                    VideoSlider: {
+                        banner: {
+                            searchBy: 'class',
+                            search: '.video_banner',
+                            tagName: 'input'
+                        },
+                        videoUrl: {
+                            searchBy: 'class',
+                            search: '.video_url',
+                            tagName: 'input'
+                        },
+                        dimension: {
+                            searchBy: 'class',
+                            search: '.video_dimension',
+                            tagName: 'input'
+                        },
+                        notices: {
+                            searchBy: 'class',
+                            search: '.video_notices',
+                            tagName: 'input'
+                        },
+                    },
+                    //Video Layouts
+
+                    //Image Layouts
+                    Image: {
+                        src: {
+                            searchBy: 'class',
+                            search: '.image_src',
+                            tagName: 'input'
+                        },
+                    },
+                    ImageSlider: {
+                        images: {
+                            searchBy: 'class',
+                            search: '.images',
+                            tagName: 'input'
+                        },
+                    },
+                    ImageSwitch: {
+                        imageBefore: {
+                            searchBy: 'class',
+                            search: '.image_before',
+                            tagName: 'input'
+                        },
+                        imageAfter: {
+                            searchBy: 'class',
+                            search: '.image_after',
+                            tagName: 'input'
+                        },
+                        textBefore: {
+                            searchBy: 'class',
+                            search: '.text_before',
+                            tagName: 'input'
+                        },
+                        textAfter: {
+                            searchBy: 'class',
+                            search: '.text_after',
+                            tagName: 'input'
+                        },
+                    },
+                    Icons: {
+                        src: {
+                            searchBy: 'class',
+                            search: '.image_src',
+                            tagName: 'input'
+                        },
+                    },
+                    //Image Layouts
                 },
                 paragraphs: [],
                 blocksCounterID: 0,
@@ -318,6 +539,7 @@
                     this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
                 });
             }
+            console.log(this.tutorialObj);
         },
         methods: {
             addParagraphBlock(paragraphName, paragraphData = {}) {
@@ -359,7 +581,7 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'TxtImg':
+                    case 'TextImg':
                         Component = cloneDepp(TextImg);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
@@ -421,14 +643,14 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'Image-Slider':
+                    case 'ImageSlider':
                         Component = cloneDepp(ImageSlider);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'Image-Switch':
+                    case 'ImageSwitch':
                         Component = cloneDepp(ImageSwitch);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;

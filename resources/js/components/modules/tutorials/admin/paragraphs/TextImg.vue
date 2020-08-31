@@ -1,6 +1,6 @@
 <template>
     <div class="container txt-img">
-        <input type="hidden" name="component_type" value="TxtImg" class="component_type" />
+        <input type="hidden" name="component_type" value="TextImg" class="component_type" />
         <div class="row cont-elements">
             <div class="col-md-9 px-0 img-hover module-img" id="">
                 <div :class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
