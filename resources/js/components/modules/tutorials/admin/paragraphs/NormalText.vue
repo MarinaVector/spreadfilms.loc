@@ -117,7 +117,7 @@
                 return  [1,2,3,4 ]
             },
             escapeHtml: function (value) {
-                return $('<div :class=" { normalafter:true} " class="normal_text"/>').html(value).text();
+                return $('<div/>').html(value).text();
             },
         },
         computed: {

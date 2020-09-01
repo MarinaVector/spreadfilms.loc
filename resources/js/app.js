@@ -30,6 +30,10 @@ import 'vue-css-donut-chart/dist/vcdonut.css';
 
 Vue.use(Donut);
 
+import VueYoutube from 'vue-youtube'
+
+Vue.use(VueYoutube)
+
 import VueTimepicker from 'vue2-timepicker';
 /**
  * The following block of code may be used to automatically register your

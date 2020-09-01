@@ -141,7 +141,6 @@ export default {
 
         if (undefined !== this.breadcrumb) {
             this.breadcrumbObj = JSON.parse(this.$props.breadcrumb)
-            console.log(this.breadcrumbObj);
         }
     },
     mounted() {
@@ -173,53 +172,179 @@ export default {
         addParagraphBlock(paragraphName, paragraphData = null) {
             let Component = null;
             switch (paragraphName) {
-                case 'NormalText':
-                    Component = cloneDepp(NormalText);
-                    if (null !== paragraphData) {
+                //Text Layouts
+                case 'Headline':
+                    Component = cloneDepp(SimpleHead);
+                    if(null !== paragraphData){
                         Component.mydata = paragraphData;
                     }
                     this.paragraphs.push({component: Component});
                     break;
-                case 'video':
-                    this.paragraphs.push({component: Video});
+                case 'NormalText':
+                    Component = cloneDepp(NormalText);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'CenterText':
+                    Component = cloneDepp(CenterText);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'TextWithBigFont':
+                    Component = cloneDepp(ImgHeadText);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'TextWithLogo':
+                    Component = cloneDepp(LgHeadText);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
                 case 'TextImg':
                     Component = cloneDepp(TextImg);
-                    if (null !== paragraphData) {
+                    if(null !== paragraphData){
                         Component.mydata = paragraphData;
                     }
                     this.paragraphs.push({component: Component});
                     break;
-                case 'slider':
-                    this.paragraphs.push({component: SliderAdd});
+                case 'TxtSpecialImg':
+                    Component = cloneDepp(TextLogo);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'TextWithHighImage':
+                    Component = cloneDepp(TextImgHigh);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                //Text Layouts
+
+                //Video Layouts
+                case 'Video':
+                    Component = cloneDepp(Video);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
                 case 'bgVideo':
-                    this.paragraphs.push({component: BackgroundVideo});
+                    Component = cloneDepp(BackgroundVideo);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'simpleHead':
-                    this.paragraphs.push({component: SimpleHead});
+                case 'VideoWithText':
+                    Component = cloneDepp(VideoWithText);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'quote':
-                    this.paragraphs.push({component: Quote});
+                case 'VideoSlider':
+                    Component = cloneDepp(VideoSlider);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'spImgText':
-                    this.paragraphs.push({component: ImgHeadText});
+                //Video Layouts
+
+                //Image Layouts
+                case 'Image':
+                    Component = cloneDepp(Image);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'lgHeadText':
-                    this.paragraphs.push({component: LgHeadText});
+                case 'ImageSlider':
+                    Component = cloneDepp(ImageSlider);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'logoText':
-                    this.paragraphs.push({component: TextLogo});
+                case 'ImageSwitch':
+                    Component = cloneDepp(ImageSwitch);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'highText':
-                    this.paragraphs.push({component: TextImgHigh});
+                case 'Icons':
+                    Component = cloneDepp(Icons);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'contact':
-                    this.paragraphs.push({component: Contact});
+                //Image Layouts
+
+                //Other Layouts
+                case 'SeparatorLine':
+                    Component = cloneDepp(SeparatorLine);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
-                case 'question':
-                    this.paragraphs.push({component: QuestionsAnswers});
+                case 'ContactPerson':
+                    Component = cloneDepp(ContactPerson);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
                     break;
+                case 'MultipleChoice':
+                    Component = cloneDepp(MultipleChoice);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'FAQs':
+                    Component = cloneDepp(FAQs);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'Quote':
+                    Component = cloneDepp(Quote);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'Header':
+                    Component = cloneDepp(Header);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                case 'Footer':
+                    Component = cloneDepp(Footer);
+                    if(null !== paragraphData){
+                        Component.mydata = paragraphData;
+                    }
+                    this.paragraphs.push({component: Component});
+                    break;
+                //Other Layouts
+
                 default:
                     return;
             }
