@@ -7,7 +7,7 @@
         <div class="col-ttr1">
             <nav-small></nav-small>
         </div>
-        <div class="col-ttr h-100 bg-light menucolumn tutorial-field tutorial-navigation">
+        <div class="col-ttr bg-light menucolumn tutorial-field tutorial-navigation ml-5 ml-md-0">
             <div class="menucolumn">
                 <div class="mt-4 mx-auto nav-fill">
                     <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
@@ -78,6 +78,7 @@
             -ms-overflow-scrolling: touch;
             -o-overflow-scrolling: touch;
             overflow-scrolling: touch;
+            height: 100%;
         }
 
         .tutorial-navigation::-webkit-scrollbar {
@@ -222,11 +223,12 @@
                 padding-left: 25px;
             }
 
+            .tutorial-navigation {
+                height: auto;
+            }
+
         }
 
-        .col-ttr {
-
-        }
 
     </style>
 

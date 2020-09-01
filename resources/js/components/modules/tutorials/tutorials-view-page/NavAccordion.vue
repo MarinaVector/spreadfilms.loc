@@ -11,7 +11,7 @@
 
             <div class="last menu-before mb-3">
                 <div class=" last-inner theme-background-horizontal">
-                    <span class="tutorial-phrase">Continue <strong>"What makes us successful"</strong>go</span>
+                    <span class="tutorial-phrase p-2">Continue <strong>"What makes us successful"</strong>go</span>
                 </div>
             </div>
         </div>

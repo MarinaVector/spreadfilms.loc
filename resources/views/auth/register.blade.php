@@ -7,12 +7,12 @@
     <div class="row page-register bg-white">
         <div class="offset-lg-2 col-xl-4 col-xl-3 px-5 mt-md-5 col-12 from_menu_margin">
             <div class="form-bg">
-                <div class="col-lg-1 col-sm-2 offset-sm-5 offset-lg-11 mt-n3"><a class="" href="/login"><i class="fas fa-times-circle fa-3x"></i></a></div>
+                <div class="col-lg-1 col-sm-2 offset-sm-5 offset-lg-11 mt-md-n3 col-3 offset-9"><a class="" href="/login"><i class="fas fa-times-circle fa-3x"></i></a></div>
                 @include('layouts.notifications')
                 <form method="POST" action="/register">
                     {!! csrf_field() !!}
 
-                    <div class="form-group mt-5 mt-lg-0">
+                    <div class="form-group mt-3 mt-lg-0">
                         <h2 class="mb-3 text-center"><b>SFM</b> {{ __('messages.Registration') }}</h2>
                         <p class="mb-3">{{ __('messages.Registration_page_description') }}</p>
                         <hr>

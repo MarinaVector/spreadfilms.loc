@@ -110,7 +110,7 @@ export default {
     background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
     color: #fff;
     border: none;
-    width: 210px;
+    width: auto;
 }
 
 button .tutorial-player:active,
