@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
+use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use Illuminate\Database\Eloquent\Model;
@@ -84,6 +85,9 @@ class Tutorial extends Model
                 break;
             case 'TextImg':
                 TextImage::where('paragraph_id', $paragraph['id'])->delete();
+                break;
+            case 'Video':
+                Video::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             default:
                 break;

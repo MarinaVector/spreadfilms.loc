@@ -118,7 +118,7 @@
                 this.$refs.modal.Notices = this.Notices ? this.Notices : [];
             },
             escapeHtml: function (value) {
-                return $('<div :class=" { normalafter:true} " class="normal_text"/>').html(value).text();
+                return $('<div/>').html(value).text();
             },
         },
         mounted() {

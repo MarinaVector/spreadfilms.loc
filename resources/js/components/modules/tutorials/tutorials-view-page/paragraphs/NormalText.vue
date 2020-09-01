@@ -4,18 +4,14 @@
 
         <div class="row">
             <div class="col-md-12">
+                <div class="headline h2 text-left mb-2 mt-2 final-header" v-html="NormalTextHeader">
 
-            <div class="headline h2 text-left mb-2 mt-2 final-header" v-html="NormalTextHeader">
+                </div>
+                <div class="final-text" v-html="NormalTextBody">
 
-            </div>
-            <div class="final-text" v-html="NormalTextBody">
-
+                </div>
             </div>
         </div>
-
-    </div>
-
-
     </div>
 </template>
 
