@@ -195,7 +195,7 @@
         @media only screen and (max-width: 450px) {
             .container-grid {
                 display: grid;
-                grid-template-columns: 1fr 2fr;
+                grid-template-columns: 1fr 15fr;
                 grid-template-rows: 100% 100%;
                 justify-items: start;
             }

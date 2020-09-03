@@ -108,58 +108,9 @@
 
 <style>
 
-    .inner-trigger {
-        transition: background-color .3s ease;
-        background-color: transparent;
-        padding: 5px 10px;
-        min-width: 160px;
-        text-align: center;
-        z-index:5;
-    }
-
-    .text-button {
-        background-color: white;
-        border-radius: 3px
-    }
-
-    .tutorial-video {
+    iframe {
         width: 100%;
-        border: dotted 1px #333;
+        max-width: 650px;
     }
 
-    .tutorial-video:hover {
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: 3s;
-    }
-
-    .btn-icon {
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
-        color: #fff;
-        border: none;
-        top: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        opacity:0.5 !important;
-        transition: opacity .25s ease-in-out!important;
-        -moz-transition: opacity .25s ease-in-out!important;
-        -webkit-transition: opacity .25s ease-in-out!important;
-    }
-
-    .tutorial-video:hover .btn-icon {
-        opacity:1!important;
-    }
-
-    .blueiconcolor {
-        color: #00bff9 !important;
-    }
-
-    .modal-video {
-        top: 50%;
-        left: 50%;
-    }
-
-</style>
+   </style>

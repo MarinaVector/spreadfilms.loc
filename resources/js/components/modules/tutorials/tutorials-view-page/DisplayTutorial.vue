@@ -2,7 +2,7 @@
     <div class="container-fluid" id="display-container pt-3">
         <div class="navigation-inner">
             <div class="row my-3">
-                    <nav class="col-md-9 col-5">
+                    <nav class="col-lg-9 col-md-7 col-5">
                         <div class="ml-md-5 ml-2">
                         <template v-for="(breadcrumb, index) in breadcrumbObj">
                                 <template v-if="index != breadcrumbObj.length - 1">
@@ -17,19 +17,19 @@
                         </div>
                     </nav>
 
-                <div class="col-md-1 col-4">
-                <button class="prev nav-button">
+                <div class="col-lg-1 col-md-3 col-5 ml-n3">
+                    <button class="prev nav-button">
                             <span class="button-inner">
                                 <i class="fas fa-angle-left"></i>
                             </span>
-                </button>
+                    </button>
                     <button class="prev nav-button">
                             <span class="button-inner">
                                 <i class="fas fa-angle-right"></i>
                             </span>
-                </button>
+                     </button>
                 </div>
-                <div class="col-md-2 col-3">
+                <div class="col-lg-2 col-2 ml-n4">
                         <button class="btn btn-primary note-trigger">
                             <span class="button-inner d-none d-md-block">Notice &nbsp;
                                 <i class="far fa-edit edit-note"></i>
@@ -40,9 +40,9 @@
             </div>
         </div>
 
-        <div class="col-ttr menucolumn py-3 px-lg-5 mt-3 container">
+        <div class="col-ttr menucolumn py-3 px-lg-5 mt-3 container-fluid">
             <div class="tutorial-read tutorial-navigation">
-                    <div class="mt-4 bg-light p-5 mx-auto nav-fill">
+                    <div class="mt-4 bg-light p-lg-5 mx-auto nav-fill">
                         <div v-for="(paragraph, index, mydata) in paragraphs" class=".paragraph" ref="paragraph">
                             <component
                                 :index="index"
@@ -53,35 +53,36 @@
                             />
                         </div>
                     </div>
-                </div>
-        </div>
+            </div>
 
-        <footer class="up-read py-3 mb-n3">
-            <div id="footer">
-                <div class="navigation-inner">
-                    <div class="row my-3">
-                        <div class="col-md-1 offset-md-9 col-4">
-                            <button class="prev nav-button">
-                            <span class="button-inner">
-                                <i class="fas fa-angle-left"></i>
-                            </span>
-                            </button>
-                            <button class="prev nav-button">
-                            <span class="button-inner">
-                                <i class="fas fa-angle-right"></i>
-                            </span>
-                            </button>
-                        </div>
+            <footer class="up-read py-3 mb-n3">
+                <div id="footer">
+                    <div class="navigation-inner">
+                        <div class="row my-3">
+                            <div class="col-lg-1 offset-lg-9 col-5">
+                                <button class="prev nav-button">
+                                     <span class="button-inner">
+                                     <i class="fas fa-angle-left"></i>
+                                     </span>
+                                </button>
+                                <button class="prev nav-button">
+                                      <span class="button-inner">
+                                     <i class="fas fa-angle-right"></i>
+                                      </span>
+                                </button>
+                            </div>
 
-                        <div class="col-md-2 col-8">
-                        <button class="btn btn-primary close-tutorial" @click="completeTutorial(tutorialObj.id)">
-                            <span class="button-inner">Complete tutorial</span>
-                        </button>
+                            <div class="col-md-2 col-7">
+                                <button class="btn btn-primary close-tutorial" @click="completeTutorial(tutorialObj.id)">
+                                    <span class="button-inner">Complete tutorial</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-            </div>
-            </div>
-        </footer>
+                </div>
+            </footer>
+        </div>
+
         <CompleteTutorialModal :logoSrc="logoVal" ref="CompleteTutorialModalRef"></CompleteTutorialModal>
     </div>
 </template>
@@ -543,6 +544,5 @@ div .up-read {
         margin-top: 20px;
     }
     }
-
 
 </style>
