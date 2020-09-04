@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5" id="tutorial-text">
+    <div class="container mt-md-5" id="tutorial-text">
         <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type"/>
 
         <div class="row">
