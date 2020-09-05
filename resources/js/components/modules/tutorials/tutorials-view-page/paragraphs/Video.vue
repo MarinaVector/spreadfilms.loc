@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <youtube :video-id="videoId" ref="youtube" @playing="playing"></youtube>
+                <div class="myTooltip" ref="videoNotification" v-html="NoticeText"></div>
             </div>
         </div>
     </div>
@@ -38,10 +39,12 @@
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
                 Notices: this.mydata ? this.$props.mydata.notices : [],
                 videoId: "",
+                NoticeText: "",
             };
         },
         mounted() {
             this.videoId = getIdFromUrl(this.VideoUrl);
+            this.VideoUtubeSrc = this.getVideoSrc(this.VideoUrl);
         },
         created() {
             if(!Array.isArray(this.Notices)){
@@ -67,36 +70,37 @@
                 this.player.playVideo()
             },
             playing() {
-                console.log('\o/ we are watching!!!')
+                this.$refs.videoNotification.style.display = 'none';
                 let app = this;
-                let i = 0;
-                // This block will be executed 100 times.
+
                 setInterval(() => {
-                    if (i == 100) {
-                        clearInterval(this);
-                    }
-                    else {
-                        console.log( 'Currently at ' + (i++) );
-                        console.log(app.player.getCurrentTime());
-                        if(i == 3){
-                            player.pauseVideo();
-                        }
-                    }
+                    app.player.getCurrentTime().then((time) => {
+                        let playerSeconds = Math.round(time); // seconds in x format
+                        let date = new Date(0);
+                        date.setSeconds(playerSeconds);
+                        let HhMmSs = date.toISOString().substr(11, 8); // time in hh:mm:ss format
+                        let MmSs = HhMmSs.substr(3, HhMmSs.length); // time in mm:ss format
+
+                        app.Notices.find(function(notice, index) {
+                            if(notice.noticeTime === MmSs){
+                                app.pause();
+                                clearInterval();
+                                app.showVideoNotice(notice.noticeText);
+                            }
+                        });
+                    });
                 }, 1000);
             },
             pause () {
-                this.player.pauseVideo()
+                this.player.pauseVideo();
             },
-            formatTime(time){
-                time = Math.round(time);
-
-                var minutes = Math.floor(time / 60),
-                    seconds = time - minutes * 60;
-
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-
-                return minutes + ":" + seconds;
+            getVideoSrc(url){
+                return "https://www.youtube.com/embed/" + this.videoId;
             },
+            showVideoNotice(text){
+                this.$refs.videoNotification.style.display = 'block';
+                this.NoticeText = text;
+            }
         },
         computed: {
             player() {
@@ -108,9 +112,19 @@
 
 <style>
 
+    .myTooltip{
+        display: none;
+        position: absolute;
+        background-color: grey;
+        margin-left: auto;
+        margin-right: auto;
+        top: 50px;
+        z-index: 10;
+    }
+
     iframe {
         width: 100%;
         max-width: 650px;
     }
 
-   </style>
+</style>
