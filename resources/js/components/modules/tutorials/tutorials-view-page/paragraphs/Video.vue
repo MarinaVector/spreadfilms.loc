@@ -3,11 +3,14 @@
         <input type="hidden" name="component_type" value="Video" class="component_type" ref="component_type"/>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 videoSc video">
                 <youtube :video-id="videoId" ref="youtube" @playing="playing"></youtube>
-                <div class="myTooltip" ref="videoNotification" v-html="NoticeText"></div>
+                <div class="myTooltip"ref="videoNotification" v-html="NoticeText">
+                    <i class="far fa-play-circle"></i>
+                </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -24,8 +27,7 @@
                 default: null
             },
             mydata: {
-                type: Object,
-                default: () => {}
+                type: Object, default: () => {}
             },
             blocksCounterID: {
                 type: Number,
@@ -115,16 +117,35 @@
     .myTooltip{
         display: none;
         position: absolute;
-        background-color: grey;
-        margin-left: auto;
-        margin-right: auto;
-        top: 50px;
-        z-index: 10;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        border-radius: 5px;
+        background: #fff;
+        transition: opacity .3s;
+        z-index: 1234;
+        pointer-events: none;
+        cursor: pointer;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .videoSc {
+        height: 100%;
+    }
+
+    .video {
+        position:relative;
+        padding-bottom:56.25%;
     }
 
     iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        max-width: 650px;
+        height: 100%;
     }
 
 </style>
