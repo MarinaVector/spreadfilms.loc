@@ -1,8 +1,9 @@
 <template>
     <div class="container inner-menu top-menu pt-1 mb-5">
         <div class="row mt-3 ml-2">
-            <div class="col-lg-3 col-12 mb-3 ml-1">
-                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2 mb-1 pb-1 ml-4"><span class="filter-content"  v-if="text_content">{{text_content}}
+            <div class="col-lg-3 col-12 mb-3 ml-lg-1">
+                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2 mb-1 pb-1 ml-lg-4">
+                    <span class="filter-content"  v-if="text_content">{{text_content}}
                    </span>
                     <div class="tool ml-2 mb-1 filter-content" v-on:click.stop v-if="show_input">
                         <input type="text" class="btn-inp"/>
@@ -11,7 +12,7 @@
             </div>
 
             <!-- Quick Layouts Bar -->
-            <div class="col-lg-2 col-12 mb-3 btn-layout">
+            <div class="col-lg-2 col-5 ml-n1 ml-lg-0 mb-3 btn-layout">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0"
                         type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video"
@@ -26,7 +27,7 @@
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
             </div>
-            <div class="col-lg-2 col-12 mb-3 btn-layout">
+            <div class="col-lg-2 col-5 ml-n4 ml-lg-0 mb-3 btn-layout">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0"
                         type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Normal Text"
@@ -41,7 +42,7 @@
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
             </div>
-            <div class="col-lg-1 col-12 mb-3 btn-layout">
+            <div class="col-lg-1 col-2 ml-n4 ml-lg-0 mb-3 btn-layout">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
                         type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Image slider"
@@ -400,6 +401,14 @@
         padding-left: 0;
         padding-right:0;
     }
+
+    @media only screen and (max-width: 576px) {
+        .btn-tutorial {
+            border: 2px solid white;
+            width: 46px;
+        }
+
+           }
 
 </style>
 

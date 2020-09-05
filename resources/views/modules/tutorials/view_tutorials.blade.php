@@ -7,7 +7,7 @@
         <div class="col-ttr1">
             <nav-small></nav-small>
         </div>
-        <div class="col-ttr bg-light menucolumn tutorial-field tutorial-navigation ml-5 ml-md-0">
+        <div class="col-ttr bg-light menucolumn tutorial-field tutorial-navigation ml-md-5 ml-md-0">
             <div class="menucolumn">
                 <div class="mt-4 mx-auto nav-fill">
                     <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>

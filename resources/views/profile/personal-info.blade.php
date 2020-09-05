@@ -20,15 +20,19 @@
                 <div class="col-12">
                     <div class="container mb-3">
                         <div class="row mx-3 mt-2">
-                            <div class="col-10">
+                            <div class="col-md-10 col-6">
                                 <h3>Personal Info</h3>
                             </div>
-                            <div class="col-2">
-                                <a href="{{ route('profile.personal-info.edit') }}">
-                                    <button class="btn btn-block btn-bg btn-sm btn-edit" type="button"><i
-                                            class="fa fa-pencil fa-profile mr-2 btn-pncl"></i>EDIT
+                            <div class="col-md-2 col-6">
+                              <!--  <a href="{{ route('profile.personal-info.edit') }}">
+                                    <button class="btn btn-bg btn-sm btn-edit" type="button"><i
+                                            class="fa fa-pencil fa-profile mr-2 btn-pncl"></i> EDIT
                                     </button>
                                 </a>
+                                -->
+                                  <a href="{{ route('profile.personal-info.edit') }}" class="btn btn-bg btn-lg btn-edit px-lg-5"
+                                     tabindex="-1" role="button" aria-disabled="true">
+                                      <i class="fa fa-pencil fa-profile mr-2 btn-pncl"></i> EDIT</a>
                             </div>
                         </div>
                         <div class="profile-line">
@@ -107,13 +111,14 @@
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
         }
 
-        .btn-edit:hover {
-            background: linear-gradient(to right, #008acb 0%, #00bff9 100%) !important;
+        .btn-edit:hover,
+        .btn-edit:hover .btn-pncl  {
             color: #fff !important;
+            transition: 1s;
         }
 
-        .btn-edit:hover .btn-pncl {
-            color: #fff !important;
+        .btn-edit:hover {
+            background: linear-gradient(to right, #008acb 0%, #00bff9 100%) !important;
         }
 
         .fa-profile {
@@ -168,6 +173,7 @@
             border-left: none;
             border-right: none;
         }
+
 
     </style>
 @endsection

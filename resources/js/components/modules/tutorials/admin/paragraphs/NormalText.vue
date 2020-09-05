@@ -1,22 +1,22 @@
 <template>
-    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text"
+    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text ml-3 ml-md-2"
          id="tutorial-text">
         <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type" />
         <div class="row">
-            <div class="col-lg-1 offset-lg-0 col-md-3 offset-md-1 col-7">
-                <button type="button" class="btn-icon mt-2 draggable">
+            <div class="col-lg-1 offset-lg-0 col-md-10 col-8">
+                <button type="button" class="btn-icon mt-2 ml-lg-2 draggable">
                     <i class="fa fa-arrows-v pt-2"></i>
                 </button>
             </div>
-            <div class="col-lg-1 offset-lg-10 col-md-3 offset-md-5 col-5">
+            <div class="col-lg-1 offset-lg-10 col-md-2 col-4">
                 <input type="hidden" name="normal_text[]" value="">
-                <button type="button" class="btn-icon mt-2 ml-4" @click="callParentDeleteParagraphBlock()">
+                <button type="button" class="btn-icon mt-2 ml-4 ml-lg-2" @click="callParentDeleteParagraphBlock()">
                     <i class="fa fa-trash-o pt-2"></i>
                 </button>
             </div>
         </div>
         <div class="row" @click="showTextModal()">
-            <div class="col-md-8 mx-auto col-12 mx-sm-auto" id="butTxt">
+            <div class="col-md-12 mx-auto col-12 mx-sm-auto" id="butTxt">
                 <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button slide-border py-2
                  px-5 mx-auto" type="button">
                     <i class="fas fa-bars blueiconcolor fa-2x">
@@ -24,19 +24,19 @@
                     <div class="mt-n1 mb-n1">Text</div>
                 </button>
                 <div class="">
-                    <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left mb-2 headline normal_text"
+                    <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left mb-2 headline normal_text mt-4 mt-lg-1"
                          v-html="NormalTextHeader">
                     </div>
 
                     <div class="final-text text-justify" v-html="NormalTextBody"></div>
-                    <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+                    <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header mt-5">
                     <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 offset-md-9 col-lg-1 offset-lg-11 float-sm-right">
-                <button type="button" class="btn-icon mb-2 ml-4" @click="callParentDuplicateParagraphBlock()">
+            <div class="col-md-2 offset-md-10 col-lg-1 offset-lg-11">
+                <button type="button" class="btn-icon mb-2 ml-lg-2" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>
@@ -177,7 +177,7 @@
     }
 
     .btn-icon {
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+        background-image: linear-gradient(linear, left top, left bottom, from(#3ecdf1), to(#2badce));
         color: #fff;
         border: none;
         top: 20px;
@@ -250,4 +250,13 @@
         visibility: visible;
     }
 
+    @media only screen and (max-width: 450px) {
+        #butTxt button {
+            left: 32%;
+        }
+    }
+
 </style>
+
+
+

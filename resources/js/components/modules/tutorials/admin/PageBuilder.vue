@@ -23,8 +23,8 @@
             <!-- Tutorial Name Block -->
 
             <!-- Default Page Block with PageBuilderParagraphBlocks -->
-            <div class="container group py-5 mt-2">
-                <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message py-5">Currently the Tutorial is still
+            <div class="container group py-lg-5 mt-lg-2 ml-2 ml-lg-0">
+                <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message pb-3 pt-5 text-justify">Currently the Tutorial is still
                     without content, modules can be
                     selected above or a template can be loaded</h2>
                 <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable"
@@ -962,7 +962,8 @@
         vertical-align: bottom;
         margin-bottom: 12px;
         border-radius: 3px;
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+        background-color: #2dc3e8 !important;
+        border-color: #2dc3e8;
         color: #fff;
     }
 
@@ -971,7 +972,8 @@
     }
 
     .btn-icon {
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+        background-color: #2dc3e8 !important;
+        border-color: #2dc3e8;
         color: #fff;
         border: none;
         top: 20px;
@@ -984,7 +986,7 @@
     }
 
     .blueiconcolor {
-        color: #00bff9 !important;
+        color: #2dc3e8 !important;
     }
 
     select.select-tutorial {
@@ -1089,5 +1091,13 @@
         box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .11);
     }
 
+
+    @media only screen and (max-width: 576px) {
+
+        .empty-paragraphs-message {
+            font-size: 22px;
+            padding: 5px 10px;
+        }
+    }
 
 </style>
