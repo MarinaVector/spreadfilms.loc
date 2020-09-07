@@ -75,7 +75,7 @@
                 this.$refs.videoNotification.style.display = 'none';
                 let app = this;
 
-                setInterval(() => {
+                let myClock = setInterval(() => {
                     app.player.getCurrentTime().then((time) => {
                         let playerSeconds = Math.round(time); // seconds in x format
                         let date = new Date(0);
@@ -85,8 +85,9 @@
 
                         app.Notices.find(function(notice, index) {
                             if(notice.noticeTime === MmSs){
+                                console.log(MmSs);
                                 app.pause();
-                                clearInterval();
+                                clearInterval(myClock);
                                 app.showVideoNotice(notice.noticeText);
                             }
                         });
