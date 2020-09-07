@@ -40,7 +40,6 @@
                             :key="index"
                             :is=paragraph.component
                             :mydata="paragraph.component.mydata"
-                            someProps="testing props"
                         />
                     </div>
                 </draggable>

@@ -147,8 +147,6 @@
 
                 if(event.target.id === 'VideoSimpleModal' || event.target.id === 'CancelModal') {
                     this.$emit('resetNoticesProp');
-                    console.log(this.Notices);
-                    console.log(this.$props.noticesProp);
                     this.VideoUrl = this.$props.videoUrl;
                     this.Banner = this.$props.banner;
                     this.Dimension = this.$props.dimension;

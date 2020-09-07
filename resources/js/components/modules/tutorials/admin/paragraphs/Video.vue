@@ -96,6 +96,18 @@
                 $(element).modal('show');
             },
             saveData: function (VideoUrl, Banner, Dimension, Notices) {
+                this.VideoUrl = VideoUrl;
+                this.Banner = Banner;
+                this.Dimension = Dimension;
+                this.Notices = Notices;
+                this.btnAfterText = true;
+                this.btnAfterSrc = true;
+                this.textAfter = true;
+                this.btnAfterImg = true;
+
+                console.log(Notices);
+                console.log(this.Notices);
+
                 this.$emit('saveParagraphData', {
                     index: this.index,
                     myData: {
@@ -105,14 +117,6 @@
                         notices: Notices,
                     }
                 });
-                this.VideoUrl = VideoUrl;
-                this.Banner = Banner;
-                this.Dimension = Dimension;
-                this.Notices = Notices;
-                this.btnAfterText = true;
-                this.btnAfterSrc = true;
-                this.textAfter = true;
-                this.btnAfterImg = true;
             },
             resetNoticesProp: function () {
                 this.$refs.modal.Notices = this.Notices ? this.Notices : [];

@@ -52,7 +52,6 @@
             if(!Array.isArray(this.Notices)){
                 this.Notices = JSON.parse(this.escapeHtml(this.Notices));
             }
-            console.log(this.Notices);
         },
         methods: {
             callParentDeleteParagraphBlock: function() {
@@ -85,7 +84,6 @@
 
                         app.Notices.find(function(notice, index) {
                             if(notice.noticeTime === MmSs){
-                                console.log(MmSs);
                                 app.pause();
                                 clearInterval(myClock);
                                 app.showVideoNotice(notice.noticeText);
