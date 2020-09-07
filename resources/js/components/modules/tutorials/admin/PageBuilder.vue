@@ -49,7 +49,7 @@
 
             <!-- Tutorial Background Image -->
             <div class="container group">
-                <div class="panel-heading row">
+                <div class="panel-heading row mb-3">
                     <div class="col-lg-11">
                         <div class="panel-title block-title">Background image for Tutorial Overview</div>
                     </div>
@@ -66,7 +66,7 @@
 
                 <div class="form-group">
                     <div class="elfinder-preview-image" id="background-tutorial-image-preview"></div>
-                    <div class="elfinder-container">
+                    <div class="el-container">
                         <input id="background-tutorial-image" class="elfinder-idea" name="tutorial_background"
                                type="hidden" :value="tutorialObj.tutorial_background"/>
                         <button data-inputid="background-tutorial-image" class="popup_selector btn btn-default">
@@ -888,27 +888,10 @@
         right: 5px;
     }
 
-    .elfinder-container {
+    .el-container {
         position: relative;
-        border: 2px dashed #ddd;
-        border-top-color: rgb(221, 221, 221);
-        border-top-style: dashed;
-        border-top-width: 2px;
-        border-right-color: rgb(221, 221, 221);
-        border-right-style: dashed;
-        border-right-width: 2px;
-        border-bottom-color: rgb(221, 221, 221);
-        border-bottom-style: dashed;
-        border-bottom-width: 2px;
-        border-left-color: rgb(221, 221, 221);
-        border-left-style: dashed;
-        border-left-width: 2px;
-        border-image-source: initial;
-        border-image-slice: initial;
-        border-image-width: initial;
-        border-image-outset: initial;
-        border-image-repeat: initial;
-        background: #f1f1f1;
+        /* border: 2px dashed #ddd; */
+        background: #f8f9fa;
         border-radius: 7px;
         text-align: center;
         padding: 20px;

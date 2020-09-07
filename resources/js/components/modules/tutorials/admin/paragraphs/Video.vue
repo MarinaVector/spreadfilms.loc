@@ -150,10 +150,16 @@
     }
 
     .tutorial-video {
-        width: 100%;
         border: dotted 1px #333;
         background-repeat: no-repeat;
         background-size: cover;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        bottom: 0;
+        overflow: hidden;
+        outline: none;
     }
 
     .tutorial-video:hover {
