@@ -1,52 +1,41 @@
 <template>
-    <div class="container inner-menu top-menu pt-1 mb-5">
-        <div class="row mt-3 ml-2">
-            <div class="col-lg-3 col-12 mb-3 ml-lg-1">
-                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue  btn-fltr px-2 mb-1 pb-1 ml-lg-4">
-                    <span class="filter-content"  v-if="text_content">{{text_content}}
-                   </span>
+    <div class="container-fluid top-menu inner-menu pt-1 mb-5">
+        <div v-show="layoutsVisible" class="row ml-2 mt-4">
+            <div class="col-lg-3 col-12 mb-3">
+                <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue btn-fltr px-2 mb-1 pb-1 ml-lg-4">
+                    <span class="filter-content" v-if="text_content">{{text_content}}</span>
                     <div class="tool ml-2 mb-1 filter-content" v-on:click.stop v-if="show_input">
-                        <input type="text" class="btn-inp"/>
+                        <input type="text" class="btn-inp" />
                     </div>
                 </button>
             </div>
 
             <!-- Quick Layouts Bar -->
             <div class="col-lg-2 col-5 ml-n1 ml-lg-0 mb-3 btn-layout">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video"
-                        @click="callParentAddParagraphBlock('Video')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('Video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video with Background"
-                        @click="callParentAddParagraphBlock('bgVideo')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('bgVideo')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
             </div>
             <div class="col-lg-2 col-5 ml-n4 ml-lg-0 mb-3 btn-layout">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Normal Text"
-                        @click="callParentAddParagraphBlock('NormalText')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Normal Text" @click="callParentAddParagraphBlock('NormalText')">
                     <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Text and Image"
-                        @click="callParentAddParagraphBlock('TextImg')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text and Image" @click="callParentAddParagraphBlock('TextImg')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
             </div>
             <div class="col-lg-1 col-2 ml-n4 ml-lg-0 mb-3 btn-layout">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image slider"
-                        @click="callParentAddParagraphBlock('ImageSlider')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image slider" @click="callParentAddParagraphBlock('ImageSlider')">
                     <i class="fa fa-slideshare fa-3x pt-2"></i>
                 </button>
             </div>
@@ -54,8 +43,7 @@
 
             <div class="col-lg-3 col-12 mb-3 btn-layout">
                 <a href="#" @click="switchLayoutsPanel()">
-                    <button type="button" ref="layoutsButton"
-                            class="btn-blue button-arrow layouts py-2 ml-4 mr-3">
+                    <button type="button" ref="layoutsButton" class="btn-blue button-arrow layouts py-2 ml-4 mr-3">
                         Show all<i class="fas fa-arrow-down ml-1"></i>
                     </button>
                 </a>
@@ -69,58 +57,42 @@
 
             <!-- Text Layouts Bar -->
             <div class="mb-2">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Headline"
-                        @click="callParentAddParagraphBlock('Headline')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Headline" @click="callParentAddParagraphBlock('Headline')">
                     <i class="fa fa-header fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Normal Text"
-                        @click="callParentAddParagraphBlock('NormalText')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Normal Text" @click="callParentAddParagraphBlock('NormalText')">
                     <i class="fa fa-align-left fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Center Text"
-                        @click="callParentAddParagraphBlock('CenterText')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Center Text" @click="callParentAddParagraphBlock('CenterText')">
                     <i class="fa fa-align-center fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Text with Big Font"
-                        @click="callParentAddParagraphBlock('TextWithBigFont')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text with Big Font" @click="callParentAddParagraphBlock('TextWithBigFont')">
                     <i class="fa fa-address-card-o fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Text with Logo"
-                        @click="callParentAddParagraphBlock('TextWithLogo')">
+                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text with Logo" @click="callParentAddParagraphBlock('TextWithLogo')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Text and Image"
-                        @click="callParentAddParagraphBlock('TextImg')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text and Image" @click="callParentAddParagraphBlock('TextImg')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Text and Special Image"
-                        @click="callParentAddParagraphBlock('TxtSpecialImg')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text and Special Image" @click="callParentAddParagraphBlock('TxtSpecialImg')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Text and High Image"
-                        @click="callParentAddParagraphBlock('TextWithHighImage')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Text and High Image" @click="callParentAddParagraphBlock('TextWithHighImage')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
             </div>
@@ -131,28 +103,20 @@
 
             <!-- Video Layouts Bar -->
             <div class="mb-2">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video"
-                        @click="callParentAddParagraphBlock('Video')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('Video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video with Background"
-                        @click="callParentAddParagraphBlock('bgVideo')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('bgVideo')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video with Text"
-                        @click="callParentAddParagraphBlock('VideoWithText')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip" data-placement="bottom"
+                        title="Video with Text" @click="callParentAddParagraphBlock('VideoWithText')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video-Slider"
-                        @click="callParentAddParagraphBlock('VideoSlider')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Video-Slider" @click="callParentAddParagraphBlock('VideoSlider')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
             </div>
@@ -163,28 +127,20 @@
 
             <!-- Image Layouts Bar -->
             <div class="mb-2">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image"
-                        @click="callParentAddParagraphBlock('Image')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image" @click="callParentAddParagraphBlock('Image')">
                     <i class="fa fa-picture-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image slider"
-                        @click="callParentAddParagraphBlock('ImageSlider')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image slider" @click="callParentAddParagraphBlock('ImageSlider')">
                     <i class="fa fa-slideshare fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image switch"
-                        @click="callParentAddParagraphBlock('ImageSwitch')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Image switch" @click="callParentAddParagraphBlock('ImageSwitch')">
                     <i class="fa fa-toggle-on fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Icons"
-                        @click="callParentAddParagraphBlock('Icons')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Icons" @click="callParentAddParagraphBlock('Icons')">
                     <i class="fa fa-grav fa-3x pt-2"></i>
                 </button>
             </div>
@@ -195,53 +151,40 @@
 
             <!-- Other Layouts Bar -->
             <div class="mb-2">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Separator Line"
-                        @click="callParentAddParagraphBlock('SeparatorLine')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Separator Line" @click="callParentAddParagraphBlock('SeparatorLine')">
                     <i class="fa fa-arrows-v fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Contact person"
-                        @click="callParentAddParagraphBlock('ContactPerson')">
+                <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Contact person" @click="callParentAddParagraphBlock('ContactPerson')">
                     <i class="fa fa-envelope-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Multiple Choice"
-                        @click="callParentAddParagraphBlock('MultipleChoice')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Multiple Choice" @click="callParentAddParagraphBlock('MultipleChoice')">
                     <i class="fa fa-puzzle-piece fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="FAQs"
-                        @click="callParentAddParagraphBlock('FAQs')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="FAQs" @click="callParentAddParagraphBlock('FAQs')">
                     <i class="fa fa-question fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Quote"
-                        @click="callParentAddParagraphBlock('Quote')">
+                <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Quote" @click="callParentAddParagraphBlock('Quote')">
                     <i class="fa fa-quote-left fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Header"
-                        @click="callParentAddParagraphBlock('Header')">
+                <button class="mr-2 btn-tutorial tooltip-btn" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Header" @click="callParentAddParagraphBlock('Header')">
                     <i class="fa fa-picture-o fa-3x pt-2"></i>
                 </button>
-                <button class="mr-2 btn-tutorial tooltip-btn"
-                        type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Footer"
-                        @click="callParentAddParagraphBlock('Footer')">
+                <button class="mr-2 btn-tutorial tooltip-btn" type="button" data-toggle="tooltip"
+                        data-placement="bottom" title="Footer" @click="callParentAddParagraphBlock('Footer')">
                     <i class="fa fa-picture-o fa-3x pt-2"></i>
                 </button>
             </div>
             <!-- Other Layouts Bar -->
 
         </div>
+        <div class="toggle-collapse" @click="hideLayouts"></div>
     </div>
 </template>
 
@@ -252,13 +195,24 @@
         data() {
             return {
                 show_input: false,
-                text_content: 'Layouts filters'
+                text_content: 'Layouts filters',
+                layoutsVisible: true
             };
         },
         created() {
 
         },
         methods: {
+
+            hideLayouts() {
+                this.layoutsVisible = !this.layoutsVisible;
+                if (this.$refs.layoutsPanel.style.display === 'block') {
+                    this.$refs.layoutsPanel.style.display = 'none';
+                    this.$refs.layoutsButton.innerHTML = 'Show all<i class="fas fa-arrow-down ml-1"></i>';
+                }
+
+            },
+
             switchLayoutsPanel: function () {
                 this.$refs.layoutsPanel.style.display = (this.$refs.layoutsPanel.style.display === 'none') ? 'block' : 'none';
                 this.$refs.layoutsButton.innerHTML = (this.$refs.layoutsPanel.style.display === 'none') ? 'Show all<i class="fas fa-arrow-down ml-1"></i>' : 'Hide<i class="fas fa-arrow-up ml-1"></i>';
@@ -267,22 +221,25 @@
                 this.$emit('addParagraphBlock', blockType);
             },
 
-            hideTooltip: function(){
-               // this.show_tooltip = true;
-               // this.text_content = false;
+            hideTooltip: function () {
+                // this.show_tooltip = true;
+                // this.text_content = false;
                 //this.text_content = false;
                 //this.text_content = !this.text_content;
             },
-            toggleTooltip: function(){
+
+            toggleTooltip: function () {
                 this.show_input = !this.show_input;
                 if (!this.show_input) {
                     this.text_content = 'Layouts filters';
-                }
-                else {
+                } else {
                     this.text_content = false;
                 }
-            }
+            },
+
+
         },
+
         mounted() {
             $('.tooltip-btn').tooltip();
         },
@@ -309,6 +266,8 @@
         border-top: none;
         z-index: 50;
         position: absolute;
+        position: sticky;
+        top: 0;
     }
 
     .btn-blue {
@@ -324,7 +283,7 @@
         background: #d5d5d5;
         border: 6px solid white;
         border-radius: 3px;
-        width: 82px;
+        width: 77px;
     }
 
     .block-text {
@@ -363,43 +322,43 @@
         outline: none;
         width: 150px;
         height: 27px;
-        display:inline-block;
+        display: inline-block;
     }
 
     .filter-content {
-        cursor:default;
+        cursor: default;
     }
 
     .filter-content:after {
         font-family: FontAwesome;
-        content:'\f0b0';
+        content: '\f0b0';
         font-size: 22px;
-        display:inline-block;
-        margin-left:5px;
-        font-weight:normal;
+        display: inline-block;
+        margin-left: 5px;
+        font-weight: normal;
         color: white;
     }
 
     .btn-fltr {
-      white-space: nowrap;
+        white-space: nowrap;
         vertical-align: bottom;
         border-radius: 3px;
         width: 200px;
         height: 46px;
-        display:inline-block;
+        display: inline-block;
     }
 
     .button-arrow {
         width: 110px;
         height: 35px;
-        display:inline-block;
+        display: inline-block;
     }
 
     .btn-layout {
         margin-left: 0;
         margin-right: 0;
         padding-left: 0;
-        padding-right:0;
+        padding-right: 0;
     }
 
     @media only screen and (max-width: 576px) {
@@ -408,7 +367,29 @@
             width: 46px;
         }
 
-           }
+    }
+
+    .toggle-collapse:before {
+        content: "\f341";
+        font-family: "Font Awesome 5 Pro";
+        color: #fff;
+        line-height: 50px;
+        font-size: 1.2em;
+    }
+
+    .toggle-collapse {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 20px;
+        text-align: center;
+        background: #bbb;
+        cursor: pointer;
+        border-radius: 0 0 3px 3px;
+        bottom: 0;
+        transform: translateY(100%);
+    }
+
 
 </style>
 
