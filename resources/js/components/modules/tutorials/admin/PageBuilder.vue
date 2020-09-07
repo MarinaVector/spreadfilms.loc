@@ -33,7 +33,6 @@
                         <component
                             v-on:deleteParagraph="deleteParagraph(index)"
                             v-on:duplicateParagraph="duplicateParagraph(index)"
-                            v-on:getParagraphData="getParagraphData(index)"
                             v-on:saveParagraphData="saveParagraphData"
                             :index="index"
                             :blocksCounterID="blocksCounterID"
@@ -808,11 +807,7 @@
                 }
                 form.submit();
             },
-            getParagraphData(index) {
-                return 'hello nigga';
-            },
             saveParagraphData(mydata){
-                //console.log(this.paragraphs[mydata.index]);
                 this.paragraphs[mydata.index].component.mydata = mydata.myData;
             },
         },
