@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid top-menu inner-menu pt-1 mb-5">
+    <div class="top-menu inner-menu pt-1 mb-5 ml-5 ml-lg-0">
         <div v-show="layoutsVisible" class="row ml-2 mt-4">
             <div class="col-lg-3 col-12 mb-3">
                 <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue btn-fltr px-2 mb-1 pb-1 ml-lg-4">
@@ -11,30 +11,30 @@
             </div>
 
             <!-- Quick Layouts Bar -->
-            <div class="col-lg-2 col-5 ml-n1 ml-lg-0 mb-3 btn-layout">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+            <div class="col-lg-3 col-xl-2 col-5 ml-n1 ml-lg-0 mb-3 btn-layout">
+                <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('Video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button" data-toggle="tooltip"
+                <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('bgVideo')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
             </div>
-            <div class="col-lg-2 col-5 ml-n4 ml-lg-0 mb-3 btn-layout">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+            <div class="col-lg-3 col-xl-2 col-5 ml-n2 ml-xl-0 ml-lg-n5 mb-3 btn-layout">
+                <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Normal Text" @click="callParentAddParagraphBlock('NormalText')">
                     <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
                 </button>
 
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
+                <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Text and Image" @click="callParentAddParagraphBlock('TextImg')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
             </div>
-            <div class="col-lg-1 col-2 ml-n4 ml-lg-0 mb-3 btn-layout">
-                <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
+            <div class="col-xl-1 col-lg-1 ml-lg-n5 col-2 ml-n2 ml-xl-0 mb-3 btn-layout">
+                <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Image slider" @click="callParentAddParagraphBlock('ImageSlider')">
                     <i class="fa fa-slideshare fa-3x pt-2"></i>
                 </button>
@@ -43,7 +43,7 @@
 
             <div class="col-lg-3 col-12 mb-3 btn-layout">
                 <a href="#" @click="switchLayoutsPanel()">
-                    <button type="button" ref="layoutsButton" class="btn-blue button-arrow layouts py-2 ml-4 mr-3">
+                    <button type="button" ref="layoutsButton" class="btn-blue button-arrow layouts py-2 ml-lg-4 mr-3 mt-md-2">
                         Show all<i class="fas fa-arrow-down ml-1"></i>
                     </button>
                 </a>
@@ -52,7 +52,7 @@
         </div>
 
         <div id="layoutsPanel" ref="layoutsPanel" :style="{ display: 'none' }">
-            <p class="head-group font-weight-bold mb-0">Text</p>
+            <p class="head-group font-weight-bold mb-0 ml-3">Text</p>
             <hr class="mr-5 mt-0">
 
             <!-- Text Layouts Bar -->
@@ -98,7 +98,7 @@
             </div>
             <!-- Text Layouts Bar -->
 
-            <p class="head-group font-weight-bold mb-0">Video</p>
+            <p class="head-group font-weight-bold mb-0 ml-3">Video</p>
             <hr class="mr-5 mt-0">
 
             <!-- Video Layouts Bar -->
@@ -122,7 +122,7 @@
             </div>
             <!-- Video Layouts Bar -->
 
-            <p class="head-group font-weight-bold mb-0">Image</p>
+            <p class="head-group font-weight-bold mb-0 ml-3">Image</p>
             <hr class="mr-5 mt-0">
 
             <!-- Image Layouts Bar -->
@@ -146,7 +146,7 @@
             </div>
             <!-- Image Layouts Bar -->
 
-            <p class="head-group font-weight-bold mb-0">Other</p>
+            <p class="head-group font-weight-bold mb-0 ml-3">Other</p>
             <hr class="mr-5 mt-0">
 
             <!-- Other Layouts Bar -->
