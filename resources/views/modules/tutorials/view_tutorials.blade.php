@@ -13,7 +13,7 @@
                     <nav-acc :logo="'{{ $settings->logo }}'"></nav-acc>
                     <tutorial-list :tutorials="'{{ $tutorials }}'"></tutorial-list>
                     <div class="mt-5">
-                        <chart-circle></chart-circle>
+                        <chart-circle :usertutorialsprogress="{{ $userTutorialsProgress }}"></chart-circle>
                     </div>
                 </div>
             </div>

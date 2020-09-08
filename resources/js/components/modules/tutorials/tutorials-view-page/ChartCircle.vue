@@ -7,24 +7,30 @@
         :thickness="10"
         hasLegend
         :sections="sections" :total="100"
+        :value="25"
         :start-angle="0"
         :auto-adjust-text-size="true"
         @section-click="handleSectionClick">
 
         <div class="inner-progress">
-            <span class="teaser">You already have</span> <h1 style="margin: 0;">79%</h1>
+            <span class="teaser">You already have</span> <h1 style="margin: 0;">{{this.usertutorialsprogress}}%</h1>
             <span class="tutorial">
-             Tutorials done!
-        </span>
+                Tutorials done!
+            </span>
         </div>
     </vc-donut>
 </template>
 <script>
 export default {
+    name: 'ChartCircle',
+    props: [
+        'usertutorialsprogress',
+    ],
+
     data() {
         return {
             sections: [
-                {  value: 79, color: "#d32f2f" },
+                {  value: 0, color: "#d32f2f" },
             ]
         };
     },
@@ -32,7 +38,10 @@ export default {
         handleSectionClick(section, event) {
             console.log(`${section.label} clicked.`);
         }
-    }
+    },
+    created() {
+        this.sections[0].value = this.usertutorialsprogress;
+    },
 };
 </script>
 
