@@ -4,7 +4,7 @@
         <input type="hidden" name="video_url" v-model="VideoUrl" class="video_url"/>
         <input type="hidden" name="video_banner" v-model="Banner" class="video_banner"/>
         <input type="hidden" name="video_dimension" v-model="Dimension" class="video_dimension"/>
-        <input type="hidden" name="video_notices" v-model="NoticesJSONString" class="video_notices"/>
+        <input type="hidden" name="video_notices" v-model="MyNotices" class="video_notices"/>
         <div class="row mt-2">
             <div class="col-lg-1">
                 <button type="button" class="btn-icon ml-n2 draggable">
@@ -76,13 +76,13 @@
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
                 Notices: this.mydata ? this.$props.mydata.notices : [],
                 //Notices: this.mydata ? this.escapeHtml(this.$props.mydata.notices) : [],
+                MyNotices: null
             };
         },
         created() {
             if(!Array.isArray(this.Notices)){
                 this.Notices = JSON.parse(this.escapeHtml(this.Notices));
             }
-            console.log(this.Notices);
         },
         methods: {
             callParentDeleteParagraphBlock: function() {
@@ -105,9 +105,7 @@
                 this.textAfter = true;
                 this.btnAfterImg = true;
 
-                console.log(Notices);
-                console.log(this.Notices);
-
+                this.MyNotices = JSON.stringify(this.Notices)
                 this.$emit('saveParagraphData', {
                     index: this.index,
                     myData: {
@@ -129,10 +127,7 @@
 
         },
         computed: {
-            // a computed getter
-            NoticesJSONString: function () {
-                return JSON.stringify(this.Notices);
-            }
+
         },
     };
 </script>
