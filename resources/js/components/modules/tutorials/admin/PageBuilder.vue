@@ -1,6 +1,6 @@
 <template>
-    <div class="container form-group paragraph-form-group">
-        <form class="no-bottom" method="POST" :action="action" @submit.prevent="submitForm" ref="form"
+    <div class="form-group paragraph-form-group ml-5">
+        <form class="no-bottom ml-4 ml-xl-0" method="POST" :action="action" @submit.prevent="submitForm" ref="form"
               id="tutorial-builder-form">
             <input type="hidden" name="_token" :value="csrf"/>
             <input type="hidden" name="tutorial_id" :value="tutorialObj.id"/>
@@ -8,7 +8,7 @@
             <!-- Tutorial Name Block -->
             <div class="container group mt-5">
 
-                <div class="row mb-2">
+                <div class="row mb-2 ml-1">
                     <div class="col-lg-12 mt-5">
                         <label class="tutorial-name" for="tutorial_name">Name</label>
                         <input class="input-hidden form-control" type="text" required
@@ -24,7 +24,7 @@
 
             <!-- Default Page Block with PageBuilderParagraphBlocks -->
             <div class="container group py-lg-5 mt-lg-2 ml-2 ml-lg-0">
-                <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message pb-3 pt-5 text-justify">Currently the Tutorial is still
+                <h2 v-if="paragraphs.length == 0" class="empty-paragraphs-message pb-3 pt-lg-3 text-justify">Currently the Tutorial is still
                     without content, modules can be
                     selected above or a template can be loaded</h2>
                 <draggable v-model="paragraphs" @start="drag=true" @end="drag=false" handle=".draggable"
@@ -48,10 +48,10 @@
             <!-- Tutorial Background Image -->
             <div class="container group">
                 <div class="panel-heading row mb-3">
-                    <div class="col-lg-11">
+                    <div class="col-lg-11 col-10">
                         <div class="panel-title block-title">Background image for Tutorial Overview</div>
                     </div>
-                    <div class="col-lg-1 pl-5 pl-2">
+                    <div class="col-lg-1 col-2 pl-lg-2">
                         <div class="row">
                             <div class="col-lg-6 offset-lg-6">
                                 <question-dropdown :answerdropdown="'Currently the Tutorial is still without content, modules can ' +
@@ -81,10 +81,10 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading panel-list row mx-1">
-                            <div class="col-lg-11">
+                            <div class="col-lg-11 col-10">
                                 <div class="panel-title block-title">Parent Topic</div>
                             </div>
-                            <div class="col-lg-1">
+                            <div class="col-lg-1 col-2">
                                 <question-dropdown
                                     :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
                             </div>
@@ -102,41 +102,42 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class=" panel-heading panel-list row mx-1">
-                            <div class="col-lg-11">
+                            <div class="col-lg-11 col-10">
                                 <div class="panel-title block-title">Categories</div>
                             </div>
-                            <div class="col-lg-1">
+                            <div class="col-lg-1 col-2">
                                 <question-dropdown
                                     :answerdropdown="'Choose a Tutorial that acts as a parent Tutorial'"></question-dropdown>
                             </div>
                         </div>
                     </div>
 
-                    <div class="panel-body">
-                       <tutorials-categories :usercompanycategories="this.$props.usercompanycategories"
-                                             :categories="selectedCategories"
-                       ></tutorials-categories>
+                    <div class="panel-body row mx-0">
+                       <tutorials-categories>
+                        <div class="col-lg-6 col-11 offset-1 offset-lg-0 ml-1"> :usercompanycategories="this.$props.usercompanycategories"</div>
+                           <div class="col-lg-6 col-11 offset-1 offset-lg-0 ml-1"> :categories="selectedCategories"</div>
+                       </tutorials-categories>
                     </div>
                 </div>
                 <!-- Categories Column -->
 
                 <!-- Users Assign -->
-                <div class="col-lg-12 mt-2">
+                <div class="col-lg-12 mt-2 col-12">
                     <div class="panel-default panel">
                         <div class="panel-heading panel-list row mx-1">
-                            <div class="col-lg-11">
+                            <div class="col-lg-11 col-9">
                                 <div class="panel-title block-title">
                                     <span data-toggle="collapse" data-target="#collapse-staff">
                                         Users assign
                                     </span>
                                 </div>
                             </div>
-                            <div class="col-lg-1">
+                            <div class="col-lg-1 col-3">
                                 <span data-toggle="collapse" class="ml-2 pull-right arrow-toggler"
                                       data-target="#collapse-staff"
                                       aria-expanded="true">
                                 </span>
-                                <div class="ml-5">
+                                <div class="ml-lg-5">
                                     <question-dropdown
                                         :answerdropdown="'Make the Tutorial visible to all or only selected users'"></question-dropdown>
                                 </div>
@@ -1072,7 +1073,7 @@
     @media only screen and (max-width: 576px) {
 
         .empty-paragraphs-message {
-            font-size: 22px;
+            font-size: 16px;
             padding: 5px 10px;
         }
     }

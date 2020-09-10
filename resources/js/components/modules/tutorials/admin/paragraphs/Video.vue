@@ -6,20 +6,20 @@
         <input type="hidden" name="video_dimension" v-model="Dimension" class="video_dimension"/>
         <input type="hidden" name="video_notices" v-model="NoticesJSONString" class="video_notices"/>
         <div class="row mt-2">
-            <div class="col-lg-1">
+            <div class="col-lg-1 col-3">
                 <button type="button" class="btn-icon ml-n2 draggable">
                     <i class="fa fa-arrows-v pt-2"></i>
                 </button>
             </div>
-            <div class="col-lg-1 offset-lg-10">
+            <div class="col-lg-1 offset-lg-10 col-3 offset-5">
                 <button type="button" class="btn-icon ml-4" @click="callParentDeleteParagraphBlock()">
                     <i class="fa fa-trash-o pt-2"></i>
                 </button>
             </div>
         </div>
-        <div class="row my-5 pt-5">
+        <div class="row my-md-5 pt-5">
             <div class="col-lg-1 offset-lg-5 inner-trigger my-5">
-                <div class="my-5">
+                <div class="my-md-5">
                     <button @click=showTextModal() class="text-button ml-4 py-3 px-5 mt-2" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-1 offset-lg-11">
+            <div class="col-lg-1 offset-lg-11 col-3 offset-8">
                 <button type="button" class="btn-icon mt-5 ml-4 mb-2" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
@@ -194,5 +194,6 @@
         top: 50%;
         left: 50%;
     }
+
 
 </style>

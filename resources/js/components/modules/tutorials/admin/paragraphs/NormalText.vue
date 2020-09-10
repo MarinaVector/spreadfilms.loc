@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text ml-3 ml-md-2"
+    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text ml-lg-3 ml-md-2"
          id="tutorial-text">
         <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type" />
         <div class="row">
@@ -177,7 +177,7 @@
     }
 
     .btn-icon {
-        background-image: linear-gradient(linear, left top, left bottom, from(#3ecdf1), to(#2badce));
+        background: linear-gradient(to right, #3ecdf1, #2badce);
         color: #fff;
         border: none;
         top: 20px;

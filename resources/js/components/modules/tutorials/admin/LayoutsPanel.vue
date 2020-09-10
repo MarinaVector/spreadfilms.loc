@@ -1,7 +1,7 @@
 <template>
-    <div class="top-menu inner-menu pt-1 mb-5 ml-5 ml-lg-0">
+    <div class="top-menu inner-menu pt-1 mb-5 ml-3 ml-lg-0 pr-3">
         <div v-show="layoutsVisible" class="row ml-2 mt-4">
-            <div class="col-lg-3 col-12 mb-3">
+            <div class="col-lg-3 col-12 mb-3  mr-lg-5  mr-xl-2">
                 <button v-cloak v-on:click.stop="toggleTooltip" type="button" class="btn-blue btn-fltr px-2 mb-1 pb-1 ml-lg-4">
                     <span class="filter-content" v-if="text_content">{{text_content}}</span>
                     <div class="tool ml-2 mb-1 filter-content" v-on:click.stop v-if="show_input">
@@ -11,7 +11,7 @@
             </div>
 
             <!-- Quick Layouts Bar -->
-            <div class="col-lg-3 col-xl-2 col-5 ml-n1 ml-lg-0 mb-3 btn-layout">
+            <div class="col-lg-7 col-md-8 col-xl-5 col-12 mb-3 btn-layout btn-grid">
                 <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('Video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
@@ -21,8 +21,7 @@
                         data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('bgVideo')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
-            </div>
-            <div class="col-lg-3 col-xl-2 col-5 ml-n2 ml-xl-0 ml-lg-n5 mb-3 btn-layout">
+
                 <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Normal Text" @click="callParentAddParagraphBlock('NormalText')">
                     <i class="fa fa fa-align-left fa-3x pt-2 button-doc"></i>
@@ -32,8 +31,7 @@
                         data-placement="bottom" title="Text and Image" @click="callParentAddParagraphBlock('TextImg')">
                     <i class="fa fa-id-card fa-3x pt-2"></i>
                 </button>
-            </div>
-            <div class="col-xl-1 col-lg-1 ml-lg-n5 col-2 ml-n2 ml-xl-0 mb-3 btn-layout">
+
                 <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Image slider" @click="callParentAddParagraphBlock('ImageSlider')">
                     <i class="fa fa-slideshare fa-3x pt-2"></i>
@@ -56,7 +54,7 @@
             <hr class="mr-5 mt-0">
 
             <!-- Text Layouts Bar -->
-            <div class="mb-2">
+            <div class="mb-2 ml-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Headline" @click="callParentAddParagraphBlock('Headline')">
                     <i class="fa fa-header fa-3x pt-2"></i>
@@ -102,7 +100,7 @@
             <hr class="mr-5 mt-0">
 
             <!-- Video Layouts Bar -->
-            <div class="mb-2">
+            <div class="mb-2 ml-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Video" @click="callParentAddParagraphBlock('Video')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
@@ -126,7 +124,7 @@
             <hr class="mr-5 mt-0">
 
             <!-- Image Layouts Bar -->
-            <div class="mb-2">
+            <div class="mb-2 ml-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Image" @click="callParentAddParagraphBlock('Image')">
                     <i class="fa fa-picture-o fa-3x pt-2"></i>
@@ -147,10 +145,10 @@
             <!-- Image Layouts Bar -->
 
             <p class="head-group font-weight-bold mb-0 ml-3">Other</p>
-            <hr class="mr-5 mt-0">
+            <hr class="mr-5 mt-0 ml-2 pb-lg-3">
 
             <!-- Other Layouts Bar -->
-            <div class="mb-2">
+            <div class="mb-2 ml-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Separator Line" @click="callParentAddParagraphBlock('SeparatorLine')">
                     <i class="fa fa-arrows-v fa-3x pt-2"></i>
@@ -369,6 +367,31 @@
 
     }
 
+    @media only screen and (max-width: 350px) {
+        .btn-tutorial {
+            width: 40px;
+        }
+
+        .inner-menu {
+            margin-left: 34px !important;
+        }
+
+    }
+
+    @media only screen and (max-width: 320px) {
+        .btn-tutorial {
+            width: 35px;
+        }
+
+        .btn-fltr {
+            width: 150px;
+        }
+
+        .btn-inp {
+            width: 100px;
+        }
+    }
+
     .toggle-collapse:before {
         content: "\f341";
         font-family: "Font Awesome 5 Pro";
@@ -388,6 +411,12 @@
         border-radius: 0 0 3px 3px;
         bottom: 0;
         transform: translateY(100%);
+    }
+
+    .btn-grid {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 
 
