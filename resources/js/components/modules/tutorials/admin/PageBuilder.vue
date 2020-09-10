@@ -538,7 +538,6 @@
                     this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
                 });
             }
-            console.log(this.tutorialObj);
         },
         methods: {
             addParagraphBlock(paragraphName, paragraphData = {}) {

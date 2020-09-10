@@ -275,4 +275,15 @@ class Tutorial extends Model
 
         return $this->getTutorialBreadcrumbRecursive($breadcrumb, $parentTutorial);
     }
+
+    final public function isCompleted():bool {
+        $user = Auth::user();
+
+        $progressObj = TutorialUserCompletion::where([
+            'user_id' => $user['id'],
+            'tutorial_id' => $this->id,
+        ])->get('completion')->first();
+
+        return $progressObj !== null && $progressObj->completion === 'completed';
+    }
 }

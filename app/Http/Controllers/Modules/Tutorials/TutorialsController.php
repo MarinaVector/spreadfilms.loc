@@ -516,7 +516,17 @@ class TutorialsController extends Controller
                 }
                 $userCompanyTutorialsNested[] = $resTutorial;
             }
+
         }
+
+        $userCompanyTutorialsAmount = $userCompanyTutorials->count();
+        $userCompanyTutorialsCompletedAmount = 0;
+        foreach($userCompanyTutorials as $tutorial){
+            if($tutorial->isCompleted()){
+                $userCompanyTutorialsCompletedAmount++;
+            }
+        }
+        $userTutorialsProgress = round(($userCompanyTutorialsCompletedAmount / $userCompanyTutorialsAmount) * 100);
 
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
         $userCompanyTutorialsSettings = $userCompany->tutorialsSettings;
@@ -526,6 +536,7 @@ class TutorialsController extends Controller
             'tutorials' => $userCompanyTutorialsNestedJSON,
             'settings' => $userCompanyTutorialsSettings,
             'tutorial' => '',
+            'userTutorialsProgress' => $userTutorialsProgress,
             ]);
     }
 
@@ -534,15 +545,15 @@ class TutorialsController extends Controller
         $userCompany = $user->company();
         $userCompanyTutorials = $userCompany->tutorials;
         $userCompanyTutorialsNested = [];
-        foreach($userCompanyTutorials->toArray() as $tutorial){
-            if($tutorial['parent_tutorial_id'] === 0){
+        foreach($userCompanyTutorials->toArray() as $tTutorial){
+            if($tTutorial['parent_tutorial_id'] === 0){
                 $resTutorial = [
-                    'id' => $tutorial['id'],
-                    'label' => $tutorial['name'],
+                    'id' => $tTutorial['id'],
+                    'label' => $tTutorial['name'],
                     'count' => count($userCompanyTutorialsNested),
                 ];
 
-                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tutorial['id']);
+                $resChildren = $this->getTutorialChildren($userCompanyTutorials->toArray(), $tTutorial['id']);
                 if($resChildren){
                     $resTutorial['children'] = $resChildren;
 
@@ -570,12 +581,22 @@ class TutorialsController extends Controller
         $tutorial->paragraphs = $paragraphs;
         $breadcrumb = $tutorial->getTutorialBreadcrumb();
 
+        $userCompanyTutorialsAmount = $userCompanyTutorials->count();
+        $userCompanyTutorialsCompletedAmount = 0;
+        foreach($userCompanyTutorials as $companyTutorial){
+            if($companyTutorial->isCompleted()){
+                $userCompanyTutorialsCompletedAmount++;
+            }
+        }
+        $userTutorialsProgress = round(($userCompanyTutorialsCompletedAmount / $userCompanyTutorialsAmount) * 100);
+
         return view('modules.tutorials.view_tutorials')->with([
             'authUser' => $user,
             'tutorials' => $userCompanyTutorialsNestedJSON,
             'settings' => $userCompanyTutorialsSettings,
             'tutorial' => $tutorial->toArray(),
             'breadcrumb' => $breadcrumb,
+            'userTutorialsProgress' => $userTutorialsProgress,
         ]);
     }
 
@@ -592,6 +613,8 @@ class TutorialsController extends Controller
             'status' => $status,
             'nextTutorialId' => $nextTutorialId,
             'userName' => $user->firstname,
+            'tutorialId' => $tutorialId,
+            'userId' => $user->id,
         ]);
     }
 }
