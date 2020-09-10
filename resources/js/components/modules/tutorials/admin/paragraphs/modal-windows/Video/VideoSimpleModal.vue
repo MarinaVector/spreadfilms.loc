@@ -140,7 +140,9 @@
         },
         methods: {
             save: function () {
-                this.Banner = "https://i.ytimg.com/vi/" + this.getBannerUrl(this.VideoUrl) + "/hqdefault.jpg";
+                if(this.VideoUrl){
+                    this.Banner = "https://i.ytimg.com/vi/" + this.getBannerUrl(this.VideoUrl) + "/hqdefault.jpg";
+                }
                 this.$emit('saveData', this.VideoUrl, this.Banner, this.Dimension, this.Notices)
             },
             cancel: function (event) {

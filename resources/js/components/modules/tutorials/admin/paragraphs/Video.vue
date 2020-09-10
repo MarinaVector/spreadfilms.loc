@@ -75,13 +75,21 @@
                 Banner: this.mydata ? this.$props.mydata.banner : '',
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
                 Notices: this.mydata ? this.$props.mydata.notices : [],
-                //Notices: this.mydata ? this.escapeHtml(this.$props.mydata.notices) : [],
                 MyNotices: null
             };
         },
+        mounted() {
+            if(this.Banner === undefined){
+                this.Banner = '';
+            }
+        },
         created() {
             if(!Array.isArray(this.Notices)){
-                this.Notices = JSON.parse(this.escapeHtml(this.Notices));
+                if(this.Notices === undefined || this.Notices === ""){
+                    this.Notices = [];
+                } else {
+                    this.Notices = JSON.parse(this.escapeHtml(this.Notices));
+                }
             }
         },
         methods: {
@@ -122,9 +130,6 @@
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
             },
-        },
-        mounted() {
-
         },
         computed: {
 

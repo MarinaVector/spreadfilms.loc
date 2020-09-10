@@ -527,7 +527,7 @@
             // converting usercompanyusers JSON prop into data object
             this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
 
-            if(undefined !== this.tutorialObj.tutorial_background){
+            if(undefined !== this.tutorialObj.tutorial_background && null !== this.tutorialObj.tutorial_background){
                 $('#background-tutorial-image-preview').css("background-image", "url("+this.tutorialObj.tutorial_background+")");
                 $('.elfinder-preview-image').css('height', '100%');
             }
