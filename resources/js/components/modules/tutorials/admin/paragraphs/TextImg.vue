@@ -141,6 +141,14 @@
             showFilemanagerModal: function (){
                 let element = this.$refs.filemanagerModal.$el;
                 $(element).modal('show');
+
+                // set callback
+                this.$store.commit('fm/setFileCallBack', url => {
+                    // use the file url
+                    console.info(`File chosen!!! - ${url}`);
+                    // close modal window
+                    $('#exampleModal').modal('hide');
+                });
             },
             saveData: function (header, body) {
                 this.$emit('saveParagraphData', {
