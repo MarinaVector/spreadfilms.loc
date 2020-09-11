@@ -538,8 +538,6 @@
                     this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
                 });
             }
-
-            console.log(this.$store.state.paragraphs);
         },
         methods: {
             addParagraphBlock(paragraphName, paragraphData = {}) {

@@ -125,7 +125,9 @@
         mounted() {
             this.dataInputID = 'background-image-' + this.$props.blocksCounterID;
             this.dataInputPreviewID = 'background-image-' + this.$props.blocksCounterID + '-preview';
-            $(this.$refs.preview).css("background-image", "url("+this.Src+")");
+            if(this.Src !== undefined){
+                $(this.$refs.preview).css("background-image", "url("+this.Src+")");
+            }
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
