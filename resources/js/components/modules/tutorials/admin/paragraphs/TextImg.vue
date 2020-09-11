@@ -147,7 +147,7 @@
                     // use the file url
                     console.info(`File chosen!!! - ${url}`);
                     // close modal window
-                    $('#exampleModal').modal('hide');
+                    $(element).modal('hide');
                 });
             },
             saveData: function (header, body) {
