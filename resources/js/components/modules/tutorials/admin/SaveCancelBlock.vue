@@ -7,8 +7,8 @@
             </div>
             <div class="col-lg-12 inner-menu pt-3 save-chancel">
                 <div class="form-group">
-                    <input class="btn btn-primary" type="submit" value="Save">
-                    <a href="/module/tutorials/admin" class="btn btn-default ml-1">Cancel</a>
+                    <input class="btn btn-primary btn-save" type="submit" value="Save">
+                    <a href="/module/tutorials/admin" class="btn btn-default btn-save ml-1">Cancel</a>
                     <div class="pull-right">
                     </div>
                 </div>
@@ -93,6 +93,18 @@
     }
     .save-chancel {
         z-index: 20;
+    }
+
+    .btn-save {
+        width: 105px;
+    }
+
+    @media only screen and (max-width: 320px) {
+
+        .btn-save {
+            width: 80px;
+        }
+
     }
 
 </style>

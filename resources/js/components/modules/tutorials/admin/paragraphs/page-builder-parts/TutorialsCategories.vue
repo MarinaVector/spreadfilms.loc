@@ -1,6 +1,6 @@
 <template>
 
-    <div>
+    <div class="mx-3 mx-lg-0">
         <treeselect :options="options" :value="value" :multiple="multiple" :name="treename" :joinValues="true">
             <div slot="value-label" slot-scope="{ node }">{{ node.raw.customLabel }}</div>
         </treeselect>

@@ -432,8 +432,6 @@ export default {
 
 .tutorial-read {
     width: 100%;
-    padding-left: 25px;
-    padding-right: 25px;
     overflow: auto;
     height: calc(100vh - 250px);
 
