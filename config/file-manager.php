@@ -31,7 +31,9 @@ return [
      * List of disk names that you want to use
      * (from config/filesystems)
      */
-    'diskList' => ['public'],
+    'diskList' => [
+        'company-public', 'company-private'
+    ],
 
     /**
      * Default disk for left manager
@@ -103,7 +105,7 @@ return [
      * Add your middleware name to array -> ['web', 'auth', 'admin']
      * !!!! RESTRICT ACCESS FOR NON ADMIN USERS !!!!
      */
-    'middleware' => ['web'],
+    'middleware' => ['web', 'auth', 'SetCompanyPublicPrivateFolders'],
 
     /***************************************************************************
      * ACL mechanism ON/OFF
