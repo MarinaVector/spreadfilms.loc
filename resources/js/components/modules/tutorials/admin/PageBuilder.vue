@@ -113,10 +113,9 @@
                     </div>
 
                     <div class="panel-body row mx-0">
-                       <tutorials-categories>
-                        <div class="col-lg-6 col-11 offset-1 offset-lg-0 ml-1"> :usercompanycategories="this.$props.usercompanycategories"</div>
-                           <div class="col-lg-6 col-11 offset-1 offset-lg-0 ml-1"> :categories="selectedCategories"</div>
-                       </tutorials-categories>
+                        <tutorials-categories :usercompanycategories="this.$props.usercompanycategories"
+                                              :categories="selectedCategories">
+                        </tutorials-categories>
                     </div>
                 </div>
                 <!-- Categories Column -->
