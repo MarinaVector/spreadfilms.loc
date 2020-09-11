@@ -60,7 +60,7 @@
 
     .modal-dialog {
         width: 100%;
-        height: 70%;
+        height: 90%;
         padding: 0;
     }
 
