@@ -1,39 +1,39 @@
 <template>
-    <div class="row">
-        <div class="col-lg-12">
+
             <ul id="sortable">
                 <draggable v-model="tutorialDraggable" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs"
                            @update="update">
-                    <div v-for="tutorial in tutorialDraggable" class=".paragraph" ref="paragraph" :id="tutorial.id">
-                        <li class="card2 py-2 pl-3 pl-5 li-text ui-state-default draggable">
+                    <li v-for="tutorial in tutorialDraggable" class=".paragraph" ref="paragraph" :id="tutorial.id">
+                        <div class="card-nested py-2 li-text ui-state-default draggable">
                             <div class="row">
-                                <div class="col-lg-10">
-                                    <i class="fas fa-arrows-alt-v mr-2"></i>
+                                <div class="col-lg-10 col-md-9 col-6 column pl-5">
+                                    <i class="fas fa-arrows-alt-v mr-1"></i>
                                     <span class="ui-icon ui-icon-arrow thick-2-n-s"></span>{{tutorial.label}}
                                 </div>
-                                <div class="col-lg-2 pl-5">
+                                <div class="col-lg-2 col-md-3 col-6 pl-lg-5 pl-4">
                                     <input type="hidden" name="userId" value=""/>
-                                    <a :href="editLink + tutorial.id" class="social-icon si-border si-edit mr-1">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-edit"></i>
+                                    <a :href="editLink + tutorial.id" class="nested-icon si-border mr-xl-1 mr-n2">
+                                        <i class="fas fa-edit si-ed"></i>
+                                        <i class="fas fa-edit si-ed"></i>
                                     </a>
-                                    <a href="#" class="social-icon si-border si-delete"
+                                    <a href="#" class="nested-icon si-border"
                                        data-toggle="modal" data-target="#modal-info" @click="deleteComponent(tutorial)">
-                                        <i class="fas fa-trash"></i>
-                                        <i class="fas fa-trash"></i>
+                                        <i class="fas fa-trash si-del"></i>
+                                        <i class="fas fa-trash si-del"></i>
                                     </a>
                                 </div>
                             </div>
-                            <nested-draggable v-if="tutorial.children" :tutorials="tutorial.children"
+                            <div class="">
+                            <nested-draggable class="ch" v-if="tutorial.children" :tutorials="tutorial.children"
                                               v-on:deleteComponent="deleteComponent"
                                               v-on:displaySavedPanel="displaySavedPanel"
                                               />
-                        </li>
-                    </div>
+                            </div>
+                        </div>
+                    </li>
                 </draggable>
             </ul>
-        </div>
-    </div>
+
 </template>
 
 <script>
@@ -125,7 +125,6 @@
         font-size: 14px;
         text-transform: uppercase;
         color: #777777;
-
     }
 
     .categories {
@@ -134,46 +133,12 @@
         color: #777777;
     }
 
-    .card2::after {
-        display: block;
-        position: absolute;
-        bottom: -10px;
-        left: 20px;
-        width: calc(100% - 40px);
-        height: 35px;
-        background-color: #fff;
-        -webkit-box-shadow: 0 19px 28px 5px rgba(64, 64, 64, 0.09);
-        box-shadow: 0 19px 28px 5px rgba(64, 64, 64, 0.09);
-        content: '';
-        z-index: -1;
-    }
-
-    a.card2 {
-        text-decoration: none;
-    }
-
-    .card2 {
+       .card-nested {
         position: relative;
-        border: 0;
-        border-radius: 0;
-        background-color: #fff;
-        -webkit-box-shadow: 0 12px 20px 1px rgba(64, 64, 64, 0.09);
-        box-shadow: 0 12px 20px 1px rgba(64, 64, 64, 0.09);
-    }
-
-    .card2 {
-        position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        min-width: 0;
+           min-width: 0;
         background-color: #fff;
         background-clip: border-box;
-        border-top: 1px solid rgba(0, 0, 0, 0.125);
+        border-top: 0.5px solid rgba(0, 0, 0, 0.125);
     }
 
 
@@ -196,26 +161,20 @@
         padding-inline-start: 0 !important;
     }
 
-    .social-icon {
+    .nested-icon {
         width: 40px;
         height: 40px;
         font-size: 20px;
         line-height: 40px !important;
-        color: #777777;
         text-shadow: none;
-        border-radius: 5px;
         overflow: hidden;
         display: block;
         float: left;
         text-align: center;
-        border: 1px solid #AAA;
     }
 
-    .social-icon:hover {
-        border: none;
-    }
 
-    .social-icon i {
+    .nested-icon i {
         display: block;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
@@ -225,27 +184,22 @@
         position: relative;
     }
 
-    .social-icon i:last-child {
+    .nested-icon i:last-child {
         color: #FFF !important;
     }
 
-    .social-icon:hover i:first-child {
+    .nested-icon:hover i:first-child {
         margin-top: -40px;
         display: none;
     }
 
-    si-border {
-        border: 1px solid #AAA !important;
+    i.si-ed:hover {
+        color: #008acb !important;
     }
 
-    .si-edit:hover {
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+     i.si-del:hover {
+        color: #008acb !important;
     }
-
-    .si-delete:hover {
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
-    }
-
 
     .li-text {
         color: #424242;
@@ -256,5 +210,8 @@
         color: #00bff9;
     }
 
+   .ch div li div div .column .fas {
+           margin-left: 18px;
+            }
 
 </style>

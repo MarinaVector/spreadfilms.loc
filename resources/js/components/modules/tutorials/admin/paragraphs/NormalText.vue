@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text ml-lg-3 ml-md-2"
+    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text"
          id="tutorial-text">
         <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type" />
         <div class="row">
@@ -24,7 +24,7 @@
                     <div class="mt-n1 mb-n1">Text</div>
                 </button>
                 <div class="">
-                    <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left mb-2 headline normal_text mt-4 mt-lg-1"
+                    <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left mb-2 headline normal_text mt-4 mt-lg-4"
                          v-html="NormalTextHeader">
                     </div>
 

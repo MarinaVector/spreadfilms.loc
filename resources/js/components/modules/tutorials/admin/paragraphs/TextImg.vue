@@ -352,9 +352,7 @@ $height2:95%;
 
     .container-right {
         display: grid;
-        grid-template-columns: repeat( 50px);
-         gap: auto;
-
+        grid-gap: initial;
     }
 
     .del-btn {
