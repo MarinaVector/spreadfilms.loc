@@ -19,11 +19,10 @@ Vue.use(PortalVue);
 import PrettyCheckbox from 'pretty-checkbox-vue';
 Vue.use(PrettyCheckbox);
 
-import store from './store';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import Vue from 'vue';
 
-Vue.use(BootstrapVue);
+Vue.use(BootstrapVue, {store});
 
 import Donut from 'vue-css-donut-chart';
 import 'vue-css-donut-chart/dist/vcdonut.css';
@@ -35,6 +34,10 @@ import VueYoutube from 'vue-youtube'
 Vue.use(VueYoutube)
 
 import VueTimepicker from 'vue2-timepicker';
+
+import {store} from './store/store'
+import FileManager from 'laravel-file-manager'
+Vue.use(FileManager, {store});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -95,6 +98,8 @@ Vue.component('tutorials-categories', require('./components/modules/tutorials/ad
 
 Vue.component('admin-list-delete-modal', require('./components/modules/tutorials/admin/AdminListDeleteModal').default);
 
+Vue.component('normal-text-filemanager-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/NormalText/NormalTextFilemanagerModal').default);
+
 /**
  * Tutorials view
  */
@@ -114,6 +119,6 @@ Vue.component('display-tutorials-main-page', require('./components/modules/tutor
 
 const app = new Vue({
     el: '#app',
-    store,
+    store: store
 });
 

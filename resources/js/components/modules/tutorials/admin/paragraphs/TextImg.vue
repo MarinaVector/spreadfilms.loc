@@ -15,12 +15,23 @@
 
                     <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                             :data-inputid="dataInputID"
+                            class="py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
+                            @click="showFilemanagerModal()"
+                            type="button">
+                        <i class="fas fa-image blueiconcolor fa-2x pt-1">
+                        </i>
+                        <div class="mt-n1 mb-n1">Image</div>
+                    </button>
+                    <!-- Laravel elfinder
+                    <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
+                            :data-inputid="dataInputID"
                             class="popup_selector py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
                             type="button">
                         <i class="fas fa-image blueiconcolor fa-2x pt-1">
                         </i>
                         <div class="mt-n1 mb-n1">Image</div>
                     </button>
+                    -->
 
                     <div class="row h-100 text-level">
                         <div :class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
@@ -57,15 +68,18 @@
         </div>
         <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
                          :header="NormalTextHeader" :body="NormalTextBody"></NormalTextModal>
+        <NormalTextFilemanagerModal ref="filemanagerModal" v-on:saveData="saveData"></NormalTextFilemanagerModal>
     </div>
 </template>
 
 <script>
     import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
+    import NormalTextFilemanagerModal from './modal-windows/NormalText/NormalTextFilemanagerModal'
 
     export default {
         components: {
-            NormalTextModal
+            NormalTextModal,
+            NormalTextFilemanagerModal,
         },
         props: {
             index: {
@@ -122,6 +136,10 @@
             },
             showTextModal: function () {
                 let element = this.$refs.modal.$el;
+                $(element).modal('show');
+            },
+            showFilemanagerModal: function (){
+                let element = this.$refs.filemanagerModal.$el;
                 $(element).modal('show');
             },
             saveData: function (header, body) {

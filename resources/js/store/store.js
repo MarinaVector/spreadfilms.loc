@@ -3,15 +3,21 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
     state: {
         count: 0,
         paragraphs: [],
+        something: 123,
+    },
+    getters: {
+
     },
     mutations: {
         updateParagraphs (state, paragraphs) {
             state.paragraphs = paragraphs;
-            //console.log(state.paragraphs);
-        }
-    }
+        },
+    },
+    actions : {
+
+    },
 });

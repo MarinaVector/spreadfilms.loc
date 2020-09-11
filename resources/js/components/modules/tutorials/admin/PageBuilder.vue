@@ -218,6 +218,7 @@
     import Contact from './paragraphs/Contact'
     import QuestionsAnswers from './paragraphs/QuestionsAnswers'
     import cloneDepp from 'lodash/cloneDeep'
+    import FileManager from 'laravel-file-manager'
 
     export default {
         props: [
@@ -537,6 +538,8 @@
                     this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
                 });
             }
+
+            console.log(this.$store.state.paragraphs);
         },
         methods: {
             addParagraphBlock(paragraphName, paragraphData = {}) {
