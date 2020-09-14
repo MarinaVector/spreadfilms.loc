@@ -229,7 +229,50 @@
             'tutorials',
             'tutorial',
             'paragraphsJSONProp',
+            'publicpath',
+            'privatepath',
         ],
+        created() {
+            if(undefined !== this.$props.tutorial){
+                this.tutorialObj = JSON.parse(this.$props.tutorial);
+            }
+
+            //forming selected categories string with comma separator
+            let categoriesArr = [];
+            if(undefined !== this.tutorialObj.categories){
+                this.tutorialObj.categories.forEach(function(category){
+                    categoriesArr.push(category['id']);
+                });
+                this.selectedCategories = categoriesArr.join(',')
+            }
+
+            //forming assignees array
+            let assigneesArray = [];
+            if(undefined !== this.tutorialObj.assignees){
+                this.tutorialObj.assignees.forEach(function(user){
+                    assigneesArray.push(user['id']);
+                });
+                this.assigneesArr = assigneesArray;
+            }
+        },
+        mounted() {
+            // converting usercompanyroles JSON prop into data object
+            this.usercompanyrolesArr = JSON.parse(this.$props.usercompanyroles);
+
+            // converting usercompanyusers JSON prop into data object
+            this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
+
+            if(undefined !== this.tutorialObj.tutorial_background && null !== this.tutorialObj.tutorial_background){
+                $('#background-tutorial-image-preview').css("background-image", "url("+this.tutorialObj.tutorial_background+")");
+                $('.elfinder-preview-image').css('height', '100%');
+            }
+
+            if(this.tutorialObj.paragraphs){
+                this.tutorialObj.paragraphs.forEach(paragraphElement => {
+                    this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
+                });
+            }
+        },
         data() {
             return {
                 paragraphsStructure: {
@@ -495,51 +538,6 @@
                 assigneesArr: [],
                 ComponentData: null,
             };
-        },
-        created() {
-            if(undefined !== this.$props.tutorial){
-                this.tutorialObj = JSON.parse(this.$props.tutorial);
-            }
-
-            //forming selected categories string with comma separator
-            let categoriesArr = [];
-            if(undefined !== this.tutorialObj.categories){
-                this.tutorialObj.categories.forEach(function(category){
-                    categoriesArr.push(category['id']);
-                });
-                this.selectedCategories = categoriesArr.join(',')
-            }
-
-            //forming assignees array
-            let assigneesArray = [];
-            if(undefined !== this.tutorialObj.assignees){
-                this.tutorialObj.assignees.forEach(function(user){
-                    assigneesArray.push(user['id']);
-                });
-                this.assigneesArr = assigneesArray;
-            }
-
-
-        },
-        mounted() {
-            // converting usercompanyroles JSON prop into data object
-            this.usercompanyrolesArr = JSON.parse(this.$props.usercompanyroles);
-
-            // converting usercompanyusers JSON prop into data object
-            this.usercompanyusersArr = JSON.parse(this.$props.usercompanyusers);
-
-            if(undefined !== this.tutorialObj.tutorial_background && null !== this.tutorialObj.tutorial_background){
-                $('#background-tutorial-image-preview').css("background-image", "url("+this.tutorialObj.tutorial_background+")");
-                $('.elfinder-preview-image').css('height', '100%');
-            }
-
-            if(this.tutorialObj.paragraphs){
-                this.tutorialObj.paragraphs.forEach(paragraphElement => {
-                    this.addParagraphBlock(paragraphElement.paragraph_type, paragraphElement.data);
-                });
-            }
-
-            console.log(this.$store.state.paragraphs);
         },
         methods: {
             addParagraphBlock(paragraphName, paragraphData = {}) {

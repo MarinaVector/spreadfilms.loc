@@ -4,7 +4,8 @@
         <div class="row cont-elements">
             <div class="col-md-9 px-0 img-hover module-img" id="">
                 <div :class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
-                     class="h-100" :id="dataInputPreviewID" ref="preview">
+                     class="h-100" :id="dataInputPreviewID" ref="preview"
+                     v-bind:style="{ backgroundImage: 'url(' + Src + ')' }">
 
                     <button type="button" class="btn-icon draggable mt-2 ml-2">
                         <i class="fa fa-arrows-v pt-2"></i>
@@ -88,7 +89,11 @@
             },
             mydata: {
                 type: Object,
-                default: () => {}
+                default: () => ({
+                    normalTextHeader: '',
+                    normalTextBody: '',
+                    src: '',
+                }),
             },
             blocksCounterID: {
                 type: Number,
@@ -125,7 +130,13 @@
         mounted() {
             this.dataInputID = 'background-image-' + this.$props.blocksCounterID;
             this.dataInputPreviewID = 'background-image-' + this.$props.blocksCounterID + '-preview';
-            $(this.$refs.preview).css("background-image", "url("+this.Src+")");
+            if(this.Src !== undefined){
+                $(this.$refs.preview).css("background-image", "url("+this.Src+")");
+            }
+
+            if(this.Src === undefined){
+                this.Src = '';
+            }
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
@@ -144,9 +155,20 @@
 
                 // set callback
                 this.$store.commit('fm/setFileCallBack', url => {
-                    // use the file url
-                    console.info(`File chosen!!! - ${url}`);
-                    // close modal window
+                    let fileName = url.substring(9);
+                    let selectedDisk = this.$store.getters['fm/selectedDisk'];
+                    this.Src = this.$parent.$parent.publicpath + fileName;
+                    //console.log(this.$parent.$parent.publicpath + fileName);
+                    this.$emit('saveParagraphData', {
+                        index: this.index,
+                        myData: {
+                            header: this.NormalTextHeader,
+                            text: this.NormalTextBody,
+                            src: this.Src,
+                        }
+                    });
+
+
                     $(element).modal('hide');
                 });
             },
