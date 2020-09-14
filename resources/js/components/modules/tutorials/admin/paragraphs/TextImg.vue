@@ -2,7 +2,7 @@
     <div class="container txt-img">
         <input type="hidden" name="component_type" value="TextImg" class="component_type" />
         <div class="row cont-elements">
-            <div class="col-md-9 px-0 img-hover module-img" id="">
+            <div class="col-md-9 px-0 img-hover">
                 <div :class=" {txt_img_img_before:imgBefore, txt_img_img_after:imgAfter} "
                      class="h-100" :id="dataInputPreviewID" ref="preview"
                      v-bind:style="{ backgroundImage: 'url(' + Src + ')' }">
@@ -16,7 +16,7 @@
 
                     <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                             :data-inputid="dataInputID"
-                            class="py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
+                            class="py-2 mb-md-0 px-md-5 txt-btn btn-right"
                             @click="showFilemanagerModal()"
                             type="button">
                         <i class="fas fa-image blueiconcolor fa-2x pt-1">
@@ -267,11 +267,17 @@ $height2:95%;
     .txt_img_img_before {
         height: 274px;
         min-height: 239px;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
     }
 
     .txt_img_img_after {
         border: none;
         height: $height1;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
     }
 
     .row-image {
@@ -329,11 +335,11 @@ $height2:95%;
         left: 100%;
         transition: opacity 0.3s ease, background-color 0.5s ease;
         width: 36%;
-        height: 80%;
         background-color: #d9d9d9;
         border: dotted 1px #333;
-         position: relative;
+        position: absolute;
         z-index: 8;
+
 
         &:hover {
             background: gray;
