@@ -1,51 +1,46 @@
 <template>
-    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container tutorial-normal-text"
-         id="tutorial-text">
+    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container video-grid tutorial-text py-2" id="tutorial-text">
         <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type" />
         <div class="row">
-            <div class="col-lg-1 offset-lg-0 col-md-10 col-8">
-                <button type="button" class="btn-icon mt-2 ml-lg-2 draggable">
+            <div class="col-12">
+                <button type="button" class="btn-icon draggable pull-left">
                     <i class="fa fa-arrows-v pt-2"></i>
                 </button>
-            </div>
-            <div class="col-lg-1 offset-lg-10 col-md-2 col-4">
-                <input type="hidden" name="normal_text[]" value="">
-                <button type="button" class="btn-icon mt-2 ml-4 ml-lg-2" @click="callParentDeleteParagraphBlock()">
+
+                <button type="button" class="btn-icon pull-right" @click="callParentDeleteParagraphBlock()">
                     <i class="fa fa-trash-o pt-2"></i>
                 </button>
             </div>
-        </div>
-        <div class="row" @click="showTextModal()">
-            <div class="col-md-12 mx-auto col-12 mx-sm-auto" id="butTxt">
-                <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button slide-border py-2
-                 px-5 mx-auto" type="button">
-                    <i class="fas fa-bars blueiconcolor fa-2x">
-                    </i>
-                    <div class="mt-n1 mb-n1">Text</div>
-                </button>
-                <div class="">
-                    <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left mb-2 headline normal_text mt-4 mt-lg-4"
-                         v-html="NormalTextHeader">
-                    </div>
 
-                    <div class="final-text text-justify" v-html="NormalTextBody"></div>
-                    <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header mt-5">
-                    <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+            <div class="col-12  video-grid" @click="showTextModal()">
+                <div class="text-center">
+                    <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button slide-border py-2
+                     px-5 mx-auto" type="button">
+                        <i class="fas fa-bars blueiconcolor fa-2x">
+                        </i>
+                        <div class="mt-n1 mb-n1">Text</div>
+                    </button>
+                    <div class="">
+                        <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left headline pb-0 normal_text" v-html="NormalTextHeader">
+                        </div>
+
+                        <div class="final-text text-justify" v-html="NormalTextBody"></div>
+                        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+                        <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 offset-md-10 col-lg-1 offset-lg-11">
-                <button type="button" class="btn-icon mb-2 ml-lg-2" @click="callParentDuplicateParagraphBlock()">
+
+            <div class="col-lg-12">
+                <button type="button" class="btn-icon pull-left" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>
-        </div>
 
-        <NormalTextModal ref="modal" v-on:saveData="saveData"
-                         v-on:getPreviousData="getPreviousData"
-                         :header="NormalTextHeader" :body="NormalTextBody">
-        </NormalTextModal>
+            <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData" :header="NormalTextHeader" :body="NormalTextBody">
+            </NormalTextModal>
+
+        </div>
     </div>
 
 </template>
@@ -213,7 +208,6 @@
     }
 
     .headertext:before {
-
         background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
         content: "";
         width: 60px;
@@ -230,9 +224,7 @@
         left: 0;
     }
 
-    #butTxt button {
-        position: absolute;
-        left: 42%;
+    button {
         cursor: pointer;
     }
 
@@ -255,6 +247,8 @@
             left: 32%;
         }
     }
+
+
 
 </style>
 

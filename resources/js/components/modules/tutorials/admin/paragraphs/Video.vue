@@ -1,40 +1,37 @@
 <template>
-    <div class="container tutorial-video" v-bind:style="{ backgroundImage: 'url(' + Banner + ')' }">
+    <div class="container tutorial-video video-grid" v-bind:style="{ backgroundImage: 'url(' + Banner + ')' }">
         <input type="hidden" name="component_type" value="Video" class="component_type" ref="component_type" />
         <input type="hidden" name="video_url" v-model="VideoUrl" class="video_url"/>
         <input type="hidden" name="video_banner" v-model="Banner" class="video_banner"/>
         <input type="hidden" name="video_dimension" v-model="Dimension" class="video_dimension"/>
         <input type="hidden" name="video_notices" v-model="MyNotices" class="video_notices"/>
-        <div class="row mt-2">
-            <div class="col-lg-1 col-3">
-                <button type="button" class="btn-icon ml-n2 draggable">
+        <div class="row my-2">
+            <div class="col-12">
+                <button type="button" class="btn-icon draggable pull-left">
                     <i class="fa fa-arrows-v pt-2"></i>
                 </button>
-            </div>
-            <div class="col-lg-1 offset-lg-10 col-3 offset-5">
-                <button type="button" class="btn-icon ml-4" @click="callParentDeleteParagraphBlock()">
+
+                <button type="button" class="btn-icon pull-right" @click="callParentDeleteParagraphBlock()">
                     <i class="fa fa-trash-o pt-2"></i>
                 </button>
             </div>
-        </div>
-        <div class="row my-md-5 pt-5">
-            <div class="col-lg-1 offset-lg-5 inner-trigger my-5">
-                <div class="my-md-5">
-                    <button @click=showTextModal() class="text-button ml-4 py-3 px-5 mt-2" type="button">
+
+            <div class="col-12 my-5 my-md-5">
+                <div class="text-center my-md-5">
+                    <button @click=showTextModal() class="text-button py-3 px-5 mt-2 my-5" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
                         <p class="mt-n1 mb-n1">Video</p>
                     </button>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-1 offset-lg-11 col-3 offset-8">
-                <button type="button" class="btn-icon mt-5 ml-4 mb-2" @click="callParentDuplicateParagraphBlock()">
+
+            <div class="col-lg-12">
+                <button type="button" class="btn-icon pull-left" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>
-        </div>
+
         <VideoSimpleModal ref="modal"
                      v-on:saveData="saveData"
                      v-on:resetNoticesProp="resetNoticesProp"
@@ -44,6 +41,7 @@
                      :noticesProp="Notices"
         >
         </VideoSimpleModal>
+        </div>
     </div>
 </template>
 
@@ -193,6 +191,11 @@
     .modal-video {
         top: 50%;
         left: 50%;
+    }
+
+    .video-grid {
+        display: grid;
+        grid-gap: initial;
     }
 
 
