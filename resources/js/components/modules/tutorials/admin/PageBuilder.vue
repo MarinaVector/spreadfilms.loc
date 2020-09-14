@@ -78,7 +78,7 @@
             <!-- Parent Tutorial, Categories and Visibility Blocks -->
             <div class="row mb-5 pb-5">
                 <!-- Parent Tutorial Column -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-11 ml-lg-0 ml-3">
                     <div class="panel panel-default">
                         <div class="panel-heading panel-list row mx-1">
                             <div class="col-lg-11 col-10">
@@ -99,7 +99,7 @@
                 <!-- Parent Tutorial Column -->
 
                 <!-- Categories Column -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-11 ml-lg-0 ml-3">
                     <div class="panel panel-default">
                         <div class=" panel-heading panel-list row mx-1">
                             <div class="col-lg-11 col-10">
@@ -121,7 +121,7 @@
                 <!-- Categories Column -->
 
                 <!-- Users Assign -->
-                <div class="col-lg-12 mt-2 col-12">
+                <div class="col-lg-12 mt-2 col-11  ml-lg-0 ml-3">
                     <div class="panel-default panel">
                         <div class="panel-heading panel-list row mx-1">
                             <div class="col-lg-11 col-9">
