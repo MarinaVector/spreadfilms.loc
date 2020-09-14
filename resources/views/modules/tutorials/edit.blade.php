@@ -13,6 +13,8 @@
             :usercompanyusers="'{{ $userCompanyUsers->toJson() }}'"
             :action="'{{ route('module.tutorials.update', ['tutorial_id' => $tutorial->id]) }}'"
             :tutorials="'{{ $companyTutorials }}'"
+            :publicpath="'{{ '/userfiles/companies/' . Auth::user()->company()->id . '/public/' }}'"
+            :privatepath="'{{ '/userfiles/companies/' . Auth::user()->company()->id . '/private/' . Auth::user()->id . '/' }}'"
             :tutorial="'{{ $tutorial }}'"
         ></tutorial-page-builder>
     </div>
