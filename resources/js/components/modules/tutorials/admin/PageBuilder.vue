@@ -208,7 +208,7 @@
     import TextImg from './paragraphs/TextImg'
     import SliderAdd from './paragraphs/SliderAdd'
     import BackgroundVideo from './paragraphs/BackgroundVideo'
-    import SimpleHead from './paragraphs/SimpleHead'
+    import Headline from './paragraphs/Headline'
     import draggable from 'vuedraggable'
     import Quote from './paragraphs/Quote'
     import ImgHeadText from './paragraphs/ImgHeadText'
@@ -221,6 +221,23 @@
     import FileManager from 'laravel-file-manager'
 
     export default {
+        name: "PageBuilder",
+        components: {
+            NormalText,
+            Video,
+            TextImg,
+            SliderAdd,
+            draggable,
+            BackgroundVideo,
+            Headline,
+            Quote,
+            ImgHeadText,
+            LgHeadText,
+            TextLogo,
+            TextImgHigh,
+            Contact,
+            QuestionsAnswers
+        },
         props: [
             'usercompanycategories',
             'usercompanyroles',
@@ -545,7 +562,7 @@
                 switch (paragraphName) {
                     //Text Layouts
                     case 'Headline':
-                        Component = cloneDepp(SimpleHead);
+                        Component = cloneDepp(Headline);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
@@ -811,22 +828,9 @@
                 this.paragraphs[mydata.index].component.mydata = mydata.myData;
             },
         },
-        components: {
-            NormalText,
-            Video,
-            TextImg,
-            SliderAdd,
-            draggable,
-            BackgroundVideo,
-            SimpleHead,
-            Quote,
-            ImgHeadText,
-            LgHeadText,
-            TextLogo,
-            TextImgHigh,
-            Contact,
-            QuestionsAnswers
-        },
+        computed: {
+
+        }
     };
 
 </script>

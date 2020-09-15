@@ -49,6 +49,7 @@
     import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
 
     export default {
+        name: "NormalText",
         components: {
             NormalTextModal
         },
@@ -62,6 +63,16 @@
                 default: () => {}
             },
         },
+        created() {
+            if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
+                this.normalAfter = true;
+                this.btnAfter = true;
+                this.headerText = true;
+            }
+        },
+        mounted() {
+
+        },
         data() {
             return {
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
@@ -72,16 +83,6 @@
                 btnAfter: false,
                 headerText: false
             };
-        },
-        created() {
-            if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
-                this.normalAfter = true;
-                this.btnAfter = true;
-                this.headerText = true;
-            }
-        },
-        mounted() {
-
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
@@ -117,8 +118,7 @@
         },
         computed: {
 
-
-        }
+        },
     };
 </script>
 

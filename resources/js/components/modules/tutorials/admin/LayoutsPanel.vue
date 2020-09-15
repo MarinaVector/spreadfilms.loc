@@ -189,7 +189,18 @@
 <script>
     export default {
         name: "LayoutsPanel",
-        props: [],
+        components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+            $('.tooltip-btn').tooltip();
+        },
         data() {
             return {
                 show_input: false,
@@ -197,20 +208,14 @@
                 layoutsVisible: true
             };
         },
-        created() {
-
-        },
         methods: {
-
             hideLayouts() {
                 this.layoutsVisible = !this.layoutsVisible;
                 if (this.$refs.layoutsPanel.style.display === 'block') {
                     this.$refs.layoutsPanel.style.display = 'none';
                     this.$refs.layoutsButton.innerHTML = 'Show all<i class="fas fa-arrow-down ml-1"></i>';
                 }
-
             },
-
             switchLayoutsPanel: function () {
                 this.$refs.layoutsPanel.style.display = (this.$refs.layoutsPanel.style.display === 'none') ? 'block' : 'none';
                 this.$refs.layoutsButton.innerHTML = (this.$refs.layoutsPanel.style.display === 'none') ? 'Show all<i class="fas fa-arrow-down ml-1"></i>' : 'Hide<i class="fas fa-arrow-up ml-1"></i>';
@@ -218,14 +223,12 @@
             callParentAddParagraphBlock: function (blockType) {
                 this.$emit('addParagraphBlock', blockType);
             },
-
             hideTooltip: function () {
                 // this.show_tooltip = true;
                 // this.text_content = false;
                 //this.text_content = false;
                 //this.text_content = !this.text_content;
             },
-
             toggleTooltip: function () {
                 this.show_input = !this.show_input;
                 if (!this.show_input) {
@@ -234,18 +237,12 @@
                     this.text_content = false;
                 }
             },
-
-
-        },
-
-        mounted() {
-            $('.tooltip-btn').tooltip();
         },
         computed: {
             computedLayoutsDisplay: function () {
                 return this.layoutsDisplay;
             }
-        }
+        },
     };
 </script>
 

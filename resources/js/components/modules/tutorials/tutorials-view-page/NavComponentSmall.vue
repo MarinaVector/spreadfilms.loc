@@ -15,83 +15,98 @@
 </template>
 
 <script>
+    export default {
+        name: "NavComponentSmall",
+        components: {
 
-export default {
-    data() {
-        return {
+        },
+        props: {
 
-            navVisible: false
-        }
-    },
-    methods: {
-        showNav() {
-            this.navVisible  = !this.navVisible
-        }
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {
+
+                navVisible: false
+            }
+        },
+        methods: {
+            showNav() {
+                this.navVisible  = !this.navVisible
+            }
+        },
+        computed: {
+
+        },
     }
-}
-
 </script>
 
 <style scoped>
-.tutorials-admin-menu.open {
-    transform: translateX(0) translateY(-50%);
-    box-shadow: 0 0 60px 2px rgba(0, 0, 0, 0.5);
-}
-.tutorials-admin-menu {
-    transform: translateX(-100%) translateY(-50%);
-    transition: transform .2s ease-in-out;
-    top: 50%;
-    position: fixed;
-    z-index: 999999;
-    background-color: #fff;
-    color: #333;
-    border-radius: 0 3px 3px 0;
-}
-*, ::after, ::before {
-    box-sizing: border-box;
-}
 
-.tutorials-admin-menu .trigger {
-    position: absolute;
-    right: 0;
-    transform: translateX(100%) translateY(-50%);
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: #bbb;
-    cursor: pointer;
-    border-radius: 0 3px 3px 0;
-}
+    .tutorials-admin-menu.open {
+        transform: translateX(0) translateY(-50%);
+        box-shadow: 0 0 60px 2px rgba(0, 0, 0, 0.5);
+    }
+    .tutorials-admin-menu {
+        transform: translateX(-100%) translateY(-50%);
+        transition: transform .2s ease-in-out;
+        top: 50%;
+        position: fixed;
+        z-index: 999999;
+        background-color: #fff;
+        color: #333;
+        border-radius: 0 3px 3px 0;
+    }
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
 
-.tutorials-admin-menu.open .trigger:before {
-    content: "\f33e";
-}
+    .tutorials-admin-menu .trigger {
+        position: absolute;
+        right: 0;
+        transform: translateX(100%) translateY(-50%);
+        top: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #bbb;
+        cursor: pointer;
+        border-radius: 0 3px 3px 0;
+    }
 
-.tutorials-admin-menu .trigger:before {
-    content: "\f340";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    font-size: 1.3em;
-    font-family: "Font Awesome 5 Pro";
-    color: #fff;
-    font-weight: 100;
-}
+    .tutorials-admin-menu.open .trigger:before {
+        content: "\f33e";
+    }
 
-.tutorials-admin-menu ul {
-    padding: 10px 0;
-    margin: 0;
-}
+    .tutorials-admin-menu .trigger:before {
+        content: "\f340";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        font-size: 1.3em;
+        font-family: "Font Awesome 5 Pro";
+        color: #fff;
+        font-weight: 100;
+    }
 
-.tutorials-admin-menu li {
-    list-style-type: none;
-    padding: 5px 20px;
-}
+    .tutorials-admin-menu ul {
+        padding: 10px 0;
+        margin: 0;
+    }
 
-.nav-sm-text {
-    color:#424242;
-    font-size: 16px;
-}
+    .tutorials-admin-menu li {
+        list-style-type: none;
+        padding: 5px 20px;
+    }
+
+    .nav-sm-text {
+        color:#424242;
+        font-size: 16px;
+    }
 
 </style>

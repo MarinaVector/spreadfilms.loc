@@ -34,13 +34,12 @@
 
 export default {
     name: 'TutorialsNameList',
-    props: ['tutorials'],
-    data() {
-        return {
-            tutorialsObj: [],
-            returnArr: false
-        }
+    components: {
+
     },
+    props: [
+        'tutorials'
+    ],
     created() {
         // converting tutorials JSON prop into data object
         let newTutorialObj = JSON.parse(this.tutorials);
@@ -54,11 +53,23 @@ export default {
             return item
         })
     },
+    mounted() {
+
+    },
+    data() {
+        return {
+            tutorialsObj: [],
+            returnArr: false
+        }
+    },
     methods: {
         toggleTutorial(index) {
             this.tutorialsObj[index].active = !this.tutorialsObj[index].active
         },
-    }
+    },
+    computed: {
+
+    },
 }
 
 </script>

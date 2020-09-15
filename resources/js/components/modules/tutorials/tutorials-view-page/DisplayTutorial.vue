@@ -94,7 +94,7 @@ import Video from './paragraphs/Video'
 import TextImg from './paragraphs/TextImg'
 import SliderAdd from './paragraphs/SliderAdd'
 import BackgroundVideo from './paragraphs/BackgroundVideo'
-import SimpleHead from './paragraphs/SimpleHead'
+import Headline from './paragraphs/Headline'
 import draggable from 'vuedraggable'
 import Quote from './paragraphs/Quote'
 import ImgHeadText from './paragraphs/ImgHeadText'
@@ -107,6 +107,7 @@ import CompleteTutorialModal from './modal-windows/CompleteTutorialModal'
 import cloneDepp from 'lodash/cloneDeep'
 
 export default {
+    name: 'DisplayTutorial',
     components: {
         NormalText,
         Video,
@@ -114,7 +115,7 @@ export default {
         SliderAdd,
         draggable,
         BackgroundVideo,
-        SimpleHead,
+        Headline,
         Quote,
         ImgHeadText,
         LgHeadText,
@@ -124,22 +125,10 @@ export default {
         QuestionsAnswers,
         CompleteTutorialModal,
     },
-    name: 'DisplayTutorial',
     props: [
         'tutorial',
         'breadcrumb',
     ],
-    data() {
-        return {
-            tutorialObj: {},
-            breadcrumbObj: {},
-            paragraphs: [],
-            logoVal: this.logo ? this.logo : '/public/img/logo_white.png',
-            isOpen: false,
-            displayMode: 'none'
-        }
-
-    },
     created() {
         if (undefined !== this.tutorial) {
             this.tutorialObj = JSON.parse(this.$props.tutorial)
@@ -158,6 +147,16 @@ export default {
             this.tutorialObj.paragraphs.forEach((paragraph) => {
                 this.addParagraphBlock(paragraph.paragraph_type, paragraph.data);
             });
+        }
+    },
+    data() {
+        return {
+            tutorialObj: {},
+            breadcrumbObj: {},
+            paragraphs: [],
+            logoVal: this.logo ? this.logo : '/public/img/logo_white.png',
+            isOpen: false,
+            displayMode: 'none'
         }
     },
     methods: {
@@ -184,7 +183,7 @@ export default {
             switch (paragraphName) {
                 //Text Layouts
                 case 'Headline':
-                    Component = cloneDepp(SimpleHead);
+                    Component = cloneDepp(Headline);
                     if(null !== paragraphData){
                         Component.mydata = paragraphData;
                     }
@@ -360,10 +359,12 @@ export default {
             }
             Component = null;
 
-
             this.ComponentData = null;
         },
-    }
+    },
+    computed: {
+
+    },
 }
 </script>
 

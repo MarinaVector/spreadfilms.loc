@@ -83,30 +83,43 @@
 
 <script>
     export default {
-        props: [
-            'index'
-        ],
+        name: "LgHeadText",
+        components: {
+
+        },
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
         data() {
             return {
                 show: false,
                 hide: true
             };
         },
-        created() {
-
-        },
         methods: {
             callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
+                this.$emit('deleteParagraph');
             },
             callParentDuplicateParagraphBlock: function() {
                 this.$emit('duplicateParagraph');
             }
         },
-        mounted() {
+        computed: {
 
         },
-        computed: {}
     };
 
 </script>

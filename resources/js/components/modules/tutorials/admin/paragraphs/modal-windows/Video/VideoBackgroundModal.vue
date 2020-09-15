@@ -106,6 +106,9 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default {
     name: "VideoSimple",
+    components: {
+        VueTimepicker
+    },
     props: [
         'videoUrl',
         'banner',
@@ -113,8 +116,11 @@ export default {
         'notices',
         'header',
     ],
-    components: {
-        VueTimepicker
+    created() {
+        this.Dimension = this.Dimension;
+    },
+    mounted(){
+
     },
     data() {
         return {
@@ -131,12 +137,6 @@ export default {
                 'Please not that no Banner can be created for a password-protected Video',
 
         };
-
-    },
-    created() {
-        this.Dimension = this.Dimension;
-    },
-    mounted(){
 
     },
     methods: {
@@ -159,6 +159,9 @@ export default {
             let match = VideoUrl.match(regExp);
             return (match&&match[7].length==11)? match[7] : false;
         },
+    },
+    computed: {
+
     },
 }
 </script>

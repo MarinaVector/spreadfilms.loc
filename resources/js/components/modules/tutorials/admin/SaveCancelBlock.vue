@@ -19,18 +19,28 @@
 
 <script>
     export default {
-        props: [],
-        data() {
-            return {};
+        name: "SaveCancelBlock",
+        components: {
+
+        },
+        props: {
+
         },
         created() {
 
         },
-        methods: {},
         mounted() {
 
         },
-        computed: {}
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     };
 </script>
 

@@ -33,11 +33,18 @@
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
     export default {
+        name: "NormalTextModal",
+        components: {
+
+        },
         props: [
             'header',
             'body',
         ],
-        components: {
+        created() {
+
+        },
+        mounted() {
 
         },
         data() {
@@ -61,7 +68,7 @@
                 }
             }
         },
-        created() {
+        computed: {
 
         },
     };

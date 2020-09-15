@@ -1,39 +1,37 @@
 <template>
-
-            <ul id="sortable">
-                <draggable v-model="tutorialDraggable" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs"
-                           @update="update">
-                    <li v-for="tutorial in tutorialDraggable" class=".paragraph" ref="paragraph" :id="tutorial.id">
-                        <div class="card-nested py-2 li-text ui-state-default draggable">
-                            <div class="row">
-                                <div class="col-lg-10 col-md-9 col-6 column pl-5">
-                                    <i class="fas fa-arrows-alt-v mr-1"></i>
-                                    <span class="ui-icon ui-icon-arrow thick-2-n-s"></span>{{tutorial.label}}
-                                </div>
-                                <div class="col-lg-2 col-md-3 col-6 pl-lg-5 pl-4">
-                                    <input type="hidden" name="userId" value=""/>
-                                    <a :href="editLink + tutorial.id" class="nested-icon si-border mr-xl-1 mr-n2">
-                                        <i class="fas fa-edit si-ed"></i>
-                                        <i class="fas fa-edit si-ed"></i>
-                                    </a>
-                                    <a href="#" class="nested-icon si-border"
-                                       data-toggle="modal" data-target="#modal-info" @click="deleteComponent(tutorial)">
-                                        <i class="fas fa-trash si-del"></i>
-                                        <i class="fas fa-trash si-del"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="">
-                            <nested-draggable class="ch" v-if="tutorial.children" :tutorials="tutorial.children"
-                                              v-on:deleteComponent="deleteComponent"
-                                              v-on:displaySavedPanel="displaySavedPanel"
-                                              />
-                            </div>
+    <ul id="sortable">
+        <draggable v-model="tutorialDraggable" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs"
+                   @update="update">
+            <li v-for="tutorial in tutorialDraggable" class=".paragraph" ref="paragraph" :id="tutorial.id">
+                <div class="card-nested py-2 li-text ui-state-default draggable">
+                    <div class="row">
+                        <div class="col-lg-10 col-md-9 col-6 column pl-5">
+                            <i class="fas fa-arrows-alt-v mr-1"></i>
+                            <span class="ui-icon ui-icon-arrow thick-2-n-s"></span>{{tutorial.label}}
                         </div>
-                    </li>
-                </draggable>
-            </ul>
-
+                        <div class="col-lg-2 col-md-3 col-6 pl-lg-5 pl-4">
+                            <input type="hidden" name="userId" value=""/>
+                            <a :href="editLink + tutorial.id" class="nested-icon si-border mr-xl-1 mr-n2">
+                                <i class="fas fa-edit si-ed"></i>
+                                <i class="fas fa-edit si-ed"></i>
+                            </a>
+                            <a href="#" class="nested-icon si-border"
+                               data-toggle="modal" data-target="#modal-info" @click="deleteComponent(tutorial)">
+                                <i class="fas fa-trash si-del"></i>
+                                <i class="fas fa-trash si-del"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="">
+                    <nested-draggable class="ch" v-if="tutorial.children" :tutorials="tutorial.children"
+                          v-on:deleteComponent="deleteComponent"
+                          v-on:displaySavedPanel="displaySavedPanel"
+                          />
+                    </div>
+                </div>
+            </li>
+        </draggable>
+    </ul>
 </template>
 
 <script>
@@ -43,9 +41,6 @@
 
     export default {
         name: "NestedDraggable",
-        created() {
-
-        },
         components: {
             AdminListDeleteModal,
             draggable,
@@ -56,16 +51,18 @@
                 default: () => []
             }
         },
+        created() {
+
+        },
+        mounted() {
+            // converting tutorials JSON prop into data object
+            this.tutorialDraggable = cloneDeep(this.tutorials)
+        },
         data() {
             return {
                 tutorialDraggable: [],
                 editLink: '/module/tutorials/admin/edit/'
             }
-        },
-        mounted() {
-            // converting tutorials JSON prop into data object
-            this.tutorialDraggable = cloneDeep(this.tutorials)
-
         },
         methods: {
             deleteComponent: function (tutorial) {
@@ -91,6 +88,9 @@
             displaySavedPanel(){
                 this.$emit('displaySavedPanel');
             },
+        },
+        computed: {
+
         },
     }
 </script>

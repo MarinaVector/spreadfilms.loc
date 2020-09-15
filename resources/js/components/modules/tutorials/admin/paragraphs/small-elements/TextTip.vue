@@ -25,7 +25,28 @@
 
 <script>
     export default {
-        name: "TextTip"
+        name: "TextTip",
+        components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     }
 </script>
 

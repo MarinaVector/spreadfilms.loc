@@ -34,6 +34,12 @@
         components: {
 
         },
+        created() {
+
+        },
+        mounted() {
+
+        },
         data() {
             return {
                 nextTutorialLink: "/module/tutorials/view/",
@@ -43,7 +49,7 @@
         methods: {
 
         },
-        created() {
+        computed: {
 
         },
     };

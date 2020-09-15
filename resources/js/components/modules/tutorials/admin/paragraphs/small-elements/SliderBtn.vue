@@ -21,29 +21,41 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable'
+    import draggable from 'vuedraggable'
 
-let  i=1 ;
-export default {
-    data() {
-        return {
-        items: [
-            { volume:'Slider 1'}
-        ]
-    };
-},
-    components: {
-        draggable,
-    },
-    methods: {
-        addItem : function() {
-           i++;
-            this.items.push({ volume: "Slider " + i});
-            console.log (+i);
-           }
-        }
-    };
+    let  i=1 ;
+    export default {
+        name: "SliderBtn",
+        components: {
+            draggable,
+        },
+        props: {
 
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {
+                items: [
+                    { volume:'Slider 1'}
+                ]
+            };
+        },
+        methods: {
+            addItem : function() {
+               i++;
+                this.items.push({ volume: "Slider " + i});
+                console.log (+i);
+               }
+            },
+        computed: {
+
+        },
+    };
 </script>
 
 <style>

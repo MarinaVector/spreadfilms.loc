@@ -54,29 +54,41 @@
 <script>
 
     export default {
-        props: [
-            'index'
-        ],
-        data() {
-            return {};
+        name: "Contact",
+        components: {
+
+        },
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
         },
         created() {
 
         },
-        methods: {
-            callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
-            },
-            callParentDuplicateParagraphBlock: function() {
-                this.$emit('duplicateParagraph');
-            }
-        },
         mounted() {
 
         },
-        computed: {}
-    };
+        data() {
+            return {};
+        },
+        methods: {
+            callParentDeleteParagraphBlock: function() {
+                this.$emit('deleteParagraph');
+            },
+            callParentDuplicateParagraphBlock: function() {
+                this.$emit('duplicateParagraph');
+            },
+        },
+        computed: {
 
+        },
+    };
 </script>
 
 <style scoped>

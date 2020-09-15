@@ -12,15 +12,29 @@
 
 <script>
     export default {
-    props: [
-        'answerdropdown'
-    ],
-        created()
-    {
-        //console.log("NO NAME");
-    }
-    };
+        name: "QuestionDropdown",
+        components: {
 
+        },
+        props: [
+            'answerdropdown'
+        ],
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
+    };
 </script>
 
 <style scoped>

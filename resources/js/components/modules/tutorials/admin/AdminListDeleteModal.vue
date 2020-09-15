@@ -17,10 +17,17 @@
 
 <script>
     export default {
+        name: "AdminListDeleteModal",
         components: {
 
         },
         props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
 
         },
         data() {
@@ -63,7 +70,7 @@
                 form.submit();
             },
         },
-        created() {
+        computed: {
 
         },
     };

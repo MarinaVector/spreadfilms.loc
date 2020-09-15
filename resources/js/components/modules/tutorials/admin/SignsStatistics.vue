@@ -46,7 +46,28 @@
 
 <script>
     export default {
-        name: "TutorialsStatistics"
+        name: "SignsStatistics",
+        components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     }
 </script>
 

@@ -8,14 +8,7 @@
                         <question-dropdown :answerdropdown="'The Video Banner is created automatically. ' +
                          'Please not that no Banner can be created for a password-protected Video.'"></question-dropdown>
                     </div>
-                    <label class="input-title"><i class="fas fa-image mr-2"></i>Banner</label>
 
-                    <div class="elfinder-container"><input id="neu-1" type="hidden" data-type="bild"
-                                                           data-value="image" class="elfinder-idea">
-                        <button data-inputid="neu-1" data-dismiss="modal" class="popup_selector btn btn-default">Select image
-                        </button>
-                    </div>
-                    <hr>
                     <label class="input-title"><i class="fas fa-film mr-2"></i>Video</label>
                     <div class="elfinder-container">
                         <input type="text" v-model="VideoUrl" placeholder="Video-URL" class="videourl">
@@ -102,6 +95,9 @@
 
     export default {
         name: "VideoSimple",
+        components: {
+            VueTimepicker
+        },
         props: {
             videoUrl: {
                 type: String,
@@ -120,8 +116,11 @@
                 default: () => []
             },
         },
-        components: {
-            VueTimepicker
+        created() {
+            this.Dimension = this.Dimension;
+        },
+        mounted(){
+
         },
         data() {
             return {
@@ -131,12 +130,6 @@
                 Notices: this.$props.noticesProp ? this.$props.noticesProp : [],
                 editTime: null,
             };
-        },
-        created() {
-            this.Dimension = this.Dimension;
-        },
-        mounted(){
-
         },
         methods: {
             save: function () {
@@ -190,6 +183,9 @@
             deleteTimeNotice: function (index) {
                 this.Notices.splice(index, 1);
             },
+        },
+        computed: {
+
         },
     }
 </script>

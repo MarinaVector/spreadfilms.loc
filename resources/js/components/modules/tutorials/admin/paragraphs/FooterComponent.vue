@@ -53,30 +53,42 @@
 
 <script>
 
-export default {
-    props: [
-        'index'
-    ],
-    data() {
-        return {};
-    },
-    created() {
+    export default {
+        name: "FooterComponent",
+        components: {
 
-    },
-    methods: {
-        callParentDeleteParagraphBlock: function() {
-            this.$emit('childToParent');
         },
-        callParentDuplicateParagraphBlock: function() {
-            this.$emit('duplicateParagraph');
-        }
-    },
-    mounted() {
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
+        },
+        created() {
 
-    },
-    computed: {}
-};
+        },
+        mounted() {
 
+        },
+        data() {
+            return {};
+        },
+        methods: {
+            callParentDeleteParagraphBlock: function() {
+                this.$emit('deleteParagraph');
+            },
+            callParentDuplicateParagraphBlock: function() {
+                this.$emit('duplicateParagraph');
+            }
+        },
+        computed: {
+
+        },
+    };
 </script>
 
 <style>

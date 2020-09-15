@@ -3,14 +3,7 @@
         <div class="row align-items-start tutorial-complex">
             <div class="col-lg-2 mt-2">
                 <div class="row">
-                    <div class="col-lg-1 mt-2 ml-3">
-                        <button type="button" class="btn-icon ml-n2 draggable"
-                                @click="callParentDeleteParagraphBlock()">
-                            <i class="fa fa-arrows-v pt-2"></i>
-                        </button>
-                    </div>
-                    <div class="col-lg-1 offset-lg-10">
-                    </div>
+
                 </div>
             </div>
 
@@ -33,47 +26,11 @@
                             <p class="mb-n1">Text</p>
                         </button>
                     </div>
-                    <div @mouseover="show = !show" @mouseleave="hide = !hide" class="col-lg-9  tutorial-text mt-2">
-                        <button v-if="hide" class="text-button py-2 px-5" type="button">
-                            <i class="fas fa-bars blueiconcolor fa-2x">
-                            </i>
-                            <p class="mb-n1 mx-1">Button</p>
-                        </button>
-
-                        <div v-if="show" class="button-show set-button">
-                            <div>
-                                <button class="py-2 px-5 text-button" type="button">
-                                    <i class="fas fa-bars blueiconcolor fa-2x">
-                                    </i>
-                                    <div class="mb-n1">Button 1</div>
-                                </button>
-                            </div>
-                            <div>
-                                <button class="text-button py-2 px-5" type="button">
-                                    <i class="fas fa-bars blueiconcolor fa-2x">
-                                    </i>
-                                    <div class="mb-n1">Button 2</div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
             <div class="col-lg-2 mt-2">
                 <div class="row py-1">
-                    <div class="col-lg-3 offset-lg-7 mt-2 mb-5">
-                        <button type="button" class="btn-icon mb-5"
-                                @click="callParentDeleteParagraphBlock()">
-                            <i class="fa fa-trash-o pt-2"></i>
-                        </button>
-                    </div>
-                    <div class="col-lg-3 offset-lg-7 pt-5 mt-5">
-                        <button type="button" class="btn-icon"
-                                @click="callParentDuplicateParagraphBlock()">
-                            <i class="fa fa-files-o pt-2"></i>
-                        </button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -83,30 +40,31 @@
 
 <script>
     export default {
+        name: "LgHeadText",
+        components: {
+
+        },
         props: [
             'index'
         ],
+        created() {
+
+        },
+        mounted() {
+
+        },
         data() {
             return {
                 show: false,
                 hide: true
             };
         },
-        created() {
-
-        },
         methods: {
-            callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
-            },
-            callParentDuplicateParagraphBlock: function() {
-                this.$emit('duplicateParagraph');
-            }
-        },
-        mounted() {
 
         },
-        computed: {}
+        computed: {
+
+        },
     };
 
 </script>

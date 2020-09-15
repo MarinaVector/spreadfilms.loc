@@ -16,42 +16,43 @@
 </template>
 
 <script>
-import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
+    export default {
+        name: "NormalText",
+        components: {
 
-export default {
-    components: {
-        NormalTextModal
-    },
-    props: {
-        index: {
-            type: Number,
-            default: null
         },
-        mydata: {
-            type: Object,
-            default: () => {
-            }
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {
+                }
+            },
         },
-    },
-    data() {
-        return {
-            NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
-            NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
-        };
-    },
-    created() {
+        created() {
 
-    },
-    mounted() {
-
-    },
-    methods: {
-        escapeHtml: function (value) {
-            return $('<div/>').html(value).text();
         },
-    },
-    computed: {}
-};
+        mounted() {
+
+        },
+        data() {
+            return {
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+                NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
+            };
+        },
+        methods: {
+            escapeHtml: function (value) {
+                return $('<div/>').html(value).text();
+            },
+        },
+        computed: {
+
+        },
+    };
 </script>
 
 <style>

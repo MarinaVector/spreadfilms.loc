@@ -16,18 +16,13 @@
     import cloneDepp from 'lodash/cloneDeep'
 
     export default {
+        name: 'DisplayTutorialsMainPage',
         components: {
 
         },
-        name: 'DisplayTutorialsMainPage',
-        props: ['settings'],
-        data() {
-            return {
-                settingsObj: {},
-                paragraphs: [],
-            }
-
-        },
+        props: [
+            'settings'
+        ],
         created() {
             if (undefined !== this.settings) {
                 this.settingsObj = JSON.parse(this.settings);
@@ -41,9 +36,19 @@
         mounted() {
 
         },
+        data() {
+            return {
+                settingsObj: {},
+                paragraphs: [],
+            }
+
+        },
         methods: {
 
-        }
+        },
+        computed: {
+
+        },
     }
 </script>
 

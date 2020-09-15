@@ -59,27 +59,40 @@
 <script>
 
 export default {
-    props: [
-        'index'
-    ],
-    data() {
-        return {};
+    name: "VideoText",
+    components: {
+
+    },
+    props: {
+        index: {
+            type: Number,
+            default: null
+        },
+        mydata: {
+            type: Object,
+            default: () => {}
+        },
     },
     created() {
 
     },
+    mounted() {
+
+    },
+    data() {
+        return {};
+    },
     methods: {
         callParentDeleteParagraphBlock: function() {
-            this.$emit('childToParent');
+            this.$emit('deleteParagraph');
         },
         callParentDuplicateParagraphBlock: function() {
             this.$emit('duplicateParagraph');
         }
     },
-    mounted() {
+    computed: {
 
     },
-    computed: {}
 };
 </script>
 

@@ -37,326 +37,334 @@
 </template>
 
 <script>
-import cloneDeep from 'lodash/cloneDeep'
+    import cloneDeep from 'lodash/cloneDeep'
 
-export default {
-    name: 'ViewNestedMenu',
-    props: ['tutorials'],
-    data() {
-        return {
-            tutorialsObj: [],
-            returnArr: false
-        }
+    export default {
+        name: 'ViewNestedMenu',
+        components: {
 
-    },
-    created() {
+        },
+        props: [
+            'tutorials'
+        ],
+        created() {
 
-    },
-    mounted() {
-        if (undefined !== this.tutorials) {
-            this.tutorialsObj = cloneDeep(this.tutorials).map(item => {
-                item.active = false
-                return item
-            });
-        }
-    },
-    methods: {
-        toggleTutorial(index) {
-            this.tutorialsObj[index].active = !this.tutorialsObj[index].active;
+        },
+        mounted() {
+            if (undefined !== this.tutorials) {
+                this.tutorialsObj = cloneDeep(this.tutorials).map(item => {
+                    item.active = false
+                    return item
+                });
+            }
+        },
+        data() {
+            return {
+                tutorialsObj: [],
+                returnArr: false
+            }
+
+        },
+        methods: {
+            toggleTutorial(index) {
+                this.tutorialsObj[index].active = !this.tutorialsObj[index].active;
+            },
+        },
+        computed: {
+
         },
     }
-}
 </script>
 
 <style>
 
-.collapser-nested {
-    display: inline;
-    cursor: pointer;
-}
-
-.timeline-badge {
-    width: 10px;
-    height: 10px;
-    line-height: 8px;
-    font-size: 1em;
-    position: absolute;
-    background-color: #666666;
-    border-radius: 50%;
-}
-
-.timeline-panel:hover {
-    background-color: #fcf9f9;
-    border-left: 7px solid #F0F0F0;
-    white-space: normal;
+    .collapser-nested {
+        display: inline;
+        cursor: pointer;
     }
 
-.strike {
-    display: none;
-}
+    .timeline-badge {
+        width: 10px;
+        height: 10px;
+        line-height: 8px;
+        font-size: 1em;
+        position: absolute;
+        background-color: #666666;
+        border-radius: 50%;
+    }
 
-.tutorial-player {
-    padding-top: 14px;
-    padding-bottom: 20px;
-    padding-right: 40px;
-    padding-left: 20px;
-    text-transform: uppercase;
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
-    color: #fff;
-    border: none;
-    width: auto;
-}
+    .timeline-panel:hover {
+        background-color: #fcf9f9;
+        border-left: 7px solid #F0F0F0;
+        white-space: normal;
+        }
 
-button .tutorial-player:active,
-button .tutorial-player:focus {
-    outline: none !important;
-}
+    .strike {
+        display: none;
+    }
 
-button .tutorial-player::-moz-focus-inner {
-    border: 0 !important;
-}
+    .tutorial-player {
+        padding-top: 14px;
+        padding-bottom: 20px;
+        padding-right: 40px;
+        padding-left: 20px;
+        text-transform: uppercase;
+        border-radius: 4px 4px 0 0;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
+        color: #fff;
+        border: none;
+        width: auto;
+    }
 
-.collapser {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 15px;
-    cursor: pointer;
-}
+    button .tutorial-player:active,
+    button .tutorial-player:focus {
+        outline: none !important;
+    }
 
-.tutorial-collapse {
-    background: #F0F0F0;
-    text-align: center;
-    border: 0;
-    color: #424242;
-    vertical-align: middle;
-    outline: none;
-    font-size: 0.75rem;
-    border-radius: 0 0 3px 3px;
-}
+    button .tutorial-player::-moz-focus-inner {
+        border: 0 !important;
+    }
 
-.tutorial-link {
-    padding: 10px;
-    width: 100%;
-    display: block;
-}
+    .collapser {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 15px;
+        cursor: pointer;
+    }
 
-.progress-wrapper.children {
-    background: #333;
-    bottom: 0;
-}
+    .tutorial-collapse {
+        background: #F0F0F0;
+        text-align: center;
+        border: 0;
+        color: #424242;
+        vertical-align: middle;
+        outline: none;
+        font-size: 0.75rem;
+        border-radius: 0 0 3px 3px;
+    }
 
-.progress-wrapper {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    height: 3px;
-}
+    .tutorial-link {
+        padding: 10px;
+        width: 100%;
+        display: block;
+    }
 
-.progress-wrapper.self.double {
-    bottom: 5px;
-}
+    .progress-wrapper.children {
+        background: #333;
+        bottom: 0;
+    }
 
-.progress-wrapper.self.double {
-    display: none;
-}
+    .progress-wrapper {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 3px;
+    }
 
-.progress-wrapper.self {
-    background: #333;
-    bottom: 0;
-    overflow: hidden;
-}
+    .progress-wrapper.self.double {
+        bottom: 5px;
+    }
 
-.progress-wrapper {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    height: 3px;
-}
+    .progress-wrapper.self.double {
+        display: none;
+    }
 
-.progress {
-    margin: 5px 0 0 0;
-    background: #e8e8e8;
-    overflow: visible;
-    border-color: #989898;
-    border-style: solid;
-    border-width: 1px 1px 1px 1px;
-    height: 2em;
-}
+    .progress-wrapper.self {
+        background: #333;
+        bottom: 0;
+        overflow: hidden;
+    }
 
-.number {
-    font-weight: normal;
-    padding: 1px 8px;
-    border-radius: 10px;
-    border: solid 1px;
-    line-height: 1em;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0.75em;
-}
+    .progress-wrapper {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 3px;
+    }
 
-.timeline {
-    list-style: none;
-    position: relative;
-}
+    .progress {
+        margin: 5px 0 0 0;
+        background: #e8e8e8;
+        overflow: visible;
+        border-color: #989898;
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        height: 2em;
+    }
 
-.timeline:before {
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 1px;
-    background-color: #CCCCCC;
-    left: 21px;
-}
+    .number {
+        font-weight: normal;
+        padding: 1px 8px;
+        border-radius: 10px;
+        border: solid 1px;
+        line-height: 1em;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 0.75em;
+    }
 
-.timeline > li {
-    position: relative;
-}
+    .timeline {
+        list-style: none;
+        position: relative;
+    }
 
-.timeline > li:before,
-.timeline > li:after {
-    content: " ";
-    display: table;
-}
+    .timeline:before {
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 1px;
+        background-color: #CCCCCC;
+        left: 21px;
+    }
 
-.timeline > li:after {
-    clear: both;
-}
+    .timeline > li {
+        position: relative;
+    }
 
-.timeline > li:before,
-.timeline > li:after {
-    content: " ";
-    display: table;
-}
+    .timeline > li:before,
+    .timeline > li:after {
+        content: " ";
+        display: table;
+    }
 
-.timeline > li:after {
-    clear: both;
-}
+    .timeline > li:after {
+        clear: both;
+    }
 
-.timeline > li > .timeline-panel {
-    width: 190px;
-}
+    .timeline > li:before,
+    .timeline > li:after {
+        content: " ";
+        display: table;
+    }
 
-.timeline > li > .timeline-panel:before {
-    position: absolute;
-    top: 26px;
-    left: -15px;
-    display: inline-block;
-}
+    .timeline > li:after {
+        clear: both;
+    }
 
-.timeline > li > .timeline-panel:after {
-    position: absolute;
-    top: 27px;
-    left: -14px;
-    display: inline-block;
-}
+    .timeline > li > .timeline-panel {
+        width: 190px;
+    }
 
-.timeline > li > .timeline-badge {
+    .timeline > li > .timeline-panel:before {
+        position: absolute;
+        top: 26px;
+        left: -15px;
+        display: inline-block;
+    }
 
-    width: 11px;
-    height: 11px;
-    line-height: 8px;
-    font-size: 1em;
-    position: absolute;
-    background-color: #666666;
-    border-radius: 50%;
-}
+    .timeline > li > .timeline-panel:after {
+        position: absolute;
+        top: 27px;
+        left: -14px;
+        display: inline-block;
+    }
 
-.timeline > li.timeline-inverted > .timeline-panel {
-    float: left;
-}
+    .timeline > li > .timeline-badge {
 
-.timeline > li.timeline-inverted > .timeline-panel:before {
-    border-left-width: 0;
-    border-right-width: 15px;
-    right: -15px;
-    right: auto;
-}
+        width: 11px;
+        height: 11px;
+        line-height: 8px;
+        font-size: 1em;
+        position: absolute;
+        background-color: #666666;
+        border-radius: 50%;
+    }
 
-.timeline > li.timeline-inverted > .timeline-panel:after {
-    border-left-width: 0;
-    border-right-width: 14px;
-    left: -14px;
-    right: auto;
-}
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: left;
+    }
 
-.timeline-badge.primary {
-    background-color: black !important;
-}
+    .timeline > li.timeline-inverted > .timeline-panel:before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        right: -15px;
+        right: auto;
+    }
 
-.timeline-badge.up {
-    background-color: #525252 !important;
-}
+    .timeline > li.timeline-inverted > .timeline-panel:after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+    }
 
-.timeline-badge.down {
-    background-color: #d32f2f !important;
-}
+    .timeline-badge.primary {
+        background-color: black !important;
+    }
 
-.timeline-badge.neutral {
-    background-color: #999999 !important;
-}
+    .timeline-badge.up {
+        background-color: #525252 !important;
+    }
 
-.timeline-title {
-    margin-top: 0;
-    color: inherit;
-}
+    .timeline-badge.down {
+        background-color: #d32f2f !important;
+    }
 
-.timeline-body > p,
-.timeline-body > ul {
-    margin-bottom: 0;
-}
+    .timeline-badge.neutral {
+        background-color: #999999 !important;
+    }
 
-.timeline-body > p + p {
-    margin-top: 5px;
-}
+    .timeline-title {
+        margin-top: 0;
+        color: inherit;
+    }
 
-.timeline-body:hover {
-    background-color: #aaa;
-}
+    .timeline-body > p,
+    .timeline-body > ul {
+        margin-bottom: 0;
+    }
 
-.fa-white {
-    color: #ffffff !important;
-}
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
 
-li {
-    list-style-type: none;
-}
+    .timeline-body:hover {
+        background-color: #aaa;
+    }
 
-ul {
-    margin-left: 0;
-    padding-left: 0;
-}
+    .fa-white {
+        color: #ffffff !important;
+    }
 
-div .timeline-body:active {
-    color: #D60E2A;
-}
+    li {
+        list-style-type: none;
+    }
 
-div .timeline-body:hover {
-    background-color: #aaa !important;
-    color: #424242 !important;
-}
+    ul {
+        margin-left: 0;
+        padding-left: 0;
+    }
 
-.tutorial-lb:hover {
-    color: #424242 !important;
-}
+    div .timeline-body:active {
+        color: #D60E2A;
+    }
 
-.nested-down:before {
-    content: "";
-    display: block;
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
-}
+    div .timeline-body:hover {
+        background-color: #aaa !important;
+        color: #424242 !important;
+    }
 
-.nested-down:after {
-    content: "";
-    display: block;
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
-}
+    .tutorial-lb:hover {
+        color: #424242 !important;
+    }
+
+    .nested-down:before {
+        content: "";
+        display: block;
+        box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .nested-down:after {
+        content: "";
+        display: block;
+        box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.5);
+    }
 
 </style>

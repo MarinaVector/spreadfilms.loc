@@ -45,28 +45,40 @@
 
 <script>
     export default {
+        name: "SlideAdd",
+        components: {
 
-        props: [
-            'index'
-        ],
-        data() {
-            return {};
+        },
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
         },
         created() {
 
         },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
         methods: {
             callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
+                this.$emit('deleteParagraph');
             },
             callParentDuplicateParagraphBlock: function() {
                 this.$emit('duplicateParagraph');
             }
         },
-        mounted() {
+        computed: {
 
         },
-        computed: {}
     };
 </script>
 

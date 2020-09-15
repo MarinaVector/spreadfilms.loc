@@ -18,11 +18,30 @@
 
 <script>
     export default {
-        data () {
+        name: "DropdownButton",
+        components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
             return {
                 open: false,
-            }
-        }
+            };
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     }
 
 </script>

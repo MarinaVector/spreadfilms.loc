@@ -66,7 +66,7 @@ Vue.component('normal-text', require('./components/modules/tutorials/admin/parag
 Vue.component('text-img', require('./components/modules/tutorials/admin/paragraphs/TextImg').default);
 Vue.component('slider-add', require('./components/modules/tutorials/admin/paragraphs/SliderAdd').default);
 Vue.component('background-video', require('./components/modules/tutorials/admin/paragraphs/BackgroundVideo').default);
-Vue.component('simple-head', require('./components/modules/tutorials/admin/paragraphs/SimpleHead').default);
+Vue.component('headline', require('./components/modules/tutorials/admin/paragraphs/Headline').default);
 Vue.component('quote-component', require('./components/modules/tutorials/admin/paragraphs/Quote').default);
 Vue.component('imghead-text', require('./components/modules/tutorials/admin/paragraphs/ImgHeadText').default);
 Vue.component('lghead-text', require('./components/modules/tutorials/admin/paragraphs/LgHeadText').default);

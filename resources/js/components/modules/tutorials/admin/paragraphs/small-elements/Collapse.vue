@@ -4,7 +4,28 @@
 
 <script>
     export default {
-        name: "Collapse"
+        name: "Collapse",
+        components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     }
 </script>
 

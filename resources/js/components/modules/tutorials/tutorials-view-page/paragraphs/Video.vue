@@ -10,7 +10,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -18,6 +17,7 @@
     import { getIdFromUrl } from 'vue-youtube'
 
     export default {
+        name: "Video",
         components: {
 
         },
@@ -34,6 +34,15 @@
                 default: null
             },
         },
+        created() {
+            if(!Array.isArray(this.Notices)){
+                this.Notices = JSON.parse(this.escapeHtml(this.Notices));
+            }
+        },
+        mounted() {
+            this.videoId = getIdFromUrl(this.VideoUrl);
+            this.VideoUtubeSrc = this.getVideoSrc(this.VideoUrl);
+        },
         data() {
             return {
                 VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
@@ -43,15 +52,6 @@
                 videoId: "",
                 NoticeText: "",
             };
-        },
-        mounted() {
-            this.videoId = getIdFromUrl(this.VideoUrl);
-            this.VideoUtubeSrc = this.getVideoSrc(this.VideoUrl);
-        },
-        created() {
-            if(!Array.isArray(this.Notices)){
-                this.Notices = JSON.parse(this.escapeHtml(this.Notices));
-            }
         },
         methods: {
             callParentDeleteParagraphBlock: function() {

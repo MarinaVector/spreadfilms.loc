@@ -284,7 +284,28 @@
 
 <script>
     export default {
-        name: 'ProfileComponent'
+        name: 'ProfileComponent',
+        components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     };
 </script>
 

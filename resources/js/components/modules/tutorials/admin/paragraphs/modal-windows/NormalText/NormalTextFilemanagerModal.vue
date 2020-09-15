@@ -13,10 +13,16 @@
 
     export default {
         name: 'NormalTextFilemanagerModal',
-        props: [
-
-        ],
         components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
 
         },
         data() {
@@ -35,7 +41,7 @@
                 }
             },
         },
-        created() {
+        computed: {
 
         },
     };

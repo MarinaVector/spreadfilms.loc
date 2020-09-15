@@ -26,10 +26,6 @@
 
     export default {
         name: "TutorialsAdminList",
-        created() {
-            // converting tutorials JSON prop into data object
-            this.tutorialsObj = JSON.parse(this.$props.tutorials);
-        },
         components: {
             AdminListDeleteModal,
             NestedDraggable,
@@ -38,15 +34,19 @@
         props: [
             'tutorials',
         ],
+        created() {
+            // converting tutorials JSON prop into data object
+            this.tutorialsObj = JSON.parse(this.$props.tutorials);
+        },
+        mounted() {
+
+        },
         data() {
             return {
                 tutorialsObj: {},
                 editLink: '/module/tutorials/admin/edit/',
                 showBottom: false
             }
-        },
-        mounted() {
-
         },
         methods: {
             deleteComponent: function (tutorial) {
@@ -56,6 +56,9 @@
                 this.showBottom = true;
                 setTimeout(() => this.showBottom = false, 3000);
             },
+        },
+        computed: {
+
         },
     }
 </script>

@@ -52,40 +52,53 @@
 </template>
 
 <script>
-export default {
-    props: [
-        'index'
-    ],
-    data() {
-        return {};
-    },
-    created() {
 
-    },
-    methods: {
-        callParentDeleteParagraphBlock: function() {
-            this.$emit('childToParent');
+    export default {
+        name: "ImgTextCenter",
+        components: {
+
         },
-        callParentDuplicateParagraphBlock: function() {
-            this.$emit('duplicateParagraph');
-        }
-    },
-    mounted() {
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
+        },
+        created() {
 
-    },
-    computed: {}
-};
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+            callParentDeleteParagraphBlock: function() {
+                this.$emit('deleteParagraph');
+            },
+            callParentDuplicateParagraphBlock: function() {
+                this.$emit('duplicateParagraph');
+            }
+        },
+        computed: {
+
+        },
+    };
 </script>
 
 <style scoped>
 
-.tutorial-complex {
-    background-color: #f9f9f9;
-}
+    .tutorial-complex {
+        background-color: #f9f9f9;
+    }
 
-.tutorial-complex:hover .btn-icon {
-    opacity: 1 !important;
-}
+    .tutorial-complex:hover .btn-icon {
+        opacity: 1 !important;
+    }
 
 </style>
-

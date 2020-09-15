@@ -4,10 +4,7 @@
             <div class="col-lg-1 mt-2">
                 <div class="row">
                     <div class="col-lg-1 mt-2 ml-2">
-                        <button type="button" class="btn-icon ml-n2 draggable"
-                                @click="callParentDeleteParagraphBlock()">
-                            <i class="fa fa-arrows-v pt-2"></i>
-                        </button>
+
                     </div>
                     <div class="col-lg-1 offset-lg-10">
                     </div>
@@ -38,16 +35,10 @@
             <div class="col-lg-1 mt-2">
                 <div class="row py-1">
                     <div class="col-lg-3 offset-lg-5 mt-2 mb-5">
-                        <button type="button" class="btn-icon mb-5"
-                                @click="callParentDeleteParagraphBlock()">
-                            <i class="fa fa-trash-o pt-2"></i>
-                        </button>
+
                     </div>
                     <div class="col-lg-3 offset-lg-5 pt-5 mt-5">
-                        <button type="button" class="btn-icon mt-5"
-                                @click="callParentDuplicateParagraphBlock()">
-                            <i class="fa fa-files-o pt-2"></i>
-                        </button>
+
                     </div>
                 </div>
             </div>
@@ -57,46 +48,46 @@
 </template>
 
 <script>
+    export default {
+        name: "VideoText",
+        components: {
 
-export default {
-    props: [
-        'index'
-    ],
-    data() {
-        return {};
-    },
-    created() {
-
-    },
-    methods: {
-        callParentDeleteParagraphBlock: function() {
-            this.$emit('childToParent');
         },
-        callParentDuplicateParagraphBlock: function() {
-            this.$emit('duplicateParagraph');
-        }
-    },
-    mounted() {
+        props: {
 
-    },
-    computed: {}
-};
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
+    };
 </script>
 
 <style scoped>
 
-.tutorial-complex {
-    background-color: #f9f9f9;
-}
+    .tutorial-complex {
+        background-color: #f9f9f9;
+    }
 
-.tutorial-complex:hover .btn-icon {
-    opacity: 1 !important;
-}
+    .tutorial-complex:hover .btn-icon {
+        opacity: 1 !important;
+    }
 
-.shadow-right {
-    -webkit-box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
-    -moz-box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
-    box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
-}
+    .shadow-right {
+        -webkit-box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
+        -moz-box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
+        box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
+    }
 
 </style>

@@ -205,9 +205,30 @@
 </template>
 
 <script>
-  export default {
-    name: 'UserProfile'
-  };
+    export default {
+        name: "UserProfile",
+        components: {
+
+        },
+        props: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
+    }
 </script>
 
 <style scoped>

@@ -62,6 +62,9 @@
 <script>
     export default {
         name: "TutorialsStatistics",
+        components: {
+
+        },
         props: {
             tutorials: {
                 type: String,
@@ -71,15 +74,6 @@
                 type: String,
                 default: null
             },
-        },
-        data() {
-            return {
-                tutorialsObj: {},
-                usersObj: {},
-            };
-        },
-        methods: {
-
         },
         created() {
             if(undefined !== this.$props.tutorials){
@@ -92,6 +86,18 @@
             console.log(this.usersObj);
         },
         mounted(){
+
+        },
+        data() {
+            return {
+                tutorialsObj: {},
+                usersObj: {},
+            };
+        },
+        methods: {
+
+        },
+        computed: {
 
         },
     }

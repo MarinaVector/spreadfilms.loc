@@ -19,76 +19,88 @@
 </template>
 
 <script>
-export default {
-    methods: {
-        arrowEl() {
+    export default {
+        name: "NavAccordion",
+        components: {
 
-        }
-    },
-    props: {
-        logo: {
-            type: String,
-            default: null
         },
-    },
-    data() {
-        return {
-            logoVal: this.logo ? this.logo : '/public/img/logo_white.png',
-        };
-    },
-}
+        props: {
+            logo: {
+                type: String,
+                default: null
+            },
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {
+                logoVal: this.logo ? this.logo : '/public/img/logo_white.png',
+            };
+        },
+        methods: {
+            arrowEl() {
+
+            }
+        },
+        computed: {
+
+        },
+    }
 </script>
 
 <style>
 
-.input-form {
-    display: flex;
-    width: 210px;
-}
+    .input-form {
+        display: flex;
+        width: 210px;
+    }
 
-.tutorial-phrase {
-    display: block;
-}
+    .tutorial-phrase {
+        display: block;
+    }
 
-.tutorial-phrase {
-    border-radius: 3px;
-    background: #fff;
-    color: #d32f2f;
-    border: solid #d32f2f 1px;
-}
+    .tutorial-phrase {
+        border-radius: 3px;
+        background: #fff;
+        color: #d32f2f;
+        border: solid #d32f2f 1px;
+    }
 
-.pl-holder {
-    border: solid 1px #aaa;
-}
+    .pl-holder {
+        border: solid 1px #aaa;
+    }
 
-.search-icon {
-    text-align: center;
-    background: #ccc;
-    border: solid 1px #aaa;
-    right: 20px;
-    border-radius: 0 4px 4px 0;
-    border-left: none;
-}
+    .search-icon {
+        text-align: center;
+        background: #ccc;
+        border: solid 1px #aaa;
+        right: 20px;
+        border-radius: 0 4px 4px 0;
+        border-left: none;
+    }
 
-.search-icon i {
-    color: #fff;
-    font-size: 1.3em;
-}
+    .search-icon i {
+        color: #fff;
+        font-size: 1.3em;
+    }
 
-.search-input {
-    border: solid 1px #aaa;
-    border-radius: 4px 0 0 4px;
-    padding: 7px 50px 7px 20px;
-    display: block;
-    width: 100%;
-}
+    .search-input {
+        border: solid 1px #aaa;
+        border-radius: 4px 0 0 4px;
+        padding: 7px 50px 7px 20px;
+        display: block;
+        width: 100%;
+    }
 
-div .logo-80px {
-    margin-left: 50%;
-    width: 210px;
-    height: auto;
-    background-color: #424242;
-}
-
+    div .logo-80px {
+        margin-left: 50%;
+        width: 210px;
+        height: auto;
+        background-color: #424242;
+    }
 
 </style>

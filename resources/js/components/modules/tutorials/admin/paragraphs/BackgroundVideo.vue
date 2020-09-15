@@ -40,23 +40,32 @@
     import VideoBackgroundModal from './modal-windows/Video/VideoBackgroundModal'
 
     export default {
-
+        name: "BackgroundVideo",
         components: {
             VideoBackgroundModal
         },
-
-        props: [
-            'index'
-        ],
-        data() {
-            return {};
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
         },
         created() {
 
         },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
         methods: {
             callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
+                this.$emit('deleteParagraph');
             },
             callParentDuplicateParagraphBlock: function() {
                 this.$emit('duplicateParagraph');
@@ -64,13 +73,11 @@
             showVideoBackgroundModal: function () {
                 let element = this.$refs.modal.$el;
                 $(element).modal('show');
-            }
+            },
         },
-
-        mounted() {
+        computed: {
 
         },
-        computed: {}
     };
 </script>
 

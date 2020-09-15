@@ -27,7 +27,35 @@
 <script>
 
     export default {
-        name: "ImageSimple"
+        name: "ImageSimpleModal",
+        components: {
+
+        },
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     }
 </script>
 

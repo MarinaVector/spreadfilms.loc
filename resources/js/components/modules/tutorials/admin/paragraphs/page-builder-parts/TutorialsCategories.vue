@@ -15,17 +15,14 @@
     import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 
     export default {
-        components: { Treeselect },
+        name: "TutorialsCategories",
+        components: {
+            Treeselect
+        },
         props: [
             'usercompanycategories',
             'categories'
         ],
-        data: () => ({
-            multiple: true,
-            value: [],
-            options: [],
-            treename: 'categories',
-        }),
         created() {
 
         },
@@ -52,38 +49,21 @@
                 this.value = this.$props.categories.split(",");
             }
         },
-    }
+        data: () => ({
+            multiple: true,
+            value: [],
+            options: [],
+            treename: 'categories',
+        }),
+        methods: {
 
+        },
+        computed: {
+
+        },
+    }
 </script>
 
+<style scoped>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</style>

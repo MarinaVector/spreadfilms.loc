@@ -37,23 +37,34 @@
     import NormalTextModal from './modal-windows/NormalText/NormalTextModal'
 
     export default {
+        name: "Quote",
         components: {
             NormalTextModal
         },
-        props: [
-            'index'
-        ],
+        props: {
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
         data() {
             return {
 
             };
         },
-        created() {
-
-        },
         methods: {
             callParentDeleteParagraphBlock: function () {
-                this.$emit('childToParent');
+                this.$emit('deleteParagraph');
             },
             callParentDuplicateParagraphBlock: function () {
                 this.$emit('duplicateParagraph');
@@ -63,10 +74,9 @@
                 $(element).modal('show');
             }
         },
-        mounted() {
+        computed: {
 
         },
-        computed: {}
     };
 </script>
 

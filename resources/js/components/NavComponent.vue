@@ -16,7 +16,6 @@
 <!-- component documentation -->
 <!--https://github.com/yaminncco/vue-sidebar-menu-->
 <script>
-
     import {SidebarMenu} from 'vue-sidebar-menu';
 
     const separator = {
@@ -24,9 +23,20 @@
     };
 
     export default {
+        name: 'NavComponent',
+        components: {
+            SidebarMenu
+        },
         props: [
             'authuser'
         ],
+        created() {
+
+        },
+        mounted() {
+            this.onResize()
+            window.addEventListener('resize', this.onResize)
+        },
         data() {
             return {
                 // Sidebar menu (required)
@@ -52,9 +62,6 @@
                 // Disable hover on collapse mode
                 disableHover: false
             };
-        },
-        created() {
-
         },
         methods: {
             prepareNavMenu: function () {
@@ -196,15 +203,10 @@
                 }*/
             }
         },
-        mounted() {
-            this.onResize()
-            window.addEventListener('resize', this.onResize)
-        },
-        components: {
-            SidebarMenu
-        }
-    };
+        computed: {
 
+        },
+    };
 </script>
 
 <style>

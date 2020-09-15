@@ -49,6 +49,7 @@
     import VideoSimpleModal from './modal-windows/Video/VideoSimpleModal'
 
     export default {
+        name: "Video",
         components: {
             VideoSimpleModal
         },
@@ -67,15 +68,6 @@
                 }),
             },
         },
-        data() {
-            return {
-                VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
-                Banner: this.mydata ? this.$props.mydata.banner : '',
-                Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
-                Notices: this.mydata ? this.$props.mydata.notices : [],
-                MyNotices: null
-            };
-        },
         mounted() {
             if(this.Banner === undefined){
                 this.Banner = '';
@@ -89,6 +81,15 @@
                     this.Notices = JSON.parse(this.escapeHtml(this.Notices));
                 }
             }
+        },
+        data() {
+            return {
+                VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
+                Banner: this.mydata ? this.$props.mydata.banner : '',
+                Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
+                Notices: this.mydata ? this.$props.mydata.notices : [],
+                MyNotices: null
+            };
         },
         methods: {
             callParentDeleteParagraphBlock: function() {

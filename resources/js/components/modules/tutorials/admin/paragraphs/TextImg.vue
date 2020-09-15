@@ -78,6 +78,7 @@
     import NormalTextFilemanagerModal from './modal-windows/NormalText/NormalTextFilemanagerModal'
 
     export default {
+        name: "TextImg",
         components: {
             NormalTextModal,
             NormalTextFilemanagerModal,
@@ -100,23 +101,6 @@
                 default: null
             },
         },
-        data() {
-            return {
-                dataInputID: '',
-                dataInputPreviewID: '',
-                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
-                NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
-                Src: this.mydata ? this.$props.mydata.src : '',
-                btnBeforeText: true,
-                btnBeforeImg: true,
-                btnAfterImg: false,
-                btnAfterText: false,
-                textAfter: false,
-                textBefore: true,
-                imgAfter: false,
-                imgBefore: true,
-            };
-        },
         created() {
             if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
                 this.btnAfterText = true;
@@ -137,6 +121,23 @@
             if(this.Src === undefined){
                 this.Src = '';
             }
+        },
+        data() {
+            return {
+                dataInputID: '',
+                dataInputPreviewID: '',
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+                NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
+                Src: this.mydata ? this.$props.mydata.src : '',
+                btnBeforeText: true,
+                btnBeforeImg: true,
+                btnAfterImg: false,
+                btnAfterText: false,
+                textAfter: false,
+                textBefore: true,
+                imgAfter: false,
+                imgBefore: true,
+            };
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
@@ -195,7 +196,9 @@
                 return $('<div/>').html(value).text();
             },
         },
-        computed: {}
+        computed: {
+
+        },
     };
 </script>
 

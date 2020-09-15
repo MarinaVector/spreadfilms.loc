@@ -3,10 +3,7 @@
         <div class="row align-items-start tutorial-complex">
             <div class="col-lg-2 mt-2">
                 <div class="col-lg-1 mt-2 ml-2">
-                    <button type="button" class="btn-icon ml-n2 draggable"
-                            @click="callParentDeleteParagraphBlock()">
-                        <i class="fa fa-arrows-v pt-2"></i>
-                    </button>
+
                 </div>
             </div>
 
@@ -31,22 +28,6 @@
                 </div>
 
             </div>
-            <div class="col-lg-2 mt-2">
-                <div class="row py-1">
-                    <div class="col-lg-4 offset-lg-8 mt-2 mb-5">
-                        <button type="button" class="btn-icon mb-5"
-                                @click="callParentDeleteParagraphBlock()">
-                            <i class="fa fa-trash-o pt-2"></i>
-                        </button>
-                    </div>
-                    <div class="col-lg-4 offset-lg-8 pt-5 mt-5">
-                        <button type="button" class="btn-icon mt-5"
-                                @click="callParentDuplicateParagraphBlock()">
-                            <i class="fa fa-files-o pt-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -54,27 +35,28 @@
 <script>
 
     export default {
+        name: "Contact",
+        components: {
+
+        },
         props: [
             'index'
         ],
-        data() {
-            return {};
-        },
         created() {
 
-        },
-        methods: {
-            callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
-            },
-            callParentDuplicateParagraphBlock: function() {
-                this.$emit('duplicateParagraph');
-            }
         },
         mounted() {
 
         },
-        computed: {}
+        data() {
+            return {};
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
     };
 
 </script>

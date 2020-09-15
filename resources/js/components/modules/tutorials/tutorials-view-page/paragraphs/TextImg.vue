@@ -1,6 +1,5 @@
 <template>
     <div class="container mt-3">
-
         <div class="row">
             <div class="col-md-12">
                 <div class="backtximg" :id="dataInputPreviewID" ref="preview">
@@ -24,12 +23,12 @@
     </div>
 </template>
 
-
 <script>
-
-
     export default {
-        components: {},
+        name: "TextImg",
+        components: {
+
+        },
         props: {
             index: {
                 type: Number,
@@ -44,6 +43,14 @@
                 default: null
             },
         },
+        created() {
+
+        },
+        mounted() {
+            this.dataInputID = 'background-image-' + this.$props.blocksCounterID;
+            this.dataInputPreviewID = 'background-image-' + this.$props.blocksCounterID + '-preview';
+            $(this.$refs.preview).css("background-image", "url(" + this.Src + ")");
+        },
         data() {
             return {
                 dataInputID: '',
@@ -52,14 +59,6 @@
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 Src: this.mydata ? this.$props.mydata.src : '',
             };
-        },
-        created() {
-
-        },
-        mounted() {
-            this.dataInputID = 'background-image-' + this.$props.blocksCounterID;
-            this.dataInputPreviewID = 'background-image-' + this.$props.blocksCounterID + '-preview';
-            $(this.$refs.preview).css("background-image", "url(" + this.Src + ")");
         },
         methods: {
             callParentDeleteParagraphBlock: function () {
@@ -83,7 +82,9 @@
                 return $('<div/>').html(value).text();
             },
         },
-        computed: {}
+        computed: {
+
+        },
     };
 </script>
 

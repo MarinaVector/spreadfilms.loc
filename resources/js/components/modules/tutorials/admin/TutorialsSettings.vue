@@ -145,6 +145,19 @@
 
     export default {
         name: "TutorialsSettings",
+        components: {
+
+        },
+        props: {
+            settings: {
+                type: String,
+                default: () => ""
+            },
+            action: {
+                type: String,
+                default: () => ""
+            },
+        },
         created() {
             if(undefined !== this.$props.settings){
                 this.tutorialsSettingsObj = JSON.parse(this.$props.settings);
@@ -165,19 +178,6 @@
                 $(this.$refs.backgroundpreview).css('height', '100%');
             }
         },
-        components: {
-
-        },
-        props: {
-            settings: {
-                type: String,
-                default: () => ""
-            },
-            action: {
-                type: String,
-                default: () => ""
-            },
-        },
         data() {
             return {
                 editor: ClassicEditor,
@@ -192,6 +192,9 @@
             }
         },
         methods: {
+
+        },
+        computed: {
 
         },
     }
