@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Modules\Tutorials;
 use App\Http\Controllers\Controller;
 use App\Models\Companycategory;
 use App\Models\Paragraph;
+use App\Models\Paragraphs\Headline;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\Video;
@@ -235,6 +236,10 @@ class TutorialsController extends Controller
         switch ($paragraph['ComponentType']) {
             //Text Layouts
             case 'Headline':
+                Headline::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                ]);
                 break;
             case 'NormalText':
                 NormalText::create([
@@ -408,11 +413,11 @@ class TutorialsController extends Controller
             ]);
     }
 
-
     final private function getParagraphDetails($componentType, $componentId) {
         switch ($componentType) {
             //Text Layouts
             case 'Headline':
+                $component = Headline::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'NormalText':
                 $component = NormalText::where('paragraph_id', $componentId)->first()->toArray();

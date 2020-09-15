@@ -1,5 +1,6 @@
 <template>
     <div class="container head-right">
+        <input type="hidden" name="component_type" value="Headline" class="component_type" ref="component_type" />
         <div class="row nav-text">
             <div class="col-lg-5 tutorial-text btn-all">
                 <div class="row">
@@ -9,7 +10,9 @@
                             <i class="fas fa-arrows-alt-v fa-xs icon-sm"></i>
                         </button>
                     </div>
-                    <div class="col-lg-6">
+                    <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="headline">
+                    <div class="col-lg-6" @click="showTextModal()">
+                        <div class="h2 headtext" v-html="NormalTextHeader"></div>
                         <button class="text-button px-5 pt-3" type="button">
                             <i class="fa fa-heading blueiconcolor fa-7x mt-3">
                             </i>
@@ -23,26 +26,28 @@
             <div class="col-lg-2 offset-lg-5">
                 <form class="ml-5 mt-3">
                     <button type="button" class="btn-small ml-5"
-                            @click="callParentDeleteParagraphBlock()">
-                        <i class="fas fa-trash-alt fa-xs icon-sm"></i>
+                            @click="callParentDuplicateParagraphBlock()">
+                        <i class="far fa-copy fa-xs icon-sm"></i>
                     </button>
 
                     <button type="button" class="btn-small ml-1"
-                            @click="callParentDuplicateParagraphBlock()">
-                        <i class="far fa-copy fa-xs icon-sm"></i>
+                            @click="callParentDeleteParagraphBlock()">
+                        <i class="fas fa-trash-alt fa-xs icon-sm"></i>
                     </button>
                 </form>
             </div>
         </div>
+        <HeadlineModal ref="modal" v-on:saveData="saveData" :header="NormalTextHeader"></HeadlineModal>
     </div>
 </template>
 
 <script>
+    import HeadlineModal from './modal-windows/Headline/HeadlineModal'
 
     export default {
         name: "Headline",
         components: {
-
+            HeadlineModal,
         },
         props: {
             index: {
@@ -51,7 +56,9 @@
             },
             mydata: {
                 type: Object,
-                default: () => {}
+                default: () => ({
+                    normalTextHeader: '',
+                }),
             },
         },
         created() {
@@ -61,7 +68,9 @@
 
         },
         data() {
-            return {};
+            return {
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+            };
         },
         methods: {
             callParentDeleteParagraphBlock: function() {
@@ -69,7 +78,23 @@
             },
             callParentDuplicateParagraphBlock: function() {
                 this.$emit('duplicateParagraph');
-            }
+            },
+            showTextModal: function () {
+                let element = this.$refs.modal.$el;
+                $(element).modal('show');
+            },
+            saveData: function (header) {
+                this.$emit('saveParagraphData', {
+                    index: this.index,
+                    myData: {
+                        header: header,
+                    }
+                });
+                this.NormalTextHeader = header;
+            },
+            escapeHtml: function (value) {
+                return $('<div/>').html(value).text();
+            },
         },
         computed: {
 

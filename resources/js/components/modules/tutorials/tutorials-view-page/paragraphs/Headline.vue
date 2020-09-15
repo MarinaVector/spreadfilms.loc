@@ -3,12 +3,14 @@
         <div class="row nav-text">
             <div class="col-lg-5 tutorial-text btn-all">
                 <div class="row">
-
+                    <div class="col-6 offset-md-6 col-md-6 py-3">
+                        <div class="text-final">
+                            <div class="text-out">
+                                <div class="text-header headline h2 text-left mb-3" v-html="NormalTextHeader"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-lg-2 offset-lg-5">
-
             </div>
         </div>
     </div>
@@ -21,7 +23,14 @@
 
         },
         props: {
-
+            index: {
+                type: Number,
+                default: null
+            },
+            mydata: {
+                type: Object,
+                default: () => {}
+            },
         },
         created() {
 
@@ -30,10 +39,14 @@
 
         },
         data() {
-            return {};
+            return {
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+            };
         },
         methods: {
-
+            escapeHtml: function (value) {
+                return $('<div/>').html(value).text();
+            },
         },
         computed: {
 
