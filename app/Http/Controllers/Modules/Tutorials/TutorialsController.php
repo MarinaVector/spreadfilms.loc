@@ -6,6 +6,7 @@ use App\Models\Companycategory;
 use App\Models\Paragraph;
 use App\Models\Paragraphs\Headline;
 use App\Models\Paragraphs\NormalText;
+use App\Models\Paragraphs\CenterText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
@@ -249,6 +250,11 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'CenterText':
+                CenterText::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                    'text' => $paragraph['text']
+                ]);
                 break;
             case 'TextWithBigFont':
                 break;
@@ -423,6 +429,7 @@ class TutorialsController extends Controller
                 $component = NormalText::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'CenterText':
+                $component = CenterText::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'TextWithBigFont':
                 break;

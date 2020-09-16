@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParagraphHeadlineTable extends Migration
+class CreateParagraphCenterTextTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateParagraphHeadlineTable extends Migration
      */
     public function up()
     {
-        Schema::create('paragraph_headline', function (Blueprint $table) {
+        Schema::create('paragraph_center_text', function (Blueprint $table) {
             $table->id();
             $table->foreignId('paragraph_id')->references('id')->on('paragraphs');
             $table->text('header')->nullable();
+            $table->text('text')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateParagraphHeadlineTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('paragraph_headline');
+        Schema::dropIfExists('paragraph_center_text');
     }
 }

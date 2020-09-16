@@ -90,6 +90,7 @@
 
 <script>
 import NormalText from './paragraphs/NormalText'
+import CenterText from './paragraphs/CenterText'
 import Video from './paragraphs/Video'
 import TextImg from './paragraphs/TextImg'
 import SliderAdd from './paragraphs/SliderAdd'
@@ -110,6 +111,7 @@ export default {
     name: 'DisplayTutorial',
     components: {
         NormalText,
+        CenterText,
         Video,
         TextImg,
         SliderAdd,
