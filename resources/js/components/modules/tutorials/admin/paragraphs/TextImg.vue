@@ -38,9 +38,8 @@
                         <div :class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
                              class="clas col-4 offset-md-8 col-md-4 py-5 mb-5">
                             <div class="" @click="showTextModal()">
-                                <div class="h2 headtext" v-html="NormalTextHeader">
-                                </div>
-                                <div class="text-justify" v-html="NormalTextBody"> </div>
+                                <div class="h2 headtext" v-html="NormalTextHeader"></div>
+                                <div class="text-justify" v-html="NormalTextBody"></div>
 
                                 <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
                                 <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
@@ -67,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+        <NormalTextModal ref="modal" v-on:saveData="saveData"
                          :header="NormalTextHeader" :body="NormalTextBody"></NormalTextModal>
         <NormalTextFilemanagerModal ref="filemanagerModal" v-on:saveData="saveData"></NormalTextFilemanagerModal>
     </div>
@@ -188,9 +187,6 @@
                 this.btnAfterText = true;
                 this.textAfter = true;
                 this.btnAfterImg = true;
-            },
-            getPreviousData: function () {
-                return [1, 2, 3, 4];
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
