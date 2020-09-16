@@ -3,7 +3,7 @@
         <input type="hidden" name="component_type" value="Headline" class="component_type" ref="component_type" />
         <div class="row nav-text head-grid">
             <div  v-bind:class=" {bgheadbefore:bgHeadBefore, bgheadafter:bgHeadAfter} "
-                  class="col-lg-111 btn-all">
+                  class="btn-all">
 
                     <div class="col-lg-1 btn-hd pull-left">
                         <button type="button" class="btn-small draggable ml-1 mt-2"
@@ -12,17 +12,19 @@
                         </button>
                     </div>
                     <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="headline">
-                    <div class="col-lg-61 text-center" @click="showTextModal()"
+                    <div class="text-center py-4" @click="showTextModal()"
                     >
-                        <div class="h2 m-0 ml-5 mt-2 position-absolute" v-html="NormalTextHeader"></div>
-                        <button class="text-button px-5 pt-3 position-relative" type="button">
+                        <div class="h2 m-0 ml-5 position-relative" v-html="NormalTextHeader"></div>
+                        <div class="text-center">
+                        <button v-bind:class=" {btnheadbefore:btnBefore, btnheadafter:btnAfter} "
+                                class="text-button px-5 pt-3 position-relative" type="button">
                             <i class="fa fa-heading blueiconcolor fa-7x mt-3">
                             </i>
-                            <p class="mt-n1 head-tutorial">Head</p>
+                            <p class="head-tutorial">Head</p>
                         </button>
+                        </div>
                     </div>
                     <!-- <div class="col-lg-1 btn-hd"></div> -->
-
             </div>
 
             <div class="col-lg-21">
@@ -66,6 +68,7 @@
         created() {
             if(this.NormalTextHeader !== "" ){
                 this.bgHeadAfter = true;
+                this. btnAfter = true;
             }
         },
         mounted() {
@@ -74,7 +77,10 @@
         data() {
             return {
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
-                bgHeadBefore: true
+                bgHeadBefore: true,
+                bgHeadAfter: false,
+                btnBefore: true,
+                btnAfter: false
             };
         },
         methods: {
@@ -97,6 +103,8 @@
                 });
                 this.NormalTextHeader = header;
                 this.bgHeadAfter = true;
+                this.btnAfter = true;
+                this.btnBefore =false;
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
@@ -109,7 +117,8 @@
 
 </script>
 
-<style scoped>
+<style lang="scss">
+
     .nav-text {
         border-bottom: 1px solid #d9d9d9 !important;
         color: #424242 !important;
@@ -122,6 +131,11 @@
         width: 100%;
         border: dotted 1px #333;
         z-index: 1 !important;
+
+        &:hover {
+            background: gray;
+
+        }
     }
 
     .btn-small {
@@ -169,6 +183,35 @@
         background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
         color: #fff;
         border: none;
+        min-height: 50px;
+        cursor: pointer;
+    }
+
+    .btnheadbefore {
+        visibility: visible;
+    }
+
+    .bgheadbefore:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 3s;
+    }
+
+    .btnheadafter {
+        position: absolute !important;
+        visibility: hidden;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+    }
+
+    .btn-all:hover .btnheadafter {
+        visibility: visible;
+    }
+
+    .btn-all:hover {
+        z-index: 12;
+        opacity: 1;
+        transition: opacity .3s ease;
+
     }
 
 </style>
