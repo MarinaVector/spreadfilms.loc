@@ -13,7 +13,7 @@
             </div>
 
             <div class="col-12  video-grid" @click="showTextModal()">
-                <div class="text-center">
+                <div class="text-center mt-5">
                     <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button slide-border py-2
                      px-5 mx-auto" type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
@@ -21,7 +21,7 @@
                         <div class="mt-n1 mb-n1">Text</div>
                     </button>
                     <div class="">
-                        <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left headline pb-0 normal_text" v-html="NormalTextHeader">
+                        <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left position-relative pb-0 normal_text" v-html="NormalTextHeader">
                         </div>
 
                         <div class="final-text text-justify" v-html="NormalTextBody"></div>

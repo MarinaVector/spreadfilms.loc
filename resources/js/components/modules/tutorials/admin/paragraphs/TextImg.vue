@@ -34,7 +34,7 @@
                     </button>
                     -->
 
-                    <div class="row h-100 text-level">
+                    <div class="row h-80 text-level">
                         <div :class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "
                              class="clas col-4 offset-md-8 col-md-4 py-5 mb-5">
                             <div class="" @click="showTextModal()">
