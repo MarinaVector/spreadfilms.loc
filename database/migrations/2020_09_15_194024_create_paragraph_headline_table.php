@@ -16,7 +16,7 @@ class CreateParagraphHeadlineTable extends Migration
         Schema::create('paragraph_headline', function (Blueprint $table) {
             $table->id();
             $table->foreignId('paragraph_id')->references('id')->on('paragraphs');
-            $table->string('header')->nullable();
+            $table->text('header')->nullable();
             $table->timestamps();
         });
     }

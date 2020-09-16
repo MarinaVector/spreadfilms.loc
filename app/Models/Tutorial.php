@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Paragraphs\Headline;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\Video;
@@ -80,15 +81,42 @@ class Tutorial extends Model
      */
     final public function deleteParagraphData(array $paragraph):void {
         switch ($paragraph['paragraph_type']) {
+            //Text Layouts
+            case 'Headline':
+                Headline::where('paragraph_id', $paragraph['id'])->delete();
+                break;
             case 'NormalText':
                 NormalText::where('paragraph_id', $paragraph['id'])->delete();
+                break;
+            case 'CenterText':
+                break;
+            case 'TextWithBigFont':
+                break;
+            case 'TextWithLogo':
                 break;
             case 'TextImg':
                 TextImage::where('paragraph_id', $paragraph['id'])->delete();
                 break;
+            case 'TxtSpecialImg':
+                break;
+            case 'TextWithHighImage':
+                break;
+            //Text Layouts
+
+            //Video Layouts
             case 'Video':
                 Video::where('paragraph_id', $paragraph['id'])->delete();
                 break;
+            //Video Layouts
+
+            //Image Layouts
+
+            //Image Layouts
+
+            //Other Layouts
+
+            //Other Layouts
+
             default:
                 break;
         }
