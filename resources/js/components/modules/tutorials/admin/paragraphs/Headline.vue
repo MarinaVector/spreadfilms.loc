@@ -1,31 +1,33 @@
 <template>
     <div class="container head-right">
         <input type="hidden" name="component_type" value="Headline" class="component_type" ref="component_type" />
-        <div class="row nav-text">
-            <div class="col-lg-5 tutorial-text btn-all">
-                <div class="row">
-                    <div class="col-lg-3 btn-hd">
-                        <button type="button" class="btn-small draggable ml-1 mt-4"
+        <div class="row nav-text head-grid">
+            <div  v-bind:class=" {bgheadbefore:bgHeadBefore, bgheadafter:bgHeadAfter} "
+                  class="col-lg-111 btn-all">
+
+                    <div class="col-lg-1 btn-hd pull-left">
+                        <button type="button" class="btn-small draggable ml-1 mt-2"
                                 @click="callParentDeleteParagraphBlock()">
                             <i class="fas fa-arrows-alt-v fa-xs icon-sm"></i>
                         </button>
                     </div>
                     <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="headline">
-                    <div class="col-lg-6" @click="showTextModal()">
-                        <div class="h2 headtext" v-html="NormalTextHeader"></div>
-                        <button class="text-button px-5 pt-3" type="button">
+                    <div class="col-lg-61 text-center" @click="showTextModal()"
+                    >
+                        <div class="h2 m-0 ml-5 mt-2 position-absolute" v-html="NormalTextHeader"></div>
+                        <button class="text-button px-5 pt-3 position-relative" type="button">
                             <i class="fa fa-heading blueiconcolor fa-7x mt-3">
                             </i>
                             <p class="mt-n1 head-tutorial">Head</p>
                         </button>
                     </div>
-                    <div class="col-lg-3 btn-hd"></div>
-                </div>
+                    <!-- <div class="col-lg-1 btn-hd"></div> -->
+
             </div>
 
-            <div class="col-lg-2 offset-lg-5">
-                <form class="ml-5 mt-3">
-                    <button type="button" class="btn-small ml-5"
+            <div class="col-lg-21">
+                <form class="pull-right mt-2 mr-2">
+                    <button type="button" class="btn-small"
                             @click="callParentDuplicateParagraphBlock()">
                         <i class="far fa-copy fa-xs icon-sm"></i>
                     </button>
@@ -62,7 +64,9 @@
             },
         },
         created() {
-
+            if(this.NormalTextHeader !== "" ){
+                this.bgHeadAfter = true;
+            }
         },
         mounted() {
 
@@ -70,6 +74,7 @@
         data() {
             return {
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+                bgHeadBefore: true
             };
         },
         methods: {
@@ -91,6 +96,7 @@
                     }
                 });
                 this.NormalTextHeader = header;
+                this.bgHeadAfter = true;
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
@@ -152,6 +158,17 @@
 
     .head-right:hover .btn-small {
         opacity: 1 !important;
+    }
+
+    .head-grid {
+        display: grid;
+        grid-template-columns: auto 200px;
+    }
+
+    .bgheadafter {
+        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
+        color: #fff;
+        border: none;
     }
 
 </style>

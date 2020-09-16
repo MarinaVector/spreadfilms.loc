@@ -138,7 +138,8 @@
         border: none;
     }
 
-    .tutorial-text {
+    .tutorial-text,
+    .bgheadbefore {
         width: 100%;
         border: dotted 1px #333;
     }
