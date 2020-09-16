@@ -209,6 +209,7 @@
     import SliderAdd from './paragraphs/SliderAdd'
     import BackgroundVideo from './paragraphs/BackgroundVideo'
     import Headline from './paragraphs/Headline'
+    import CenterText from './paragraphs/CenterText'
     import draggable from 'vuedraggable'
     import Quote from './paragraphs/Quote'
     import ImgHeadText from './paragraphs/ImgHeadText'

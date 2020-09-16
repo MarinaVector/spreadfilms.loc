@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Paragraphs\Headline;
 use App\Models\Paragraphs\NormalText;
+use App\Models\Paragraphs\CenterText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
@@ -89,6 +90,7 @@ class Tutorial extends Model
                 NormalText::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             case 'CenterText':
+                CenterText::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             case 'TextWithBigFont':
                 break;
