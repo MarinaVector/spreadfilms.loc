@@ -212,7 +212,7 @@
     import CenterText from './paragraphs/CenterText'
     import draggable from 'vuedraggable'
     import Quote from './paragraphs/Quote'
-    import ImgHeadText from './paragraphs/ImgHeadText'
+    import TextWithBigFont from './paragraphs/TextWithBigFont'
     import LgHeadText from './paragraphs/LgHeadText'
     import TextLogo from './paragraphs/TextLogo'
     import TextImgHigh from './paragraphs/TextImgHigh'
@@ -232,7 +232,7 @@
             BackgroundVideo,
             Headline,
             Quote,
-            ImgHeadText,
+            TextWithBigFont,
             LgHeadText,
             TextLogo,
             TextImgHigh,
@@ -584,7 +584,7 @@
                         this.paragraphs.push({component: Component});
                         break;
                     case 'TextWithBigFont':
-                        Component = cloneDepp(ImgHeadText);
+                        Component = cloneDepp(TextWithBigFont);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
