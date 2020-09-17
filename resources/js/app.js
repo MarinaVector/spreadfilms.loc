@@ -58,6 +58,29 @@ Vue.component('nested-draggable', require('./components/modules/tutorials/admin/
 Vue.component('tutorials-settings', require('./components/modules/tutorials/admin/TutorialsSettings').default);
 
 /**
+ * Small elements
+ */
+
+Vue.component('question-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/QuestionDropdown').default);
+Vue.component('dropdown-button', require('./components/modules/tutorials/admin/paragraphs/small-elements/DropdownButton').default);
+Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/Collapse').default);
+Vue.component('text-tip', require('./components/modules/tutorials/admin/paragraphs/small-elements/TextTip').default);
+Vue.component('slider-btn', require('./components/modules/tutorials/admin/paragraphs/small-elements/SliderBtn').default);
+
+/**
+ * Modals windows
+ */
+Vue.component('simple-video-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Video/VideoSimpleModal').default);
+Vue.component('img-simple', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Image/ImageSimpleModal').default);
+
+Vue.component('tutorials-topics', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsTopics').default);
+Vue.component('tutorials-categories', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsCategories').default);
+
+Vue.component('admin-list-delete-modal', require('./components/modules/tutorials/admin/AdminListDeleteModal').default);
+
+Vue.component('normal-text-filemanager-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/NormalText/NormalTextFilemanagerModal').default);
+
+/**
  * Tutorials view
  */
 Vue.component('nav-acc', require('./components/modules/tutorials/tutorials-view-page/NavAccordion').default);
