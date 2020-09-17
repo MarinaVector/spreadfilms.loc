@@ -591,7 +591,7 @@
                         this.paragraphs.push({component: Component});
                         break;
                     case 'TextWithLogo':
-                        Component = cloneDepp(TextWithLogo);
+                        Component = cloneDepp(TextLogo);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
@@ -605,7 +605,7 @@
                         this.paragraphs.push({component: Component});
                         break;
                     case 'TxtSpecialImg':
-                        Component = cloneDepp(TextLogo);
+                        Component = cloneDepp(TxtSpecialImg);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
