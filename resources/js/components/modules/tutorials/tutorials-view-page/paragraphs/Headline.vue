@@ -1,13 +1,11 @@
 <template>
     <div class="container head-right">
-        <div class="row nav-text">
-            <div class="col-lg-5 tutorial-text btn-all">
+        <div class="row">
+            <div class="col-12 btn-all">
                 <div class="row">
-                    <div class="col-6 offset-md-6 col-md-6 py-3">
-                        <div class="text-final">
-                            <div class="text-out">
-                                <div class="text-header headline h2 text-left mb-3" v-html="NormalTextHeader"></div>
-                            </div>
+                    <div class="col-12 py-3">
+                        <div class="text-final px-5">
+                                <div class="text-header h1 text-center mb-3 pt-3" v-html="NormalTextHeader"></div>
                         </div>
                     </div>
                 </div>
