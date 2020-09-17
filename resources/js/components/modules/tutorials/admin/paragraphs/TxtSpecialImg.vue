@@ -54,7 +54,7 @@
 <script>
 
     export default {
-        name: "TextWithBigFont",
+        name: "TxtSpecialImg",
         components: {
 
         },

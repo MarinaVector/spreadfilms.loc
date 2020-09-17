@@ -212,7 +212,7 @@
     import CenterText from './paragraphs/CenterText'
     import draggable from 'vuedraggable'
     import Quote from './paragraphs/Quote'
-    import TextWithBigFont from './paragraphs/TextWithBigFont'
+    import TxtSpecialImg from './paragraphs/TxtSpecialImg'
     import LgHeadText from './paragraphs/LgHeadText'
     import TextLogo from './paragraphs/TextLogo'
     import TextImgHigh from './paragraphs/TextImgHigh'
@@ -232,7 +232,7 @@
             BackgroundVideo,
             Headline,
             Quote,
-            TextWithBigFont,
+            TxtSpecialImg,
             LgHeadText,
             TextLogo,
             TextImgHigh,
