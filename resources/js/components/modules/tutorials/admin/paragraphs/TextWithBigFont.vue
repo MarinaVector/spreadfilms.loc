@@ -83,7 +83,7 @@
 
 <script>
     export default {
-        name: "LgHeadText",
+        name: "TextWithBigFont",
         components: {
 
         },

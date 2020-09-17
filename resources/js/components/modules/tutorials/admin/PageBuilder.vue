@@ -213,7 +213,7 @@
     import draggable from 'vuedraggable'
     import Quote from './paragraphs/Quote'
     import TxtSpecialImg from './paragraphs/TxtSpecialImg'
-    import LgHeadText from './paragraphs/LgHeadText'
+    import TextWithBigFont from './paragraphs/TextWithBigFont'
     import TextLogo from './paragraphs/TextLogo'
     import TextImgHigh from './paragraphs/TextImgHigh'
     import Contact from './paragraphs/Contact'
@@ -233,7 +233,7 @@
             Headline,
             Quote,
             TxtSpecialImg,
-            LgHeadText,
+            TextWithBigFont,
             TextLogo,
             TextImgHigh,
             Contact,
@@ -591,7 +591,7 @@
                         this.paragraphs.push({component: Component});
                         break;
                     case 'TextWithLogo':
-                        Component = cloneDepp(LgHeadText);
+                        Component = cloneDepp(TextWithLogo);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }

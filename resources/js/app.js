@@ -57,49 +57,6 @@ Vue.component('tutorials-admin-list', require('./components/modules/tutorials/ad
 Vue.component('nested-draggable', require('./components/modules/tutorials/admin/NestedDraggable').default);
 Vue.component('tutorials-settings', require('./components/modules/tutorials/admin/TutorialsSettings').default);
 
-
-/**
- * Paragraphs windows
- */
-
-Vue.component('normal-text', require('./components/modules/tutorials/admin/paragraphs/NormalText').default);
-Vue.component('text-img', require('./components/modules/tutorials/admin/paragraphs/TextImg').default);
-Vue.component('slider-add', require('./components/modules/tutorials/admin/paragraphs/SliderAdd').default);
-Vue.component('background-video', require('./components/modules/tutorials/admin/paragraphs/BackgroundVideo').default);
-Vue.component('headline', require('./components/modules/tutorials/admin/paragraphs/Headline').default);
-Vue.component('quote-component', require('./components/modules/tutorials/admin/paragraphs/Quote').default);
-Vue.component('txt-special-image', require('./components/modules/tutorials/admin/paragraphs/TxtSpecialImg').default);
-Vue.component('lghead-text', require('./components/modules/tutorials/admin/paragraphs/LgHeadText').default);
-Vue.component('logo-text', require('./components/modules/tutorials/admin/paragraphs/TextLogo').default);
-Vue.component('imghigh-text', require('./components/modules/tutorials/admin/paragraphs/TextImgHigh').default);
-Vue.component('contact-img', require('./components/modules/tutorials/admin/paragraphs/Contact').default);
-Vue.component('questions-answers', require('./components/modules/tutorials/admin/paragraphs/QuestionsAnswers').default);
-Vue.component('video-text', require('./components/modules/tutorials/admin/paragraphs/VideoText').default);
-Vue.component('img-textcenter', require('./components/modules/tutorials/admin/paragraphs/ImgTextCenter').default);
-Vue.component('footer-component', require('./components/modules/tutorials/admin/paragraphs/FooterComponent').default);
-
-/**
- * Small elements
- */
-
-Vue.component('question-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/QuestionDropdown').default);
-Vue.component('dropdown-button', require('./components/modules/tutorials/admin/paragraphs/small-elements/DropdownButton').default);
-Vue.component('collapse-dropdown', require('./components/modules/tutorials/admin/paragraphs/small-elements/Collapse').default);
-Vue.component('text-tip', require('./components/modules/tutorials/admin/paragraphs/small-elements/TextTip').default);
-Vue.component('slider-btn', require('./components/modules/tutorials/admin/paragraphs/small-elements/SliderBtn').default);
-/**
- * Modals windows
- */
-Vue.component('simple-video-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Video/VideoSimpleModal').default);
-Vue.component('img-simple', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Image/ImageSimpleModal').default);
-
-Vue.component('tutorials-topics', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsTopics').default);
-Vue.component('tutorials-categories', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsCategories').default);
-
-Vue.component('admin-list-delete-modal', require('./components/modules/tutorials/admin/AdminListDeleteModal').default);
-
-Vue.component('normal-text-filemanager-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/NormalText/NormalTextFilemanagerModal').default);
-
 /**
  * Tutorials view
  */
