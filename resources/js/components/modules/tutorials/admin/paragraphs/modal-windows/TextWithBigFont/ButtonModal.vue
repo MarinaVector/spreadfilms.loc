@@ -2,7 +2,7 @@
     <div class="modal fade part" id="ButtonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true" @click="cancel">
         <div class="modal-dialog" role="document">
-            <div class="py-3">
+            <div class="modbtn-content py-3">
                 <div class="modal-body ">
                     <div class="part edit-content">
                         <div class="">
@@ -80,6 +80,16 @@
         display: inline-block;
         border-bottom: solid 1px;
         font-size: 0.8em;
+    }
+
+    .modbtn-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        pointer-events: auto;
+        background-clip: padding-box;
+        outline: 0;
     }
 
     .btnmodal-form, .btnmodal-form:focus {
