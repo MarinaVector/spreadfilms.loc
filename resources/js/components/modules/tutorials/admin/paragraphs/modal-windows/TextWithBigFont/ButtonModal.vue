@@ -6,17 +6,17 @@
                 <div class="modal-body">
                     <div>
                         <label class="input-title" for="text">Text</label>
-                        <input type="text" class="form-control" id="text">
+                        <input type="text" v-model="Text" class="form-control" id="text">
                     </div>
 
                     <div>
                         <label class="input-title" for="link">Link</label>
-                        <input type="text" class="form-control" id="link">
+                        <input type="text" v-model="Link" class="form-control" id="link">
                     </div>
 
                     <div>
-                        <p-radio name="dimension" v-model="color" :value="'coloured'">Coloured</p-radio>
-                        <p-radio name="dimension" v-model="color" :value="'grey'">Grey</p-radio>
+                        <p-radio name="dimension" v-model="ButtonType" :value="'coloured'">Coloured</p-radio>
+                        <p-radio name="dimension" v-model="ButtonType" :value="'grey'">Grey</p-radio>
                     </div>
                 </div>
             </div>
@@ -39,9 +39,9 @@
         components: {
 
         },
-        props: [
+        props: {
 
-        ],
+        },
         created() {
 
         },
@@ -50,18 +50,34 @@
         },
         data() {
             return {
-                color: null,
+                Index: null,
+                Text: null,
+                Link: null,
+                ButtonType: null,
             };
         },
         methods: {
             save: function () {
-                this.$emit('saveButton')
+                this.$emit('saveData', null, null, {
+                    index: this.Index,
+                    myData: {
+                        text: this.Text,
+                        link: this.Link,
+                        buttontype: this.ButtonType,
+                    }
+                });
+                this.clearData();
             },
             cancel: function (event) {
                 if(event.target.id === 'ButtonModal' || event.target.id === 'CancelModal') {
-
+                    this.clearData();
                 }
-            }
+            },
+            clearData: function () {
+                this.Text = null;
+                this.Link = null;
+                this.ButtonType = null;
+            },
         },
         computed: {
 

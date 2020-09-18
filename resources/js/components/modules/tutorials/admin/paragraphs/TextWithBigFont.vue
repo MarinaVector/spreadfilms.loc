@@ -39,6 +39,16 @@
                     <div class="col-lg-9  tutorial-text mt-2">
                         <div class="button-show set-button">
                             <div>
+                                <div v-for="(button, index) in Buttons">
+                                    <button class="py-2 px-5 text-button"
+                                            type="button" @click="showAddButtonModal(index)">
+                                        <i class="fas fa-bars blueiconcolor fa-2x">
+                                        </i>
+                                        <div class="mb-n1">Button {{index}}</div>
+                                    </button>
+                                    <span @click="deleteButton(index)"><i class="fas fa-close red-btn fa-2x"></i></span>
+                                </div>
+
                                 <button class="py-2 px-5 text-button" type="button" @click="showAddButtonModal()">
                                     <i class="fas fa-bars blueiconcolor fa-2x">
                                     </i>
@@ -68,7 +78,7 @@
         </div>
         <HeadlineModal ref="headlinemodal" v-on:saveData="saveData" :header="NormalTextHeader"></HeadlineModal>
         <TextModal ref="textmodal" v-on:saveData="saveData" :body="NormalTextBody"></TextModal>
-        <ButtonModal ref="buttonmodal" v-on:saveButton="saveButton"></ButtonModal>
+        <ButtonModal ref="buttonmodal" v-on:saveData="saveData"></ButtonModal>
     </div>
 </template>
 
@@ -98,12 +108,15 @@
 
         },
         mounted() {
-
+            if(this.Buttons === ''){
+                this.Buttons = [];
+            }
         },
         data() {
             return {
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
+                Buttons: this.mydata ? this.escapeHtml(this.$props.mydata.buttons) : [],
             };
         },
         methods: {
@@ -121,9 +134,16 @@
                 let element = this.$refs.textmodal.$el;
                 $(element).modal('show');
             },
-            showAddButtonModal: function () {
+            showAddButtonModal: function (index = null) {
                 let element = this.$refs.buttonmodal.$el;
                 $(element).modal('show');
+
+                if(index !== null){
+                    this.$refs.buttonmodal.Index = index;
+                    this.$refs.buttonmodal.Text = this.Buttons[index].text;
+                    this.$refs.buttonmodal.Link = this.Buttons[index].link;
+                    this.$refs.buttonmodal.ButtonType = this.Buttons[index].buttontype;
+                }
             },
             saveData: function (header, body, button) {
                 if (header !== null){
@@ -134,11 +154,26 @@
                     this.NormalTextBody = body;
                 }
 
+                if (button !== null){
+                    if(button.index === null){
+                        this.Buttons.push({
+                            text: button.myData.text,
+                            link: button.myData.link,
+                            buttontype: button.myData.buttontype,
+                        });
+                    } else {
+                        this.Buttons[button.index].text = button.myData.text;
+                        this.Buttons[button.index].link = button.myData.link;
+                        this.Buttons[button.index].buttontype = button.myData.buttontype;
+                    }
+                }
+
                 this.$emit('saveParagraphData', {
                     index: this.index,
                     myData: {
                         header: this.NormalTextHeader,
                         text: this.NormalTextBody,
+                        buttons: this.Buttons,
                     }
                 });
 
@@ -146,8 +181,8 @@
                 this.btnAfter = true;
                 this.btnBefore =false;
             },
-            saveButton: function () {
-
+            deleteButton: function (index) {
+                this.Buttons.splice(index, 1);
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
