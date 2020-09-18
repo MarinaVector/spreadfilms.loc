@@ -36,31 +36,17 @@
                             <p class="mb-n1">Text</p>
                         </button>
                     </div>
-                    <div @mouseover="show = !show" @mouseleave="hide = !hide" class="col-lg-9  tutorial-text mt-2">
-                        <button v-if="hide" class="text-button py-2 px-5" type="button">
-                            <i class="fas fa-bars blueiconcolor fa-2x">
-                            </i>
-                            <p class="mb-n1 mx-1">Button</p>
-                        </button>
-
-                        <div v-if="show" class="button-show set-button">
+                    <div class="col-lg-9  tutorial-text mt-2">
+                        <div class="button-show set-button">
                             <div>
-                                <button class="py-2 px-5 text-button" type="button">
+                                <button class="py-2 px-5 text-button" type="button" @click="showAddButtonModal()">
                                     <i class="fas fa-bars blueiconcolor fa-2x">
                                     </i>
-                                    <div class="mb-n1">Button 1</div>
-                                </button>
-                            </div>
-                            <div>
-                                <button class="text-button py-2 px-5" type="button">
-                                    <i class="fas fa-bars blueiconcolor fa-2x">
-                                    </i>
-                                    <div class="mb-n1">Button 2</div>
+                                    <div class="mb-n1">Add Button</div>
                                 </button>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="col-lg-2 mt-2">
@@ -82,18 +68,21 @@
         </div>
         <HeadlineModal ref="headlinemodal" v-on:saveData="saveData" :header="NormalTextHeader"></HeadlineModal>
         <TextModal ref="textmodal" v-on:saveData="saveData" :body="NormalTextBody"></TextModal>
+        <ButtonModal ref="buttonmodal" v-on:saveButton="saveButton"></ButtonModal>
     </div>
 </template>
 
 <script>
     import HeadlineModal from './modal-windows/TextWithBigFont/HeadlineModal'
     import TextModal from './modal-windows/TextWithBigFont/TextModal'
+    import ButtonModal from './modal-windows/TextWithBigFont/ButtonModal'
 
     export default {
         name: "TextWithBigFont",
         components: {
             HeadlineModal,
             TextModal,
+            ButtonModal,
         },
         props: {
             index: {
@@ -113,8 +102,6 @@
         },
         data() {
             return {
-                show: false,
-                hide: true,
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
             };
@@ -132,6 +119,10 @@
             },
             showTextModal: function () {
                 let element = this.$refs.textmodal.$el;
+                $(element).modal('show');
+            },
+            showAddButtonModal: function () {
+                let element = this.$refs.buttonmodal.$el;
                 $(element).modal('show');
             },
             saveData: function (header, body, button) {
@@ -154,6 +145,9 @@
                 this.bgHeadAfter = true;
                 this.btnAfter = true;
                 this.btnBefore =false;
+            },
+            saveButton: function () {
+
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
