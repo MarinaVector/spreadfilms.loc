@@ -7,6 +7,7 @@ use App\Models\Paragraph;
 use App\Models\Paragraphs\Headline;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\CenterText;
+use App\Models\Paragraphs\TextWithBigFont;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
@@ -257,6 +258,12 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'TextWithBigFont':
+                TextWithBigFont::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                    'text' => $paragraph['text'],
+                    'buttons' => $paragraph['buttons'],
+                ]);
                 break;
             case 'TextWithLogo':
                 break;
@@ -432,6 +439,7 @@ class TutorialsController extends Controller
                 $component = CenterText::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'TextWithBigFont':
+                $component = TextWithBigFont::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'TextWithLogo':
                 break;
@@ -499,6 +507,10 @@ class TutorialsController extends Controller
 
             if(isset($component['notices'])){
                 $component['notices'] = htmlspecialchars($component['notices'], ENT_QUOTES);
+            }
+
+            if(isset($component['buttons'])){
+                $component['buttons'] = htmlspecialchars($component['buttons'], ENT_QUOTES);
             }
         }
 

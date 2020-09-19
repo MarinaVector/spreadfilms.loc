@@ -3,6 +3,7 @@
         <input type="hidden" name="component_type" value="TextWithBigFont" class="component_type" />
         <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
         <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+        <input type="hidden" name="normal_text_buttons" v-model="ButtonsJSON" class="twbfbuttons">
         <div class="row align-items-start tutorial-complex">
             <div class="col-lg-2 mt-2">
                 <div class="row">
@@ -110,6 +111,8 @@
         mounted() {
             if(this.Buttons === ''){
                 this.Buttons = [];
+            } else {
+                this.Buttons = JSON.parse(this.escapeHtml(this.Buttons));
             }
         },
         data() {
@@ -117,6 +120,7 @@
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 Buttons: this.mydata ? this.escapeHtml(this.$props.mydata.buttons) : [],
+                ButtonsJSON: '',
             };
         },
         methods: {
@@ -166,6 +170,8 @@
                         this.Buttons[button.index].link = button.myData.link;
                         this.Buttons[button.index].buttontype = button.myData.buttontype;
                     }
+
+                    this.ButtonsJSON = JSON.stringify(this.Buttons);
                 }
 
                 this.$emit('saveParagraphData', {

@@ -6,6 +6,7 @@ use App\Models\Paragraphs\Headline;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\CenterText;
 use App\Models\Paragraphs\TextImage;
+use App\Models\Paragraphs\TextWithBigFont;
 use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
@@ -93,6 +94,7 @@ class Tutorial extends Model
                 CenterText::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             case 'TextWithBigFont':
+                TextWithBigFont::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             case 'TextWithLogo':
                 break;
