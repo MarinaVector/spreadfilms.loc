@@ -220,6 +220,7 @@
     import QuestionsAnswers from './paragraphs/QuestionsAnswers'
     import cloneDepp from 'lodash/cloneDeep'
     import FileManager from 'laravel-file-manager'
+    import Faqs from './paragraphs/Faqs'
 
     export default {
         name: "PageBuilder",
@@ -237,7 +238,8 @@
             TextLogo,
             TextImgHigh,
             Contact,
-            QuestionsAnswers
+            QuestionsAnswers,
+            Faqs
         },
         props: [
             'usercompanycategories',
@@ -659,8 +661,8 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'ImageSlider':
-                        Component = cloneDepp(ImageSlider);
+                    case 'SliderAdd':
+                        Component = cloneDepp(SliderAdd);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
@@ -704,8 +706,8 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'FAQs':
-                        Component = cloneDepp(FAQs);
+                    case 'Faqs':
+                        Component = cloneDepp(Faqs);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }

@@ -3,12 +3,13 @@
         <div id="example-1" class="el-btn">
 
             <div class="slide-border trigger-list" v-for="item in items">
-                <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
+               <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
                 <ul class="pl-1 mb-1">
                     <li class="el-btn pt-1"><i class="fas fa-bars blueiconcolor fa-2x"></i></li>
                     <li class="el-btn">{{ item.volume }}</li>
                 </ul>
                 </draggable>
+
             </div>
 
             <draggable v-model="tutorialsObj" @start="drag=true" @end="drag=false" handle=".draggable" ref="paragraphs">
@@ -16,6 +17,7 @@
                 <i class="fas fa-bars blueiconcolor fa-2x"></i><div class="ml-3">Slider +</div></a>
             </draggable>
         </div>
+
         </div>
 
 </template>
@@ -27,7 +29,7 @@
     export default {
         name: "SliderBtn",
         components: {
-            draggable,
+            draggable
         },
         props: {
 

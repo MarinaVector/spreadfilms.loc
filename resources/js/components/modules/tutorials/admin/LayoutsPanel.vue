@@ -33,7 +33,7 @@
                 </button>
 
                 <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image slider" @click="callParentAddParagraphBlock('ImageSlider')">
+                        data-placement="bottom" title="Image slider" @click="callParentAddParagraphBlock('SliderAdd')">
                     <i class="fa fa-slideshare fa-3x pt-2"></i>
                 </button>
             </div>
@@ -162,7 +162,7 @@
                     <i class="fa fa-puzzle-piece fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="FAQs" @click="callParentAddParagraphBlock('FAQs')">
+                        data-placement="bottom" title="FAQs" @click="callParentAddParagraphBlock('Faqs')">
                     <i class="fa fa-question fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip"
