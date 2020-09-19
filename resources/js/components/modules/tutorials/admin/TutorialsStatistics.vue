@@ -83,7 +83,6 @@
             if(undefined !== this.$props.users){
                 this.usersObj = JSON.parse(this.$props.users);
             }
-            console.log(this.usersObj);
         },
         mounted(){
 
