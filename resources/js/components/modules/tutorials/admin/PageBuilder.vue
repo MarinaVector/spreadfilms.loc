@@ -339,6 +339,11 @@
                             search: '.normal_text_body',
                             tagName: 'input'
                         },
+                        buttons: {
+                            searchBy: 'class',
+                            search: '.twbfbuttons',
+                            tagName: 'input'
+                        },
                     },
                     TextWithLogo: {
                         header: {

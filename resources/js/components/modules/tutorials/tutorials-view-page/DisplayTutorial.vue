@@ -91,6 +91,7 @@
 <script>
 import NormalText from './paragraphs/NormalText'
 import CenterText from './paragraphs/CenterText'
+import TextWithBigFont from './paragraphs/TextWithBigFont'
 import Video from './paragraphs/Video'
 import TextImg from './paragraphs/TextImg'
 import SliderAdd from './paragraphs/SliderAdd'
@@ -112,6 +113,7 @@ export default {
     components: {
         NormalText,
         CenterText,
+        TextWithBigFont,
         Video,
         TextImg,
         SliderAdd,
@@ -206,7 +208,7 @@ export default {
                     this.paragraphs.push({component: Component});
                     break;
                 case 'TextWithBigFont':
-                    Component = cloneDepp(ImgHeadText);
+                    Component = cloneDepp(TextWithBigFont);
                     if(null !== paragraphData){
                         Component.mydata = paragraphData;
                     }
