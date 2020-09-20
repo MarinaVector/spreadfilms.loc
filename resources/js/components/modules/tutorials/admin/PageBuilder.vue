@@ -344,6 +344,11 @@
                         },
                     },
                     TextWithLogo: {
+                        logo: {
+                            searchBy: 'class',
+                            search: '.text_logo',
+                            tagName: 'input'
+                        },
                         header: {
                             searchBy: 'class',
                             search: '.normal_text_header',
@@ -352,6 +357,11 @@
                         text: {
                             searchBy: 'class',
                             search: '.normal_text_body',
+                            tagName: 'input'
+                        },
+                        singletext: {
+                            searchBy: 'class',
+                            search: '.single_text_body',
                             tagName: 'input'
                         },
                     },
