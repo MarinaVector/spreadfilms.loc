@@ -37,12 +37,27 @@
                             </i></div>
 
                     <display-tutorials-main-page
-                        :settings="'{{ json_encode($settings) }}'"></display-tutorials-main-page>
+                        :settings="'{{ json_encode($settings) }}'"
+                    >
+                    </display-tutorials-main-page>
 
                     @else
                         <div class="user-column">
                             <display-tutorial :tutorial="'{{ json_encode($tutorial) }}'"
-                                              :breadcrumb="'{{ json_encode($breadcrumb) }}'"n
+                                              :breadcrumb="'{{ json_encode($breadcrumb) }}'"
+                                              :publicpath="'{{ '/userfiles/companies/' . Auth::user()->company()->id . '/public/' }}'"
+                                              :privatepath="'{{ '/userfiles/companies/' . Auth::user()->company()->id . '/private/' . Auth::user()->id . '/' }}'"
+                            >
+                            </display-tutorial>
+                        </div>
+                    @endif
+                </div>
+        </div>
+
+    </div>
+
+@endsection
+
 @section('scripts')
 
     <style>

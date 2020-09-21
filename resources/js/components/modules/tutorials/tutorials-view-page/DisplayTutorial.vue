@@ -132,6 +132,8 @@ export default {
     props: [
         'tutorial',
         'breadcrumb',
+        'publicpath',
+        'privatepath',
     ],
     created() {
         if (undefined !== this.tutorial) {
@@ -215,7 +217,7 @@ export default {
                     this.paragraphs.push({component: Component});
                     break;
                 case 'TextWithLogo':
-                    Component = cloneDepp(LgHeadText);
+                    Component = cloneDepp(TextLogo);
                     if(null !== paragraphData){
                         Component.mydata = paragraphData;
                     }
