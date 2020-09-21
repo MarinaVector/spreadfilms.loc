@@ -393,6 +393,21 @@
                             search: '.normal_text_body',
                             tagName: 'input'
                         },
+                        specialtext: {
+                            searchBy: 'class',
+                            search: '.special_text_body',
+                            tagName: 'input'
+                        },
+                        firstimage: {
+                            searchBy: 'class',
+                            search: '.first_image',
+                            tagName: 'input'
+                        },
+                        secondimage: {
+                            searchBy: 'class',
+                            search: '.second_image',
+                            tagName: 'input'
+                        },
                     },
                     TextWithHighImage: {
                         header: {

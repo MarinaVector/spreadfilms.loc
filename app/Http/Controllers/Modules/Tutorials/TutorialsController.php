@@ -10,6 +10,7 @@ use App\Models\Paragraphs\CenterText;
 use App\Models\Paragraphs\TextWithBigFont;
 use App\Models\Paragraphs\TextWithLogo;
 use App\Models\Paragraphs\TextImage;
+use App\Models\Paragraphs\TxtSpecialImg;
 use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
@@ -284,6 +285,14 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'TxtSpecialImg':
+                TxtSpecialImg::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                    'text' => $paragraph['text'],
+                    'specialtext' => $paragraph['specialtext'],
+                    'firstimage' => $paragraph['firstimage'],
+                    'secondimage' => $paragraph['secondimage'],
+                ]);
                 break;
             case 'TextWithHighImage':
                 break;
@@ -466,6 +475,11 @@ class TutorialsController extends Controller
                 $component = TextImage::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'TxtSpecialImg':
+                $component = TxtSpecialImg::where('paragraph_id', $componentId)->first()->toArray();
+
+                if(isset($component['specialtext'])){
+                    $component['specialtext'] = htmlspecialchars($component['specialtext'], ENT_QUOTES);
+                }
                 break;
             case 'TextWithHighImage':
                 break;

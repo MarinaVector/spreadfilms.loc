@@ -102,6 +102,7 @@ import Quote from './paragraphs/Quote'
 import ImgHeadText from './paragraphs/ImgHeadText'
 import LgHeadText from './paragraphs/LgHeadText'
 import TextLogo from './paragraphs/TextLogo'
+import TxtSpecialImg from './paragraphs/TxtSpecialImg'
 import TextImgHigh from './paragraphs/TextImgHigh'
 import Contact from './paragraphs/Contact'
 import QuestionsAnswers from './paragraphs/QuestionsAnswers'
@@ -231,7 +232,7 @@ export default {
                     this.paragraphs.push({component: Component});
                     break;
                 case 'TxtSpecialImg':
-                    Component = cloneDepp(TextLogo);
+                    Component = cloneDepp(TxtSpecialImg);
                     if(null !== paragraphData){
                         Component.mydata = paragraphData;
                     }
