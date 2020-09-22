@@ -63,12 +63,6 @@
             };
         },
         methods: {
-            callParentDeleteParagraphBlock: function() {
-                this.$emit('deleteParagraph');
-            },
-            callParentDuplicateParagraphBlock: function() {
-                this.$emit('duplicateParagraph');
-            },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
             },

@@ -11,6 +11,7 @@ use App\Models\Paragraphs\TextWithBigFont;
 use App\Models\Paragraphs\TextWithLogo;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\TxtSpecialImg;
+use App\Models\Paragraphs\TextWithHighImage;
 use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
@@ -295,6 +296,12 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'TextWithHighImage':
+                TextWithHighImage::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                    'text' => $paragraph['text'],
+                    'image' => $paragraph['image'],
+                ]);
                 break;
             //Text Layouts
 
@@ -482,6 +489,7 @@ class TutorialsController extends Controller
                 }
                 break;
             case 'TextWithHighImage':
+                $component = TextWithHighImage::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             //Text Layouts
 

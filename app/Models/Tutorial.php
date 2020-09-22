@@ -7,6 +7,7 @@ use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\CenterText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\TextWithBigFont;
+use App\Models\Paragraphs\TextWithHighImage;
 use App\Models\Paragraphs\TextWithLogo;
 use App\Models\Paragraphs\TxtSpecialImg;
 use App\Models\Paragraphs\Video;
@@ -108,6 +109,7 @@ class Tutorial extends Model
                 TxtSpecialImg::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             case 'TextWithHighImage':
+                TextWithHighImage::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             //Text Layouts
 
