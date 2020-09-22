@@ -24,7 +24,7 @@
                         </button>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-1 btn-hd"></div> -->
+
             </div>
 
             <div class="col-lg-21">

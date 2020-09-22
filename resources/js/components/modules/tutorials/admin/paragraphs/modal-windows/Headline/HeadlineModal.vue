@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer1 mt-3 ml-5">
+            <div class="modal-btns mt-3 ml-5">
                 <button type="button" class="btn btn-primary btn-modal ml-5" data-dismiss="modal" @click="save()">
                     Save changes
                 </button>
@@ -73,7 +73,7 @@
         box-shadow: 0 0px 20px 3px rgba(0, 0, 0, 0.2);
     }
 
-    .modal-footer1{
+    .modal-btns{
         pointer-events: auto;
     }
 

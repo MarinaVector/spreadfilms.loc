@@ -221,6 +221,7 @@
     import cloneDepp from 'lodash/cloneDeep'
     import FileManager from 'laravel-file-manager'
     import Faqs from './paragraphs/Faqs'
+    import SeparatorLine from './paragraphs/SeparatorLine'
 
     export default {
         name: "PageBuilder",
@@ -239,7 +240,8 @@
             TextImgHigh,
             Contact,
             QuestionsAnswers,
-            Faqs
+            Faqs,
+            SeparatorLine
         },
         props: [
             'usercompanycategories',
