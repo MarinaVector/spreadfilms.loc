@@ -8,6 +8,7 @@ use App\Models\Paragraphs\CenterText;
 use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\TextWithBigFont;
 use App\Models\Paragraphs\TextWithLogo;
+use App\Models\Paragraphs\TxtSpecialImg;
 use App\Models\Paragraphs\Video;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
@@ -104,6 +105,7 @@ class Tutorial extends Model
                 TextImage::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             case 'TxtSpecialImg':
+                TxtSpecialImg::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             case 'TextWithHighImage':
                 break;
