@@ -1,6 +1,5 @@
 <template>
     <div class="container head-right">
-
         <div class="row nav-text separate-grid">
             <div class="btn-all col-3 py-4 p-0 p-sm-3">
                 <div class="col-lg-1 btn-hd pull-left">
@@ -11,7 +10,6 @@
                 </div>
             </div>
                 <div class="py-4 col-6">
-                   <!-- <div class="m-0 ml-5"></div> -->
                     <input type="hidden" name="simple_line_modal" v-model="SimpleLineModal"
                            v-bind:class=" { modalline:modalLine } ">
                     <div class="text-center"  @click="showLineModal()">
@@ -108,11 +106,6 @@
 </script>
 
 <style lang="scss">
-
-/* .line-btn {
-    display: none;
-}
-*/
 
 .separate-grid:hover .line-btn {
 

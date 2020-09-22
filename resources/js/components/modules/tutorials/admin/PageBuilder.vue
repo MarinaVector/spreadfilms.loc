@@ -223,6 +223,7 @@
     import Faqs from './paragraphs/Faqs'
     import SeparatorLine from './paragraphs/SeparatorLine'
 
+
     export default {
         name: "PageBuilder",
         components: {
@@ -242,6 +243,7 @@
             QuestionsAnswers,
             Faqs,
             SeparatorLine
+
         },
         props: [
             'usercompanycategories',
@@ -724,8 +726,8 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'ContactPerson':
-                        Component = cloneDepp(ContactPerson);
+                    case 'Contact':
+                        Component = cloneDepp(Contact);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }

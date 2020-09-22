@@ -154,7 +154,7 @@
                     <i class="fa fa-arrows-v fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Contact person" @click="callParentAddParagraphBlock('ContactPerson')">
+                        data-placement="bottom" title="Contact person" @click="callParentAddParagraphBlock('Contact')">
                     <i class="fa fa-envelope-o fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
