@@ -183,5 +183,15 @@
     .video-grid {
         background-repeat: no-repeat;
         background-size: cover;
+        transition: opacity .3s ease, background-color .5s ease;
+        background-color: transparent;
     }
+
+    .video-grid:hover {
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
 </style>
