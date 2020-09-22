@@ -18,7 +18,7 @@
                 </button>
 
                 <button class="mr-xl-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('bgVideo')">
+                        data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('BackgroundVideo')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
 
@@ -106,7 +106,7 @@
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle btn-layout new-text p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('bgVideo')">
+                        data-placement="bottom" title="Video with Background" @click="callParentAddParagraphBlock('BackgroundVideo')">
                     <i class="fa fa-file-video-o fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip" data-placement="bottom"

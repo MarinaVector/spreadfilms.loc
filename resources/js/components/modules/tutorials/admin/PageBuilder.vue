@@ -215,7 +215,7 @@
     import TxtSpecialImg from './paragraphs/TxtSpecialImg'
     import TextWithBigFont from './paragraphs/TextWithBigFont'
     import TextLogo from './paragraphs/TextLogo'
-    import TextImgHigh from './paragraphs/TextImgHigh'
+    import TextWithHighImage from './paragraphs/TextWithHighImage'
     import Contact from './paragraphs/Contact'
     import QuestionsAnswers from './paragraphs/QuestionsAnswers'
     import cloneDepp from 'lodash/cloneDeep'
@@ -238,7 +238,7 @@
             TxtSpecialImg,
             TextWithBigFont,
             TextLogo,
-            TextImgHigh,
+            TextWithHighImage,
             Contact,
             QuestionsAnswers,
             Faqs,
@@ -426,6 +426,11 @@
                             search: '.normal_text_body',
                             tagName: 'input'
                         },
+                        image: {
+                            searchBy: 'class',
+                            search: '.normal_text_image',
+                            tagName: 'input'
+                        },
                     },
                     //Text Layouts
 
@@ -452,7 +457,12 @@
                             tagName: 'input'
                         },
                     },
-                    bgVideo: {
+                    BackgroundVideo: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
                         background: {
                             searchBy: 'class',
                             search: '.video_background',
@@ -648,7 +658,7 @@
                         this.paragraphs.push({component: Component});
                         break;
                     case 'TextWithHighImage':
-                        Component = cloneDepp(TextImgHigh);
+                        Component = cloneDepp(TextWithHighImage);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
@@ -664,7 +674,7 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'bgVideo':
+                    case 'BackgroundVideo':
                         Component = cloneDepp(BackgroundVideo);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
