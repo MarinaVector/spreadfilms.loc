@@ -68,11 +68,6 @@
                 }),
             },
         },
-        mounted() {
-            if(this.Banner === undefined){
-                this.Banner = '';
-            }
-        },
         created() {
             if(!Array.isArray(this.Notices)){
                 if(this.Notices === undefined || this.Notices === ""){
@@ -82,13 +77,18 @@
                 }
             }
         },
+        mounted() {
+            if(this.Banner === undefined){
+                this.Banner = '';
+            }
+        },
         data() {
             return {
                 VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
                 Banner: this.mydata ? this.$props.mydata.banner : '',
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
                 Notices: this.mydata ? this.$props.mydata.notices : [],
-                MyNotices: null
+                MyNotices: null,
             };
         },
         methods: {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Paragraphs\BackgroundVideo;
 use App\Models\Paragraphs\Headline;
 use App\Models\Paragraphs\NormalText;
 use App\Models\Paragraphs\CenterText;
@@ -116,6 +117,9 @@ class Tutorial extends Model
             //Video Layouts
             case 'Video':
                 Video::where('paragraph_id', $paragraph['id'])->delete();
+                break;
+            case 'BackgroundVideo':
+                BackgroundVideo::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             //Video Layouts
 

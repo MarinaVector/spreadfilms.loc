@@ -13,6 +13,7 @@ use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\TxtSpecialImg;
 use App\Models\Paragraphs\TextWithHighImage;
 use App\Models\Paragraphs\Video;
+use App\Models\Paragraphs\BackgroundVideo;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use App\Models\TutorialUserCompletion;
@@ -315,7 +316,16 @@ class TutorialsController extends Controller
                     'notices' => $paragraph['notices'],
                 ]);
                 break;
-            case 'bgVideo':
+            case 'BackgroundVideo':
+                BackgroundVideo::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                    'background' => $paragraph['background'],
+                    'banner' => $paragraph['banner'],
+                    'videoUrl' => $paragraph['videoUrl'],
+                    'dimension' => $paragraph['dimension'],
+                    'notices' => $paragraph['notices'],
+                ]);
                 break;
             case 'VideoWithText':
                 break;
@@ -500,7 +510,11 @@ class TutorialsController extends Controller
                     $component['notices'] = htmlspecialchars($component['notices'], ENT_QUOTES);
                 }
                 break;
-            case 'bgVideo':
+            case 'BackgroundVideo':
+                $component = BackgroundVideo::where('paragraph_id', $componentId)->first()->toArray();
+                if(isset($component['notices'])){
+                    $component['notices'] = htmlspecialchars($component['notices'], ENT_QUOTES);
+                }
                 break;
             case 'VideoWithText':
                 break;

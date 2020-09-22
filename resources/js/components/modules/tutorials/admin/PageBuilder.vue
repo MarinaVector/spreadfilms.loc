@@ -451,7 +451,12 @@
                             tagName: 'input'
                         },
                     },
-                    bgVideo: {
+                    BackgroundVideo: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
                         background: {
                             searchBy: 'class',
                             search: '.video_background',
@@ -663,7 +668,7 @@
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'bgVideo':
+                    case 'BackgroundVideo':
                         Component = cloneDepp(BackgroundVideo);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;

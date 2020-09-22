@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade container video-modal" id="VideoSimpleModal" tabindex="-1" role="dialog"
+    <div class="modal fade video-modal" id="VideoSimpleModal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true" @click="cancel">
         <div class="modal-dialog" role="document">
             <div class="modal-content py-3 px-4">
