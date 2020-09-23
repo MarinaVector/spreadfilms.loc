@@ -149,7 +149,7 @@
                     this.$refs.buttonmodal.ButtonType = this.Buttons[index].buttontype;
                 }
             },
-            saveData: function (header, body, button) {
+            saveData: function (header, body, button = null) {
                 if (header !== null){
                     this.NormalTextHeader = header;
                 }
