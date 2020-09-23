@@ -59,7 +59,7 @@
 <script>
 
 export default {
-    name: "VideoText",
+    name: "VideoWithText",
     components: {
 
     },

@@ -205,6 +205,7 @@
 <script>
     import NormalText from './paragraphs/NormalText'
     import Video from './paragraphs/Video'
+    import VideoWithText from './paragraphs/VideoWithText'
     import TextImg from './paragraphs/TextImg'
     import SliderAdd from './paragraphs/SliderAdd'
     import BackgroundVideo from './paragraphs/BackgroundVideo'
