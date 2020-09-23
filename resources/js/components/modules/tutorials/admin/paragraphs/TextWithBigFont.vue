@@ -25,6 +25,7 @@
                         </i>
                         <p class="mb-n1 mx-1">HeadLine</p>
                     </button>
+                    <div class="final-text text-justify" v-html="NormalTextHeader"></div>
                 </div>
             </div>
 
@@ -36,6 +37,7 @@
                             </i>
                             <p class="mb-1">Text</p>
                         </button>
+                        <div class="final-text text-justify" v-html="NormalTextBody"></div>
                     </div>
                     <div class="col-lg-9  tutorial-text mt-2">
                         <div class="button-show set-button">
@@ -149,7 +151,7 @@
                     this.$refs.buttonmodal.ButtonType = this.Buttons[index].buttontype;
                 }
             },
-            saveData: function (header, body, button = null) {
+            saveData: function (header = null, body = null, button = null) {
                 if (header !== null){
                     this.NormalTextHeader = header;
                 }
