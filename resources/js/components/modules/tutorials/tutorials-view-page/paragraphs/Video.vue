@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 videoSc video">
                 <youtube :video-id="videoId" ref="youtube" @playing="playing"></youtube>
-                <div class="myTooltip"ref="videoNotification" v-html="NoticeText" @click="playVideo">
+                <div class="myTooltip" ref="videoNotification" v-html="NoticeText" @click="playVideo">
                     <i class="far fa-play-circle"></i>
                 </div>
             </div>
@@ -54,12 +54,6 @@
             };
         },
         methods: {
-            callParentDeleteParagraphBlock: function() {
-                this.$emit('childToParent');
-            },
-            callParentDuplicateParagraphBlock: function() {
-                this.$emit('duplicateParagraph');
-            },
             showVideoSimpleModule: function () {
                 let element = this.$refs.modal.$el;
                 $(element).modal('show');

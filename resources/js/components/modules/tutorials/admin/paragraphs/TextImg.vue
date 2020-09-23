@@ -23,16 +23,6 @@
                         </i>
                         <div class="mt-n1 mb-n1">Image</div>
                     </button>
-                    <!-- Laravel elfinder
-                    <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
-                            :data-inputid="dataInputID"
-                            class="popup_selector py-2 mb-md-0 px-md-5 slide-border txt-btn btn-left align-middle"
-                            type="button">
-                        <i class="fas fa-image blueiconcolor fa-2x pt-1">
-                        </i>
-                        <div class="mt-n1 mb-n1">Image</div>
-                    </button>
-                    -->
 
                     <div class="row h-80 text-level">
                         <div :class=" { txt_img_txt_after : textAfter, txt_img_txt_before : textBefore} "

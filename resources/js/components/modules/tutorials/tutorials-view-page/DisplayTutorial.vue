@@ -255,7 +255,7 @@ export default {
                     }
                     this.paragraphs.push({component: Component});
                     break;
-                case 'bgVideo':
+                case 'BackgroundVideo':
                     Component = cloneDepp(BackgroundVideo);
                     if(null !== paragraphData){
                         Component.mydata = paragraphData;

@@ -7,7 +7,7 @@
         <input type="hidden" name="video_banner" v-model="Banner" class="video_banner"/>
         <input type="hidden" name="video_dimension" v-model="Dimension" class="video_dimension"/>
         <input type="hidden" name="video_notices" v-model="MyNotices" class="video_notices"/>
-        <div class="row my-2 zindeged">
+        <div class="row my-2">
             <div class="col-12">
                 <button type="button" class="btn-icon draggable pull-left">
                     <i class="fa fa-arrows-v pt-2"></i>
@@ -19,7 +19,7 @@
             </div>
 
             <div class="col-12 my-5 my-md-5">
-                <div class="text-center mx-5 px-5 my-5">
+                <div class="text-center mx-5 px-5 my-5 video-grid" v-bind:style="{ backgroundImage: 'url(' + BannerPath + ')' }">
                 <div class="my-md-5 video-wrapper">
                     <button  @click=showVideoBackgroundModal() class="text-button py-3 px-5 mt-2 my-5" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
@@ -42,6 +42,7 @@
                                   :noticesProp="Notices"
                                   :videoUrl="VideoUrl"
                                   :banner="Banner"
+                                  :bgImage="BgImage"
             ></VideoBackgroundModal>
         </div>
 
@@ -86,6 +87,8 @@
         mounted() {
             if(this.Banner === undefined){
                 this.Banner = '';
+            } else {
+                this.BannerPath = this.Banner;
             }
 
             if(this.BgImage === undefined){
@@ -103,7 +106,8 @@
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
                 Notices: this.mydata ? this.$props.mydata.notices : [],
                 MyNotices: null,
-                BgImagePath: null,
+                BgImagePath: '',
+                BannerPath: '',
             };
         },
         methods: {
@@ -120,10 +124,12 @@
             saveData: function (VideoUrl, Banner, Dimension, Notices, Header, BgImage) {
                 this.VideoUrl = VideoUrl;
                 this.Banner = Banner;
+                this.BannerPath = this.Banner;
                 this.Dimension = Dimension;
                 this.Notices = Notices;
                 this.NormalTextHeader = Header;
                 this.BgImage = BgImage;
+                this.BgImagePath = this.getImagePath(this.BgImage);
                 this.btnAfterText = true;
                 this.btnAfterSrc = true;
                 this.textAfter = true;
@@ -171,10 +177,6 @@
 </script>
 
 <style scoped>
-    .zindeged {
-        z-index: 8000;
-    }
-
     .video-wrapper {
         box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.2);
         border-radius: 5px !important;
