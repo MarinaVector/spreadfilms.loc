@@ -20,7 +20,7 @@
 
             <div class="col-lg-3 inner-trigger lg-head">
                 <div class="tutorial-text py-2 mt-5" @click="showHeadlineModal()">
-                    <button class="text-button py-2 px-5 my-2" type="button">
+                    <button class="text-button bgfont-btn py-2 px-5 my-2" type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1 mx-1">HeadLine</p>
@@ -31,26 +31,26 @@
             <div class="col-lg-5 inner-trigger lg-head">
                 <div class="row ml-2 mt-5">
                     <div class="col-lg-12 tutorial-text" @click="showTextModal()">
-                        <button class="text-button py-2 my-4 px-5" type="button">
+                        <button class="text-button bgfont-btn py-2 my-4 px-5" type="button">
                             <i class="fas fa-image blueiconcolor fa-2x">
                             </i>
-                            <p class="mb-n1">Text</p>
+                            <p class="mb-1">Text</p>
                         </button>
                     </div>
                     <div class="col-lg-9  tutorial-text mt-2">
                         <div class="button-show set-button">
                             <div>
                                 <div v-for="(button, index) in Buttons">
-                                    <button class="py-2 px-5 text-button"
+                                    <button class="py-2 px-5 text-button bgfont-btn added-btn"
                                             type="button" @click="showAddButtonModal(index)">
                                         <i class="fas fa-bars blueiconcolor fa-2x">
                                         </i>
-                                        <div class="mb-n1">Button {{index}}</div>
+                                        <div class="mb-1">Button {{index}}</div>
+                                        <span @click="deleteButton(index)"><i class="fas fa-times ml-5 pl-4 mt-n5"></i></span>
                                     </button>
-                                    <span @click="deleteButton(index)"><i class="fas fa-close red-btn fa-2x"></i></span>
                                 </div>
 
-                                <button class="py-2 px-5 text-button" type="button" @click="showAddButtonModal()">
+                                <button class="py-2 px-5 text-button bgfont-btn" type="button" @click="showAddButtonModal()">
                                     <i class="fas fa-bars blueiconcolor fa-2x">
                                     </i>
                                     <div class="mb-n1">Add Button</div>
@@ -222,6 +222,24 @@
 
     .set-button {
         z-index: 2;
+    }
+
+    .fa-times {
+    color:#f7022e;
+    }
+
+    . added-btn {
+        border-bottom: 1px solid gray;
+    }
+
+    .bgfont-btn {
+        width: 170px;
+    }
+
+    @media only screen and (max-width: 750px) {
+        .bgfont-btn {
+            width: 80px;
+        }
     }
 
 </style>

@@ -194,6 +194,7 @@
         background-size: cover;
         cursor: pointer;
         background-color: rgba(0, 0, 0, 0.5);
+        transition: 3s;
     }
 
 </style>

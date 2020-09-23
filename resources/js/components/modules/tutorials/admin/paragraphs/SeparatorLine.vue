@@ -1,5 +1,5 @@
 <template>
-    <div class="container head-right">
+    <div class="container">
         <div class="row nav-text separate-grid">
             <div class="btn-all col-3 py-4 p-0 p-sm-3">
                 <div class="col-lg-1 btn-hd pull-left">

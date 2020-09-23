@@ -20,7 +20,7 @@
             </div>
 
             <div class="col-lg-4 inner-trigger mr-n4">
-                <div class="tutorial-text py-2 mt-5" @click="showLogoModal()">
+                <div class="tutorial-text py-2 mt-3" @click="showLogoModal()">
                     <button class="text-button py-1 px-5" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
@@ -39,7 +39,7 @@
             <div class="col-lg-6 inner-trigger mt-n1 ml-n1">
                 <div class="row ml-2">
                     <div class="col-lg-12 tutorial-text py-5 pt-3" @click="showNormalTextModal()">
-                        <button  v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " type="button">
+                        <button class="text-button py-1 px-5" v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " type="button">
                             <i class="fas fa-image blueiconcolor fa-2x">
                             </i>
                             <p class="mb-n1">Text</p>
