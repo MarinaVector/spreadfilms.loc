@@ -13,6 +13,7 @@ use App\Models\Paragraphs\TextImage;
 use App\Models\Paragraphs\TxtSpecialImg;
 use App\Models\Paragraphs\TextWithHighImage;
 use App\Models\Paragraphs\Video;
+use App\Models\Paragraphs\VideoWithText;
 use App\Models\Paragraphs\BackgroundVideo;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
@@ -328,6 +329,15 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'VideoWithText':
+                VideoWithText::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                    'text' => $paragraph['text'],
+                    'banner' => $paragraph['banner'],
+                    'videoUrl' => $paragraph['videoUrl'],
+                    'dimension' => $paragraph['dimension'],
+                    'notices' => $paragraph['notices'],
+                ]);
                 break;
             case 'VideoSlider':
                 break;
@@ -517,6 +527,10 @@ class TutorialsController extends Controller
                 }
                 break;
             case 'VideoWithText':
+                $component = VideoWithText::where('paragraph_id', $componentId)->first()->toArray();
+                if(isset($component['notices'])){
+                    $component['notices'] = htmlspecialchars($component['notices'], ENT_QUOTES);
+                }
                 break;
             case 'VideoSlider':
                 break;

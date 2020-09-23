@@ -51,7 +51,6 @@
 </template>
 
 <script>
-    console.log('Вот и я');
     export default {
         name: "Contact",
         components: {
