@@ -12,6 +12,7 @@ use App\Models\Paragraphs\TextWithHighImage;
 use App\Models\Paragraphs\TextWithLogo;
 use App\Models\Paragraphs\TxtSpecialImg;
 use App\Models\Paragraphs\Video;
+use App\Models\Paragraphs\VideoWithText;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use Illuminate\Database\Eloquent\Model;
@@ -120,6 +121,9 @@ class Tutorial extends Model
                 break;
             case 'BackgroundVideo':
                 BackgroundVideo::where('paragraph_id', $paragraph['id'])->delete();
+                break;
+            case 'VideoWithText':
+                VideoWithText::where('paragraph_id', $paragraph['id'])->delete();
                 break;
             //Video Layouts
 

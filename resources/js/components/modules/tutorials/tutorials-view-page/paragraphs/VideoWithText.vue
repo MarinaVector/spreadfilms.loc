@@ -1,10 +1,26 @@
 <template>
-    <div class="container mt-5" id="tutorial-text">
-        <div class="row">
-            <div class="col-md-12 videoSc video">
-                <youtube :video-id="videoId" ref="youtube" @playing="playing"></youtube>
-                <div class="myTooltip" ref="videoNotification" v-html="NoticeText" @click="playVideo">
-                    <i class="far fa-play-circle"></i>
+    <div class="container">
+        <div class="row align-items-start tutorial-complex">
+            <div class="col-lg-6 inner-trigger mt-n1 ml-n1 my-5 mr-n3">
+                <div class="row ml-2 mt-5">
+                    <div class="col-lg-12 tutorial-text py-5 pt-3">
+                        <youtube :video-id="videoId" ref="youtube" @playing="playing"></youtube>
+                        <div class="myTooltip" ref="videoNotification" v-html="NoticeText" @click="playVideo">
+                            <i class="far fa-play-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 inner-trigger mt-n1 ml-n1 my-5">
+                <div class="row ml-2 mt-5">
+                    <div class="col-lg-12 tutorial-text shadow-right py-5 pt-3">
+                        <div class="headline h2 text-left mb-2 mt-2 final-header" v-html="NormalTextHeader">
+
+                        </div>
+                        <div class="final-text" v-html="NormalTextBody">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -12,10 +28,10 @@
 </template>
 
 <script>
-    import { getIdFromUrl } from 'vue-youtube'
+    import {getIdFromUrl} from "vue-youtube";
 
     export default {
-        name: "Video",
+        name: "VideoWithText",
         components: {
 
         },
@@ -26,10 +42,6 @@
             },
             mydata: {
                 type: Object, default: () => {}
-            },
-            blocksCounterID: {
-                type: Number,
-                default: null
             },
         },
         created() {
@@ -43,6 +55,8 @@
         },
         data() {
             return {
+                NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
+                NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 VideoUrl: this.mydata ? this.$props.mydata.videoUrl : '',
                 Banner: this.mydata ? this.$props.mydata.banner : '',
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
@@ -103,40 +117,20 @@
     };
 </script>
 
-<style>
+<style scoped>
 
-    .myTooltip{
-        display: none;
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 10px;
-        border-radius: 5px;
-        background: #fff;
-        transition: opacity .3s;
-        z-index: 1234;
-        pointer-events: none;
-        cursor: pointer;
-        opacity: 1;
-        pointer-events: all;
+    .tutorial-complex {
+        background-color: #f9f9f9;
     }
 
-    .videoSc {
-        height: 100%;
+    .tutorial-complex:hover .btn-icon {
+        opacity: 1 !important;
     }
 
-    .video {
-        position:relative;
-        padding-bottom:56.25%;
-    }
-
-    iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+    .shadow-right {
+        -webkit-box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
+        -moz-box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
+        box-shadow: 21px 0px 15px -7px rgba(11, 16, 19, 0.2) inset;
     }
 
 </style>
