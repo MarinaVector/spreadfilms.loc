@@ -18,45 +18,48 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 inner-trigger lg-head">
+            <div class="col-lg-3 inner-trigger header-txt lg-head">
                 <div class="tutorial-text py-2 mt-5" @click="showHeadlineModal()">
-                    <button class="text-button bgfont-btn py-2 px-5 my-2" type="button">
+                    <button  v-bind:class=" {btnheadbefore:btnHeadBefore, btnheadafter:btnHeadAfter} " class="text-button bgfont-btn py-2 px-5 my-2 mx-auto" type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1 mx-1">HeadLine</p>
                     </button>
-                    <div class="final-text text-justify" v-html="NormalTextHeader"></div>
+                    <div v-bind:class=" {bigtext:headerText} " class="final-text text-justify h2 ml-3" v-html="NormalTextHeader"></div>
                 </div>
             </div>
 
             <div class="col-lg-5 inner-trigger lg-head">
                 <div class="row ml-2 mt-5">
-                    <div class="col-lg-12 tutorial-text" @click="showTextModal()">
-                        <button class="text-button bgfont-btn py-2 my-4 px-5" type="button">
+                    <div class="col-lg-12 tutorial-text content-txt position-relative" @click="showTextModal()">
+                        <button v-bind:class=" {btntxtbefore:btnTxtBefore, btntxtafter:btnTxtAfter} " class="text-button bgfont-btn  bgfonttxt-btn py-2 px-5 m-5 mx-auto" type="button">
                             <i class="fas fa-image blueiconcolor fa-2x">
                             </i>
                             <p class="mb-1">Text</p>
                         </button>
-                        <div class="final-text text-justify" v-html="NormalTextBody"></div>
+                        <div class="text-justify" v-html="NormalTextBody"></div>
                     </div>
-                    <div class="col-lg-9  tutorial-text mt-2">
+                    <div class="col-lg-9 tutorial-text my-2">
                         <div class="button-show set-button">
                             <div>
                                 <div v-for="(button, index) in Buttons">
-                                    <button class="py-2 px-5 text-button bgfont-btn added-btn"
+                                    <div class="text-button mx-5 px-n5">
+                                    <button class="py-2 px-5 bgfont-btn text-button added-btn"
                                             type="button" @click="showAddButtonModal(index)">
                                         <i class="fas fa-bars blueiconcolor fa-2x">
                                         </i>
                                         <div class="mb-1">Button {{index}}</div>
-                                        <span @click="deleteButton(index)"><i class="fas fa-times ml-5 pl-4 mt-n5"></i></span>
                                     </button>
+                                    <span @click="deleteButton(index)"><i class="fas fa-times mt-n5"></i></span>
                                 </div>
-
+                                </div>
+                                <div class="text-button mx-5 px-n5">
                                 <button class="py-2 px-5 text-button bgfont-btn" type="button" @click="showAddButtonModal()">
                                     <i class="fas fa-bars blueiconcolor fa-2x">
                                     </i>
                                     <div class="mb-n1">Add Button</div>
                                 </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -108,7 +111,15 @@
             },
         },
         created() {
+            if(this.NormalTextHeader !== "" ){
 
+                this.btnHeadAfter = true;
+            }
+
+            if( this.NormalTextBody !== ""){
+
+                this.btnTxtAfter = true;
+            }
         },
         mounted() {
             if(this.Buttons === ''){
@@ -123,6 +134,12 @@
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 Buttons: this.mydata ? this.escapeHtml(this.$props.mydata.buttons) : [],
                 ButtonsJSON: '',
+                headerText: false,
+                btnHeadBefore:true,
+                btnHeadAfter:false,
+                btnTxtAfter:false,
+                btnTxtBefore:true,
+
             };
         },
         methods: {
@@ -154,10 +171,13 @@
             saveData: function (header = null, body = null, button = null) {
                 if (header !== null){
                     this.NormalTextHeader = header;
+                    this.bgHeadAfter = true;
+                    this.btnHeadAfter = true;
                 }
 
                 if (body !== null){
                     this.NormalTextBody = body;
+                    this.btnTxtAfter = true;
                 }
 
                 if (button !== null){
@@ -185,9 +205,10 @@
                     }
                 });
 
-                this.bgHeadAfter = true;
-                this.btnAfter = true;
-                this.btnBefore =false;
+
+                this.headerText = true;
+
+
             },
             deleteButton: function (index) {
                 this.Buttons.splice(index, 1);
@@ -234,6 +255,17 @@
         border-bottom: 1px solid gray;
     }
 
+    .bigtext:before {
+        background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
+        content: "";
+        width: 60px;
+        height: 4px;
+        background: #333;
+        position: absolute;
+        left: 0;
+        margin-left: 20px;
+    }
+
     .bgfont-btn {
         width: 170px;
     }
@@ -243,6 +275,33 @@
             width: 80px;
         }
     }
+
+    .header-txt:hover .btnheadafter {
+        display: block;
+    }
+
+    .content-txt:hover .btntxtafter {
+        display: block;
+    }
+
+
+    .btnheadbefore,
+    .btntxtbefore  {
+        display: block;
+    }
+
+    .btnheadafter,
+    .btntxtafter  {
+        display: none;
+    }
+
+    .btntxtafter {
+        position: absolute !important;
+        left: 50%;
+        top: -155%;
+        margin-left: -85px !important;
+    }
+
 
 </style>
 

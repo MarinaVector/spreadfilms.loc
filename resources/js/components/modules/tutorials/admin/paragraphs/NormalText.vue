@@ -107,6 +107,7 @@
                 this.NormalTextBody = body;
                 this.normalAfter = true;
                 this.btnAfter = true;
+                this.btnBefore = false;
                 this.headerText = true;
             },
             getPreviousData: function () {
@@ -142,6 +143,7 @@
     .bgheadbefore {
         width: 100%;
         border: dotted 1px #333;
+        cursor: pointer;
     }
 
     .tutorial-text:hover {
@@ -229,18 +231,21 @@
         cursor: pointer;
     }
 
+    .tutorial-text:hover .btnafter {
+        display:block;
+        position: absolute;
+        left: 50%;
+        margin-left: -60px !important;
+    }
+
     .btnafter {
         display:none;
         top: 45%;
     }
 
-    .tutorial-normal-text:hover .btnafter{
-        display:block;
-    }
-
 
     .btnbefore {
-        visibility: visible;
+        display:block;
     }
 
     @media only screen and (max-width: 450px) {
