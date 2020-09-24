@@ -15,6 +15,7 @@ use App\Models\Paragraphs\TextWithHighImage;
 use App\Models\Paragraphs\Video;
 use App\Models\Paragraphs\VideoWithText;
 use App\Models\Paragraphs\BackgroundVideo;
+use App\Models\Paragraphs\VideoSlider;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use App\Models\TutorialUserCompletion;
@@ -340,6 +341,10 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'VideoSlider':
+                VideoSlider::create([
+                    'paragraph_id' => $paragraphId,
+                    'slidervideos' => $paragraph['slidervideos'],
+                ]);
                 break;
             //Video Layouts
 
@@ -533,6 +538,10 @@ class TutorialsController extends Controller
                 }
                 break;
             case 'VideoSlider':
+                $component = VideoSlider::where('paragraph_id', $componentId)->first()->toArray();
+                if(isset($component['slidervideos'])){
+                    $component['slidervideos'] = htmlspecialchars($component['slidervideos'], ENT_QUOTES);
+                }
                 break;
             //Video Layouts
 
@@ -614,7 +623,11 @@ class TutorialsController extends Controller
                 $userCompanyTutorialsCompletedAmount++;
             }
         }
-        $userTutorialsProgress = round(($userCompanyTutorialsCompletedAmount / $userCompanyTutorialsAmount) * 100);
+        if ($userCompanyTutorialsAmount !== 0){
+            $userTutorialsProgress = round(($userCompanyTutorialsCompletedAmount / $userCompanyTutorialsAmount) * 100);
+        } else {
+            $userTutorialsProgress = 0;
+        }
 
         $userCompanyTutorialsNestedJSON = json_encode($userCompanyTutorialsNested);
         $userCompanyTutorialsSettings = $userCompany->tutorialsSettings;
