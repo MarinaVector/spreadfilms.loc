@@ -2,17 +2,17 @@
     <div class="container">
         <div class="row align-items-start tutorial-complex">
             <div class="col-lg-3 inner-trigger lg-head">
-                <div class="tutorial-text py-2 mt-5" v-html="NormalTextHeader">
+                <div class="py-2 mt-5 h2" v-html="NormalTextHeader">
 
                 </div>
             </div>
 
             <div class="col-lg-5 inner-trigger lg-head">
                 <div class="row ml-2 mt-5">
-                    <div class="col-lg-12 tutorial-text" v-html="NormalTextBody">
+                    <div class="col-lg-12 h6" v-html="NormalTextBody">
 
                     </div>
-                    <div class="col-lg-9  tutorial-text mt-2">
+                    <div class="col-lg-9 mt-2">
                         <div class="button-show set-button">
                             <div>
                                 <div v-for="(button, index) in Buttons">

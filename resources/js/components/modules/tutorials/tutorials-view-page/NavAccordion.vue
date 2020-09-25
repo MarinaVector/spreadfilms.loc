@@ -81,11 +81,13 @@
         right: 20px;
         border-radius: 0 4px 4px 0;
         border-left: none;
+        cursor: pointer;
     }
 
     .search-icon i {
         color: #fff;
         font-size: 1.3em;
+        cursor: pointer;
     }
 
     .search-input {
@@ -94,6 +96,7 @@
         padding: 7px 50px 7px 20px;
         display: block;
         width: 100%;
+        cursor: pointer;
     }
 
     div .logo-80px {
@@ -101,6 +104,7 @@
         width: 210px;
         height: auto;
         background-color: #424242;
+        cursor: pointer;
     }
 
 </style>

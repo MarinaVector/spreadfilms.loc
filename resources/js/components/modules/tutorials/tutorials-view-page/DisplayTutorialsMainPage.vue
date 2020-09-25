@@ -5,7 +5,7 @@
                 <p v-html="settingsObj.startscreen_title"></p>
             </div>
             <br>
-            <button class="teaser-button ml-3 px-3 py-1">
+            <button  v-bind:class=" {btnnocontent:btnNoContent, btnyescontent:btnYesContent} " class="teaser-button ml-3 px-3 py-1">
                 {{ settingsObj.startscreen_button_text }}
             </button>
         </div>
@@ -32,6 +32,16 @@
                     return item
                 });*/
             }
+
+            if (this.startscreen_button_text === '') {
+                this.btnNoContent = true;
+                this.btnYesContent = false;
+                }
+            else {
+                this.btnYesContent = true;
+                this.btnNoContent = false;
+            }
+
         },
         mounted() {
 
@@ -40,6 +50,8 @@
             return {
                 settingsObj: {},
                 paragraphs: [],
+                btnNoContent: true,
+                btnYesContent: false
             }
 
         },
@@ -63,5 +75,15 @@
     position: sticky;
     z-index: 5;
 }
+
+.btnnocontent {
+    visibility: hidden;
+    }
+
+.btnyescontent {
+    visibility: visible;
+}
+
+
 
 </style>
