@@ -207,7 +207,7 @@
     import Video from './paragraphs/Video'
     import VideoWithText from './paragraphs/VideoWithText'
     import TextImg from './paragraphs/TextImg'
-    import SliderAdd from './paragraphs/SliderAdd'
+    import VideoSlider from './paragraphs/VideoSlider'
     import BackgroundVideo from './paragraphs/BackgroundVideo'
     import Headline from './paragraphs/Headline'
     import CenterText from './paragraphs/CenterText'
@@ -231,7 +231,7 @@
             NormalText,
             Video,
             TextImg,
-            SliderAdd,
+            VideoSlider,
             draggable,
             BackgroundVideo,
             Headline,
@@ -523,24 +523,9 @@
                         },
                     },
                     VideoSlider: {
-                        banner: {
+                        slidervideos: {
                             searchBy: 'class',
-                            search: '.video_banner',
-                            tagName: 'input'
-                        },
-                        videoUrl: {
-                            searchBy: 'class',
-                            search: '.video_url',
-                            tagName: 'input'
-                        },
-                        dimension: {
-                            searchBy: 'class',
-                            search: '.video_dimension',
-                            tagName: 'input'
-                        },
-                        notices: {
-                            searchBy: 'class',
-                            search: '.video_notices',
+                            search: '.slider_videos',
                             tagName: 'input'
                         },
                     },
