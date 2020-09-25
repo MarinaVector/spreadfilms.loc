@@ -53,7 +53,7 @@
                 Index: null,
                 Text: null,
                 Link: null,
-                ButtonType: null,
+                ButtonType: 'coloured',
             };
         },
         methods: {
@@ -76,7 +76,7 @@
             clearData: function () {
                 this.Text = null;
                 this.Link = null;
-                this.ButtonType = null;
+                this.ButtonType = 'coloured';
             },
         },
         computed: {
