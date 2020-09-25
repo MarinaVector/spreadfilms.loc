@@ -20,7 +20,7 @@
 
             <div class="col-lg-3 inner-trigger header-txt lg-head">
                 <div class="tutorial-text py-2 mt-5" @click="showHeadlineModal()">
-                    <button  v-bind:class=" {btnheadbefore:btnHeadBefore, btnheadafter:btnHeadAfter} " class="text-button bgfont-btn py-2 px-5 my-2 mx-auto" type="button">
+                    <button  v-bind:class=" {btnheadbefore:btnHeadBefore, btnheadafter:btnHeadAfter} " class="text-button bgfont-btn py-1 px-5 my-2 mx-auto" type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1 mx-1">HeadLine</p>
@@ -31,11 +31,11 @@
 
             <div class="col-lg-5 inner-trigger lg-head">
                 <div class="row ml-2 mt-5">
-                    <div class="col-lg-12 tutorial-text content-txt position-relative" @click="showTextModal()">
-                        <button v-bind:class=" {btntxtbefore:btnTxtBefore, btntxtafter:btnTxtAfter} " class="text-button bgfont-btn  bgfonttxt-btn py-2 px-5 m-5 mx-auto" type="button">
+                    <div class="col-lg-12 tutorial-text content-txt position-relative mb-5" @click="showTextModal()">
+                        <button v-bind:class=" {btntxtbefore:btnTxtBefore, btntxtafter:btnTxtAfter} " class="text-button bgfont-btn  bgfonttxt-btn py-1 px-5 m-5 mx-auto" type="button">
                             <i class="fas fa-image blueiconcolor fa-2x">
                             </i>
-                            <p class="mb-1">Text</p>
+                            <p class="mb-2">Text</p>
                         </button>
                         <div class="text-justify" v-html="NormalTextBody"></div>
                     </div>
@@ -65,22 +65,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 mt-2">
-                <div class="row py-1">
-                    <div class="col-lg-3 offset-lg-7 mt-2 mb-5">
-                        <button type="button" class="btn-icon mb-5"
+            <div class="col-lg-2 mt-2 rightbtn-grid">
+
+                        <button type="button" class="btn-icon mb-5 pull-right"
                                 @click="callParentDeleteParagraphBlock()">
                             <i class="fa fa-trash-o pt-2"></i>
                         </button>
-                    </div>
-                    <div class="col-lg-3 offset-lg-7 pt-5 mt-5">
-                        <button type="button" class="btn-icon"
+
+
+                        <button type="button" class="btn-icon pull-right"
                                 @click="callParentDuplicateParagraphBlock()">
                             <i class="fa fa-files-o pt-2"></i>
                         </button>
-                    </div>
+
                 </div>
-            </div>
+
         </div>
         <HeadlineModal ref="headlinemodal" v-on:saveData="saveData" :header="NormalTextHeader"></HeadlineModal>
         <TextModal ref="textmodal" v-on:saveData="saveData" :body="NormalTextBody"></TextModal>
@@ -206,7 +205,7 @@
                 });
 
 
-                this.headerText = true;
+               // this.headerText = true;
 
 
             },
@@ -296,10 +295,15 @@
     }
 
     .btntxtafter {
-        position: absolute !important;
+        position: absolute;
         left: 50%;
-        top: -155%;
         margin-left: -85px !important;
+    }
+
+    .rightbtn-grid {
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-gap: initial;
     }
 
 
