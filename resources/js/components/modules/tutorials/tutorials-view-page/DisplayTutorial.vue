@@ -94,7 +94,7 @@ import CenterText from './paragraphs/CenterText'
 import TextWithBigFont from './paragraphs/TextWithBigFont'
 import Video from './paragraphs/Video'
 import TextImg from './paragraphs/TextImg'
-import SliderAdd from './paragraphs/SliderAdd'
+import VideoSlider from './paragraphs/VideoSlider'
 import BackgroundVideo from './paragraphs/BackgroundVideo'
 import VideoWithText from './paragraphs/VideoWithText'
 import Headline from './paragraphs/Headline'
@@ -118,7 +118,7 @@ export default {
         TextWithBigFont,
         Video,
         TextImg,
-        SliderAdd,
+        VideoSlider,
         draggable,
         BackgroundVideo,
         Headline,

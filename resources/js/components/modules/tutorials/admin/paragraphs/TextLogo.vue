@@ -20,7 +20,7 @@
             </div>
 
             <div class="col-lg-4 inner-trigger mr-n4">
-                <div class="tutorial-text py-2 mt-3" @click="showLogoModal()">
+                <div class="tutorial-text py-2 mt-3" @click="showLogoModal()" v-bind:style="{ backgroundImage: 'url(' + LogoPath + ')' }">
                     <button class="text-button py-1 px-5" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
@@ -33,6 +33,7 @@
                         </i>
                         <p class="mb-n1 mx-2">Text</p>
                     </button>
+                    <div class="final-text text-justify" v-html="SingleText"></div>
                 </div>
             </div>
 
@@ -45,7 +46,9 @@
                             <p class="mb-n1">Text</p>
                         </button>
                         <div class="">
-                            <div v-bind:class=" {headertext:headerText} " class="text-header h2 text-left position-relative pb-0 normal_text" v-html="NormalTextHeader">
+                            <div v-bind:class=" {headertext:headerText} "
+                                 class="text-header h2 text-left position-relative pb-0 normal_text"
+                                 v-html="NormalTextHeader">
                             </div>
 
                             <div class="final-text text-justify" v-html="NormalTextBody"></div>
@@ -111,6 +114,7 @@
                 this.Logo = '';
             } else {
                 this.Logo = JSON.parse(this.escapeHtml(this.Logo));
+                this.LogoPath = this.getImagePath(this.Logo.path);
             }
         },
         data() {
@@ -119,6 +123,7 @@
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 SingleText: this.mydata ? this.escapeHtml(this.$props.mydata.singletext) : '',
                 Logo: this.mydata ? this.escapeHtml(this.$props.mydata.logo) : '',
+                LogoPath: '',
                 LogoJSON: '',
                 normalBefore:true,
                 normalAfter: false,
@@ -151,7 +156,7 @@
                     this.$refs.logomodal.Path = this.Logo.path;
                 }
             },
-            saveData: function (header, body, singletext, logoobj) {
+            saveData: function (header = null, body = null, singletext = null, logoobj = null) {
                 if (header !== null){
                     this.NormalTextHeader = header;
                 }
@@ -167,6 +172,7 @@
                 if (logoobj !== null){
                     this.Logo = logoobj;
                     this.LogoJSON = JSON.stringify(logoobj);
+                    this.LogoPath = this.getImagePath(this.Logo.path);
                 }
 
                 this.$emit('saveParagraphData', {
@@ -175,12 +181,29 @@
                         header: this.NormalTextHeader,
                         text: this.NormalTextBody,
                         singletext: this.SingleText,
+                        logo: this.Logo,
                     }
                 });
 
                 this.bgHeadAfter = true;
                 this.btnAfter = true;
                 this.btnBefore =false;
+            },
+            getImagePath: function(path) {
+                let disk = path.split('/')[0];
+                let realPath = '';
+                switch (disk) {
+                    case 'company-public':
+                        realPath = this.$parent.$parent.publicpath + path.split('/')[1];
+                        break;
+                    case 'company-private':
+                        realPath = this.$parent.$parent.privatepath + path.split('/')[1];
+                        break;
+                    default:
+                        return;
+                }
+
+                return realPath;
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
