@@ -31,7 +31,7 @@
             </div>
 
             <div class="col-lg-12">
-                <button type="button" class="btn-icon pull-left" @click="callParentDuplicateParagraphBlock()">
+                <button type="button" class="btn-icon pull-right" @click="callParentDuplicateParagraphBlock()">
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>

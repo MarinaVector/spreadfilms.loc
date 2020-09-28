@@ -1,24 +1,25 @@
 <template>
-    <div class="container">
+    <div class="container video-grid">
         <input type="hidden" name="component_type" value="TextWithBigFont" class="component_type" />
         <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
         <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
         <input type="hidden" name="normal_text_buttons" v-model="ButtonsJSON" class="twbfbuttons">
-        <div class="row align-items-start tutorial-complex">
-            <div class="col-lg-2 mt-2">
-                <div class="row">
-                    <div class="col-lg-1 mt-2 ml-3">
-                        <button type="button" class="btn-icon ml-n2 draggable"
-                                @click="callParentDeleteParagraphBlock()">
-                            <i class="fa fa-arrows-v pt-2"></i>
-                        </button>
-                    </div>
-                    <div class="col-lg-1 offset-lg-10">
-                    </div>
-                </div>
+        <div class="row align-items-start tutorial-complex py-3">
+
+            <div class="col-12">
+                <button type="button" class="btn-icon draggable pull-left">
+                    <i class="fa fa-arrows-v pt-2"></i>
+                </button>
+
+                <button type="button" class="btn-icon pull-right" @click="callParentDeleteParagraphBlock()">
+                    <i class="fa fa-trash-o pt-2"></i>
+                </button>
             </div>
 
-            <div class="col-lg-3 inner-trigger header-txt lg-head">
+
+            <div class="col-10 offset-1">
+                <div class="row">
+            <div class="col-lg-5 inner-trigger header-txt lg-head">
                 <div class="tutorial-text py-2 mt-5" @click="showHeadlineModal()">
                     <button  v-bind:class=" {btnheadbefore:btnHeadBefore, btnheadafter:btnHeadAfter} " class="text-button bgfont-btn py-1 px-5 my-2 mx-auto" type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
@@ -29,13 +30,13 @@
                 </div>
             </div>
 
-            <div class="col-lg-5 inner-trigger lg-head">
-                <div class="row ml-2 mt-5">
-                    <div class="col-lg-12 tutorial-text content-txt position-relative mb-5" @click="showTextModal()">
-                        <button v-bind:class=" {btntxtbefore:btnTxtBefore, btntxtafter:btnTxtAfter} " class="text-button bgfont-btn  bgfonttxt-btn py-1 px-5 m-5 mx-auto" type="button">
+            <div class="col-lg-7 inner-trigger lg-head">
+                <div class="row ml-1">
+                    <div class="col-lg-12 tutorial-text content-txt position-relative" @click="showTextModal()">
+                        <button v-bind:class=" {btntxtbefore:btnTxtBefore, btntxtafter:btnTxtAfter} " class="text-button bgfont-btn  bgfonttxt-btn py-1 px-5 mx-auto m-3" type="button">
                             <i class="fas fa-image blueiconcolor fa-2x">
                             </i>
-                            <p class="mb-2">Text</p>
+                            <p class="my-n1">Text</p>
                         </button>
                         <div class="text-justify" v-html="NormalTextBody"></div>
                     </div>
@@ -65,20 +66,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 mt-2 rightbtn-grid">
-
-                        <button type="button" class="btn-icon mb-5 pull-right"
-                                @click="callParentDeleteParagraphBlock()">
-                            <i class="fa fa-trash-o pt-2"></i>
-                        </button>
-
-
-                        <button type="button" class="btn-icon pull-right"
-                                @click="callParentDuplicateParagraphBlock()">
-                            <i class="fa fa-files-o pt-2"></i>
-                        </button>
-
                 </div>
+            </div>
+
+
+            <div class="col-lg-12">
+                <button type="button" class="btn-icon pull-right" @click="callParentDuplicateParagraphBlock()">
+                    <i class="fa fa-files-o pt-2"></i>
+                </button>
+            </div>
 
         </div>
         <HeadlineModal ref="headlinemodal" v-on:saveData="saveData" :header="NormalTextHeader"></HeadlineModal>
@@ -297,6 +293,7 @@
     .btntxtafter {
         position: absolute;
         left: 50%;
+        top: -30px;
         margin-left: -85px !important;
     }
 
