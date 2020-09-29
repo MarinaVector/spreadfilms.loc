@@ -219,7 +219,7 @@
 
 </script>
 
-<style scoped>
+<style>
 
     .tutorial-complex {
         background-color: #f9f9f9;
@@ -271,26 +271,33 @@
         }
     }
 
-    .header-txt:hover .btnheadafter {
+    .header-txt:hover .btnheadafter,
+    .header-txt:hover .btnsingleafter {
         display: block;
     }
 
-    .content-txt:hover .btntxtafter {
+    .content-txt:hover .btntxtafter,
+    .content-txt:hover .btnsingleafter {
         display: block;
     }
 
 
-    .btnheadbefore,
-    .btntxtbefore  {
+   button .btnheadbefore,
+   button .btntxtbefore,
+   button .btnsinglebefore,
+   button .btnlogobefore {
         display: block;
     }
 
-    .btnheadafter,
-    .btntxtafter  {
+    button.btnheadafter,
+    button.btntxtafter,
+    button.btnsingleafter,
+    button .btnlogoafter {
         display: none;
     }
 
-    .btntxtafter {
+   button .btntxtafter,
+   button .btnlogoafter {
         position: absolute;
         left: 50%;
         top: -30px;

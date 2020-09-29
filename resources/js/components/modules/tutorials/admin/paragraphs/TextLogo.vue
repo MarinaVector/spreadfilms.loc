@@ -18,33 +18,33 @@
 
             <div class="col-10 offset-1">
                 <div class="row">
-            <div class="col-lg-5 inner-trigger mr-n4">
+            <div class="col-lg-5 content-txt inner-trigger mr-n4">
                 <div class="tutorial-text py-2 mt-3" @click="showLogoModal()" v-bind:style="{ backgroundImage: 'url(' + LogoPath + ')' }">
-                    <button class="text-button py-1 px-5" type="button">
+                    <button class="text-button py-1 px-5" :class=" {btnlogobefore:btnLogoBefore, btnlogoafter:btnLogoAfter} " type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1 mx-1">Image</p>
                     </button>
                 </div>
-                <div class="tutorial-text py-1 mt-3" @click="showTextModal()">
-                    <button class="text-button py-1 px-5" type="button">
+                <div class="tutorial-text content-txt py-1 mt-3 position-relative" @click="showTextModal()">
+                    <button class="text-button btn-single py-1 px-5" :class=" {btnsinglebefore:btnSingleBefore, btnsingleafter:btnSingleAfter} " type="button">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1 mx-2">Text</p>
                     </button>
-                    <div class="final-text text-justify" v-html="SingleText"></div>
+                    <div :class=" {singletxt:singleTxt} " class="final-text text-justify m-3" v-html="SingleText"></div>
                 </div>
             </div>
 
             <div class="col-lg-7 inner-trigger mr-n4">
                 <div class="row ml-2">
-                    <div class="tutorial-text py-5 pt-3" @click="showNormalTextModal()">
-                        <button class="text-button mx-auto py-1 px-5" v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " type="button">
+                    <div class="tutorial-text content-txt py-5 pt-3 position-relative" @click="showNormalTextModal()">
+                        <button class="text-button btn-single mx-auto py-1 px-5" v-bind:class=" {btntxtbefore:btnTxtBefore, btntxtafter:btnTxtAfter} " type="button">
                             <i class="fas fa-image blueiconcolor fa-2x">
                             </i>
                             <p class="mb-n1">Text</p>
                         </button>
-                        <div class="">
+                        <div class="ml-3">
                             <div v-bind:class=" {headertext:headerText} "
                                  class="text-header h2 text-left position-relative pb-0 normal_text"
                                  v-html="NormalTextHeader">
@@ -96,16 +96,25 @@
         created() {
             if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
                 this.normalAfter = true;
-                this.btnAfter = true;
+                this.btnTxtAfter = true;
+                this.btnTxtBefore = false;
                 this.headerText = true;
+            }
+
+            if(this.SingleText !== "" ){
+                this.singleTxt = true;
+                this.btnSingleAfter = true;
+                this.btnSingleBefore =false;
             }
         },
         mounted() {
             if(this.Logo === ''){
                 this.Logo = '';
+
             } else {
                 this.Logo = JSON.parse(this.escapeHtml(this.Logo));
                 this.LogoPath = this.getImagePath(this.Logo.path);
+                this.BtnLogoAfter = true;
             }
         },
         data() {
@@ -118,9 +127,14 @@
                 LogoJSON: '',
                 normalBefore:true,
                 normalAfter: false,
-                btnBefore: true,
-                btnAfter: false,
+                btnTxtBefore: true,
+                btnTxtAfter: false,
+                btnSingleBefore:true,
+                btnSingleAfter:false,
                 headerText: false,
+                singleTxt: false,
+                btnLogoBefore: true,
+                btnLogoAfter: false,
             };
         },
         methods: {
@@ -158,6 +172,7 @@
 
                 if (singletext !== null){
                     this.SingleText = singletext;
+                    this.btnSingleAfter = true;
                 }
 
                 if (logoobj !== null){
@@ -176,9 +191,13 @@
                     }
                 });
 
-                this.bgHeadAfter = true;
-                this.btnAfter = true;
-                this.btnBefore =false;
+               this.bgHeadAfter = true;
+               this.btnTxtAfter = true;
+               this.btnTxtBefore = false;
+               this.headerText = true;
+               this.singleTxt = true;
+                this.btnLogoAfter = true;
+
             },
             getImagePath: function(path) {
                 let disk = path.split('/')[0];
@@ -206,7 +225,7 @@
     };
 </script>
 
-<style scoped>
+<style>
 
     .tutorial-complex {
         background-color: #f9f9f9;
@@ -215,4 +234,16 @@
     .tutorial-complex:hover .btn-icon {
         opacity: 1 !important;
     }
+
+    .singletxt {
+       color: white;
+        background: linear-gradient(40deg, #2096ff, #05ffa3);
+    }
+
+    .btn-single {
+        position: absolute;
+        left: 50%;
+        margin-left: -68px !important;
+    }
+
 </style>
