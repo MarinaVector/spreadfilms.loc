@@ -33,10 +33,6 @@ import VueYoutube from 'vue-youtube'
 
 Vue.use(VueYoutube)
 
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/swiper-bundle.css'
-Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
-
 import VueTimepicker from 'vue2-timepicker';
 
 import {store} from './store/store'
