@@ -30,8 +30,10 @@
                             <p class="mb-n1">Image and heading</p>
                         </button>
                     </div>
-                    <div class="col-12 tutorial-text text-center py-2" @click="showNormalTextModal()">
-                        <button class="text-button ml-4 py-2 px-5 mt-2" type="button">
+                    <div class="col-12 tutorial-text content-txt text-center py-5 position-relative" @click="showNormalTextModal()">
+                        <button class="text-button spec-btn btnsptxt ml-4 py-2 px-5"
+                                :class=" {btnsptxtbefore:btnSpTxtBefore, btnsptxtafter:btnSpTxtAfter} "
+                                type="button">
                             <i class="fas fa-bars blueiconcolor fa-2x">
                             </i>
                             <p class="mb-n1 mx-1">Text</p>
@@ -41,7 +43,7 @@
                                  class="text-header h2 text-left position-relative pb-0 normal_text"
                                  v-html="NormalTextHeader">
                             </div>
-                            <div class="final-text text-justify" v-html="NormalTextBody"></div>
+                            <div class="final-text text-justify headertext" v-html="NormalTextBody"></div>
                         </div>
                     </div>
                 </div>
@@ -91,6 +93,8 @@
                 this.normalAfter = true;
                 this.btnAfter = true;
                 this.headerText = true;
+                this.btnSpTxtBefore = false;
+                this.btnSpTxtAfter = true;
             }
         },
         mounted() {
@@ -108,6 +112,8 @@
                 btnBefore: true,
                 btnAfter: false,
                 headerText: false,
+                btnSpTxtBefore:true,
+                btnSpTxtAfter: false
             };
         },
         methods: {
@@ -155,6 +161,9 @@
                 this.bgHeadAfter = true;
                 this.btnAfter = true;
                 this.btnBefore =false;
+
+                this.btnSpTxtBefore = false;
+                this.btnSpTxtAfter = true;
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
@@ -166,7 +175,7 @@
     };
 </script>
 
-<style scoped>
+<style>
 
     .tutorial-complex {
         background-color: #f9f9f9;
@@ -181,5 +190,23 @@
         grid-gap: initial;
     }
 
+    .spec-btn {
+        top:50%;
+        margin-top: -30px;
+    }
+
+    .btnsptxt {
+        position: absolute;
+        left: 50%;
+        margin-left: -70px !important;
+    }
+
+    .btnsptxtbefore {
+        display: block;
+    }
+
+     .btnsptxtafter {
+        display: none;
+    }
 
 </style>

@@ -19,9 +19,9 @@
             </div>
 
             <div class="trigger-headline col-lg-4 mt-5">
-                <div class="tutorial-text h-block mt-5" @click="showHeaderModal()">
-                    <button class="px-3 h-button" type="button"
-                            v-bind:class=" {btnheadbefore:btnheadbefore, btnheadafter:btnheadafter} ">
+                <div class="tutorial-text h-block mt-5 py-3 content-txt position-relative" @click="showHeaderModal()">
+                    <button class="px-3 text-button  btnhitxt position-absolute" type="button"
+                            :class=" {btnhiheadbefore:BtnHiHeadBefore, btnhiheadafter:BtnHiHeadAfter} ">
                         <i class="fa fa-heading blueiconcolor fa-7x">
                         </i>
                         <p class="mb-n1 mt-n3 mx-1">Headline</p>
@@ -41,14 +41,14 @@
                         </button>
                     </div>
 
-                    <div class="col-lg-12 tutorial-text" @click="showTextModal()">
-                        <button class="text-button py-2 px-5 my-2" type="button"
-                                v-bind:class=" {btnheadbefore:btnbodybefore, btnheadafter:btnbodyafter} ">
+                    <div class="col-lg-12 py-5 tutorial-text content-txt position-relative" @click="showTextModal()">
+                        <button class="text-button btnhitxt btnhip position-absolute py-2 px-5 my-2" type="button"
+                               :class=" {btnhitxtbefore:BtnHiTxtBefore, btnhitxtafter:BtnHiTxtAfter} ">
                             <i class="fas fa-bars blueiconcolor fa-2x">
                             </i>
                             <p class="mb-n1 mx-1">Text</p>
                         </button>
-                        <div class="h2 m-0 ml-5 position-relative" v-html="NormalTextBody"></div>
+                        <div class="m-0 ml-5 position-relative" v-html="NormalTextBody"></div>
                     </div>
 
                 </div>
@@ -99,6 +99,15 @@
             },
         },
         created() {
+            if( this.NormalTextBody !== ""){
+                this.BtnHiTxtAfter = true;
+                this.BtnHiTxtBefore = false;
+            }
+
+                if(this.NormalTextHeader !== "" ){
+                    this.BtnHiHeadAfter = true;
+                    this.BtnHiHeadBefore = false;
+                }
 
         },
         mounted() {
@@ -123,6 +132,11 @@
                 btnbodyafter: false,
 
                 BtnImageAfter: false,
+                BtnHiHeadBefore:true,
+                BtnHiTxtBefore:true,
+                BtnHiHeadAfter:false,
+                BtnHiTxtAfter:false,
+
             };
         },
         methods: {
@@ -168,6 +182,12 @@
                         image: this.Image,
                     }
                 });
+
+
+                this.BtnHiHeadBefore=false;
+                this.BtnHiTxtBefore=false;
+                this.BtnHiHeadAfter=true;
+                this.BtnHiTxtAfter=true;
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
@@ -259,6 +279,32 @@
 
     .tutorial-complex:hover .btn-icon {
         opacity: 1 !important;
+    }
+
+    .btnhiheadbefore,
+    .btnhitxtbefore {
+        display: block;
+    }
+
+    .btnhiheadafter,
+    .btnhitxtafter {
+        display: none;
+    }
+
+    .content-txt:hover .btnhiheadafter,
+    .content-txt:hover .btnhitxtafter  {
+        display: block;
+    }
+
+    .btnhitxt {
+        left: 50%;
+        margin-left: -60px !important;
+        top: 50%;
+        margin-top: -20px;
+    }
+
+    .btnhip {
+        margin-top: -30px !important;
     }
 
 </style>

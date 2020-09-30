@@ -277,7 +277,8 @@
     }
 
     .content-txt:hover .btntxtafter,
-    .content-txt:hover .btnsingleafter {
+    .content-txt:hover .btnsingleafter,
+    .content-txt:hover .btnsptxtafter {
         display: block;
     }
 

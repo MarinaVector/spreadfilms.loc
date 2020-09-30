@@ -4,30 +4,44 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content py-5">
                 <div class="modal-body">
-                    <div>
-                        <label>First Image</label>
-                        <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
-                                :data-inputid="dataInputID"
-                                class="py-2 mb-md-0 px-md-5 btn-right"
+
+                    <label><u class="input-title"><i class="fas fa-image"></i>
+                        First Image
+                    </u>
+                    </label>
+
+                    <div class="elfinder-container">
+                        <input id="neu-0-image-1" data-type="bild" data-value="image"
+                               type="hidden" class="elfinder-idea">
+                        <button  :data-inputid="dataInputID"
                                 @click="showFirstImageModal()"
-                                type="button">
-                            <i class="fas fa-image blueiconcolor fa-2x pt-1"></i>
-                        </button>
+                                type="button"
+                                class="popup_selector btn btn-default">
+                            First Image
+                         </button>
                     </div>
 
-                    <div>
-                        <label>Second Image</label>
-                        <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
-                                :data-inputid="dataSecondInputID"
-                                class="py-2 mb-md-0 px-md-5 btn-right"
-                                @click="showSecondImageModal()"
-                                type="button">
-                            <i class="fas fa-image blueiconcolor fa-2x pt-1"></i>
+                    <label><u class="input-title"><i class="fas fa-image"></i>
+                        Second Image
+                    </u>
+                    </label>
+
+                    <div class="elfinder-container mt-2">
+                        <input data-type="bild" data-value="image"
+                               type="hidden" class="elfinder-idea">
+                        <button  :data-inputid="dataSecondInputID"
+                                 @click="showSecondImageModal()"
+                                 type="button"
+                                 class="popup_selector btn btn-default">
+                            Second Image
                         </button>
                     </div>
 
                     <div class="modal-header">
-                        <label class="input-title"><i class="fas fa-align-left mr-2"></i>Header</label>
+                        <label><u class="input-title"><i class="fas fa-align-left mr-2"></i>
+                            Header
+                        </u>
+                        </label>
                     </div>
 
                     <div class="modal-body">

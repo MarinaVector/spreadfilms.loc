@@ -1,5 +1,5 @@
 <template>
-    <div class="container tutorial-video video-grid" v-bind:style="{ backgroundImage: 'url(' + Banner + ')' }">
+    <div class="container tutorial-video video-grid content-txt" v-bind:style="{ backgroundImage: 'url(' + Banner + ')' }">
         <input type="hidden" name="component_type" value="Video" class="component_type" ref="component_type" />
         <input type="hidden" name="video_url" v-model="VideoUrl" class="video_url"/>
         <input type="hidden" name="video_banner" v-model="Banner" class="video_banner"/>
@@ -17,8 +17,9 @@
             </div>
 
             <div class="col-12 my-5 my-md-5">
-                <div class="text-center my-md-5">
-                    <button @click=showTextModal() class="text-button py-3 px-5 mt-2 my-5" type="button">
+                <div class="text-center video-center my-md-5 position-relative">
+                    <button @click=showTextModal() class="text-button position-absolute btn-video py-3 px-5 mt-2 my-5"
+                            :class=" {btnvideobefore:BtnVideoBefore, btnvideoafter:BtnVideoAfter} "type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
                         <p class="mt-n1 mb-n1">Video</p>
@@ -72,7 +73,8 @@
             if(!Array.isArray(this.Notices)){
                 if(this.Notices === undefined || this.Notices === ""){
                     this.Notices = [];
-                } else {
+                }
+                else {
                     this.Notices = JSON.parse(this.escapeHtml(this.Notices));
                 }
             }
@@ -80,6 +82,9 @@
         mounted() {
             if(this.Banner === undefined){
                 this.Banner = '';
+            }
+            else {
+                this.BtnVideoAfter = true;
             }
         },
         data() {
@@ -89,6 +94,8 @@
                 Dimension: this.mydata ? this.$props.mydata.dimension : '16:9',
                 Notices: this.mydata ? this.$props.mydata.notices : [],
                 MyNotices: null,
+                BtnVideoBefore: true,
+                BtnVideoAfter: false
             };
         },
         methods: {
@@ -111,6 +118,7 @@
                 this.btnAfterSrc = true;
                 this.textAfter = true;
                 this.btnAfterImg = true;
+                this.BtnVideoAfter = true;
 
                 this.MyNotices = JSON.stringify(this.Notices)
                 this.$emit('saveParagraphData', {
@@ -199,5 +207,27 @@
         grid-gap: initial;
     }
 
+    .btnvideobefore {
+        display: block;
+    }
+
+    .btnvideoafter {
+        display: none;
+    }
+
+    .content-txt:hover .btnvideoafter  {
+        display: block;
+    }
+
+    .btn-video {
+        left: 50%;
+        margin-left: -60px !important;
+        top: 50%;
+        margin-top: -50px !important;
+    }
+
+    .video-center {
+        min-height: 350px;
+    }
 
 </style>

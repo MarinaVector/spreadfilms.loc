@@ -243,6 +243,8 @@
     .btn-single {
         position: absolute;
         left: 50%;
+        top: 50%;
+        margin-top: -30px;
         margin-left: -68px !important;
     }
 
