@@ -20,17 +20,20 @@
 
             <div class="trigger-headline col-lg-4 mt-5">
                 <div class="tutorial-text h-block mt-5" @click="showHeaderModal()">
-                    <button class="px-3 h-button" type="button">
+                    <button class="px-3 h-button" type="button"
+                            v-bind:class=" {btnheadbefore:btnheadbefore, btnheadafter:btnheadafter} ">
                         <i class="fa fa-heading blueiconcolor fa-7x">
                         </i>
                         <p class="mb-n1 mt-n3 mx-1">Headline</p>
                     </button>
+                    <div class="h2 m-0 ml-5 position-relative" v-html="NormalTextHeader"></div>
                 </div>
             </div>
 
             <div class="col-lg-6 down-trigger">
                 <div class="row ml-2">
-                    <div class="col-lg-12 tutorial-text py-5 pt-3" @click="showImageModal()">
+                    <div class="col-lg-12 tutorial-text py-5 pt-3" @click="showImageModal()"
+                         v-bind:style="{ backgroundImage: 'url(' + ImagePath + ')' }">
                         <button class="text-button py-2 my-5 px-5 pb-3" type="button">
                             <i class="fas fa-image blueiconcolor fa-2x">
                             </i>
@@ -39,11 +42,13 @@
                     </div>
 
                     <div class="col-lg-12 tutorial-text" @click="showTextModal()">
-                        <button class="text-button py-2 px-5 my-2" type="button">
+                        <button class="text-button py-2 px-5 my-2" type="button"
+                                v-bind:class=" {btnheadbefore:btnbodybefore, btnheadafter:btnbodyafter} ">
                             <i class="fas fa-bars blueiconcolor fa-2x">
                             </i>
                             <p class="mb-n1 mx-1">Text</p>
                         </button>
+                        <div class="h2 m-0 ml-5 position-relative" v-html="NormalTextBody"></div>
                     </div>
 
                 </div>
@@ -97,18 +102,27 @@
 
         },
         mounted() {
-
+            if(this.Image === '' || this.Image === null || this.Image === undefined){
+                this.Image = '';
+            } else {
+                this.Image = this.escapeHtml(this.Image);
+                this.ImagePath = this.getImagePath(this.Image);
+                this.BtnImageAfter = true;
+            }
         },
         data() {
             return {
                 NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
                 NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
                 Image: this.mydata ? this.$props.mydata.image : '',
-                normalBefore:true,
-                normalAfter: false,
-                btnBefore: true,
-                btnAfter: false,
-                headerText: false,
+                ImagePath: '',
+                btnheadbefore: true,
+                btnheadafter: false,
+
+                btnbodybefore: true,
+                btnbodyafter: false,
+
+                BtnImageAfter: false,
             };
         },
         methods: {
@@ -141,7 +155,10 @@
 
                 if (image !== null){
                     this.Image = image;
+                    this.ImagePath = this.getImagePath(this.Image);
                 }
+
+                this.updateStyles();
 
                 this.$emit('saveParagraphData', {
                     index: this.index,
@@ -151,13 +168,42 @@
                         image: this.Image,
                     }
                 });
-
-                this.bgHeadAfter = true;
-                this.btnAfter = true;
-                this.btnBefore =false;
             },
             escapeHtml: function (value) {
                 return $('<div/>').html(value).text();
+            },
+            updateStyles: function () {
+                if (this.NormalTextHeader !== null && this.NormalTextHeader !== ''){
+                    this.btnheadbefore = false;
+                    this.btnheadafter = true;
+                } else {
+                    this.btnheadbefore = true;
+                    this.btnheadafter = false;
+                }
+
+                if (this.NormalTextBody !== null && this.NormalTextBody !== ''){
+                    this.btnbodybefore = false;
+                    this.btnbodyafter = true;
+                } else {
+                    this.btnbodybefore = true;
+                    this.btnbodyafter = false;
+                }
+            },
+            getImagePath: function(path) {
+                let disk = path.split('/')[0];
+                let realPath = '';
+                switch (disk) {
+                    case 'company-public':
+                        realPath = this.$parent.$parent.publicpath + path.split('/')[1];
+                        break;
+                    case 'company-private':
+                        realPath = this.$parent.$parent.privatepath + path.split('/')[1];
+                        break;
+                    default:
+                        return;
+                }
+
+                return realPath;
             },
         },
         computed: {

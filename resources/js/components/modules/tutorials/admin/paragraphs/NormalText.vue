@@ -1,6 +1,9 @@
 <template>
-    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} " class="container video-grid tutorial-text py-2" id="tutorial-text">
+    <div v-bind:class=" {normalbefore:normalBefore, normalafter:normalAfter} "
+         class="container video-grid tutorial-text py-2" id="tutorial-text">
         <input type="hidden" name="component_type" value="NormalText" class="component_type" ref="component_type" />
+        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+        <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
         <div class="row">
             <div class="col-12">
                 <button type="button" class="btn-icon draggable pull-left">
@@ -25,8 +28,6 @@
                         </div>
 
                         <div class="final-text text-justify" v-html="NormalTextBody"></div>
-                        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
-                        <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
                     </div>
                 </div>
             </div>
@@ -37,7 +38,8 @@
                 </button>
             </div>
 
-            <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData" :header="NormalTextHeader" :body="NormalTextBody">
+            <NormalTextModal ref="modal" v-on:saveData="saveData" v-on:getPreviousData="getPreviousData"
+                             :header="NormalTextHeader" :body="NormalTextBody">
             </NormalTextModal>
 
         </div>
