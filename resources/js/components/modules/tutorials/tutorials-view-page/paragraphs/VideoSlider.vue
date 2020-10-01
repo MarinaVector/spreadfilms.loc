@@ -2,9 +2,10 @@
     <div class="" style="width: 1000px; height: 500px; border: 1px solid red;">
         <swiper class="swiper" :options="swiperOption">
             <swiper-slide v-for="(video, index) in Videos" :key="index">
-                <VideoSlide :videoId="video.videoId" :notices="video.Notices">
-
-                </VideoSlide>
+                <youtube :video-id="video.videoId" ref="youtube" @playing="playing(index)"></youtube>
+                <div class="myTooltip" ref="videoNotification" v-html="NoticeText" @click="playVideo(index)">
+                    <i class="far fa-play-circle"></i>
+                </div>
             </swiper-slide>
             <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
         </swiper>
@@ -88,9 +89,47 @@
             getVideoSrc(url, videoId){
                 return "https://www.youtube.com/embed/" + videoId;
             },
+            playVideo(index) {
+                this.$refs.youtube[index].player.playVideo()
+            },
+            playing(videoPlayerIndex) {
+                this.$refs.videoNotification[videoPlayerIndex].style.display = 'none';
+                const refPlayer = this.$refs.youtube[videoPlayerIndex].player
+                let app = this;
+
+                let myClock = setInterval(() => {
+                    refPlayer.getCurrentTime().then((time) => {
+                        let playerSeconds = Math.round(time); // seconds in x format
+                        let date = new Date(0);
+                        date.setSeconds(playerSeconds);
+                        let HhMmSs = date.toISOString().substr(11, 8); // time in hh:mm:ss format
+                        let MmSs = HhMmSs.substr(3, HhMmSs.length); // time in mm:ss format
+
+                        this.Videos[videoPlayerIndex].Notices.find(function(notice, index) {
+                            if(notice.noticeTime === MmSs){
+                                refPlayer.pauseVideo();
+                                clearInterval(myClock);
+                                app.showVideoNotice(videoPlayerIndex, notice.noticeText);
+                            }
+                        });
+                    });
+                }, 1000);
+            },
+            pause () {
+                this.player.pauseVideo();
+            },
+            showVideoNotice(index, text){
+                console.log(index);
+                console.log(text);
+                console.log(this.$refs);
+                this.$refs.videoNotification[index].style.display = 'block';
+                this.NoticeText = text;
+            },
         },
         computed: {
-
+            player() {
+                return this.$refs.youtube.player
+            },
         },
     };
 </script>
