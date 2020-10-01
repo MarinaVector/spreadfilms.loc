@@ -1,5 +1,5 @@
 <template>
-    <div class="container tutorial-video video-grid content-txt" >
+    <div class="container tutorial-video switch-grid content-txt" >
 
         <div class="row my-2">
             <div class="col-12">
