@@ -1,5 +1,6 @@
 <template>
-    <div class="" style="width: 1000px; height: 500px; border: 1px solid red;">
+    <div class="col-12">
+    <div class="video-slider">
         <swiper class="swiper" :options="swiperOption">
             <swiper-slide v-for="(video, index) in Videos" :key="index">
                 <youtube :video-id="video.videoId" ref="youtube" @playing="playing(index)"></youtube>
@@ -9,6 +10,7 @@
             </swiper-slide>
             <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
         </swiper>
+    </div>
     </div>
 </template>
 
@@ -135,12 +137,13 @@
 </script>
 
 <style lang="scss" scoped>
-  $text-color: black;
+
+  $text-color: white;
   $transition-time-normal: 3s;
   $white: 'white';
 
   .swiper {
-    .swiper-pagination-bullet-custom {
+      .swiper-pagination-bullet-custom {
       $size: 20px;
       width: $size !important;
       height: $size !important;
@@ -161,5 +164,35 @@
         background: #007aff;
       }
     }
+      .swiper-pagination-bullet {
+          width: 16px !important;
+          height: 16px !important;
+      }
   }
+
+  .video-slider {
+      width: 60vw;
+      height: calc(60vw * 9 / 16);
+
+      /* align center */
+      margin: auto;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+  }
+
+  @media (min-width: 177.778vh) {
+      .video-slider1 {
+          height: 100vh;
+          width: calc(100vh * 16 / 9);
+
+      }
+  }
+
+  .swiper-container {
+      padding-bottom: 36px !important;
+  }
+
+
 </style>

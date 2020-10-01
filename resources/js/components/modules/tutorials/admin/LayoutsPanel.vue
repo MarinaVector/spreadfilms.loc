@@ -126,7 +126,7 @@
             <!-- Image Layouts Bar -->
             <div class="mb-2 ml-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
-                        data-placement="bottom" title="Image" @click="callParentAddParagraphBlock('Image')">
+                        data-placement="bottom" title="Image" @click="callParentAddParagraphBlock('SimpleImage')">
                     <i class="fa fa-picture-o fa-3x pt-2"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"

@@ -217,6 +217,10 @@
     import TextWithBigFont from './paragraphs/TextWithBigFont'
     import TextLogo from './paragraphs/TextLogo'
     import TextWithHighImage from './paragraphs/TextWithHighImage'
+    import SimpleImage from './paragraphs/SimpleImage'
+    import ImageSlider from './paragraphs/ImageSlider'
+    import ImageSwitch from './paragraphs/ImageSwitch'
+    import Icons from './paragraphs/Icons'
     import Contact from './paragraphs/Contact'
     import QuestionsAnswers from './paragraphs/QuestionsAnswers'
     import cloneDepp from 'lodash/cloneDeep'
@@ -240,6 +244,10 @@
             TextWithBigFont,
             TextLogo,
             TextWithHighImage,
+            SimpleImage,
+            ImageSlider,
+            ImageSwitch,
+            Icons,
             Contact,
             QuestionsAnswers,
             Faqs,
@@ -532,7 +540,7 @@
                     //Video Layouts
 
                     //Image Layouts
-                    Image: {
+                    SimpleImage: {
                         src: {
                             searchBy: 'class',
                             search: '.image_src',
@@ -684,15 +692,15 @@
                     //Video Layouts
 
                     //Image Layouts
-                    case 'Image':
-                        Component = cloneDepp(Image);
+                    case 'SimpleImage':
+                        Component = cloneDepp(SimpleImage);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
                         this.paragraphs.push({component: Component});
                         break;
-                    case 'SliderAdd':
-                        Component = cloneDepp(SliderAdd);
+                    case 'ImageSlider':
+                        Component = cloneDepp(ImageSlider);
                         if(null !== paragraphData){
                             Component.mydata = paragraphData;
                         }
