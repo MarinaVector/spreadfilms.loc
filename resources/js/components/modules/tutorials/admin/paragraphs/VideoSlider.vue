@@ -15,9 +15,9 @@
             </div>
         </div>
         <div class="row mb-5 my-5">
-            <div class="col-lg-9  tutorial-text mt-2">
+            <div class="col-lg-12 mt-2">
                 <div class="button-show set-button">
-                    <div>
+                    <div class="text-center">
                         <div v-for="(Video, index) in Videos">
                             <button class="py-2 px-5 text-button bgfont-btn added-btn"
                                     type="button" @click="showAddVideoModal(index)">
