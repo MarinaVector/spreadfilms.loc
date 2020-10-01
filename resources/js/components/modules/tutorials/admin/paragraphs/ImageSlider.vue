@@ -30,7 +30,7 @@
                                 <button class="py-2 px-5 text-button bgfont-btn" type="button" @click="showAddImageSimpleModal()">
                                     <i class="fas fa-bars blueiconcolor fa-2x">
                                     </i>
-                                    <div class="mb-n1">Add Image</div>
+                                    <div class="mb-n1">Add Slide</div>
                                 </button>
                             </div>
                         </div>
