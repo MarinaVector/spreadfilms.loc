@@ -34,7 +34,7 @@
             <div class="col-lg-4 inner-trigger mt-n1 ml-n1 my-5">
                 <div class="row ml-2 mt-5">
                     <div class="col-lg-12 tutorial-text shadow-right py-5 pt-3" @click="showTextModal()">
-                        <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button py-2 my-5 px-5 pb-3" type="button">
+                        <button v-bind:class=" {btnbefore:btnBefore, btnafter:btnAfter} " class="text-button mx-auto py-2 my-5 px-5 pb-3" type="button">
                             <i class="fas fa-bars blueiconcolor fa-2x">
                             </i>
                             <p class="mb-n1">Text</p>

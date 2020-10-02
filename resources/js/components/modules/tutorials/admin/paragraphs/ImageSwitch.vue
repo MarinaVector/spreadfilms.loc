@@ -93,14 +93,10 @@ export default {
     grid-template-columns: 1fr 3fr 1fr;
 }
 
-. switchbtn-grid {
+.switchbtn-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-    "."
-    ".";
+    grid-template-rows: 6fr 1fr;
+    gap: unset;
 }
 
 </style>

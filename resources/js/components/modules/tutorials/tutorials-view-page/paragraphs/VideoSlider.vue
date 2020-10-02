@@ -136,15 +136,27 @@
     };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
-  $text-color: white;
+  $text-color: gray;
   $transition-time-normal: 3s;
   $white: 'white';
 
+  .swiper-pagination-bullet {
+      width: 20px !important;
+      height: 20px !important;
+      display: inline-block;
+      border-radius: 100%;
+      line-height: 16px !important;
+      text-align: center;
+      color: white;
+      opacity: 0.7;
+      background: gray;
+  }
+
   .swiper {
       .swiper-pagination-bullet-custom {
-      $size: 20px;
+      $size: 16px;
       width: $size !important;
       height: $size !important;
       line-height: $size !important;
@@ -186,13 +198,11 @@
       .video-slider1 {
           height: 100vh;
           width: calc(100vh * 16 / 9);
-
       }
   }
 
   .swiper-container {
       padding-bottom: 36px !important;
   }
-
 
 </style>
