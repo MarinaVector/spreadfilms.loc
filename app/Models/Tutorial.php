@@ -14,6 +14,7 @@ use App\Models\Paragraphs\TxtSpecialImg;
 use App\Models\Paragraphs\Video;
 use App\Models\Paragraphs\VideoSlider;
 use App\Models\Paragraphs\VideoWithText;
+use App\Models\Paragraphs\SimpleImage;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use Illuminate\Database\Eloquent\Model;
@@ -132,7 +133,9 @@ class Tutorial extends Model
             //Video Layouts
 
             //Image Layouts
-
+            case 'SimpleImage':
+                SimpleImage::where('paragraph_id', $paragraph['id'])->delete();
+                break;
             //Image Layouts
 
             //Other Layouts

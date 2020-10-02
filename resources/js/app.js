@@ -71,7 +71,6 @@ Vue.component('slider-btn', require('./components/modules/tutorials/admin/paragr
  * Modals windows
  */
 Vue.component('simple-video-modal', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Video/VideoSimpleModal').default);
-Vue.component('img-simple', require('./components/modules/tutorials/admin/paragraphs/modal-windows/Image/ImageSimpleModal').default);
 
 Vue.component('tutorials-topics', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsTopics').default);
 Vue.component('tutorials-categories', require('./components/modules/tutorials/admin/paragraphs/page-builder-parts/TutorialsCategories').default);
