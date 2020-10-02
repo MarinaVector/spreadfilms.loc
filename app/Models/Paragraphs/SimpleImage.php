@@ -9,6 +9,6 @@ class SimpleImage extends Model
     protected $table = 'paragraph_simple_image';
 
     protected $fillable = [
-        'paragraph_id', 'image'
+        'paragraph_id', 'image', 'position'
     ];
 }

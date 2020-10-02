@@ -2,6 +2,7 @@
     <div class="container tutorial-video video-grid content-txt" v-bind:style="{ backgroundImage: 'url(' + ImagePath + ')' }">
         <input type="hidden" name="component_type" value="SimpleImage" class="component_type" />
         <input type="hidden" name="normal_text_image" v-model="Image" class="normal_text_image">
+        <input type="hidden" name="image_position" v-model="Position" class="image_position">
         <div class="row my-2">
             <div class="col-12">
                 <button type="button" class="btn-icon draggable pull-left">
@@ -30,7 +31,7 @@
                 </button>
             </div>
 
-            <ImageModal ref="imagemodal" v-on:saveData="saveData" :image="Image"></ImageModal>
+            <ImageModal ref="imagemodal" v-on:saveData="saveData" :image="Image" :position="Position"></ImageModal>
         </div>
     </div>
 </template>
@@ -69,6 +70,7 @@ export default {
     data() {
         return {
             Image: this.mydata ? this.$props.mydata.image : '',
+            Position: this.mydata ? this.$props.mydata.position : '',
             ImagePath: '',
         };
     },
@@ -83,16 +85,21 @@ export default {
             let element = this.$refs.imagemodal.$el;
             $(element).modal('show');
         },
-        saveData: function (image = null) {
+        saveData: function (image = null, position = null) {
             if (image !== null){
                 this.Image = image;
                 this.ImagePath = this.getImagePath(this.Image);
+            }
+
+            if (position !== null){
+                this.Position = position;
             }
 
             this.$emit('saveParagraphData', {
                 index: this.index,
                 myData: {
                     image: this.Image,
+                    position: this.Position
                 }
             });
         },

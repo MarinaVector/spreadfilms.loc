@@ -16,6 +16,7 @@ class CreateParagraphSimpleImageTable extends Migration
         Schema::create('paragraph_simple_image', function (Blueprint $table) {
             $table->id();
             $table->foreignId('paragraph_id')->references('id')->on('paragraphs');
+            $table->string('position')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
         });

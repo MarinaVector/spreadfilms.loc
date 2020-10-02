@@ -354,6 +354,7 @@ class TutorialsController extends Controller
                 SimpleImage::create([
                     'paragraph_id' => $paragraphId,
                     'image' => $paragraph['image'],
+                    'position' => $paragraph['position'],
                 ]);
                 break;
             case 'ImageSlider':

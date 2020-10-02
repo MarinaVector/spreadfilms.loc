@@ -4,6 +4,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content py-5">
                 <div class="modal-body">
+                    <div>
+                        <p-radio name="dimension" v-model="Position" :value="'fs'">Full screen</p-radio>
+                        <p-radio name="dimension" v-model="Position" :value="'fh'">Full height</p-radio>
+                        <p-radio name="dimension" v-model="Position" :value="'fw'">Full width</p-radio>
+                    </div>
+
                     <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                             :data-inputid="dataInputID"
                             class="py-2 mb-md-0 px-md-5 txt-btn btn-right"
@@ -42,6 +48,10 @@
                 type: String,
                 default: () => ''
             },
+            position: {
+                type: String,
+                default: () => 'fs'
+            },
         },
         created() {
 
@@ -52,6 +62,7 @@
         data() {
             return {
                 Image: this.$props.image ? this.$props.image : '',
+                Position: this.$props.position ? this.$props.position : 'fs',
                 btnBeforeText: true,
                 btnBeforeImg: true,
                 btnAfterImg: false,
@@ -65,7 +76,7 @@
         },
         methods: {
             save: function () {
-                this.$emit('saveData', this.Image);
+                this.$emit('saveData', this.Image, this.Position);
             },
             cancel: function (event) {
                 if(event.target.id === 'ImageModal' || event.target.id === 'CancelModal') {

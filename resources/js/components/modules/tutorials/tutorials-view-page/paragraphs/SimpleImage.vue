@@ -1,10 +1,13 @@
 <template>
     <div class="container">
-        <img :src="ImagePath" alt="" class="f-width"/>
+        <img :src="ImagePath" alt="" :class="PositionClass"/>
     </div>
 </template>
 
 <script>
+    import cloneDepp from "lodash/cloneDeep";
+    import Headline from "../../admin/paragraphs/Headline";
+
     export default {
         name: "SimpleImage",
         components: {
@@ -25,10 +28,25 @@
         },
         mounted() {
             this.ImagePath = this.getImagePath(this.Image);
+            switch (this.Position) {
+                case 'fs':
+                    this.PositionClass = 'f-screen';
+                    break;
+                case 'fw':
+                    this.PositionClass = 'f-width';
+                    break;
+                case 'fh':
+                    this.PositionClass = 'f-height';
+                    break;
+                default:
+                    return;
+            }
         },
         data() {
             return {
                 Image: this.mydata ? this.escapeHtml(this.$props.mydata.image) : '',
+                PositionClass: '',
+                Position: this.mydata.position ? this.escapeHtml(this.mydata.position) : 'fs',
                 ImagePath: null,
             };
         },
@@ -68,7 +86,17 @@
     .tutorial-complex:hover .btn-icon {
         opacity: 1 !important;
     }
+
+    .f-screen {
+        width: 100%;
+        height: 100%;
+    }
+
     .f-width {
         width: 100%;
+    }
+
+    .f-height {
+        height: 100%;
     }
 </style>
