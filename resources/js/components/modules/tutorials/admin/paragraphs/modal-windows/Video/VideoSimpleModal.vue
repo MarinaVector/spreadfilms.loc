@@ -21,6 +21,11 @@
                     <p-radio name="dimension" v-model="Dimension" :value="'16:9'">16:9</p-radio>
                     <p-radio name="dimension" v-model="Dimension" :value="'4:3'">4:3</p-radio>
 
+                  <!--  <div>
+                        <div name="dimension" v-model="Dimension" v-aspect-ratio="'16:9'"></div>
+                        <div name="dimension" v-model="Dimension" v-aspect-ratio="'4:3'"></div>
+                    </div>
+                    -->
                     <hr>
                     <label class="input-title"><i class="far fa-sticky-note mr-2"></i>Notice</label>
                     <div class="row">
@@ -92,11 +97,15 @@
     import 'vue2-timepicker/dist/VueTimepicker.css';
     import VueTimepicker from 'vue2-timepicker/src/vue-timepicker.vue';
     import PrettyCheckbox from 'pretty-checkbox-vue';
+    import { directive } from 'v-aspect-ratio'
 
     export default {
         name: "VideoSimple",
         components: {
             VueTimepicker
+        },
+        directives: {
+            'aspect-ratio': directive,
         },
         props: {
             videoUrl: {
