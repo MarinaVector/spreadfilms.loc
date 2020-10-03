@@ -1,6 +1,7 @@
 <template>
     <div class="container tutorial-video video-grid content-txt" >
-
+        <input type="hidden" name="component_type" value="ImageSlider" class="component_type" />
+        <input type="hidden" name="slider_images" v-model="ImagesJSON" class="slider_images">
         <div class="row my-2">
             <div class="col-12">
                 <button type="button" class="btn-icon draggable pull-left">
@@ -30,7 +31,7 @@
                                 <button class="py-2 px-5 text-button bgfont-btn" type="button" @click="showAddImageSimpleModal()">
                                     <i class="fas fa-bars blueiconcolor fa-2x">
                                     </i>
-                                    <div class="mb-n1">Add Slide</div>
+                                    <div class="mb-n1">Add Image</div>
                                 </button>
                             </div>
                         </div>
@@ -43,18 +44,18 @@
                     <i class="fa fa-files-o pt-2"></i>
                 </button>
             </div>
-
-
         </div>
+        <ImageModal ref="imagemodal" v-on:saveData="saveData"></ImageModal>
     </div>
 </template>
 
 <script>
+import ImageModal from './modal-windows/ImageSlider/ImageModal'
 
 export default {
     name: "ImageSlider",
     components: {
-
+        ImageModal,
     },
     props: {
         index: {
@@ -96,18 +97,21 @@ export default {
             $(element).modal('show');
 
             if(index !== null){
+                this.$refs.imagemodal.index = index;
                 this.$refs.imagemodal.Image = this.Images[index].Image;
+                this.$refs.imagemodal.NormalTextBody = this.Images[index].NormalTextBody;
             }
         },
         saveData: function (imageObj) {
             if (imageObj !== null){
                 if(imageObj.index === null){
                     this.Images.push({
-                        Image: imageObj.Image,
-
+                        Image: imageObj.image,
+                        NormalTextBody: imageObj.text,
                     });
                 } else {
-                    this.Images[imageObj.index].Image = imageObj.Image;
+                    this.Images[imageObj.index].Image = imageObj.image;
+                    this.Images[imageObj.index].NormalTextBody = imageObj.text;
                 }
 
                 this.ImagesJSON = JSON.stringify(this.Images);
