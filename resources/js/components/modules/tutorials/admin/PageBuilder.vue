@@ -541,9 +541,14 @@
 
                     //Image Layouts
                     SimpleImage: {
-                        src: {
+                        image: {
                             searchBy: 'class',
-                            search: '.image_src',
+                            search: '.normal_text_image',
+                            tagName: 'input'
+                        },
+                        position: {
+                            searchBy: 'class',
+                            search: '.image_position',
                             tagName: 'input'
                         },
                     },

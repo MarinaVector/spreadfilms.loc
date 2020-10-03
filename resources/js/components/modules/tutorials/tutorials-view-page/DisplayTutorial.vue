@@ -105,6 +105,7 @@ import LgHeadText from './paragraphs/LgHeadText'
 import TextLogo from './paragraphs/TextLogo'
 import TxtSpecialImg from './paragraphs/TxtSpecialImg'
 import TextImgHigh from './paragraphs/TextImgHigh'
+import SimpleImage from './paragraphs/SimpleImage'
 import Contact from './paragraphs/Contact'
 import QuestionsAnswers from './paragraphs/QuestionsAnswers'
 import CompleteTutorialModal from './modal-windows/CompleteTutorialModal'
@@ -127,6 +128,7 @@ export default {
         LgHeadText,
         TextLogo,
         TextImgHigh,
+        SimpleImage,
         Contact,
         QuestionsAnswers,
         CompleteTutorialModal,
@@ -280,8 +282,8 @@ export default {
                 //Video Layouts
 
                 //Image Layouts
-                case 'Image':
-                    Component = cloneDepp(Image);
+                case 'SimpleImage':
+                    Component = cloneDepp(SimpleImage);
                     if(null !== paragraphData){
                         Component.mydata = paragraphData;
                     }

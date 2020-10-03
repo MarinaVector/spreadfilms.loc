@@ -51,13 +51,10 @@
 
 <script>
 
-
-import ImageSimpleModal from "./modal-windows/Image/ImageSimpleModal";
-
 export default {
     name: "ImageSlider",
     components: {
-        ImageSimpleModal,
+
     },
     props: {
         index: {

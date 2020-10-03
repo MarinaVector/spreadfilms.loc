@@ -16,6 +16,7 @@ use App\Models\Paragraphs\Video;
 use App\Models\Paragraphs\VideoWithText;
 use App\Models\Paragraphs\BackgroundVideo;
 use App\Models\Paragraphs\VideoSlider;
+use App\Models\Paragraphs\SimpleImage;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use App\Models\TutorialUserCompletion;
@@ -349,7 +350,12 @@ class TutorialsController extends Controller
             //Video Layouts
 
             //Image Layouts
-            case 'Image':
+            case 'SimpleImage':
+                SimpleImage::create([
+                    'paragraph_id' => $paragraphId,
+                    'image' => $paragraph['image'],
+                    'position' => $paragraph['position'],
+                ]);
                 break;
             case 'ImageSlider':
                 break;
@@ -546,7 +552,8 @@ class TutorialsController extends Controller
             //Video Layouts
 
             //Image Layouts
-            case 'Image':
+            case 'SimpleImage':
+                $component = SimpleImage::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'ImageSlider':
                 break;
