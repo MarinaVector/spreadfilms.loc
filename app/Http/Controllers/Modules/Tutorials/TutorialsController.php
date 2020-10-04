@@ -17,6 +17,7 @@ use App\Models\Paragraphs\VideoWithText;
 use App\Models\Paragraphs\BackgroundVideo;
 use App\Models\Paragraphs\VideoSlider;
 use App\Models\Paragraphs\SimpleImage;
+use App\Models\Paragraphs\ImageSlider;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use App\Models\TutorialUserCompletion;
@@ -358,6 +359,10 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'ImageSlider':
+                ImageSlider::create([
+                    'paragraph_id' => $paragraphId,
+                    'sliderimages' => $paragraph['sliderimages'],
+                ]);
                 break;
             case 'ImageSwitch':
                 break;
@@ -556,6 +561,10 @@ class TutorialsController extends Controller
                 $component = SimpleImage::where('paragraph_id', $componentId)->first()->toArray();
                 break;
             case 'ImageSlider':
+                $component = ImageSlider::where('paragraph_id', $componentId)->first()->toArray();
+                if(isset($component['sliderimages'])){
+                    $component['sliderimages'] = htmlspecialchars($component['sliderimages'], ENT_QUOTES);
+                }
                 break;
             case 'ImageSwitch':
                 break;

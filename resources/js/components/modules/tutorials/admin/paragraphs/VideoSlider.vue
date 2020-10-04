@@ -129,7 +129,6 @@
                 });
             },
             deleteVideo: function (index) {
-                console.log('delete paragraph triggered');
                 this.Videos.splice(index, 1);
             },
             escapeHtml: function (value) {

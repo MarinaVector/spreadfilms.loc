@@ -106,6 +106,7 @@ import TextLogo from './paragraphs/TextLogo'
 import TxtSpecialImg from './paragraphs/TxtSpecialImg'
 import TextImgHigh from './paragraphs/TextImgHigh'
 import SimpleImage from './paragraphs/SimpleImage'
+import ImageSlider from './paragraphs/ImageSlider'
 import Contact from './paragraphs/Contact'
 import QuestionsAnswers from './paragraphs/QuestionsAnswers'
 import CompleteTutorialModal from './modal-windows/CompleteTutorialModal'
@@ -129,6 +130,7 @@ export default {
         TextLogo,
         TextImgHigh,
         SimpleImage,
+        ImageSlider,
         Contact,
         QuestionsAnswers,
         CompleteTutorialModal,

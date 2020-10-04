@@ -553,9 +553,9 @@
                         },
                     },
                     ImageSlider: {
-                        images: {
+                        sliderimages: {
                             searchBy: 'class',
-                            search: '.images',
+                            search: '.slider_images',
                             tagName: 'input'
                         },
                     },
