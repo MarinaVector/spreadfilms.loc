@@ -6,7 +6,7 @@
                 <div class="modal-body">
                     <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                             :data-inputid="dataInputID"
-                            class="py-2 mb-md-0 px-md-5 txt-btn btn-right"
+                            class="py-2 mb-md-0 px-md-5"
                             @click="showFilemanagerModal('imagebefore')"
                             type="button">
                         <i class="fas fa-image blueiconcolor fa-2x pt-1">
@@ -16,13 +16,21 @@
 
                     <button :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                             :data-inputid="dataInputID"
-                            class="py-2 mb-md-0 px-md-5 txt-btn btn-right"
+                            class="py-2 mb-md-0 px-md-5"
                             @click="showFilemanagerModal('imageafter')"
                             type="button">
                         <i class="fas fa-image blueiconcolor fa-2x pt-1">
                         </i>
                         <div class="mt-n1 mb-n1">Image After</div>
                     </button>
+
+                    <div>
+                        <input type="text" name="textbefore" placeholder="Text Before" v-html="TextBefore"/>
+                    </div>
+
+                    <div>
+                        <input type="text" name="textafter" placeholder="Text After" v-html="TextAfter"/>
+                    </div>
                 </div>
             </div>
 
@@ -90,7 +98,12 @@
         },
         methods: {
             save: function () {
-                this.$emit('saveData', this.ImageBefore, this.ImageAfter, this.TextBefore, this.TextAfter);
+                this.$emit('saveData', null, null, {
+                    imagebefore: this.ImageBefore,
+                    imageafter: this.ImageAfter,
+                    textbefore: this.TextBefore,
+                    textafter: this.TextAfter,
+                });
             },
             cancel: function (event) {
                 if(event.target.id === 'ImageModal' || event.target.id === 'CancelModal') {

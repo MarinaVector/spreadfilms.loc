@@ -1,6 +1,12 @@
 <template>
     <div class="container content-txt" >
-
+        <input type="hidden" name="component_type" value="ImagesModal" class="component_type" ref="component_type" />
+        <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
+        <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
+        <input type="hidden" name="image_before" v-model="ImageBefore" class="image_before">
+        <input type="hidden" name="image_after" v-model="ImageAfter" class="image_after">
+        <input type="hidden" name="text_before" v-model="TextBefore" class="text_before">
+        <input type="hidden" name="text_after" v-model="TextAfter" class="text_after">
         <div class="row switch-grid my-2">
             <div class="">
                 <button type="button" class="btn-icon draggable pull-left">
@@ -51,7 +57,8 @@
                          :header="NormalTextHeader" :body="NormalTextBody">
         </NormalTextModal>
         <ImagesModal ref="imagesmodal" v-on:saveData="saveData"
-                         :textbefore="NormalTextHeader" :textafter="NormalTextBody">
+                         :textbefore="NormalTextHeader" :textafter="NormalTextBody"
+                         :imagebefore="ImageBefore" :imageafter="ImageAfter">
         </ImagesModal>
     </div>
 </template>
@@ -92,6 +99,10 @@ export default {
         return {
             NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
             NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
+            ImageBefore: this.$props.imagebefore ? this.$props.imagebefore : '',
+            ImageAfter: this.$props.imageafter ? this.$props.imageafter : '',
+            TextBefore: this.$props.textbefore ? this.escapeHtml(this.$props.textbefore) : '',
+            TextAfter: this.$props.textafter ? this.escapeHtml(this.$props.textafter) : '',
             normalBefore:true,
             normalAfter: false,
             btnBefore: true,
@@ -114,7 +125,7 @@ export default {
             let element = this.$refs.imagesmodal.$el;
             $(element).modal('show');
         },
-        saveData: function (header = null, body = null, singletext = null) {
+        saveData: function (header = null, body = null, imagesObj = null) {
             if (header !== null){
                 this.NormalTextHeader = header;
             }
@@ -123,11 +134,22 @@ export default {
                 this.NormalTextBody = body;
             }
 
+            if (imagesObj !== null){
+                this.ImageBefore = imagesObj.imagebefore;
+                this.ImageAfter = imagesObj.imageafter;
+                this.TextBefore = imagesObj.textbefore;
+                this.TextAfter = imagesObj.textafter;
+            }
+
             this.$emit('saveParagraphData', {
                 index: this.index,
                 myData: {
                     header: header,
-                    text: body
+                    text: body,
+                    imagebefore: this.ImageBefore,
+                    imageafter: this.ImageAfter,
+                    textbefore: this.TextBefore,
+                    textafter: this.TextAfter,
                 }
             });
 

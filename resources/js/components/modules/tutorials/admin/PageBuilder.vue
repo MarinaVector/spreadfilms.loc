@@ -560,6 +560,16 @@
                         },
                     },
                     ImageSwitch: {
+                        header: {
+                            searchBy: 'class',
+                            search: '.normal_text_header',
+                            tagName: 'input'
+                        },
+                        text: {
+                            searchBy: 'class',
+                            search: '.normal_text_body',
+                            tagName: 'input'
+                        },
                         imageBefore: {
                             searchBy: 'class',
                             search: '.image_before',
