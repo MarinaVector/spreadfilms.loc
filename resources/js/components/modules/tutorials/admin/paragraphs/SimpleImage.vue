@@ -1,5 +1,7 @@
 <template>
-    <div class="container tutorial-video video-grid content-txt" v-bind:style="{ backgroundImage: 'url(' + ImagePath + ')' }">
+    <div class="container tutorial-video video-grid content-txt"
+         :class=" { content_img:ContentImg }"
+         v-bind:style="{ backgroundImage: 'url(' + ImagePath + ')' }">
         <input type="hidden" name="component_type" value="SimpleImage" class="component_type" />
         <input type="hidden" name="normal_text_image" v-model="Image" class="normal_text_image">
         <input type="hidden" name="image_position" v-model="Position" class="image_position">
@@ -17,9 +19,8 @@
             <div class="col-12 my-md-5">
                 <div class="text-center my-md-5 position-relative">
                     <button @click=showImageModal() class="text-button position-absolute btn-video py-3 px-5 mt-2"
-                            type="button">
-                        <i class="fas fa-image blueiconcolor fa-2x">
-                        </i>
+                            type="button" :class=" { btn_simple_image_before:BtnSimpleImgBefore, btn_simple_image_after:BtnSimpleImgAfter }">
+                        <i class="fas fa-image blueiconcolor fa-2x"></i>
                         <p class="mt-n1 mb-n1">Image</p>
                     </button>
                 </div>
@@ -65,6 +66,9 @@ export default {
         } else {
             this.Image = this.escapeHtml(this.Image);
             this.ImagePath = this.getImagePath(this.Image);
+            this.BtnSimpleImgAfter = true;
+            this.BtnSimpleImgBefore = false;
+            this.ContentImg = true;
         }
     },
     data() {
@@ -72,6 +76,9 @@ export default {
             Image: this.mydata ? this.$props.mydata.image : '',
             Position: this.mydata ? this.$props.mydata.position : '',
             ImagePath: '',
+            BtnSimpleImgBefore:true,
+            BtnSimpleImgAfter:false,
+            ContentImg:false
         };
     },
     methods: {
@@ -89,6 +96,9 @@ export default {
             if (image !== null){
                 this.Image = image;
                 this.ImagePath = this.getImagePath(this.Image);
+                this.BtnSimpleImgAfter = true;
+                this.BtnSimpleImgBefore = false;
+                this.ContentImg = true;
             }
 
             if (position !== null){
@@ -131,6 +141,26 @@ export default {
 
 <style>
 
+.content_img {
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
 
+.btn_simple_image_before {
+  display: block;
+}
+
+.btn_simple_image_after {
+   display: none;
+}
+
+.tutorial-video:hover .btn_simple_image_after {
+    display: block;
+}
 
 </style>
