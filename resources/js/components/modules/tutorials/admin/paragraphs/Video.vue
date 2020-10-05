@@ -165,6 +165,7 @@
         border: dotted 1px #333;
         background-repeat: no-repeat;
         background-size: cover;
+        cursor: pointer;
     }
 
     .tutorial-video:hover {
