@@ -227,7 +227,7 @@
     import FileManager from 'laravel-file-manager'
     import Faqs from './paragraphs/Faqs'
     import SeparatorLine from './paragraphs/SeparatorLine'
-
+    import Footer from './paragraphs/Footer'
 
     export default {
         name: "PageBuilder",
@@ -251,7 +251,8 @@
             Contact,
             QuestionsAnswers,
             Faqs,
-            SeparatorLine
+            SeparatorLine,
+            Footer
 
         },
         props: [

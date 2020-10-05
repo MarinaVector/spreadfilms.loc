@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 mt-2">
-                        <button type="button" class="btn-icon ml-n2 draggable pull-left"
+                        <button type="button" class="btn-icon draggable pull-left"
                                 @click="callParentDeleteParagraphBlock()">
                             <i class="fa fa-arrows-v pt-2"></i>
                         </button>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-7 h-100 offset-2 inner-trigger">
+            <div class="col-8 h-100 offset-2 inner-trigger">
                 <div class="row">
                     <div class="col-12 tutorial-text text-center py-2">
                         <button class="text-button py-2 px-5 mt-2" type="button">

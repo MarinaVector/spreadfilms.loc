@@ -34,13 +34,13 @@
 
                 <div class="contact-right-grid">
                     <div class="pull-right mt-3">
-                        <button type="button" class="btn-icon mb-5"
+                        <button type="button" class="btn-icon mb-5 pull-right mr-3"
                                 @click="callParentDeleteParagraphBlock()">
                             <i class="fa fa-trash-o pt-2"></i>
                         </button>
                     </div>
                     <div class="pull-right">
-                        <button type="button" class="btn-icon"
+                        <button type="button" class="btn-icon pull-right mb-3 mr-3"
                                 @click="callParentDuplicateParagraphBlock()">
                             <i class="fa fa-files-o pt-2"></i>
                         </button>
@@ -100,7 +100,8 @@
 
     .contact-right-grid {
         display: grid;
-        grid-template-rows: initial;
+        grid-template-rows: 8fr 1fr;
+        gap: unset;
     }
 
 </style>
