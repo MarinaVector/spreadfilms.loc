@@ -135,6 +135,7 @@ export default {
             }
 
             if (imagesObj !== null){
+                console.log(imagesObj);
                 this.ImageBefore = imagesObj.imagebefore;
                 this.ImageAfter = imagesObj.imageafter;
                 this.TextBefore = imagesObj.textbefore;

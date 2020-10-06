@@ -10,7 +10,7 @@
                         <div class="elfinder-container"><input id="neu-0-image-1" data-type="bild" data-value="image"
                                                                type="hidden" class="elfinder-idea">
                             <button data-inputid="neu-0-image-1"
-                                    class="popup_selector btn btn-default py-2 mb-md-0 px-md-5"
+                                    class="btn btn-default py-2 mb-md-0 px-md-5"
                                     :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                                     :data-inputid="dataInputID"
                                     @click="showFilemanagerModal('imagebefore')"
@@ -26,7 +26,7 @@
                         <div class="elfinder-container">
                             <input id="neu-0-image-2" type="hidden" class="elfinder-idea">
                             <button data-inputid="neu-0-image-2"
-                                    class="popup_selector btn btn-default py-2 mb-md-0 px-md-5"
+                                    class="btn btn-default py-2 mb-md-0 px-md-5"
                                     :class=" {txt_img_btn_img_before:btnBeforeImg, txt_img_btn_img_after:btnAfterImg} "
                                     :data-inputid="dataInputID"
                                     @click="showFilemanagerModal('imageafter')"
@@ -43,14 +43,14 @@
                             Text Before
                         </label>
                         <input type="text" name="textbefore" placeholder="Text Before" class="form-txt"
-                               v-html="TextBefore"/>
+                               v-model="TextBefore"/>
                         <hr>
                         <label class="input-title">
                             <i class="fas fa-arrow-right"></i>
                             Text After
                         </label>
                         <input type="text" name="textafter" placeholder="Text After" class="form-txt"
-                               v-html="TextAfter"/>
+                               v-model="TextAfter"/>
                     </div>
 
                 </div>
