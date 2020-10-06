@@ -151,32 +151,32 @@
             <div class="mb-2 ml-2">
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Separator Line" @click="callParentAddParagraphBlock('SeparatorLine')">
-                    <i class="fa fa-arrows-v fa-3x pt-2"></i>
+                    <i class="fas fa-arrows-alt-v fa-2x py-1"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Contact person" @click="callParentAddParagraphBlock('Contact')">
-                    <i class="fa fa-envelope-o fa-3x pt-2"></i>
+                    <i class="fas fa-envelope fa-2x py-1"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Multiple Choice" @click="callParentAddParagraphBlock('MultipleChoice')">
-                    <i class="fa fa-puzzle-piece fa-3x pt-2"></i>
+                    <i class="fas fa-puzzle-piece fa-2x py-1"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle p-0" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="FAQs" @click="callParentAddParagraphBlock('Faqs')">
-                    <i class="fa fa-question fa-3x pt-2"></i>
+                    <i class="fas fa-question fa-2x py-1"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn btn-circle new-text" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Quote" @click="callParentAddParagraphBlock('Quote')">
-                    <i class="fa fa-quote-left fa-3x pt-2"></i>
+                    <i class="fas fa-quote-right fa-2x py-1"></i>
                 </button>
 
                 <button class="mr-2 btn-tutorial tooltip-btn" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Header" @click="callParentAddParagraphBlock('Header')">
-                    <i class="fa fa-picture-o fa-3x pt-2"></i>
+                    <i class="fas fa-heading fa-2x py-1"></i>
                 </button>
                 <button class="mr-2 btn-tutorial tooltip-btn" type="button" data-toggle="tooltip"
                         data-placement="bottom" title="Footer" @click="callParentAddParagraphBlock('Footer')">
-                    <i class="fa fa-picture-o fa-3x pt-2"></i>
+                    <i class="fas fa-shoe-prints fa-2x py-1"></i>
                 </button>
             </div>
             <!-- Other Layouts Bar -->
@@ -408,6 +408,10 @@
         border-radius: 0 0 3px 3px;
         bottom: 0;
         transform: translateY(100%);
+    }
+
+    .fas {
+        color:white !important;
     }
 
     .btn-grid {

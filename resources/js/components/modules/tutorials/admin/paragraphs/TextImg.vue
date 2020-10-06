@@ -193,14 +193,6 @@
 $height1:100%;
 $height2:95%;
 
-    .inner-trigger {
-        transition: background-color .3s ease;
-        background-color: transparent;
-        padding: 5px 10px;
-        min-width: 160px;
-        text-align: center;
-    }
-
     .text-button {
         border: none;
     }

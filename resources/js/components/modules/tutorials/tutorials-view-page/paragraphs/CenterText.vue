@@ -57,21 +57,6 @@
 
 <style>
 
-.inner-trigger {
-    transition: background-color .3s ease;
-    background-color: transparent;
-    border-radius: 2px;
-    padding: 5px 10px;
-    min-width: 100px;
-    text-align: center;
-}
-
-.text-button {
-    background-color: white;
-    border: none;
-}
-
-
 .blueiconcolor {
     color: #00bff9 !important;
 }
