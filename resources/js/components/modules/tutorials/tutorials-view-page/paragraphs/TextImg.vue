@@ -89,18 +89,6 @@
 </script>
 
 <style>
-.inner-trigger {
-    transition: background-color .3s ease;
-    background-color: transparent;
-    padding: 5px 10px;
-    min-width: 160px;
-    text-align: center;
-}
-
-.text-button {
-    background-color: white;
-    border: none;
-}
 
 .level-text {
     pointer-events: all;

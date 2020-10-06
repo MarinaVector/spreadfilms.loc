@@ -228,6 +228,7 @@
     import Faqs from './paragraphs/Faqs'
     import SeparatorLine from './paragraphs/SeparatorLine'
     import Footer from './paragraphs/Footer'
+    import Header from './paragraphs/Header'
 
     export default {
         name: "PageBuilder",
@@ -252,7 +253,8 @@
             QuestionsAnswers,
             Faqs,
             SeparatorLine,
-            Footer
+            Footer,
+            Header
 
         },
         props: [

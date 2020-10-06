@@ -146,20 +146,6 @@
 
 <style>
 
-    .inner-trigger {
-        transition: background-color .3s ease;
-        background-color: transparent;
-        padding: 5px 10px;
-        min-width: 160px;
-        text-align: center;
-        z-index:5;
-    }
-
-    .text-button {
-        background-color: white;
-        border-radius: 3px
-    }
-
     .tutorial-video {
         width: 100%;
         border: dotted 1px #333;
