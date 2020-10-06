@@ -1,6 +1,6 @@
 <template>
     <div class="container content-txt" >
-        <input type="hidden" name="component_type" value="ImagesModal" class="component_type" ref="component_type" />
+        <input type="hidden" name="component_type" value="ImageSwitch" class="component_type" ref="component_type" />
         <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
         <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
         <input type="hidden" name="image_before" v-model="ImageBefore" class="image_before">
@@ -16,12 +16,16 @@
             </div>
 
             <div class="">
-                <div class="col-lg-12 tutorial-text text-center py-5 pt-3" @click="showImagesModal()">
+                <div class="col-lg-12 tutorial-text text-center py-5 pt-3 background-image" @click="showImagesModal()"
+                     v-bind:style="{ backgroundImage: 'url(' + ImageBeforePath + ')' }">
                     <button class="text-button py-2 my-5 px-5 pb-3" type="button">
                         <i class="fas fa-image blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1">Images</p>
                     </button>
+                    <div v-bind:style="{ backgroundImage: 'url(' + ImageAfterPath + ')' }">
+
+                    </div>
                 </div>
 
                 <div class="col-lg-12 py-5 tutorial-text content-txt position-relative text-center" @click="showNormalTextModal()">
@@ -57,7 +61,7 @@
                          :header="NormalTextHeader" :body="NormalTextBody">
         </NormalTextModal>
         <ImagesModal ref="imagesmodal" v-on:saveData="saveData"
-                         :textbefore="NormalTextHeader" :textafter="NormalTextBody"
+                         :textbefore="TextBefore" :textafter="TextAfter"
                          :imagebefore="ImageBefore" :imageafter="ImageAfter">
         </ImagesModal>
     </div>
@@ -93,16 +97,19 @@ export default {
         }
     },
     mounted() {
-
+        this.ImageBeforePath = this.getImagePath(this.ImageBefore);
+        this.ImageAfterPath = this.getImagePath(this.ImageAfter);
     },
     data() {
         return {
             NormalTextHeader: this.mydata ? this.escapeHtml(this.$props.mydata.header) : '',
             NormalTextBody: this.mydata ? this.escapeHtml(this.$props.mydata.text) : '',
-            ImageBefore: this.$props.imagebefore ? this.$props.imagebefore : '',
-            ImageAfter: this.$props.imageafter ? this.$props.imageafter : '',
-            TextBefore: this.$props.textbefore ? this.escapeHtml(this.$props.textbefore) : '',
-            TextAfter: this.$props.textafter ? this.escapeHtml(this.$props.textafter) : '',
+            ImageBefore: this.mydata.imagebefore ? this.mydata.imagebefore : '',
+            ImageBeforePath: null,
+            ImageAfter: this.mydata.imageafter ? this.mydata.imageafter : '',
+            ImageAfterPath: null,
+            TextBefore: this.mydata.textbefore ? this.escapeHtml(this.mydata.textbefore) : '',
+            TextAfter: this.mydata.textafter ? this.escapeHtml(this.mydata.textafter) : '',
             normalBefore:true,
             normalAfter: false,
             btnBefore: true,
@@ -135,9 +142,10 @@ export default {
             }
 
             if (imagesObj !== null){
-                console.log(imagesObj);
                 this.ImageBefore = imagesObj.imagebefore;
+                this.ImageBeforePath = this.getImagePath(this.ImageBefore);
                 this.ImageAfter = imagesObj.imageafter;
+                this.ImageAfterPath = this.getImagePath(this.ImageAfter);
                 this.TextBefore = imagesObj.textbefore;
                 this.TextAfter = imagesObj.textafter;
             }
@@ -162,6 +170,22 @@ export default {
         escapeHtml: function (value) {
             return $('<div/>').html(value).text();
         },
+        getImagePath: function(path) {
+            let disk = path.split('/')[0];
+            let realPath = '';
+            switch (disk) {
+                case 'company-public':
+                    realPath = this.$parent.$parent.publicpath + path.split('/')[1];
+                    break;
+                case 'company-private':
+                    realPath = this.$parent.$parent.privatepath + path.split('/')[1];
+                    break;
+                default:
+                    return;
+            }
+
+            return realPath;
+        },
     },
 
     computed: {
@@ -171,6 +195,10 @@ export default {
 </script>
 
 <style>
+.background-image,.background-image:hover{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .switch-grid {
     display: grid;

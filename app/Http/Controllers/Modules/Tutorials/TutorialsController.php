@@ -18,6 +18,7 @@ use App\Models\Paragraphs\BackgroundVideo;
 use App\Models\Paragraphs\VideoSlider;
 use App\Models\Paragraphs\SimpleImage;
 use App\Models\Paragraphs\ImageSlider;
+use App\Models\Paragraphs\ImageSwitch;
 use App\Models\Pivots\TutorialAssignee as TutorialAssigneePivot;
 use App\Models\Pivots\TutorialCompanycategory as TutorialCompanycategoryPivot;
 use App\Models\TutorialUserCompletion;
@@ -365,6 +366,15 @@ class TutorialsController extends Controller
                 ]);
                 break;
             case 'ImageSwitch':
+                ImageSwitch::create([
+                    'paragraph_id' => $paragraphId,
+                    'header' => $paragraph['header'],
+                    'text' => $paragraph['text'],
+                    'textbefore' => $paragraph['textbefore'],
+                    'textafter' => $paragraph['textafter'],
+                    'imagebefore' => $paragraph['imagebefore'],
+                    'imageafter' => $paragraph['imageafter'],
+                ]);
                 break;
             case 'Icons':
                 break;
@@ -567,6 +577,13 @@ class TutorialsController extends Controller
                 }
                 break;
             case 'ImageSwitch':
+                $component = ImageSwitch::where('paragraph_id', $componentId)->first()->toArray();
+                if(isset($component['textBefore'])){
+                    $component['textBefore'] = htmlspecialchars($component['textBefore'], ENT_QUOTES);
+                }
+                if(isset($component['textAfter'])){
+                    $component['textAfter'] = htmlspecialchars($component['textAfter'], ENT_QUOTES);
+                }
                 break;
             case 'Icons':
                 break;

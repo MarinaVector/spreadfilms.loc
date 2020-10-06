@@ -573,22 +573,22 @@
                             search: '.normal_text_body',
                             tagName: 'input'
                         },
-                        imageBefore: {
+                        imagebefore: {
                             searchBy: 'class',
                             search: '.image_before',
                             tagName: 'input'
                         },
-                        imageAfter: {
+                        imageafter: {
                             searchBy: 'class',
                             search: '.image_after',
                             tagName: 'input'
                         },
-                        textBefore: {
+                        textbefore: {
                             searchBy: 'class',
                             search: '.text_before',
                             tagName: 'input'
                         },
-                        textAfter: {
+                        textafter: {
                             searchBy: 'class',
                             search: '.text_after',
                             tagName: 'input'
