@@ -2,7 +2,7 @@
     <div class="modal fade" id="ImageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true" @click="cancel">
         <div class="modal-dialog" role="document">
-            <div class="rounded pb-3">
+            <div class="modal-content rounded pb-3">
                 <div class="modal-body">
                     <div class="part"><label class="input-title"><i class="fas fa-image"></i>
                         Image Before
@@ -56,7 +56,7 @@
                 </div>
 
             </div>
-            <div class="modal-footer mt-3 ml-5">
+            <div class="modal-footer1 mt-3 ml-5">
                 <button type="button" class="btn btn-primary btn-modal ml-5" data-dismiss="modal" @click="save()">
                     Save changes
                 </button>
