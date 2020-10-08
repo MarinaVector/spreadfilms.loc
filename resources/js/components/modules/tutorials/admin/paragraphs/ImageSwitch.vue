@@ -1,5 +1,5 @@
 <template>
-    <div class="container content-txt" >
+    <div class="container tutorial-switch content-txt" >
         <input type="hidden" name="component_type" value="ImageSwitch" class="component_type" ref="component_type" />
         <input type="hidden" name="normal_text_header" v-model="NormalTextHeader" class="normal_text_header">
         <input type="hidden" name="normal_text_body" v-model="NormalTextBody" class="normal_text_body">
@@ -32,7 +32,8 @@
                 </div>
 
                 <div class="col-lg-12 py-5 tutorial-text content-txt position-relative text-center" @click="showNormalTextModal()">
-                    <button class="text-button btnhitxt btnhip position-absolute py-2 px-5 my-2" type="button"                          >
+                    <button class="text-button btnhitxt btnhip position-absolute py-2 px-5 my-2" type="button"
+                    :class="{switch_img_btn_txt_before:SwitchImgTxtBtnBefore, switch_img_btn_txt_after:SwitchImgTxtBtnAfter }">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1 mx-1">Text</p>
@@ -96,6 +97,8 @@ export default {
         if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
             this.normalAfter = true;
             this.headerText = true;
+            this.SwitchImgTxtBtnBefore = false;
+            this.SwitchImgTxtBtnAfter = true;
         }
 
         if(this.ImageBeforePath !== "" && this.ImageAfterPath !== ""){
@@ -128,6 +131,8 @@ export default {
             headerText: false,
             SwitchImgBtnAfter:true,
             SwitchImgBtnBefore:false,
+            SwitchImgTxtBtnBefore:true,
+            SwitchImgTxtBtnAfter:false
         };
     },
     methods: {
@@ -177,8 +182,10 @@ export default {
 
             this.normalAfter = true;
             this.headerText = true;
-            //this.SwitchImgBtnBefore = true;
-            //this.SwitchImgBtnAfter = false;
+            this.SwitchImgBtnBefore = false;
+            this.SwitchImgBtnAfter = true;
+            this.SwitchImgTxtBtnBefore = false;
+            this.SwitchImgTxtBtnAfter = true;
         },
         escapeHtml: function (value) {
             return $('<div/>').html(value).text();
@@ -230,12 +237,37 @@ export default {
     top: -20%;
 }
 
+.tutorial-switch {
+    cursor: pointer;
+}
+
+.tutorial-switch:hover {
+    transition: 3s;
+}
+
+.tutorial-switch:hover .btn-icon {
+    opacity: 1;
+}
+
 .switch_img_btn_before {
-    visibility: hidden;
+    display: none;
 }
 
 .switch_img_btn_after {
-    visibility: hidden;
+    display: none;
 }
+
+.switch_img_btn_txt_before {
+    display: block;
+}
+
+.switch_img_btn_txt_after {
+    display: none;
+}
+
+.content-txt:hover .switch_img_btn_txt_after {
+    display: block;
+}
+
 
 </style>

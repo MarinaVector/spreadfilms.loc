@@ -159,23 +159,6 @@
         transition: 3s;
     }
 
-    .btn-icon {
-        background: linear-gradient(to right, #008acb 0%, #00bff9 100%);
-        color: #fff;
-        border: none;
-        top: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        opacity:0.5 !important;
-        transition: opacity .25s ease-in-out!important;
-        -moz-transition: opacity .25s ease-in-out!important;
-        -webkit-transition: opacity .25s ease-in-out!important;
-    }
-
     .tutorial-video:hover .btn-icon {
         opacity:1!important;
     }
