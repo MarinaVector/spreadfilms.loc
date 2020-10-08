@@ -22,7 +22,7 @@
                 <div class="col-lg-6 text-center d-inline-block py-5 pt-3 background-image" @click="showImagesModal()"
                      v-bind:style="{ backgroundImage: 'url(' + ImageAfterPath + ')' }">
                     <button class="text-button switchimg-btn py-2 mb-5 mr-4 px-5 pb-3" type="button"
-                    :class="{switch_img_btn_before:SwitchImgBtnBefore}">
+                    :class="{switch_img_btn_before:SwitchImgBtnBefore}" hidden>
                         <i class="fas fa-image blueiconcolor fa-2x"></i>
                         <p class="mb-n1">Images</p>
                     </button>
@@ -94,20 +94,23 @@ export default {
         },
     },
     created() {
-        if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
+        if(this.NormalTextHeader !== null || this.NormalTextBody !== null){
             this.normalAfter = true;
             this.headerText = true;
             this.SwitchImgTxtBtnBefore = false;
             this.SwitchImgTxtBtnAfter = true;
         }
+        else {
+            this.headerText  = false;
+        }
 
-        if(this.ImageBeforePath !== "" && this.ImageAfterPath !== ""){
+        if(this.ImageBeforePath !== null && this.ImageAfterPath !== null){
             this.SwitchImgBtnAfter = false;
-            this.SwitchImgBtnBefore = true;
+            this.SwitchImgBtnBefore = false;
         }
         else {
            this.SwitchImgBtnAfter = true;
-           this.SwitchImgBtnBefore = false;
+           this.SwitchImgBtnBefore = true;
         }
     },
     mounted() {
@@ -129,10 +132,10 @@ export default {
            // btnBefore: true,
            // btnAfter: false,
             headerText: false,
+            SwitchImgBtnBefore:true,
             SwitchImgBtnAfter:true,
-            SwitchImgBtnBefore:false,
             SwitchImgTxtBtnBefore:true,
-            SwitchImgTxtBtnAfter:false
+            SwitchImgTxtBtnAfter:true
         };
     },
     methods: {
@@ -181,9 +184,8 @@ export default {
             });
 
             this.normalAfter = true;
-            this.headerText = true;
             this.SwitchImgBtnBefore = false;
-            this.SwitchImgBtnAfter = true;
+            this.SwitchImgBtnAfter = false;
             this.SwitchImgTxtBtnBefore = false;
             this.SwitchImgTxtBtnAfter = true;
         },
@@ -219,6 +221,7 @@ export default {
 .background-image,.background-image:hover{
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 200px;
 }
 
 .switch-grid {
@@ -233,8 +236,8 @@ export default {
 }
 
 .switchimg-btn {
-    margin-left: -100%;
-    top: -20%;
+    position: absolute;
+    left: -20%;
 }
 
 .tutorial-switch {
@@ -253,7 +256,7 @@ export default {
 }
 
 .switch_img_btn_before {
-    display: none;
+    display: block !important;
 }
 
 .switch_img_btn_after {
