@@ -33,13 +33,13 @@
 
                 <div class="col-lg-12 py-5 tutorial-text content-txt position-relative text-center" @click="showNormalTextModal()">
                     <button class="text-button btnhitxt btnhip position-absolute py-2 px-5 my-2" type="button"
-                    :class="{switch_img_btn_txt_before:SwitchImgTxtBtnBefore, switch_img_btn_txt_after:SwitchImgTxtBtnAfter }">
+                    :class="{switch_img_btn_txt_before:SwitchImgBtnTxtBefore, switch_img_btn_txt_after:SwitchImgBtnTxtAfter }">
                         <i class="fas fa-bars blueiconcolor fa-2x">
                         </i>
                         <p class="mb-n1 mx-1">Text</p>
                     </button>
                     <div class="">
-                        <div v-bind:class=" {headertext:headerText} "
+                        <div v-bind:class=" {headertext:SwitchImgBtnTxtLine} "
                              class="text-header h2 text-left position-relative pb-0 normal_text"
                              v-html="NormalTextHeader">
                         </div>
@@ -94,28 +94,13 @@ export default {
         },
     },
     created() {
-        if(this.NormalTextHeader !== null || this.NormalTextBody !== null){
-            this.normalAfter = true;
-            this.headerText = true;
-            this.SwitchImgTxtBtnBefore = false;
-            this.SwitchImgTxtBtnAfter = true;
-        }
-        else {
-            this.headerText  = false;
-        }
 
-        if(this.ImageBeforePath !== null && this.ImageAfterPath !== null){
-            this.SwitchImgBtnAfter = false;
-            this.SwitchImgBtnBefore = false;
-        }
-        else {
-           this.SwitchImgBtnAfter = true;
-           this.SwitchImgBtnBefore = true;
-        }
     },
     mounted() {
         this.ImageBeforePath = this.getImagePath(this.ImageBefore);
         this.ImageAfterPath = this.getImagePath(this.ImageAfter);
+
+        this.updateStyles();
     },
     data() {
         return {
@@ -127,15 +112,11 @@ export default {
             ImageAfterPath: null,
             TextBefore: this.mydata.textbefore ? this.escapeHtml(this.mydata.textbefore) : '',
             TextAfter: this.mydata.textafter ? this.escapeHtml(this.mydata.textafter) : '',
-            normalBefore:true,
-            normalAfter: false,
-           // btnBefore: true,
-           // btnAfter: false,
-            headerText: false,
-            SwitchImgBtnBefore:true,
-            SwitchImgBtnAfter:true,
-            SwitchImgTxtBtnBefore:true,
-            SwitchImgTxtBtnAfter:true
+            SwitchImgBtnBefore: null,
+            SwitchImgBtnAfter: null,
+            SwitchImgBtnTxtBefore: null,
+            SwitchImgBtnTxtAfter:null,
+            SwitchImgBtnTxtLine: null,
         };
     },
     methods: {
@@ -183,14 +164,49 @@ export default {
                 }
             });
 
-            this.normalAfter = true;
-            this.SwitchImgBtnBefore = false;
-            this.SwitchImgBtnAfter = false;
-            this.SwitchImgTxtBtnBefore = false;
-            this.SwitchImgTxtBtnAfter = true;
+            this.updateStyles();
         },
         escapeHtml: function (value) {
             return $('<div/>').html(value).text();
+        },
+        updateStyles: function () {
+            if (this.NormalTextHeader === null || this.NormalTextHeader === ''){
+                this.SwitchImgBtnTxtBefore = true;
+                this.SwitchImgBtnTxtAfter = false;
+                this.SwitchImgBtnTxtLine = false;
+            } else {
+                this.SwitchImgBtnTxtBefore = false;
+                this.SwitchImgBtnTxtAfter = true;
+                this.SwitchImgBtnTxtLine = true;
+            }
+
+            if (this.NormalTextBody === null || this.NormalTextBody === ''){
+                this.SwitchImgBtnTxtBefore = true;
+                this.SwitchImgBtnTxtAfter = false;
+                this.SwitchImgBtnTxtLine = false;
+            } else {
+                this.SwitchImgBtnTxtBefore = false;
+                this.SwitchImgBtnTxtAfter = true;
+                this.SwitchImgBtnTxtLine = true;
+            }
+
+            let imagesAffectedByFirst = null;
+            let imagesAffectedBySecond = null;
+            if (this.ImageBefore === null || this.ImageBefore === ''){
+                imagesAffectedByFirst = true;
+            } else {
+                imagesAffectedByFirst = false;
+            }
+
+            imagesAffectedBySecond = this.ImageAfter === null || this.ImageAfter === '';
+
+            if(imagesAffectedByFirst === false || imagesAffectedBySecond === false){
+                this.SwitchImgBtnAfter = false;
+                this.SwitchImgBtnBefore = false;
+            } else {
+                this.SwitchImgBtnAfter = true;
+                this.SwitchImgBtnBefore = true;
+            }
         },
         getImagePath: function(path) {
             let disk = path.split('/')[0];
@@ -203,7 +219,7 @@ export default {
                     realPath = this.$parent.$parent.privatepath + path.split('/')[1];
                     break;
                 default:
-                    return;
+                    return '';
             }
 
             return realPath;
