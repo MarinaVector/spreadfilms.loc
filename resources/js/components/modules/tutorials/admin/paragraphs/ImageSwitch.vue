@@ -9,7 +9,7 @@
         <input type="hidden" name="text_after" v-model="TextAfter" class="text_after">
         <div class="row switch-grid my-2">
             <div class="">
-                <button type="button" class="btn-icon draggable pull-left">
+                <button type="button" class="btn-icon draggable pull-left mt-3 ml-3">
                     <i class="fa fa-arrows-v pt-2"></i>
                 </button>
             </div>
@@ -50,12 +50,12 @@
 
             <div class="switchbtn-grid">
                 <div class="">
-                   <button type="button" class="btn-icon pull-right" @click="callParentDeleteParagraphBlock()">
+                   <button type="button" class="btn-icon pull-right mt-3 mr-3" @click="callParentDeleteParagraphBlock()">
                       <i class="fa fa-trash-o pt-2"></i>
                    </button>
                 </div>
                 <div class="">
-                   <button type="button" class="btn-icon pull-right" @click="callParentDuplicateParagraphBlock()">
+                   <button type="button" class="btn-icon pull-right mr-3" @click="callParentDuplicateParagraphBlock()">
                       <i class="fa fa-files-o pt-2"></i>
                    </button>
                 </div>
@@ -238,6 +238,9 @@ export default {
 }
 
 .tutorial-switch {
+    border-bottom: 1px solid #d9d9d9;
+    background: #f9f9f9;
+    position: relative;
     cursor: pointer;
 }
 
@@ -246,7 +249,7 @@ export default {
 }
 
 .tutorial-switch:hover .btn-icon {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .switch_img_btn_before {
