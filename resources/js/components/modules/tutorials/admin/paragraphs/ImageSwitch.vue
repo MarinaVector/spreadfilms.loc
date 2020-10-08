@@ -12,20 +12,23 @@
                 <button type="button" class="btn-icon draggable pull-left">
                     <i class="fa fa-arrows-v pt-2"></i>
                 </button>
-
             </div>
 
-            <div class="">
-                <div class="col-lg-12 tutorial-text text-center py-5 pt-3 background-image" @click="showImagesModal()"
+            <div class="row tutorial-text">
+                <div class="col-lg-6 text-center d-inline-block py-5 pt-3 background-image" @click="showImagesModal()"
                      v-bind:style="{ backgroundImage: 'url(' + ImageBeforePath + ')' }">
-                    <button class="text-button py-2 my-5 px-5 pb-3" type="button">
-                        <i class="fas fa-image blueiconcolor fa-2x">
-                        </i>
+                </div>
+
+                <div class="col-lg-6 text-center d-inline-block py-5 pt-3 background-image" @click="showImagesModal()"
+                     v-bind:style="{ backgroundImage: 'url(' + ImageAfterPath + ')' }">
+                    <button class="text-button switchimg-btn py-2 mb-5 mr-4 px-5 pb-3" type="button"
+                    :class="{switch_img_btn_before:SwitchImgBtnBefore}">
+                        <i class="fas fa-image blueiconcolor fa-2x"></i>
                         <p class="mb-n1">Images</p>
                     </button>
-                    <div v-bind:style="{ backgroundImage: 'url(' + ImageAfterPath + ')' }">
-
-                    </div>
+                    <div :class="{switch_img_btn_after:SwitchImgBtnAfter}">
+                        <img src="/public/img/arrow_button_image_switch.png" class="switchimg-btn py-2 mb-5 mr-4 px-5 pb-3" alt="btn">
+                   </div>
                 </div>
 
                 <div class="col-lg-12 py-5 tutorial-text content-txt position-relative text-center" @click="showNormalTextModal()">
@@ -92,8 +95,16 @@ export default {
     created() {
         if(this.NormalTextHeader !== "" || this.NormalTextBody !== ""){
             this.normalAfter = true;
-            this.btnAfter = true;
             this.headerText = true;
+        }
+
+        if(this.ImageBeforePath !== "" && this.ImageAfterPath !== ""){
+            this.SwitchImgBtnAfter = false;
+            this.SwitchImgBtnBefore = true;
+        }
+        else {
+           this.SwitchImgBtnAfter = true;
+           this.SwitchImgBtnBefore = false;
         }
     },
     mounted() {
@@ -112,9 +123,11 @@ export default {
             TextAfter: this.mydata.textafter ? this.escapeHtml(this.mydata.textafter) : '',
             normalBefore:true,
             normalAfter: false,
-            btnBefore: true,
-            btnAfter: false,
-            headerText: false
+           // btnBefore: true,
+           // btnAfter: false,
+            headerText: false,
+            SwitchImgBtnAfter:true,
+            SwitchImgBtnBefore:false,
         };
     },
     methods: {
@@ -163,9 +176,9 @@ export default {
             });
 
             this.normalAfter = true;
-            this.btnAfter = true;
-            this.btnBefore = false;
             this.headerText = true;
+            //this.SwitchImgBtnBefore = true;
+            //this.SwitchImgBtnAfter = false;
         },
         escapeHtml: function (value) {
             return $('<div/>').html(value).text();
@@ -195,6 +208,7 @@ export default {
 </script>
 
 <style>
+
 .background-image,.background-image:hover{
     background-repeat: no-repeat;
     background-size: cover;
@@ -209,6 +223,19 @@ export default {
     display: grid;
     grid-template-rows: 6fr 1fr;
     gap: unset;
+}
+
+.switchimg-btn {
+    margin-left: -100%;
+    top: -20%;
+}
+
+.switch_img_btn_before {
+    visibility: hidden;
+}
+
+.switch_img_btn_after {
+    visibility: hidden;
 }
 
 </style>
