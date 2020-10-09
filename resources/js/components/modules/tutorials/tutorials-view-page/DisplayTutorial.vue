@@ -111,6 +111,7 @@ import Contact from './paragraphs/Contact'
 import QuestionsAnswers from './paragraphs/QuestionsAnswers'
 import CompleteTutorialModal from './modal-windows/CompleteTutorialModal'
 import cloneDepp from 'lodash/cloneDeep'
+import ImageSwitch from './paragraphs/ImageSwitch'
 
 export default {
     name: 'DisplayTutorial',
@@ -133,7 +134,9 @@ export default {
         ImageSlider,
         Contact,
         QuestionsAnswers,
+        ImageSwitch,
         CompleteTutorialModal,
+
     },
     props: [
         'tutorial',
